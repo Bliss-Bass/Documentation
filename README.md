@@ -36,6 +36,7 @@ icon: home
 
 ## Development
 
+* [High Level Overview](development/bass-high-level-overview.md)
 * [Building Bass OS](development/building-bass.md)
 * [Addon Development](development/addon-development.md)
 * [Development FAQ](development/development-faq.md)
