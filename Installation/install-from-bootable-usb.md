@@ -2,77 +2,19 @@
 description: Install Bliss OS from bootable USB Installer
 ---
 
-# Install Legacy From Bootable USB
+# Install From Bootable USB
 
-## Introduction
+## Manual Install Bass OS
 
-**This is the current recommended method for beginners!**
-
-We recommend beginners to use this method as it is the least error-prone and non-destructive. The following instructions were adapted from the Android-x86 project, so some of the images are from them. To look at Android-x86's original installation guide, [click here.](https://www.android-x86.org/installhowto.html)
-
-## Download Bliss OS
-
-You can download a stable Bliss OS build from the website [here](https://blissos.org).
-
-## Install Bliss OS
-
-{% hint style="info" %}
-If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO's we produce, and we also support the [Supreme-Gamers Advanced Android-x86 Installer](https://supreme-gamers.com/r/advanced-android-x86-installer-for-windows.61/).
-We also have a second option for Windows install that can be found on our repo here: [Android-x86 UEFI Installer](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/S12.1-2.8/bin/Androidx86-Installv28.5800_A12.1.7z)
-{% endhint %}
-
-When booting into the installer, choose "Installation - Install Android-x86 to harddisk":
-
-![Booting into the installer](../.gitbook/assets/booting-into-installer.png)
-
-Once the installer boots, you will be asked to select the target drive. Choose the NTFS drive that houses your current Windows install. You do **not** need a separate partition, as the installer will create an image on your Windows partition.
-
-![Choose partition](../.gitbook/assets/choose-partition.png)
-
-Choose "Do not re-format" on the next screen. It is important that you choose "Do not re-format", as any other option will cause the installer to continue with the ["Bootable installation method"](install-from-bootable-usb.md#bootable-installation-method-mbruefiesp-3264-bit), which **will** result in **permanent data loss**, including your Windows partition!
-
-![Do not reformat](../.gitbook/assets/do-not-reformat.png)
-
-Choose "Yes" when prompted about the `GRUB` bootloader:
-
-![Install GRUB](../.gitbook/assets/install-grub.png)
-
-The installer will ask whether or not you want to make the system partition read/write-able. If you want to root your installation, you will choose "Yes" here. Otherwise, choose "No."
-
-![Root installation](../.gitbook/assets/root-installation.png)
-
-The installer will begin to write the changes to the disk. This will take some time. Go grab a coffee!
-
-![Grab a coffee](../.gitbook/assets/grab-a-coffee.png)
-
-Then the installer will ask you how much space you want to allocate for the data image. Most users choose 8 GB, 16 GB, or 32 GB.
-
-Congratulations! You should now have a functional dual-boot with Bliss OS!
-
-# Install EFI From Bootable USB
-
-## Download Bliss OS
-
-You can download a stable Bliss OS build by clicking on the link [here](https://sourceforge.net/projects/blissos-x86/), non-stable builds can be found [here.](https://sourceforge.net/projects/blissos-dev/)
-
-## Install Bliss OS
-
-{% hint style="info" %}
-If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO's we produce, and we also support the [Supreme-Gamers Advanced Android-x86 Installer](https://supreme-gamers.com/r/advanced-android-x86-installer-for-windows.61/).
-We also have a second option for Windows install that can be found on our repo here: [Android-x86 UEFI Installer](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/S12.1-2.8/bin/Androidx86-Installv28.5800_A12.1.7z)
-{% endhint %}
-
-When booting into the installer, choose "Android-x86 ... Installation":
-
-![Booting into the uefi installer](../.gitbook/assets/uefi-boot-installer.png)
-
-Once the installer boots, you will be asked to select the target drive. You will need to choose what drive to install it too, this could be a pre-existing install of something, or a new drive, shown will be a new drive. you will need to select "Create/Modify partitions" 
+##### Install Steps:
 
 {% hint style="info" %}
 WARNING THIS WILL DELETE ANY DATA ON THE DRIVE
 {% endhint %}
 
-![Partitioning p1](../.gitbook/assets/uefi-create.png)
+We will want to start by booting into the installer by selecting the top Install option from Grub
+
+From here we will want to change the drive partition scheme to be A) EFI (VFAT) B) Android (ext4). This means that we need to delete all partitions except for the top EFI partition, and create a single new partition with the remaining space.  You will need to start by selecting "Create/Modify partitions", then remove all partitions on the device. ![Partitioning p1](../.gitbook/assets/uefi-create.png)
 
 In the next screen, we need to make **two** partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.
 
@@ -81,7 +23,7 @@ First create the EFI partition, this is the partition that is used to install th
 1. Create a [ new ] partition
 2. leave First Sector default (Just press enter)
 3. for "Size in Sectors" all we need to do is enter `+512M`
-4. Set type as ef00
+4. Set type as ef00 (or EFI)
 5. We don't necessairly need to name this partition, but it is best practice to name it `EFI`
 
 ![Partitioning p2](../.gitbook/assets/uefi-android.png)
@@ -103,13 +45,10 @@ The installer will procede to format and install android, you will then be promp
 
 ![Install Grub](../.gitbook/assets/uefi-grub.png)
 
-The installer will ask whether or not you want to make the system partition read/write-able. If you want to root your installation, you will choose "Yes" here. Otherwise, choose "No."
-
-![Root installation](../.gitbook/assets/root-installation.png)
-
-
-And just like with legacy, The installer will begin to write the changes to the disk. This will take some time. Go grab another coffee!
+The installer will begin to write the changes to the disk. This will take some time. Go grab another coffee!
 
 ![Grab a coffee](../.gitbook/assets/grab-a-coffee.png)
 
-Congratulations! You should now have a functional UEFI-boot with Bliss OS!
+After this step, it will also prepare the install for A/B updates. This process will take a couple minutes at most. 
+
+Congratulations! You should now have a functional UEFI-boot with Bass OS!
