@@ -9,24 +9,26 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Porting Linux Drivers</title>
-    <meta name="title" content="Porting Linux Drivers">
-    <meta name="description" content="When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search...">
+    <title>Bass OS - Android 12L</title>
+    <meta name="title" content="Bass OS - Android 12L">
+    <meta name="description" content="License">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blisscolabs.dev/development/porting-linux-drivers/">
+    <link rel="canonical" href="https://docs.blisscolabs.dev/development/building-bass/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blisscolabs.dev/development/porting-linux-drivers/">
-    <meta property="og:title" content="Porting Linux Drivers">
-    <meta property="og:description" content="When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search...">
+    <meta property="og:url" content="https://docs.blisscolabs.dev/development/building-bass/">
+    <meta property="og:title" content="Bass OS - Android 12L">
+    <meta property="og:description" content="License">
+    <meta property="og:image" content="https://img.shields.io/badge/license-GPL-blue">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.blisscolabs.dev/development/porting-linux-drivers/">
-    <meta property="twitter:title" content="Porting Linux Drivers">
-    <meta property="twitter:description" content="When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search...">
+    <meta property="twitter:url" content="https://docs.blisscolabs.dev/development/building-bass/">
+    <meta property="twitter:title" content="Bass OS - Android 12L">
+    <meta property="twitter:description" content="License">
+    <meta property="twitter:image" content="https://img.shields.io/badge/license-GPL-blue">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,6 +37,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.764555336800" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.764555336800" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.764555336800" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -181,32 +184,278 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="porting-linux-drivers" class="break-words">
+<doc-anchor-target id="bass-os---android-12l" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#porting-linux-drivers">#</doc-anchor-trigger>
-        <span>Porting Linux Drivers</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bass-os---android-12l">#</doc-anchor-trigger>
+        <span>Bass OS - Android 12L</span>
     </h1>
 </doc-anchor-target>
-<p>When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search online for a Linux kernel module for your target component.</p>
-<p>Once you&#x27;ve tracked down or created Linux drivers for your device, you have to turn it into a Linux kernel module, and then add it to external/kernel-drivers for it to be included in the current kernel build. Examples of others we add are here <a href="https://github.com/BlissRoms-x86/external_kernel-drivers/tree/k5.12-b2">https://github.com/BlissRoms-x86/external_kernel-drivers/tree/r11-r36</a></p>
-<p>The examples only add one Android.mk file, and the one I use is generic for just about any kernel module that has a standard MAKEFILE, not a MAKEFILE.am file.</p>
+<p><figure class="content-center">
+    <a href="https://opensource.org/licenses/gpl-3-0/">
+        <img src="https://img.shields.io/badge/license-GPL-blue" alt="License">
+    </a>
+    <figcaption class="caption">License</figcaption>
+</figure>
+</p>
+<p>Please refer to <a href="https://bliss-bass.blisscolabs.dev">https://bliss-bass.blisscolabs.dev</a> for release notes, hardware requirements and demos of the various options.</p>
+<doc-anchor-target id="licensing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#licensing">#</doc-anchor-trigger>
+        <span>Licensing</span>
+    </h2>
+</doc-anchor-target>
+<p>Much of Bass OS is published under the General Public License 3.0. All generic patches are regularly submitted to <a href="https://github.com/BlissRoms-x86">Bliss OS</a> where they can be obtained under the Apache License.</p>
+<p>Bass OS does have a number of options, features, applications, etc. that can be accessed through purchasing licensing for the private addons, features and tools. <a href="https://bliss-bass.blisscolabs.dev/licensing.html">See our licensing page</a> for full details</p>
+<doc-anchor-target id="warning">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#warning">#</doc-anchor-trigger>
+        <span>Warning!</span>
+    </h2>
+</doc-anchor-target>
+<p>Bass OS is an open-source initiative maintained by Bliss Co-Labs. It is provided &quot;as is&quot; without any warranties or guarantees.</p>
+<doc-anchor-target id="building-from-sources">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#building-from-sources">#</doc-anchor-trigger>
+        <span>Building from sources</span>
+    </h2>
+</doc-anchor-target>
+<p>Before building, ensure your system has at least 16 CPU cores, 32GB of RAM, a swap file is at least 16GB, and 500GB-700GB of free disk space available.</p>
+<doc-anchor-target id="install-system-packages">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install-system-packages">#</doc-anchor-trigger>
+        <span>Install system packages</span>
+    </h3>
+</doc-anchor-target>
+<p>(Ubuntu 22.04 LTS is only supported. Building on other distributions can be done using docker)
+<br/></p>
+<ul>
+<li><a href="https://source.android.com/setup/build/initializing">Install AOSP required packages</a>.</li>
+</ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">#
-# Copyright (C) 2018 The Android-x86 Open Source Project
-#
-# Licensed under the GNU General Public License Version 2 or later.
-# You may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.gnu.org/licenses/gpl.html
-#
-
-LOCAL_PATH := $(my-dir)
-LOCAL_MODULE := $(notdir $(LOCAL_PATH))
-EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip squashfs-tools python3-mako libssl-dev ninja-build lunzip syslinux syslinux-utils gettext genisoimage gettext bc xorriso xmlstarlet meson glslang-tools git-lfs libncurses5 libncurses5:i386 libelf-dev aapt zstd rdfind nasm rustc bindgen</code></pre>
 </doc-codeblock></div>
-<p>So you should really only need to add your kernel module folder to external/kernel-drivers/ and copy the Android.mk into it, then build source as normal. It&#x27;ll get picked up as one of the last steps in building and packaging the kernel</p>
-<p>Once you have it packaged up, it&#x27;s best practice to compile the full source and test that it is functioning properly, and once confirmed, submit the change to <a href="https://github.com/BlissRoms-x86/external_kernel-drivers">https://github.com/BlissRoms-x86/external_kernel-drivers</a> as a pull-request.</p>
+<br/>
+<ul>
+<li>Install additional packages</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo apt-get install -y swig device-tree-compiler mtools libgmp-dev libmpc-dev cpio rsync dosfstools kmod gdisk lz4 cmake libglib2.0-dev</code></pre>
+</doc-codeblock></div>
+<br/>
+<ul>
+<li>Install additional packages (for building mesa3d, libcamera, and other meson-based components)</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo apt-get install -y python3-pip pkg-config python3-dev ninja-build
+sudo pip3 install mako jinja2 ply pyyaml pyelftools</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Install the <code v-pre>repo</code> tool</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo apt-get install -y python-is-python3 wget
+wget -P ~/bin http://commondatastorage.googleapis.com/git-repo-downloads/repo
+chmod a+x ~/bin/repo</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="fetching-the-sources-and-building-the-project">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fetching-the-sources-and-building-the-project">#</doc-anchor-trigger>
+        <span>Fetching the sources and building the project</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">git clone --recurse-submodules https://github.com/Bliss-Bass/bass-os.git bass-os-12.1
+cd bass-os-12.1</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="setting-up-bass-os-source">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-bass-os-source">#</doc-anchor-trigger>
+        <span>Setting up Bass OS Source</span>
+    </h3>
+</doc-anchor-target>
+<p>#####!!NOTICE FOR LICENSED ADDONS/FEATURES!!
+If you hold an active license for any of the private addons and features for Bass OS, you will need to add the files that you were sent or given acces to, into the <code v-pre>private/addons</code> or <code v-pre>private/manifests</code> folder. If your project requires any vendor patches, those are placed in the <code v-pre>patches-vendor/</code> folder. Once all items are placed properly, you can continue onto the unfolding steps. Please also check your organizations Bass-OS project folder to make sure it didn&#x27;t come with those additions already added.</p>
+<doc-anchor-target id="unfolding-the-source">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unfolding-the-source">#</doc-anchor-trigger>
+        <span>Unfolding the source</span>
+    </h4>
+</doc-anchor-target>
+<p>Bass source uses an unfolding sequence to grab the latest stable point in development for the source, then applies any required changes on top, along with any customizations, licensed addons, modules, etc.</p>
+<p>To start the unfolding process, we use the unfold_bliss.sh script:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">bash unfold_bliss.sh</code></pre>
+</doc-codeblock></div>
+<p>This will sync the source, and patch it with the latest available updates for Bass OS. Once complete and all patches, and addons are applied successfully, you can move onto the next step.</p>
+<doc-anchor-target id="building-bass-os">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#building-bass-os">#</doc-anchor-trigger>
+        <span>Building Bass OS</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="build-options">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#build-options">#</doc-anchor-trigger>
+        <span>Build Options:</span>
+    </h4>
+</doc-anchor-target>
+<doc-anchor-target id="target-specific-build-scripts">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#target-specific-build-scripts">#</doc-anchor-trigger>
+        <span>Target Specific build scripts:</span>
+    </h5>
+</doc-anchor-target>
+<p>(<strong>!!NOTICE FOR LICENSED CUSTOMERS!!</strong>) If you have been supplied with the source, then chances are your source comes with a separate build script specific to your devices needs. Please check the project folder for a script with your product name or invoice number in it. Examples: <code v-pre>build_ABC01.0.1.sh</code> or <code v-pre>build_Intel-AC013.sh</code>. These will include the specific set of arguments passed to the build_bass script, so all you will need to do is run your targeted script to build.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">bash build_ABC01.0.1.sh</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="general-build-script-usage">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#general-build-script-usage">#</doc-anchor-trigger>
+        <span>General Build Script Usage:</span>
+    </h5>
+</doc-anchor-target>
+<p>We offer a number of options to configure your builds with. You can use the <code v-pre>-h</code> argument to see the latest integrations available.
+We also symlink the build-x86 command with <code v-pre>build_bass.sh</code> and <code v-pre>build-x86.sh</code>, so the commands both act the same when building Bass OS</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">bash build_bass.sh -h
+Usage: build-x86.sh [options]
+Options:
+-h, --help             Display this help dialog
+-c, --clean            Clean the project
+-d, --dirty            Run in dirty mode
+-t, --title (title)    Set the release title
+-b, --blissbuildvariant (variant)   Set the Bliss build variant
+-i, --isgo             Enable isgo version
+-v, --specialvariant (variant)      Set the special variant
+--grubcmdline &quot;option1=1 option2=1&quot; Set the grub cmdline options
+--production           Disable Test Build watermark and sign builds (requires release/product signature keys)
+
+Launcher Options:
+--clearhotseat         Enable clear hotseat favorites for Launcher3 Quickstep
+--disablesearch        Disable device search
+-s, --smartdock        Enable smartdock
+--smartdockb           Enable smartdock with Bliss customizations
+-k, --kiosk            Enable kiosk launcher **requires private git access**
+--restrictedlauncher   Enable restricted launcher
+--restrictedlauncherpro   Enable restricted launcher pro **requires private git access**
+--garliclauncher       Enable garlic launcher
+--gamemodelauncher     Enable game mode launcher
+--crosslauncher        Enable cross launcher
+--tvlauncher           Enable tv launcher
+--titaniuslauncher     Enable titanius launcher
+--desktoponsecondary   Enable desktop on secondary displays
+
+Navigation Options:
+-t, --tabletnav        Enable tablet navigation
+--taskbarnav           Enable taskbar navigation
+--gesturenav    Enable gesture navigation
+--externalnav          Enable navigation on external displays
+--rightmouseasback     Enable right mouse button as back
+
+Package Options:
+--noksu                Disable KernelSU
+-f, --fossapps         Enable fossapps
+--minfossapps          Enable minimal fossapps
+-e, --supervanilla     Enable supervanilla
+-m, --minimal          Enable minimal packages
+-r, --removeusertools  Enable removeusertools
+--viabrowser           Enable viabrowser
+-w, --wiz              Enable Bliss setupwizard
+--ethernetmanager      Enable EthernetManager
+--powermanager         Enable power manager
+--buildextra           Build extra packages
+--updatefossapps       Update fossapps
+--usepos               Enable TabShop pos terminal app
+
+Input Options:
+--showkeyboard         Enable show keyboard
+--perdisplayfocus      Enable per display focus
+--gboard               Enable Google GBoard IME
+--gboardlite           Enable Google GBoard Lite IME
+--perdisplayfocusime      Enable per display focus with experiment IME
+--perdisplayfocuszqyime   Enable per display focus with ZQY IME
+
+Firmware &amp; Driver Options:
+--sof                  Include SOF firmware
+--silead               Include Silead firmware
+
+Other Options:
+-a, --atom             Include Intel Atom specific configurations
+-l, --lockdown         Enable secure lockdown build
+--adblockdown          Enable lockdown ADB defaults
+-m, --manifest         Generate manifest
+--alwaysonsettings     Enable always on settings
+--nolarge              Disable large screen settings
+ </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="features">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#features">#</doc-anchor-trigger>
+        <span>Features:</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Supports various navigation &amp; UI switches</li>
+<li>Supports various use-case launcher options (requires recent changes to vendor/agp-apps)</li>
+<li>Automatically updates Grub menus and other build configs for launcher and mode options (requires recent changes to vendor/agp-apps)</li>
+</ul>
+<p>Please note that some of the build options may require licensed access to the feature/addon/application in order to use it. In some cases, the build will continue with just a warning when these options are used. In other cases, the build will exit. To remedy this, use a different option or remove the offending option from the build command.</p>
+<doc-anchor-target id="examples">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
+        <span>Examples</span>
+    </h3>
+</doc-anchor-target>
+<p>Here are a few examples to help in understanding:</p>
+<p><strong>Bass Desktop</strong>: Desktop mode demo of Bass featuring SmartDock</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">bash build_bass.sh --clean --title &quot;Bass&quot; --blissbuildvariant vanilla --specialvariant &quot;-Desktop&quot; --ethernetmanager --tabletnav --smartdock --wiz --clearhotseat --perdisplayfocus --externalnav --externalstatusbar --nolarge --sof --silead --alwaysonsettings --minfossapps</code></pre>
+</doc-codeblock></div>
+<p><strong>Bass Restricted</strong>: Restricted mode demo of Bass featuring Bliss Restricted Launcher</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">bash build_bass.sh --clean --title &quot;Bass&quot; --blissbuildvariant foss --specialvariant &quot;-Restricted&quot; --restrictedlauncher --ethernetmanager --fossapps --gesturenav --clearhotseat --externalnav --noksu --showkeyboard --nolarge --alwaysonsettings --sof --silead</code></pre>
+</doc-codeblock></div>
+<p><strong>Bass POS</strong>: Point-Of-Sale version of Bass featuring TabShop</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">bash build_bass.sh --clean --title &quot;Bass&quot; --blissbuildvariant foss --specialvariant &quot;-POS&quot; --restrictedlauncher --usepos --ethernetmanager --fossapps --gesturenav --clearhotseat --externalnav --noksu --showkeyboard --nolarge --alwaysonsettings --supervanilla --minimal</code></pre>
+</doc-codeblock></div>
+<p><strong>Bass Tablet Go</strong>: Android Go based Tablet version of Bass OS</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">bash build_bass.sh --clean --title &quot;Bass&quot; --blissbuildvariant foss --specialvariant &quot;-TabletGo&quot; --isgo --ethernetmanager --fossapps --tabletnav --wiz --clearhotseat --perdisplayfocus --externalnav --externalstatusbar --noksu --showkeyboard --perdisplayfocus --nolarge</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="vendor-customization-layer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#vendor-customization-layer">#</doc-anchor-trigger>
+        <span>Vendor Customization Layer</span>
+    </h3>
+</doc-anchor-target>
+<p>If you have licensed access to the vendor customization layer for Bass OS, it comes with an easy to use menu driven interface for rebranding the OS.
+Below are a few combinations of the various command options put together in the form of Collections.</p>
+<doc-anchor-target id="features-available">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#features-available">#</doc-anchor-trigger>
+        <span>Features available</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li>Menu driven interface for updating assets and branding:
+<img src="../assets/bass-customization.png" alt="Bass - Customization menu" /></li>
+<li>Generates default wallpaper overlays</li>
+<li>Generates branded bootanimation based on a single loop of frames</li>
+<li>Generates branded grub background</li>
+</ul>
+<doc-anchor-target id="notes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#notes">#</doc-anchor-trigger>
+        <span>Notes</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Depending on your hardware and internet connection, downloading and building may take 8h or more.</li>
+<li>After the successful build, find the images at <code v-pre>iso/</code> under the folder name based on your build name generated by the build system and can also be found in <code v-pre>aosptree/out/target/product/x86_64/</code>.</li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
@@ -214,7 +463,7 @@ EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/development/porting-linux-drivers.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/development/building-bass.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -222,20 +471,20 @@ EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../development/maintaining-proper-authorship/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../applications/blissrestrictedlauncher/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Maintaining Proper Authorship</span>
+                                                <span class="block mt-1">Setting Up Bliss Restricted Launcher</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/what-are-linux-drivers/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/contributing-documentation/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">What are Linux Drivers?</span>
+                                                <span class="block mt-1">Contributing to Bass OS</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -282,6 +531,6 @@ EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Porting Linux Drivers", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Bass OS - Android 12L", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

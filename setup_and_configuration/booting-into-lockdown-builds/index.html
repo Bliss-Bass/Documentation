@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Porting Linux Drivers</title>
-    <meta name="title" content="Porting Linux Drivers">
-    <meta name="description" content="When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search...">
+    <title>Booting into lockdown builds</title>
+    <meta name="title" content="Booting into lockdown builds">
+    <meta name="description" content="!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blisscolabs.dev/development/porting-linux-drivers/">
+    <link rel="canonical" href="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-lockdown-builds/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blisscolabs.dev/development/porting-linux-drivers/">
-    <meta property="og:title" content="Porting Linux Drivers">
-    <meta property="og:description" content="When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search...">
+    <meta property="og:url" content="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-lockdown-builds/">
+    <meta property="og:title" content="Booting into lockdown builds">
+    <meta property="og:description" content="!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.blisscolabs.dev/development/porting-linux-drivers/">
-    <meta property="twitter:title" content="Porting Linux Drivers">
-    <meta property="twitter:description" content="When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search...">
+    <meta property="twitter:url" content="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-lockdown-builds/">
+    <meta property="twitter:title" content="Booting into lockdown builds">
+    <meta property="twitter:description" content="!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -181,32 +181,82 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="porting-linux-drivers" class="break-words">
+<doc-anchor-target id="booting-into-lockdown-builds" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#porting-linux-drivers">#</doc-anchor-trigger>
-        <span>Porting Linux Drivers</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#booting-into-lockdown-builds">#</doc-anchor-trigger>
+        <span>Booting into lockdown builds</span>
     </h1>
 </doc-anchor-target>
-<p>When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search online for a Linux kernel module for your target component.</p>
-<p>Once you&#x27;ve tracked down or created Linux drivers for your device, you have to turn it into a Linux kernel module, and then add it to external/kernel-drivers for it to be included in the current kernel build. Examples of others we add are here <a href="https://github.com/BlissRoms-x86/external_kernel-drivers/tree/k5.12-b2">https://github.com/BlissRoms-x86/external_kernel-drivers/tree/r11-r36</a></p>
-<p>The examples only add one Android.mk file, and the one I use is generic for just about any kernel module that has a standard MAKEFILE, not a MAKEFILE.am file.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">#
-# Copyright (C) 2018 The Android-x86 Open Source Project
-#
-# Licensed under the GNU General Public License Version 2 or later.
-# You may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.gnu.org/licenses/gpl.html
-#
-
-LOCAL_PATH := $(my-dir)
-LOCAL_MODULE := $(notdir $(LOCAL_PATH))
-EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
-</doc-codeblock></div>
-<p>So you should really only need to add your kernel module folder to external/kernel-drivers/ and copy the Android.mk into it, then build source as normal. It&#x27;ll get picked up as one of the last steps in building and packaging the kernel</p>
-<p>Once you have it packaged up, it&#x27;s best practice to compile the full source and test that it is functioning properly, and once confirmed, submit the change to <a href="https://github.com/BlissRoms-x86/external_kernel-drivers">https://github.com/BlissRoms-x86/external_kernel-drivers</a> as a pull-request.</p>
+<doc-anchor-target id="booting-into-lockdown-builds">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#booting-into-lockdown-builds">#</doc-anchor-trigger>
+        <span>Booting into lockdown builds:</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="restricted-launcher--pos-builds">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#restricted-launcher--pos-builds">#</doc-anchor-trigger>
+        <span>Restricted Launcher &amp; POS Builds</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING</strong></p>
+<p><strong>!!Notice!!</strong>: These builds come with A/B OTA Update support, and might not work in Live mode. Only supported installer is the Bootable USB install method we include in the .iso.</p>
+<doc-anchor-target id="booting-into-the-os">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#booting-into-the-os">#</doc-anchor-trigger>
+        <span>Booting into the OS</span>
+    </h5>
+</doc-anchor-target>
+<p>(<strong>!!NOTICE FOR BUILDS THAT HIDE GRUB!!</strong>) When the device reboots, it will not show the grub menu by default, and automatically boot into the last known boot mode. In order to show the grub menu, tap shift multiple times while the initial BIOS boot logo is displayed. If done correctly, you will be presented with the Grub menu. If no keys are pressed, the bios boot menu will show a black screen afterwards while Grub is loading the configuration in the background.</p>
+<p>(<strong>!!PLEASE NOTE!!</strong>): Only Admin mode will have access to the Android notification stack, navigation options, status bar, etc. In some builds, lockdown mode removes all these functions at the system level for redundancy and added security.
+The options used to configure those restrictions can be overridden with the following options:</p>
+<ul>
+<li><p>Navigation:
+Disables the system navigation gestures
+options: true, false</p>
+<p><code v-pre>FORCE_DISABLE_NAVIGATION=*</code></p>
+</li>
+<li><p>Navigation Gesture Handle:
+Disables the gestural navigation handle
+options: true, false</p>
+<p><code v-pre>FORCE_DISABLE_NAV_HANDLE=*</code></p>
+</li>
+<li><p>Navigation Taskbar (only on large-screen devices):
+Disables SystemUI Taskbar (not Launcher3)
+options: true, false</p>
+<p><code v-pre>FORCE_DISABLE_NAV_TASKBAR=*</code></p>
+</li>
+<li><p>Statusbar:
+Disabled the statusbar at the top of the screen (does not disable Launcher3s gesture to show notification drawer)
+options: true, false</p>
+<p><code v-pre>FORCE_DISABLE_STATUSBAR=*</code></p>
+</li>
+</ul>
+<doc-anchor-target id="restricted-launcher-setup">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#restricted-launcher-setup">#</doc-anchor-trigger>
+        <span>Restricted Launcher Setup</span>
+    </h4>
+</doc-anchor-target>
+<p>(<strong>!!NOTICE FOR INITIAL SETUP!!</strong>) We recommend disconnecting all but the primary display when starting up the OS. Once setup is complete, you can connect any displays and continue testing and operation.</p>
+<p>Once the device boots into Grub, the top option or two will be our locked down mode (<strong>Intel Default</strong> or <strong>AMD Default</strong>)</p>
+<p>While the Admin modes can be found in the <strong>Other Options</strong> section of the boot menu.</p>
+<p>The <strong>Restricted Launcher &amp; POS builds</strong> will initially require setup through Admin mode. So after install, you will want to reboot, the tap the shift key until the Grub menu shows. From there, select <strong>Other Options</strong> &gt; and select one of the Admin options from there.</p>
+<p>Once booted, you should setup the devices wifi/network. Afterwards, you will want to tap on the Sprocket icon at the top right, and navigate to the Security tab, and tap on <strong>Change Password</strong>.</p>
+<p>After setting the admin password, we can select the default features we want available in Lockdown mode, and navigate back to the Restricted Launcher page, and configure your Appearance, Apps and System options.</p>
+<p><strong>Appearance</strong>: Allows you to set the default positions/placement of the on-screen logo overlay and settings button overlay</p>
+<p><strong>Apps</strong>: Allows you to set your whitelisted apps up, you can also set what whitelisted apps you want to auto-launch per-display.</p>
+<p><strong>System</strong>: Allows you to change options for default screen timeout and on-screen keyboard display</p>
+<p>Once setup is complete, we can then back out and test our lockdown settings by hitting the Lock icon at the top right of the home screen, or reboot the device, and select the top boot option (some builds offer specific boot options per CPU manufacturer: <strong>Intel Default</strong> or <strong>AMD Default</strong>) to enter Lockdown mode.</p>
+<doc-anchor-target id="kiosk-launcher-setup">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#kiosk-launcher-setup">#</doc-anchor-trigger>
+        <span>Kiosk Launcher Setup</span>
+    </h4>
+</doc-anchor-target>
+<p>By default, the Bliss Kiosk Launcher UI will have two modes, Lockdown and Admin modes.</p>
+<p>To configure the launcher, we want to start off by booting onto Admin mode. Then we cna start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is <code v-pre>123</code>.</p>
+<p>Please see <a href="../../applications/blisskiosklauncher/">BlissKioskLauncher</a> for further details on the launchers usage.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -214,7 +264,7 @@ EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/development/porting-linux-drivers.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/setup_and_configuration/booting-into-lockdown-builds.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -222,20 +272,20 @@ EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../development/maintaining-proper-authorship/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../setup_and_configuration/booting-into-generic-builds/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Maintaining Proper Authorship</span>
+                                                <span class="block mt-1">Booting into generic builds</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/what-are-linux-drivers/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../setup_and_configuration/configuration-through-command-line-parameters/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">What are Linux Drivers?</span>
+                                                <span class="block mt-1">Configuration Through Command Line Parameters</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -282,6 +332,6 @@ EXTRA_KERNEL_MODULE_PATH_$(LOCAL_MODULE) := $(LOCAL_PATH)</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Porting Linux Drivers", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Booting into lockdown builds", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
