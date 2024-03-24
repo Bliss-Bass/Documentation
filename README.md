@@ -2,7 +2,7 @@
 label: Welcome
 icon: home
 ---
-# Welcome to BlissOS Documentation
+# Welcome to Bass OS Documentation
 
 # Table of contents
 

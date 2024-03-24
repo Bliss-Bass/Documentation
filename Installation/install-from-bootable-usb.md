@@ -1,5 +1,5 @@
 ---
-description: Install Bliss OS from bootable USB Installer
+description: Install from bootable USB Installer
 ---
 
 # Install From Bootable USB
