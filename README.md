@@ -37,6 +37,7 @@ icon: home
 ## Development
 
 * [Building Bass OS](development/building-bass.md)
+* [Addon Development](development/addon-development.md)
 * [Development FAQ](development/development-faq.md)
 * [Maintaining Proper Authorship](development/maintaining-proper-authorship.md)
 * [Contributing Documentation](development/contributing-documentation.md)
