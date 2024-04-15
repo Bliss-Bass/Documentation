@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.764638696186">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.766455184622">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -21,20 +21,22 @@
     <meta property="og:url" content="https://docs.blisscolabs.dev/features/updates-and-ota/">
     <meta property="og:title" content="Updating Bliss Bass builds">
     <meta property="og:description" content="We support a variety of methods for updating Bliss Bass builds.">
+    <meta property="og:image" content="https://docs.blisscolabs.dev/features/images/image1.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blisscolabs.dev/features/updates-and-ota/">
     <meta property="twitter:title" content="Updating Bliss Bass builds">
     <meta property="twitter:description" content="We support a variety of methods for updating Bliss Bass builds.">
+    <meta property="twitter:image" content="https://docs.blisscolabs.dev/features/images/image1.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.764638696186" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.766455184622" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.764638696186" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.766455184622" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.764638696186" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.766455184622" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -203,6 +205,139 @@
 </doc-anchor-target>
 <p>If you have installed the OS using the Bootable USB installer, then you can also update the OS manually by inserting the USB with the new version of BlissBass on it, and on Grub boot menu, navigate to OEM Install &gt; OEM Update</p>
 <p>Once selected, the device will boot into the OEM installer and auto-update the existing OS on the device.</p>
+<doc-anchor-target id="ota---local-streaming">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ota---local-streaming">#</doc-anchor-trigger>
+        <span>OTA - Local Streaming</span>
+    </h3>
+</doc-anchor-target>
+<p>The UpdateService AIDL allows us to stream an OTA zip from the local device or network attached endpoint.</p>
+<p>The UpdaterSDK interface has three main parts: \</p>
+<doc-anchor-target id="iupdateraidl">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#iupdateraidl">#</doc-anchor-trigger>
+        <span>IUpdater.aidl</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">interface IUpdater {
+   void setCallback(IUpdaterCallback cb);
+   void checkForUpdates();
+   List&lt;UpdateItemInfo&gt; getAvaliableUpdates();
+   void downloadUpdate(String id);
+   void pauseDownload(String id);
+   void resumeDownload(String id);
+   void installUpdate(String id);
+   void cancelUpdate();
+   void suspendUpdate();
+   void resumeUpdate();
+
+   void importUpdate(in ParcelFileDescriptor pfd);
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="iupdatercallbackaidl">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#iupdatercallbackaidl">#</doc-anchor-trigger>
+        <span>IUpdaterCallback.aidl</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">interface IUpdaterCallback {
+   void onUpdateCheckCompleted(boolean hasNewUpdates);
+
+   void onStatusChange(in UpdateItemInfo update);
+   void onDownloadProgressChange(in UpdateItemInfo update);
+   void onInstallProgress(in UpdateItemInfo update);
+
+   void onImportStarted();
+   void onImportCompleted(in UpdateItemInfo updateBase);
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="updateiteminfoaidl">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#updateiteminfoaidl">#</doc-anchor-trigger>
+        <span>UpdateItemInfo.aidl</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">parcelable UpdateItemInfo {
+   String name;
+   String downloadUrl;
+   String downloadId;
+   long timestamp;
+   String version;
+   long fileSize;
+
+   int status;
+   int persistentStatus;
+   int progress;
+   long eta;
+   long speed;
+   int installProgress;
+   boolean availableOnline;
+   boolean finalizing;
+}</code></pre>
+</doc-codeblock></div>
+<p>You can use the BlissUpdaterSDK-debug.aar from your target app to stream all required update information to the BlissUpdater app and system update engine.</p>
+<doc-anchor-target id="example-updaterclient">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-updaterclient">#</doc-anchor-trigger>
+        <span>Example: UpdaterClient</span>
+    </h4>
+</doc-anchor-target>
+<p>The UpdaterClient app acts as an example app for interfacing with the BlissUpdaterSDK. The apps MainActivity calls the AIDL methods with each button, and prints out the output in the textbox above.</p>
+<p><figure class="content-center">
+    <img src="../images/image1.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>Clicking <strong>Select update file</strong> will launch the <code v-pre>ACTION_GET_CONTENT</code> intent and then the <code v-pre>ParcelFileDescriptor</code> will be passed to the UpdaterManager.importUpdate. And the import process is triggered, import results can be observed from callbacks onImportStarted and onImportCompleted</p>
+<p><figure class="content-center">
+    <img src="../images/image2.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>Once the import status is complete, the output will be the imported files information:</p>
+<p><figure class="content-center">
+    <img src="../images/image3.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>Using the imported ID (in this case, <strong>local</strong>), we can enter the ID and initiate the Install process:</p>
+<p><figure class="content-center">
+    <img src="../images/image4.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>From there, it will also register the updater service notification:</p>
+<p><figure class="content-center">
+    <img src="../images/image5.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>Once the install process starts, it will have a status of <strong>9</strong> and you can track the <strong>installProgress</strong> percentage.</p>
+<p><figure class="content-center">
+    <img src="../images/image6.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>And after that is complete the <strong>finalizing</strong> process is started and set to <strong>true</strong> and the <strong>installProgress</strong> will track the process percentage.</p>
+<p><figure class="content-center">
+    <img src="../images/image7.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>Then after receiving a status of <strong>10 (Installed)</strong> or <strong>5 (tmp zip Deleted)</strong>, then the updater service will trigger for a restart. And we can display that in the example by enabling that action</p>
+<p><figure class="content-center">
+    <img src="../images/image8.png" alt="alt_text" title="image_tooltip">
+    <figcaption class="caption">alt_text</figcaption>
+</figure>
+</p>
+<p>The restart is carried out by the BlissPowerManager:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">BlissPowerManager blissPowerManager = BlissPowerManager.getInstance(this);
+       mRebootBtn.setOnClickListener(v -&gt; blissPowerManager.reboot());</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="ota---local-server">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#ota---local-server">#</doc-anchor-trigger>
