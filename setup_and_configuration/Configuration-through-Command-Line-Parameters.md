@@ -500,7 +500,7 @@ INTEL_PSTATE_STATUS=passive
 *   `FORCE_IME_ON_SECONDARY_DISPLAYS`: Enable on-screen keyboard on external display (required for MultiDisplay Input). options: 0,1
 *   `androidboot.bliss.force_ime_on_all_displays=true`: Force IME on secondary displays. Uses "ro.boot.bliss.force_ime_on_all_displays" property (true,false)
 *   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
-*   `ro.boot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
+*   `androidboot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
 
 
 
