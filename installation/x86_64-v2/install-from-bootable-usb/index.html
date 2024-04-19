@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.766805389683">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.766806665624">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -21,20 +21,22 @@
     <meta property="og:url" content="https://docs.blisscolabs.dev/installation/x86_64-v2/install-from-bootable-usb/">
     <meta property="og:title" content="Install From Bootable USB">
     <meta property="og:description" content="Install from bootable USB Installer">
+    <meta property="og:image" content="https://docs.blisscolabs.dev/.gitbook/assets/uefi-create.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blisscolabs.dev/installation/x86_64-v2/install-from-bootable-usb/">
     <meta property="twitter:title" content="Install From Bootable USB">
     <meta property="twitter:description" content="Install from bootable USB Installer">
+    <meta property="twitter:image" content="https://docs.blisscolabs.dev/.gitbook/assets/uefi-create.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.766805389683" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.766806665624" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.766805389683" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.766806665624" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.766805389683" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.766806665624" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -217,7 +219,7 @@
     </div>
 </div>
 <p>We will want to start by booting into the installer by selecting the top Install option from Grub</p>
-<p>From here we will want to change the drive partition scheme to be A) EFI (VFAT) B) Android (ext4). This means that we need to delete all partitions except for the top EFI partition, and create a single new partition with the remaining space.  You will need to start by selecting &quot;Create/Modify partitions&quot;, then remove all partitions on the device. <img src="../.gitbook/assets/uefi-create.png" alt="Partitioning p1" /></p>
+<p>From here we will want to change the drive partition scheme to be A) EFI (VFAT) B) Android (ext4). This means that we need to delete all partitions except for the top EFI partition, and create a single new partition with the remaining space.  You will need to start by selecting &quot;Create/Modify partitions&quot;, then remove all partitions on the device. <img src="../../../.gitbook/assets/uefi-create.png" alt="Partitioning p1" /></p>
 <p>In the next screen, we need to make <strong>two</strong> partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.</p>
 <p>First create the EFI partition, this is the partition that is used to install the bootloader.</p>
 <ol>
@@ -228,7 +230,7 @@
 <li>We don&#x27;t necessairly need to name this partition, but it is best practice to name it <code v-pre>EFI</code></li>
 </ol>
 <p><figure class="content-center">
-    <img src="../.gitbook/assets/uefi-android.png" alt="Partitioning p2">
+    <img src="../../../.gitbook/assets/uefi-android.png" alt="Partitioning p2">
     <figcaption class="caption">Partitioning p2</figcaption>
 </figure>
 </p>
@@ -239,29 +241,29 @@
 <li>Lastly we click [ WRITE ] and [ QUIT ]</li>
 </ol>
 <p><figure class="content-center">
-    <img src="../.gitbook/assets/uefi-partitioned.png" alt="Partitioned">
+    <img src="../../../.gitbook/assets/uefi-partitioned.png" alt="Partitioned">
     <figcaption class="caption">Partitioned</figcaption>
 </figure>
 </p>
 <p>Now that we have the drives partitioned, we can start to install android. Select the ANDROID partition that we have made before, and format it as ext4. this is the recomended format unless windows compatibility is need, in that case select NTFS. and click &lt; Yes &gt; on the next screen</p>
 <p><figure class="content-center">
-    <img src="../.gitbook/assets/uefi-ext4.png" alt="Format Drive p1">
+    <img src="../../../.gitbook/assets/uefi-ext4.png" alt="Format Drive p1">
     <figcaption class="caption">Format Drive p1</figcaption>
 </figure>
 <figure class="content-center">
-    <img src="../.gitbook/assets/uefi-risks.png" alt="Format Drive p2">
+    <img src="../../../.gitbook/assets/uefi-risks.png" alt="Format Drive p2">
     <figcaption class="caption">Format Drive p2</figcaption>
 </figure>
 </p>
 <p>The installer will procede to format and install android, you will then be prompted to install EFI GRUB2. we need to accept that, unless you have a pre-existing grub or other bootloader install</p>
 <p><figure class="content-center">
-    <img src="../.gitbook/assets/uefi-grub.png" alt="Install Grub">
+    <img src="../../../.gitbook/assets/uefi-grub.png" alt="Install Grub">
     <figcaption class="caption">Install Grub</figcaption>
 </figure>
 </p>
 <p>The installer will begin to write the changes to the disk. This will take some time. Go grab another coffee!</p>
 <p><figure class="content-center">
-    <img src="../.gitbook/assets/grab-a-coffee.png" alt="Grab a coffee">
+    <img src="../../../.gitbook/assets/grab-a-coffee.png" alt="Grab a coffee">
     <figcaption class="caption">Grab a coffee</figcaption>
 </figure>
 </p>
