@@ -513,6 +513,13 @@ INTEL_PSTATE_STATUS=passive
   * 2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black
   * 3.original: original orientation, if a portrait apk, will rotate 270 degree
 * `androidboot.android.force_rotation_on_external_displays`: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)
+* `fbcon=rotate:*`: The value 'n' accepts the following:
+   0 - normal orientation (0 degree)
+   1 - clockwise orientation (90 degrees)
+   2 - upside down orientation (180 degrees)
+   3 - counterclockwise orientation (270 degrees)
+* `SET_PRIMARY_DISPLAY_ORIENTATION=*`: property: ro.surface_flinger.primary_display_orientation has three cases:
+  ORIENTATION_90, ORIENTATION_180, ORIENTATION_270
 
 
 ### Misc:
