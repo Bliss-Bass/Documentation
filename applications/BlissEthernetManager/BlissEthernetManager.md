@@ -88,8 +88,11 @@ Examples:
 
 
 1. getAvaliableInterfaces: 
-   `x86_64:/ # service call blissethernet 1 s16 eth0 Result: Parcel( 0x00000000: 00000000 00000002 00000004 00740065 '............e.t.' 0x00000010: 00300068 00000000 00000004 00740065 'h.0.........e.t.' 0x00000020: 00310068 00000000 'h.1..... ')`
+   `x86_64:/ # service call blissethernet 1 s16 eth0 
+Result: Parcel( 0x00000000: 00000000 00000002 00000004 00740065 '............e.t.' 0x00000010: 00300068 00000000 00000004 00740065 'h.0.........e.t.' 0x00000020: 00310068 00000000 'h.1..... ')`
 2. isAvaliable:
-   `x86_64:/ # service call blissethernet 2 s16 eth0 Result: Parcel(00000000 00000001 '........')`
+   `x86_64:/ # service call blissethernet 2 s16 eth0 
+Result: Parcel(00000000 00000001 '........')`
 3. setIpAddress:
-   `x86_64:/ # service call blissethernet 10 s16 eth1 s16 10.1.1.112/24`
+   `x86_64:/ # service call blissethernet 10 s16 eth1 s16 10.1.1.112/24 
+Result: Parcel(00000000    '....')`
