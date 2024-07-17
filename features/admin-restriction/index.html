@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772748193301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.774568794686">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.772748193301" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.774568794686" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.772748193301" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.774568794686" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.772748193301" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.774568794686" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -206,7 +206,7 @@ In order to enter Admin mode, you must manually boot into Grub by tapping the â€
 </doc-codeblock></div>
 <p>In order to confirm that a set password is working, you can run a check on the hashed sum values from Linux: \</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">$ BLISSMODE_PASSWORD=&quot;your_companies_complex_password_schema1234&quot;; if [ &quot;$(echo -n &quot;$BLISSBOOTMODE_PASSWORD&quot; | sha256sum)&quot; != &quot;$(cat blissmode_password)&quot; ]; then echo &quot;its a match&quot;; else echo &quot;password does not match&quot;; fi
+<pre class="language-none"><code v-pre class="language-none">$ BLISSMODE_PASSWORD=&quot;your_companies_complex_password_schema1234&quot;; if [ &quot;$(echo -n &quot;$BLISSBOOTMODE_PASSWORD&quot; | sha256sum)&quot; != &quot;$(cat blissmode_password)&quot; ]; then echo &quot;password does not match&quot;; else echo &quot;its a match&quot;; fi
 its a match</code></pre>
 </doc-codeblock></div>
 <p>We also leave feedback of a password check success or failure in the debugging shell at boot. To access that, please select the <strong>Debugging Admin</strong> boot option from Grub.</p>
