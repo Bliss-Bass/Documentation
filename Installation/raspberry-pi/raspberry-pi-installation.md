@@ -1,4 +1,4 @@
-# Bass OS 13 for the Raspberry PI 4 series based on the GloDroid project
+# Bass OS for the Raspberry PI 4 series based on the GloDroid project
 
 [![GloDroid](https://img.shields.io/badge/GLODROID-PROJECT-blue)](https://github.com/GloDroid/glodroid_manifest)
 [![ProjectStatus](https://img.shields.io/badge/PROJECT-STATUS-yellowgreen)](https://github.com/GloDroidCommunity/raspberry-pi/issues/1)
@@ -12,7 +12,7 @@
 Download and install the official Raspberry Pi Imager from [here](https://www.raspberrypi.com/software/)
 
 ##### sdcard.img
-Find the latest Bass rpi image archive sdcard images for your target use-case [here](https://sourceforge.net/projects/bliss-co-labs/files/BlissBass/Raspberry-Pi/)
+Find the latest Bass rpi image archive sdcard images for your target use-case on the GitHub Releases page [here](https://github.com/Bliss-Bass/bass-rpi/releases)
 
 ### Step 1
 Extract the sdcard archive using xz/7zip/Winzip/etc. 
