@@ -45,6 +45,11 @@ icon: home
 * [What are Linux Drivers?](development/what-are-linux-drivers.md)
 * [Porting Linux Drivers](development/porting-linux-drivers.md)
 
+## Legal
+
+* [End User License Agreement](legal/END_USER_LICENSE_AGREEMENT.md)
+* [Privacy Policy](legal/Navotpala_Tech_Privacy_Policy.md)
+
 ## Other Resources
 
 * [Bliss OS Documentation](https://docs.blissos.org)
