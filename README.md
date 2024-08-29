@@ -8,8 +8,14 @@ icon: home
 
 ## Install Bass OS
 
-* [Install From Bootable USB](Installation/install-from-bootable-usb.md)
-* [Collecting bug reports](Installation/collecting-bug-reports.md)
+### x86_64-v2 (A12, A13)
+
+* [Install From Bootable USB](Installation/x86_64-v2/install-from-bootable-usb.md)
+* [Collecting bug reports](Installation/x86_64-v2/collecting-bug-reports.md)
+
+### Raspberry Pi (A13)
+
+* [Raspberry Pi Installation](Installation/raspberry-pi/raspberry-pi-installation.md)
 
 ## Configuration
 

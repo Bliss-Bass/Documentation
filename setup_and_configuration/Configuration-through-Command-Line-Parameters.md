@@ -496,9 +496,11 @@ INTEL_PSTATE_STATUS=passive
 
 #### Navigation & Input Options:
 
+*   `FORCE_NAVBAR_ON_SECONDARY_DISPLAYS`: Enable navbar/gesture navigation on external display. options: 0,1
+*   `FORCE_IME_ON_SECONDARY_DISPLAYS`: Enable on-screen keyboard on external display (required for MultiDisplay Input). options: 0,1
 *   `androidboot.bliss.force_ime_on_all_displays=true`: Force IME on secondary displays. Uses "ro.boot.bliss.force_ime_on_all_displays" property (true,false)
 *   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
-*   `ro.boot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
+*   `androidboot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
 
 
 
@@ -511,6 +513,13 @@ INTEL_PSTATE_STATUS=passive
   * 2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black
   * 3.original: original orientation, if a portrait apk, will rotate 270 degree
 * `androidboot.android.force_rotation_on_external_displays`: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)
+* `fbcon=rotate:*`: The value 'n' accepts the following:
+   0 - normal orientation (0 degree)
+   1 - clockwise orientation (90 degrees)
+   2 - upside down orientation (180 degrees)
+   3 - counterclockwise orientation (270 degrees)
+* `SET_PRIMARY_DISPLAY_ORIENTATION=*`: property: ro.surface_flinger.primary_display_orientation has three cases:
+  ORIENTATION_90, ORIENTATION_180, ORIENTATION_270
 
 
 ### Misc:

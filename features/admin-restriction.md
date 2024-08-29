@@ -29,7 +29,7 @@ In order to confirm that a set password is working, you can run a check on the h
 
 
 ```
-$ BLISSMODE_PASSWORD="your_companies_complex_password_schema1234"; if [ "$(echo -n "$BLISSBOOTMODE_PASSWORD" | sha256sum)" != "$(cat blissmode_password)" ]; then echo "its a match"; else echo "password does not match"; fi
+$ BLISSMODE_PASSWORD="your_companies_complex_password_schema1234"; if [ "$(echo -n "$BLISSBOOTMODE_PASSWORD" | sha256sum)" != "$(cat blissmode_password)" ]; then echo "password does not match"; else echo "its a match"; fi
 its a match
 ```
 
