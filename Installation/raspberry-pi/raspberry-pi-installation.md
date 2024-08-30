@@ -59,4 +59,6 @@ After flashing the SDCard, insert it into the device and turn it on, and it will
 
 Depending on the version (application use-case), you should let the OS reach the desktop and wait while the target configurations are being set. This process will be setting up configs, apps, and permissions for the user environment, so it may take a bit.
 
-Pressing the home button should make sure that you are set to the correct launcher UI when everthing is all set. 
+Pressing the home button should make sure that you are set to the correct launcher UI after everything is all set. 
+
+**!!DISCLAIMER!!** Some of the initial configurations will not take effect until a reboot or systemui refresh. So you are welcome to reboot the device after initial setup is complete. 
