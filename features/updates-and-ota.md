@@ -1,6 +1,6 @@
 # Updating Bliss Bass builds
 
-We support a variety of methods for updating Bliss Bass builds. Our installwe is simular to Bliss OS, but we add a few product focused options and features. 
+We support a variety of methods for updating Bliss Bass builds. Our installer is similar to Bliss OS, but we add a few product focused options and features. 
 
 
 ### Manually - USB Installer
