@@ -14,3 +14,22 @@ Once the device boots into Grub, the top option or two will be our default mode 
 
 While the Debugging modes can be found in the **Other Options** section of the boot menu. 
 
+#### Setup Steps for Ad/Signage Builds
+
+(This section only applies to our Ad/Signage builds using Garlic Launcher)
+
+##### Initial Setup
+
+Go through the builds SetupWizard and connect to a network. Then once complete, the Garlic-Launcher should load. Swipe down and hit the power button or use ctrl-alt-del to reboot the device now. 
+
+##### SMIL Control setup
+
+(You will need to have created an account on https://admin.smil-control.com and be logged in)
+
+After thje device reboots, you should see a SMIL Control screen with a code on it. 
+
+Access the https://admin.smil-control.com website and going to Player > Transfer, and enter the code from the device in there. Once registered, your device will show on the Players default screen. You can then setup a playlist and other options from the SMIL Control web UI. 
+
+##### !! Playback Notice !!
+
+Sometimes the playlist will show a black screen when starting. In the event this happens, we suggest sending the player commands from SMIL COntrol site to reboot and clear video & web cache. This may need you to reboot the device or wait till the next update period is sent from SMIL Control. 
