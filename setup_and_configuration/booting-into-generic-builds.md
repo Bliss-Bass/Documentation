@@ -20,13 +20,13 @@ While the Debugging modes can be found in the **Other Options** section of the b
 
 ##### Initial Setup
 
-Go through the builds SetupWizard and connect to a network. Then once complete, the Garlic-Launcher should load. Swipe down and hit the power button or use ctrl-alt-del to reboot the device now. 
+Go through the builds SetupWizard and connect to a network. Then once complete, the Garlic-Launcher should load. Launch the Player from Garlic-Launcher and grant the permissions it requests. Swipe down and hit the power button or use ctrl-alt-del to reboot the device now. 
 
 ##### SMIL Control setup
 
 (You will need to have created an account on https://admin.smil-control.com and be logged in)
 
-After thje device reboots, you should see a SMIL Control screen with a code on it. 
+After the device reboots, you should see a SMIL Control screen with a code on it. 
 
 Access the https://admin.smil-control.com website and going to Player > Transfer, and enter the code from the device in there. Once registered, your device will show on the Players default screen. You can then setup a playlist and other options from the SMIL Control web UI. 
 
