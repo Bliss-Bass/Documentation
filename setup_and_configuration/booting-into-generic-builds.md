@@ -32,4 +32,4 @@ Access the https://admin.smil-control.com website and going to Player > Transfer
 
 ##### !! Playback Notice !!
 
-Sometimes the playlist will show a black screen when starting. In the event this happens, we suggest sending the player commands from SMIL COntrol site to reboot and clear video & web cache. This may need you to reboot the device or wait till the next update period is sent from SMIL Control. 
+Sometimes the playlist will show a black screen when starting. In the event this happens, we suggest sending the player commands from SMIL Control site to reboot and clear video & web cache. This may need you to reboot the device or wait till the next update period is sent from SMIL Control. 
