@@ -14,7 +14,7 @@ Once the device boots into Grub, the top option or two will be our default mode 
 
 While the Debugging modes can be found in the **Other Options** section of the boot menu. 
 
-#### Setup Steps for Ad/Signage Builds
+### Setup Steps for Ad/Signage Builds
 
 (This section only applies to our Ad/Signage builds using Garlic Launcher)
 
