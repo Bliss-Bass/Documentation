@@ -10,7 +10,7 @@ Start off by going into Android Settings
 Then scroll down to the Device Status option (if it is not showing, close Settings and re-open)
 ![Screenshot_20241107-131417_Settings](https://github.com/user-attachments/assets/85c94a0e-bfee-4f95-9c1e-b06a2b75a0db)
 
-After selecting the Device Status activity, you can see your product serial number here. This is the serial number you will need to report to us with in order for us to regiater your device. 
+After selecting the Device Status activity, you can see your product serial number here. This is the serial number you will need to report to us with in order for us to register your device. 
 ![Screenshot_20241107-131424_Bootsight](https://github.com/user-attachments/assets/ec426531-0da8-4f80-9b22-595062f679a2)
 
 Once reported and license is purchased, you can click on the "Check Device Status" button to check it's activation status. Once activated, the screen will reflect the status by showing as "Licensed"
