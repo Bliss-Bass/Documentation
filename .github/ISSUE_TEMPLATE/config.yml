@@ -1,20 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Website
-    url: https://blissos.org
-    about: 'Bliss OS Website'
+    url: https://bliss-bass.github.io
+    about: 'Bliss Bass Website'
   - name: Documentation
-    url: https://docs.blissos.org
-    about: 'Bliss OS Documentation'
-  - name: Knowledgebase
-    url: https://knowledgebase.blissos.org
-    about: 'Bliss OS Knowledgebase'
+    url: https://docs.blisscolabs.dev
+    about: 'Bliss Bass Documentation'
   - name: Help
-    url: https://blissos.org/discord
-    about: 'If you need further assistance, join our Discord server.'
-  - name: Documentation issue
-    url: https://github.com/BlissRoms-x86/docs
-    about: 'For documentation issues, report it and/or suggest changes on our documentation repository.'
-  - name: Knowledgebase issue
-    url: https://github.com/BlissRoms-x86/knowledgebase
-    about: 'For knowledgebase issues, report it and/or suggest changes on our knowledgebase repository.'
+    url: https://t.me/navotpala/
+    about: 'If you need further assistance, join our community.'
