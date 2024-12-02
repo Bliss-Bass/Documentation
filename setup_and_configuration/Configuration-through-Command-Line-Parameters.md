@@ -94,6 +94,21 @@ Example:
 HWC=drm_minigbm_celadon
 ```
 
+##### Using DRMFB HWC backend:
+
+*  `HWC_IS_DRMFB`: Forces the compositor to use DRMFB (Options: 1,0)
+
+##### Setting HWC mode info:
+
+(Compatible only with `drm_celadon` and `drm_minigbm_celadon` hwcomposer)
+
+*  `MULTI_PLANE`: Enabled hwcomposer planes (Options 1,0)
+*  `MULTI_PLANE_NUM`: Specifies the number of planes
+*  `HWC_PREFER_MODE`: Specifies the devices preferred mode setting
+*  `CONNECTOR_ID`: Specifies the devices connector ID
+*  `MODE_ID`: Specifies the devices mode ID
+*  `MULTI_REFRESH_RATE`: Enables variable refresh rate (Options: 1,0)
+
 #### Gralloc:
 
 We pair up our Gralloc options to work with certain HWC options.
@@ -125,7 +140,7 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 
 *   `GRALLOC4_MINIGBM`: Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)
 
-#### ANGLE & software rendering
+#### ANGLE & software rendering:
 
 - [ANGLE](https://github.com/google/angle) is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using `ANGLE=1`.
 
@@ -137,7 +152,45 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 
 **NOTE** : You may want to turn on Color Inversion when using software rendering because the color might be inverted
 
+#### GLES Overrides:
+
+We can override the target GLES implimentation within the OS by setting the `FORCE_GLES` boot flag. 
+
+*  `FORCE_GLES`: Override GLES version from Mesa (Options: `3.0` [default], `3.1`, `3.2`)
+
+#### RenderEngine Overrides:
+
+We can override the default RenderEngine backend (threaded) in Android by using the following command:
+
+*  `FORCE_RENDERENGINE`: (Options: `threaded`, `skiaglthreaded`)
+
+#### GPU Override:
+
+This allows us to target a specific DGPU on the device:
+
+*  `GPU_OVERRIDE`: (Options: whatever your devices target /dev/dri/* is)
+
+#### Video Resolution:
+
+We use the Linux `video` and `fbcon` commands for this functionality, and it is compatible with the `gbm` gralloc/hwc backend. 
+Setting the `video` kernel cmdline flag will also set Android's `drm_mode` and `UVESA_MODE`. 
+See https://docs.kernel.org/fb/modedb.html for video mode support
+See https://docs.kernel.org/fb/fbcon.html for more info on fbcon
+
 ### Media Stack:
+
+#### Bluetooth:
+
+There are a couple of customizations available for the Bluetooth stack in our builds. 
+
+*  `BTUART_PORT`: Specifies the known bluetooth UART port
+*  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices)
+
+#### Audio HAL:
+
+By default, we include a couple audio HAL's to choose from for the OS. 
+
+*  `AUDIO_PRIMARY`: This will use the specified HAL (Options: `x86`[default] & `x86_celadon`) 
 
 #### Video Encoders/Decoders:
 
@@ -163,17 +216,24 @@ We include the ability to have Ethernet appear as WiFi as some appli/cations wil
 For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
   `INTERNAL_MOUNT=1`: Allows device to mount other internal drives on boot. 
 
+(Available through Android-Generic Add-On & add-ons for Bass builds)
+
+  `SDCARDFS_DISABLE=1`: Disables the use of SDCardFS in the OS
+  `SET_SDCARDFS_ENABLED`: Same as above (Options: 1, 0)
+  `SET_CASEFOLD_ENABLED`: Enables/Disables casefold (Options: 1, 0)
+
 ### USB/PCI:
 
 #### USB:
 
-##### USB Modes:
+##### USB Mode Functions:
 
 (Available through Android-Generic Add-On & add-ons for Bass builds)
 
-Switch USB mode (ADB/Storage) !! Requires kernel configs !!:
-* `FORCE_USE_ADB_CLIENT_MODE`: Forces client mode adb settings
-* `FORCE_USE_ADB_MASS_STORAGE`: Forces USB mass_storage mode
+Allows switching default USB/ADB functions via cmdline 
+
+*   `FORCE_USE_ADB_CLIENT_MODE`: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)
+*   `FORCE_USE_ADB_MASS_STORAGE`: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
 
 ### Power & Memory:
 
@@ -272,7 +332,7 @@ no_console_suspend
 
 * `SUSPEND_TYPE`: Set suspend type. options: mem, disk, freeze mem, freeze disk
 * `PWR_OFF_DBLCLK`: Set power off double click. options: true,false
-* `SLEEP_STATE`: Override default sleep.state property for the device
+* `SLEEP_STATE`: Override default sleep.state property for the device. If your device supports deep sleep states, this defaults to `mem`, otherwise it defaults to `freeze`. (Options: `mem`, `freeze`, `force`)
 
 
 ##### Intel Power Options:
@@ -453,7 +513,6 @@ INTEL_PSTATE_STATUS=passive
 *   `FORCE_DISABLE_NAVIGATION`: Force disable navigation bar. Options: (true|false)
 *   `FORCE_DISABLE_NAV_HANDLE`: Force disable gesture navigation handle. Options: (true|false)
 *   `FORCE_DISABLE_NAV_TASKBAR`: Force disable navigation taskbar. Options: (true|false)
-*   `FORCE_DISABLE_NAV_HANDLE`: Force disable gesture navigation handle. Options: (true|false)
 *   `FORCE_DISABLE_STATUSBAR`: Force disable statusbar. Options: (true|false)
 *   `FORCE_DISABLE_RECENTS`: Force disable SystemUI recents. Options: (true|false)    
 *   `FORCE_HIDE_NAVBAR_WINDOW`: Force hide navigation bar window. Options: 0, 1
@@ -493,6 +552,7 @@ INTEL_PSTATE_STATUS=passive
 *   `SET_SMARTDOCK_DEFAULT`: Set's SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)
 *   `ENABLE_QUICKSTEP_TASKBAR`: Set quickstep taskbar features to enabled (requires dev-options to be enabled & Launcher3 to also be enabled). options: true,false
 *   `FORCE_DESKTOP_ON_EXTERNAL`: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1
+*   `FORCE_QUICKSTEP_HOME`: Forces Quickstep to be set as default home on boot
 
 #### Navigation & Input Options:
 
@@ -502,11 +562,10 @@ INTEL_PSTATE_STATUS=passive
 *   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
 *   `androidboot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
 
-
-
-#### Rotation/Orientation:
+#### Display & Input Rotation/Orientation:
    
 * `SET_SF_ROTATION=*`: Sets surfaceflinger hardware rotation property to the value passed
+* `SET_SF_SWROTATION`: Sets surfaceflinger software rotation property to the value passed
 * `SET_OVERRIDE_FORCED_ORIENT=*`: Override forced orientation (true/false)
 * `SET_SYS_APP_ROTATION=*`: Forces system app rotation, and has three cases:   
   * 1.force_land: always show with landscape, if a portrait apk, system will scale up it
@@ -520,6 +579,20 @@ INTEL_PSTATE_STATUS=passive
    3 - counterclockwise orientation (270 degrees)
 * `SET_PRIMARY_DISPLAY_ORIENTATION=*`: property: ro.surface_flinger.primary_display_orientation has three cases:
   ORIENTATION_90, ORIENTATION_180, ORIENTATION_270
+* `SET_SECONDARY_DISPLAY_ORIENTATION`: Set target orientation for external displays (Options: 0=0, 1=90, 2=180, 3=270)
+* `SET_HDMI_ROTATION`: Set HDMI rotation (Options: portrait, landscape)
+* `SET_PER_WINDOW_INPUT_ROTATION` Set per window input rotation on/off (Options: true, false)
+* `SET_TOUCHSCREEN_ROTATION`: Sets the touch input orientation for the given build (Options: 0, 90, 180, 270)
+* `SET_ROTATION_ON_INTERNAL_DISPLAY`: Sets the internal display rotation (Options: 0, 90, 180, 270)
+* `SET_HDMIROTATION`: Set HDMI rotation (Options: portrait, landscape)
+* `SET_HDMIROTATIONLOCK`: Set HDMI rotation lock (Options: true or false)
+* `SET_SINGLEDISPLAY`: Forces using onle a single display (Options: true or false)
+* `FORCE_PRIMARY_ROTATION`: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)
+
+#### Mouse Options:
+
+* `FORCE_MOUSE_PRESENTATION`: Forces mouse to work across multiple displays
+
 
 
 ### Misc:
@@ -549,16 +622,12 @@ Example: `HIDE_APPS="com.termux,com.android.dialer,com.android.documentsui"`
 
 *   `HIDE_APPS`: Hides the apps via passed comma separated list
 *   `RESTORE_APPS`: Restores the apps via passed comma separated list
+
+##### Package Options:
+
+*   `SET_DI_WHITELIST`: Sets a package name to be added to the Device Idle whitelist
+*   `SET_SECOND_DISPLAY_PKG`: Force package to be launched on secondary display (Options: package_name)
   
-#### USB Mode Functions:
-
-(Available through Android-Generic Add-On & add-ons for Bass builds)
-
-Allows switching default USB/ADB functions via cmdline 
-
-*   `FORCE_USE_ADB_CLIENT_MODE`: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)
-*   `FORCE_USE_ADB_MASS_STORAGE`: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
-
 #### IIO Options Configuration:
 
 (Available through Android-Generic Add-On & add-ons for Bass builds)
@@ -606,4 +675,8 @@ Enable/Disable Wireless Devices (Change included only in specialized builds):
 Other Networking Options (Available in Bass builds):
 * `FORCE_DISABLE_ALL_RADIOS`: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1
 * `FORCE_BLUETOOTH_SERVICE`: Set force bluetooth service state. options: enable, disable
+
+#### Test Modes:
+
+* `BOOT_FACTORY_TEST`: Boot into factory test mode (Options: 1,0)
 
