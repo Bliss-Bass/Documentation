@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.784746774336">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.786479593951">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.6.0.784746774336" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.6.0.786479593951" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.6.0.784746774336" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.6.0.786479593951" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.6.0.784746774336" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.6.0.786479593951" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -279,6 +279,30 @@
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">HWC=drm_minigbm_celadon</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="using-drmfb-hwc-backend">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-drmfb-hwc-backend">#</doc-anchor-trigger>
+        <span>Using DRMFB HWC backend:</span>
+    </h5>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>HWC_IS_DRMFB</code>: Forces the compositor to use DRMFB (Options: 1,0)</li>
+</ul>
+<doc-anchor-target id="setting-hwc-mode-info">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-hwc-mode-info">#</doc-anchor-trigger>
+        <span>Setting HWC mode info:</span>
+    </h5>
+</doc-anchor-target>
+<p>(Compatible only with <code v-pre>drm_celadon</code> and <code v-pre>drm_minigbm_celadon</code> hwcomposer)</p>
+<ul>
+<li><code v-pre>MULTI_PLANE</code>: Enabled hwcomposer planes (Options 1,0)</li>
+<li><code v-pre>MULTI_PLANE_NUM</code>: Specifies the number of planes</li>
+<li><code v-pre>HWC_PREFER_MODE</code>: Specifies the devices preferred mode setting</li>
+<li><code v-pre>CONNECTOR_ID</code>: Specifies the devices connector ID</li>
+<li><code v-pre>MODE_ID</code>: Specifies the devices mode ID</li>
+<li><code v-pre>MULTI_REFRESH_RATE</code>: Enables variable refresh rate (Options: 1,0)</li>
+</ul>
 <doc-anchor-target id="gralloc">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#gralloc">#</doc-anchor-trigger>
@@ -318,7 +342,7 @@
 <doc-anchor-target id="angle--software-rendering">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#angle--software-rendering">#</doc-anchor-trigger>
-        <span>ANGLE &amp; software rendering</span>
+        <span>ANGLE &amp; software rendering:</span>
     </h4>
 </doc-anchor-target>
 <ul>
@@ -332,12 +356,73 @@
 </li>
 </ul>
 <p><strong>NOTE</strong> : You may want to turn on Color Inversion when using software rendering because the color might be inverted</p>
+<doc-anchor-target id="gles-overrides">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#gles-overrides">#</doc-anchor-trigger>
+        <span>GLES Overrides:</span>
+    </h4>
+</doc-anchor-target>
+<p>We can override the target GLES implimentation within the OS by setting the <code v-pre>FORCE_GLES</code> boot flag.</p>
+<ul>
+<li><code v-pre>FORCE_GLES</code>: Override GLES version from Mesa (Options: <code v-pre>3.0</code> [default], <code v-pre>3.1</code>, <code v-pre>3.2</code>)</li>
+</ul>
+<doc-anchor-target id="renderengine-overrides">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#renderengine-overrides">#</doc-anchor-trigger>
+        <span>RenderEngine Overrides:</span>
+    </h4>
+</doc-anchor-target>
+<p>We can override the default RenderEngine backend (threaded) in Android by using the following command:</p>
+<ul>
+<li><code v-pre>FORCE_RENDERENGINE</code>: (Options: <code v-pre>threaded</code>, <code v-pre>skiaglthreaded</code>)</li>
+</ul>
+<doc-anchor-target id="gpu-override">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#gpu-override">#</doc-anchor-trigger>
+        <span>GPU Override:</span>
+    </h4>
+</doc-anchor-target>
+<p>This allows us to target a specific DGPU on the device:</p>
+<ul>
+<li><code v-pre>GPU_OVERRIDE</code>: (Options: whatever your devices target /dev/dri/* is)</li>
+</ul>
+<doc-anchor-target id="video-resolution">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#video-resolution">#</doc-anchor-trigger>
+        <span>Video Resolution:</span>
+    </h4>
+</doc-anchor-target>
+<p>We use the Linux <code v-pre>video</code> and <code v-pre>fbcon</code> commands for this functionality, and it is compatible with the <code v-pre>gbm</code> gralloc/hwc backend.
+Setting the <code v-pre>video</code> kernel cmdline flag will also set Android&#x27;s <code v-pre>drm_mode</code> and <code v-pre>UVESA_MODE</code>.
+See <a href="https://docs.kernel.org/fb/modedb.html">https://docs.kernel.org/fb/modedb.html</a> for video mode support
+See <a href="https://docs.kernel.org/fb/fbcon.html">https://docs.kernel.org/fb/fbcon.html</a> for more info on fbcon</p>
 <doc-anchor-target id="media-stack">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#media-stack">#</doc-anchor-trigger>
         <span>Media Stack:</span>
     </h3>
 </doc-anchor-target>
+<doc-anchor-target id="bluetooth">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bluetooth">#</doc-anchor-trigger>
+        <span>Bluetooth:</span>
+    </h4>
+</doc-anchor-target>
+<p>There are a couple of customizations available for the Bluetooth stack in our builds.</p>
+<ul>
+<li><code v-pre>BTUART_PORT</code>: Specifies the known bluetooth UART port</li>
+<li><code v-pre>BTLINUX_HAL</code>: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices)</li>
+</ul>
+<doc-anchor-target id="audio-hal">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#audio-hal">#</doc-anchor-trigger>
+        <span>Audio HAL:</span>
+    </h4>
+</doc-anchor-target>
+<p>By default, we include a couple audio HAL&#x27;s to choose from for the OS.</p>
+<ul>
+<li><code v-pre>AUDIO_PRIMARY</code>: This will use the specified HAL (Options: <code v-pre>x86</code>[default] &amp; <code v-pre>x86_celadon</code>)</li>
+</ul>
 <doc-anchor-target id="video-encodersdecoders">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#video-encodersdecoders">#</doc-anchor-trigger>
@@ -372,6 +457,10 @@
 <p>(Available on Bliss OS 14.1x, 15.8.x, &amp; 16.x)
 For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
 <code v-pre>INTERNAL_MOUNT=1</code>: Allows device to mount other internal drives on boot.</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
+<p><code v-pre>SDCARDFS_DISABLE=1</code>: Disables the use of SDCardFS in the OS
+<code v-pre>SET_SDCARDFS_ENABLED</code>: Same as above (Options: 1, 0)
+<code v-pre>SET_CASEFOLD_ENABLED</code>: Enables/Disables casefold (Options: 1, 0)</p>
 <doc-anchor-target id="usbpci">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#usbpci">#</doc-anchor-trigger>
@@ -384,17 +473,17 @@ For use cases where you are dual booting or sharing system resources with multip
         <span>USB:</span>
     </h4>
 </doc-anchor-target>
-<doc-anchor-target id="usb-modes">
+<doc-anchor-target id="usb-mode-functions">
     <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usb-modes">#</doc-anchor-trigger>
-        <span>USB Modes:</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usb-mode-functions">#</doc-anchor-trigger>
+        <span>USB Mode Functions:</span>
     </h5>
 </doc-anchor-target>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
-<p>Switch USB mode (ADB/Storage) !! Requires kernel configs !!:</p>
+<p>Allows switching default USB/ADB functions via cmdline</p>
 <ul>
-<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces client mode adb settings</li>
-<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Forces USB mass_storage mode</li>
+<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)</li>
+<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
 </ul>
 <doc-anchor-target id="power--memory">
     <h3>
@@ -503,7 +592,7 @@ For use cases where you are dual booting or sharing system resources with multip
 <ul>
 <li><code v-pre>SUSPEND_TYPE</code>: Set suspend type. options: mem, disk, freeze mem, freeze disk</li>
 <li><code v-pre>PWR_OFF_DBLCLK</code>: Set power off double click. options: true,false</li>
-<li><code v-pre>SLEEP_STATE</code>: Override default sleep.state property for the device</li>
+<li><code v-pre>SLEEP_STATE</code>: Override default sleep.state property for the device. If your device supports deep sleep states, this defaults to <code v-pre>mem</code>, otherwise it defaults to <code v-pre>freeze</code>. (Options: <code v-pre>mem</code>, <code v-pre>freeze</code>, <code v-pre>force</code>)</li>
 </ul>
 <doc-anchor-target id="intel-power-options">
     <h5>
@@ -704,7 +793,6 @@ Default = false</p>
 <li><code v-pre>FORCE_DISABLE_NAVIGATION</code>: Force disable navigation bar. Options: (true|false)</li>
 <li><code v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
 <li><code v-pre>FORCE_DISABLE_NAV_TASKBAR</code>: Force disable navigation taskbar. Options: (true|false)</li>
-<li><code v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
 <li><code v-pre>FORCE_DISABLE_STATUSBAR</code>: Force disable statusbar. Options: (true|false)</li>
 <li><code v-pre>FORCE_DISABLE_RECENTS</code>: Force disable SystemUI recents. Options: (true|false)</li>
 <li><code v-pre>FORCE_HIDE_NAVBAR_WINDOW</code>: Force hide navigation bar window. Options: 0, 1</li>
@@ -754,6 +842,7 @@ Options:</p>
 <li><code v-pre>SET_SMARTDOCK_DEFAULT</code>: Set&#x27;s SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)</li>
 <li><code v-pre>ENABLE_QUICKSTEP_TASKBAR</code>: Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</li>
 <li><code v-pre>FORCE_DESKTOP_ON_EXTERNAL</code>: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1</li>
+<li><code v-pre>FORCE_QUICKSTEP_HOME</code>: Forces Quickstep to be set as default home on boot</li>
 </ul>
 <doc-anchor-target id="navigation--input-options">
     <h4>
@@ -768,14 +857,15 @@ Options:</p>
 <li><code v-pre>androidboot.force.navbar_on_secondary_displays=true</code>: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)</li>
 <li><code v-pre>androidboot.force.right_mouse_as_back=true</code>: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)</li>
 </ul>
-<doc-anchor-target id="rotationorientation">
+<doc-anchor-target id="display--input-rotationorientation">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#rotationorientation">#</doc-anchor-trigger>
-        <span>Rotation/Orientation:</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#display--input-rotationorientation">#</doc-anchor-trigger>
+        <span>Display &amp; Input Rotation/Orientation:</span>
     </h4>
 </doc-anchor-target>
 <ul>
 <li><code v-pre>SET_SF_ROTATION=*</code>: Sets surfaceflinger hardware rotation property to the value passed</li>
+<li><code v-pre>SET_SF_SWROTATION</code>: Sets surfaceflinger software rotation property to the value passed</li>
 <li><code v-pre>SET_OVERRIDE_FORCED_ORIENT=*</code>: Override forced orientation (true/false)</li>
 <li><code v-pre>SET_SYS_APP_ROTATION=*</code>: Forces system app rotation, and has three cases:
 <ul>
@@ -792,6 +882,24 @@ Options:</p>
 3 - counterclockwise orientation (270 degrees)</li>
 <li><code v-pre>SET_PRIMARY_DISPLAY_ORIENTATION=*</code>: property: ro.surface_flinger.primary_display_orientation has three cases:
 ORIENTATION_90, ORIENTATION_180, ORIENTATION_270</li>
+<li><code v-pre>SET_SECONDARY_DISPLAY_ORIENTATION</code>: Set target orientation for external displays (Options: 0=0, 1=90, 2=180, 3=270)</li>
+<li><code v-pre>SET_HDMI_ROTATION</code>: Set HDMI rotation (Options: portrait, landscape)</li>
+<li><code v-pre>SET_PER_WINDOW_INPUT_ROTATION</code> Set per window input rotation on/off (Options: true, false)</li>
+<li><code v-pre>SET_TOUCHSCREEN_ROTATION</code>: Sets the touch input orientation for the given build (Options: 0, 90, 180, 270)</li>
+<li><code v-pre>SET_ROTATION_ON_INTERNAL_DISPLAY</code>: Sets the internal display rotation (Options: 0, 90, 180, 270)</li>
+<li><code v-pre>SET_HDMIROTATION</code>: Set HDMI rotation (Options: portrait, landscape)</li>
+<li><code v-pre>SET_HDMIROTATIONLOCK</code>: Set HDMI rotation lock (Options: true or false)</li>
+<li><code v-pre>SET_SINGLEDISPLAY</code>: Forces using onle a single display (Options: true or false)</li>
+<li><code v-pre>FORCE_PRIMARY_ROTATION</code>: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)</li>
+</ul>
+<doc-anchor-target id="mouse-options">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mouse-options">#</doc-anchor-trigger>
+        <span>Mouse Options:</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>FORCE_MOUSE_PRESENTATION</code>: Forces mouse to work across multiple displays</li>
 </ul>
 <doc-anchor-target id="misc">
     <h3>
@@ -836,17 +944,15 @@ Options: (0|1)</p>
 <li><code v-pre>HIDE_APPS</code>: Hides the apps via passed comma separated list</li>
 <li><code v-pre>RESTORE_APPS</code>: Restores the apps via passed comma separated list</li>
 </ul>
-<doc-anchor-target id="usb-mode-functions">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usb-mode-functions">#</doc-anchor-trigger>
-        <span>USB Mode Functions:</span>
-    </h4>
+<doc-anchor-target id="package-options">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#package-options">#</doc-anchor-trigger>
+        <span>Package Options:</span>
+    </h5>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
-<p>Allows switching default USB/ADB functions via cmdline</p>
 <ul>
-<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)</li>
-<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
+<li><code v-pre>SET_DI_WHITELIST</code>: Sets a package name to be added to the Device Idle whitelist</li>
+<li><code v-pre>SET_SECOND_DISPLAY_PKG</code>: Force package to be launched on secondary display (Options: package_name)</li>
 </ul>
 <doc-anchor-target id="iio-options-configuration">
     <h4>
@@ -909,6 +1015,15 @@ Example: <code v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></li>
 <ul>
 <li><code v-pre>FORCE_DISABLE_ALL_RADIOS</code>: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1</li>
 <li><code v-pre>FORCE_BLUETOOTH_SERVICE</code>: Set force bluetooth service state. options: enable, disable</li>
+</ul>
+<doc-anchor-target id="test-modes">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#test-modes">#</doc-anchor-trigger>
+        <span>Test Modes:</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>BOOT_FACTORY_TEST</code>: Boot into factory test mode (Options: 1,0)</li>
 </ul>
 
                                 
