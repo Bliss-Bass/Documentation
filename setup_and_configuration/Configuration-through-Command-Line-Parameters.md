@@ -561,6 +561,7 @@ INTEL_PSTATE_STATUS=passive
 *   `androidboot.bliss.force_ime_on_all_displays=true`: Force IME on secondary displays. Uses "ro.boot.bliss.force_ime_on_all_displays" property (true,false)
 *   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
 *   `androidboot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
+*   `FORCE_MOUSE_PRESENTATION`: Forces mouse to work across multiple displays
 
 #### Display & Input Rotation/Orientation:
    
@@ -588,12 +589,6 @@ INTEL_PSTATE_STATUS=passive
 * `SET_HDMIROTATIONLOCK`: Set HDMI rotation lock (Options: true or false)
 * `SET_SINGLEDISPLAY`: Forces using onle a single display (Options: true or false)
 * `FORCE_PRIMARY_ROTATION`: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)
-
-#### Mouse Options:
-
-* `FORCE_MOUSE_PRESENTATION`: Forces mouse to work across multiple displays
-
-
 
 ### Misc:
 
