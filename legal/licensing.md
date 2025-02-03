@@ -34,7 +34,7 @@ Bass OS core is GPL-3.0 and also inherits the same Apache v2 licensing that AOSP
 
 For Bass OS/Bliss OS source, we do catalog all the repos used and their licenses. You can view that here.
 
-# FAQ
+## FAQ
 
 **Q: Does Bass OS include proprietary software?**
 
