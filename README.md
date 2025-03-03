@@ -17,6 +17,10 @@ icon: home
 
 * [Raspberry Pi Installation](Installation/raspberry-pi/raspberry-pi-installation.md)
 
+### VirtIO
+
+* [VirtIO Installation](Installation/virtio/virtio-installation.md)
+
 ## Configuration
 
 * [Configuration through Command Line Parameters](setup_and_configuration/Configuration-through-Command-Line-Parameters.md)
