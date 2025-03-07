@@ -28,6 +28,7 @@ icon: home
 * [Booting into generic builds](setup_and_configuration/booting-into-generic-builds.md)
 * [Booting into lockdown builds](setup_and_configuration/booting-into-lockdown-builds.md)
 * [Configuring Aaropa builds after install](setup_and_configuration/configuring-aaropa-builds-after-install.md)
+* [License Activation](setup_and_configuration/license-activation.md)
 
 ## Features
 
