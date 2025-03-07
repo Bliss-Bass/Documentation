@@ -8,16 +8,17 @@ icon: home
 
 ## Install Bass OS
 
-### x86_64-v2 (A12, A13)
+### x86_64-v2/x86_64-v3 (A12, A13)
 
 * [Install From Bootable USB](Installation/x86_64-v2/install-from-bootable-usb.md)
 * [Collecting bug reports](Installation/x86_64-v2/collecting-bug-reports.md)
+* [Using Android-x86 GUI Installer](Installation/x86_64-v2/using-android-x86-installer.md)
 
-### Raspberry Pi (A13)
+### Raspberry Pi (A13) aarch64
 
 * [Raspberry Pi Installation](Installation/raspberry-pi/raspberry-pi-installation.md)
 
-### VirtIO
+### VirtIO - x86_64 & aarch64 (A14)
 
 * [VirtIO Installation](Installation/virtio/virtio-installation.md)
 
@@ -55,6 +56,11 @@ icon: home
 * [Contributing Documentation](development/contributing-documentation.md)
 * [What are Linux Drivers?](development/what-are-linux-drivers.md)
 * [Porting Linux Drivers](development/porting-linux-drivers.md)
+
+## Remote Management
+
+* [Using DroidVNC-NG](remote_management/using_droidvnc-ng.md)
+* [Using Scrcpy for remote management](remote_management/using_scrcpy_for_remote_management.md)
 
 ## Legal
 
