@@ -8,17 +8,17 @@ icon: home
 
 ## Install Bass OS
 
-### x86_64-v2/x86_64-v3 (A12, A13)
+#### x86_64-v2/x86_64-v3 (A12, A13)
 
 * [Install From Bootable USB](Installation/x86_64-v2/install-from-bootable-usb.md)
 * [Collecting bug reports](Installation/x86_64-v2/collecting-bug-reports.md)
 * [Using Android-x86 GUI Installer](Installation/x86_64-v2/using-android-x86-installer.md)
 
-### Raspberry Pi (A13) aarch64
+#### Raspberry Pi (A13) aarch64
 
 * [Raspberry Pi Installation](Installation/raspberry-pi/raspberry-pi-installation.md)
 
-### VirtIO - x86_64 & aarch64 (A14)
+#### VirtIO - x86_64 & aarch64 (A14)
 
 * [VirtIO Installation](Installation/virtio/virtio-installation.md)
 
