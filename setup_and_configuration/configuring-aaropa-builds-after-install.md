@@ -8,8 +8,15 @@ But once installed, there is not obvious way to update the boot configuration fr
 
 Updating the boot configuration of the build can be done in a couple different ways:
 
-1. Using KernelSU and Termux with Nano or Vi editor to update the boot configuration. 
-2. Using DEBUG mode terminal and Vi editor to update the boot configuration.
+1. Using the Bliss Boot Config editor to update the boot configuration. 
+2. Using KernelSU and Termux with Nano or Vi editor to update the boot configuration. 
+3. Using DEBUG mode terminal and Vi editor to update the boot configuration.
+
+### Using the Bliss Boot Config editor
+
+If your Bass OS build includes the Boot Config editor then this will be the easiest way to update/edit the boot config after install. You will be able to find the Bliss Boot Config editor UI from `Settings > System > Boot Options`. From there, the initial UI will display the currently in-use options found in the kernel cmdline. 
+
+To explore the other options, the sidepanel displays icons for Slot and Other available options. 
 
 ### Using KernelSU and Termux with Nano or Vi editor
 
