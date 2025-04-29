@@ -8,7 +8,7 @@ icon: home
 
 ## Install Bass OS
 
-#### x86_64-v2/x86_64-v3 (A12, A13)
+#### Legacy Installer - x86_64-v2/x86_64-v3 (A12, A13)
 
 * [Install From Bootable USB](Installation/x86_64-v2/install-from-bootable-usb.md)
 * [Collecting bug reports](Installation/x86_64-v2/collecting-bug-reports.md)
@@ -21,6 +21,10 @@ icon: home
 #### VirtIO - x86_64 & aarch64 (A14)
 
 * [VirtIO Installation](Installation/virtio/virtio-installation.md)
+
+#### Devuan Based Installer (Aaropa based initrd/installer)
+
+* [Installation Using Aaropa Installer](Installation/x86_64-v2/Bass_OS_AIO_Android-12L-15_install_process.md)
 
 ## Configuration
 
