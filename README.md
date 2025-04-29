@@ -24,7 +24,7 @@ icon: home
 
 #### Devuan Based Installer (Aaropa based initrd/installer)
 
-* [Installation Using Aaropa Installer](Installation/x86_64-v2/Bass_OS_AIO_Android-12L-15_install_process.md)
+* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aio_android-12l-15_install_process.md)
 
 ## Configuration
 
