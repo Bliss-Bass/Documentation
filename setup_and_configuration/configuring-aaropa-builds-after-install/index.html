@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799207324013">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799208643630">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.7.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799207324013" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.7.0.799208643630" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799207324013" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799208643630" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799207324013" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799208643630" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -196,9 +196,18 @@
 </doc-anchor-target>
 <p>Updating the boot configuration of the build can be done in a couple different ways:</p>
 <ol>
+<li>Using the Bliss Boot Config editor to update the boot configuration.</li>
 <li>Using KernelSU and Termux with Nano or Vi editor to update the boot configuration.</li>
 <li>Using DEBUG mode terminal and Vi editor to update the boot configuration.</li>
 </ol>
+<doc-anchor-target id="using-the-bliss-boot-config-editor">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-the-bliss-boot-config-editor">#</doc-anchor-trigger>
+        <span>Using the Bliss Boot Config editor</span>
+    </h3>
+</doc-anchor-target>
+<p>If your Bass OS build includes the Boot Config editor then this will be the easiest way to update/edit the boot config after install. You will be able to find the Bliss Boot Config editor UI from <code v-pre>Settings &gt; System &gt; Boot Options</code>. From there, the initial UI will display the currently in-use options found in the kernel cmdline.</p>
+<p>To explore the other options, the sidepanel displays icons for Slot and Other available options.</p>
 <doc-anchor-target id="using-kernelsu-and-termux-with-nano-or-vi-editor">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#using-kernelsu-and-termux-with-nano-or-vi-editor">#</doc-anchor-trigger>
