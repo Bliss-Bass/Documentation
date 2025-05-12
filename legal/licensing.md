@@ -6,6 +6,7 @@ Bass OS is available under different licensing options designed to accommodate t
 - Bass OS licensed under commercial licenses is appropriate for development of proprietary/commercial software where you do not want to share any source code with third parties or otherwise cannot comply with the terms of the GNU GPL version 3.
 - Bass OS licensed under the GNU General Public License (GPL) version 3 is appropriate for the development of Bass OS applications provided you can comply with the terms and conditions of the GNU GPL version 3.
 - Bass OS components can be licensed under the GNU General Public License (GPL) version 3 or the commercial license choice of its developers.and are appropriate for the development of Bass OS applications commonly used with Bass OS addons or software components licensed under the commercial or GNU GPL version 3 terms and conditions.
+- Any alterations to the Bass OS source or compiled images, including repackaging, distribution of altered images, or removal of included system components is subject to license compliance requirements. If you are unable to comply with the terms and conditions of the GNU GPL version 3, you must obtain a commercial license from Navotpala Tech (Bliss Co-Labs) to use Bass OS.
 
 
 Bass OS also contains third-party code that is licensed under specific open-source licenses from the original authors (See Third-Party Code in Bass OS below). 
