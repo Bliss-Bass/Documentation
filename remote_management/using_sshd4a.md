@@ -2,7 +2,7 @@
 
 (These instructions are based off the project wiki found [here](https://github.com/tfonteyn/Sshd4a/wiki))
 
-Some Bass builds will come with Sshd4a to provide a sshd server for remote access. 
+Some Bass builds will come with Sshd4a to provide a sshd server for remote shell access, rsync and scp/sftp services. 
 
 ## Startup options.
 
