@@ -31,6 +31,12 @@ By using the Software, you acknowledge and agree that the Company may collect an
 * License status  
 * Device serial number
 
+If the User is a corporation or business using a build with NT_MDM or third-prty MDM suite, then the Company may also collect the following information:
+
+* Any supported modules that are found to be installed (VNC, ScreenView, SSHD, etc)
+* Any properties added to the Users MDM device profile
+* Any settings added to the Users MDM device profile
+
 ### **5\. Privacy**
 
 The Company respects your privacy and will handle any personal data collected in connection with the Software in accordance with the Company’s Privacy Policy, which is incorporated into this Agreement by reference. You can review the Privacy Policy [here](https://github.com/Bliss-Bass/Documentation/legal/Navotpala\_Tech\_Privacy\_Policy.md)
