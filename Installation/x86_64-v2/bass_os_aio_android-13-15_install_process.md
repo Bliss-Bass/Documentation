@@ -1,4 +1,4 @@
-# Bass OS (Android 12L-15) Install Process
+# Bass OS (Android 13-15) Install Process
 
 This document will go over how to use our Devuan GNU-Linux based installer (aka: Aaropa initrd/installer). This is quite the departure from our normal install process using the Legacy Dialog based installer and allows a more fine tuned and catered install experience, as well as compatibility with a number of additional features. 
 
@@ -10,7 +10,7 @@ This document will go over how to use our Devuan GNU-Linux based installer (aka:
 
 ## Process:
 
-Download the latest Bass OS Android 12L/14/15 iso image, and use BalenaEtcher to flash the iso onto the USB drive. 
+Download the latest Bass OS Android 13/14/15 iso image, and use BalenaEtcher to flash the iso onto the USB drive. 
 Once complete, plug in the USB drive and reboot the target device to the BIOS, and disable secure-boot and TPM, along with decrypting the target drive if needed. 
 Then make sure that you allow the USB boot option to be selected in the boot menu, and reboot to that, selecting the USB drive. 
 
