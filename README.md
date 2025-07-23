@@ -13,6 +13,7 @@ icon: home
 * [Install From Bootable USB](Installation/x86_64-v2/install-from-bootable-usb.md)
 * [Collecting bug reports](Installation/x86_64-v2/collecting-bug-reports.md)
 * [Using Android-x86 GUI Installer](Installation/x86_64-v2/using-android-x86-installer.md)
+* [Install A13-A15](Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md)
 
 #### Raspberry Pi (A13) aarch64
 
