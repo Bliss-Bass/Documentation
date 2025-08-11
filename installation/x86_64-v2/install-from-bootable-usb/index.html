@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.806595388704">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.808261091177">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.11.0.806595388704" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.11.0.808261091177" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.11.0.806595388704" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.11.0.808261091177" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.11.0.806595388704" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.11.0.808261091177" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -220,12 +220,12 @@
 </div>
 <p>We will want to start by booting into the installer by selecting the top Install option from Grub</p>
 <p>From here we will want to change the drive partition scheme to be A) EFI (VFAT) B) Android (ext4). This means that we need to delete all partitions except for the top EFI partition, and create a single new partition with the remaining space.  You will need to start by selecting &quot;Create/Modify partitions&quot;, then remove all partitions on the device. <img src="../../../.gitbook/assets/uefi-create.png" alt="Partitioning p1" /></p>
-<p>In the next screen, we need to make <strong>two</strong> partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.</p>
+<p>In the next screen, we need to make <strong>two</strong> partitions for this to work, as Bliss needs to install a bootloader to boot to. If you have a pre-existing install of linux, this step may be unnecessary.</p>
 <p>First create the EFI partition, this is the partition that is used to install the bootloader.</p>
 <ol>
 <li>Create a [ new ] partition</li>
-<li>leave First Sector default (Just press enter)</li>
-<li>for &quot;Size in Sectors&quot; all we need to do is enter <code v-pre>+512M</code></li>
+<li>Leave First Sector default (Just press enter)</li>
+<li>For &quot;Size in Sectors&quot; all we need to do is enter <code v-pre>+512M</code></li>
 <li>Set type as ef00 (or EFI)</li>
 <li>We don&#x27;t necessairly need to name this partition, but it is best practice to name it <code v-pre>EFI</code></li>
 </ol>
@@ -234,9 +234,9 @@
     <figcaption class="caption">Partitioning p2</figcaption>
 </figure>
 </p>
-<p>Next we need to make the second partition this is the partition that the bulk of android will be installed to.</p>
+<p>Next we need to make the second partition, this is the partition that the bulk of android will be installed to.</p>
 <ol>
-<li>press down until the largest chunk of free space is slected, and click [ NEW ]</li>
+<li>Press down until the largest chunk of free space is slected, and click [ NEW ]</li>
 <li>We can leave everything default. Although a name is not necesary we can call it ANDROID.</li>
 <li>Lastly we click [ WRITE ] and [ QUIT ]</li>
 </ol>
@@ -245,7 +245,7 @@
     <figcaption class="caption">Partitioned</figcaption>
 </figure>
 </p>
-<p>Now that we have the drives partitioned, we can start to install android. Select the ANDROID partition that we have made before, and format it as ext4. this is the recomended format unless windows compatibility is need, in that case select NTFS. and click &lt; Yes &gt; on the next screen</p>
+<p>Now that we have the drives partitioned, we can start to install android. Select the ANDROID partition that we have made before, and format it as ext4. This is the recomended format unless windows compatibility is needed, in that case select NTFS, and click &lt; Yes &gt; on the next screen.</p>
 <p><figure class="content-center">
     <img src="../../../.gitbook/assets/uefi-ext4.png" alt="Format Drive p1" class="rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Format Drive p1</figcaption>
@@ -255,7 +255,7 @@
     <figcaption class="caption">Format Drive p2</figcaption>
 </figure>
 </p>
-<p>The installer will procede to format and install android, you will then be prompted to install EFI GRUB2. we need to accept that, unless you have a pre-existing grub or other bootloader install</p>
+<p>The installer will procede to format and install android, you will then be prompted to install EFI GRUB2. We need to accept that, unless you have a pre-existing grub or other bootloader install.</p>
 <p><figure class="content-center">
     <img src="../../../.gitbook/assets/uefi-grub.png" alt="Install Grub" class="rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Install Grub</figcaption>
@@ -269,6 +269,27 @@
 </p>
 <p>After this step, it will also prepare the install for A/B updates. This process will take a couple minutes at most.</p>
 <p>Congratulations! You should now have a functional UEFI-boot with Bass OS!</p>
+<doc-anchor-target id="using-oem-install-efi">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-oem-install-efi">#</doc-anchor-trigger>
+        <span>Using OEM Install (EFI)</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>WARNING THIS WILL DELETE ANY DATA ON THE DRIVE</strong></p>
+<p>To start with we will boot into the installer and select OEM installer.</p>
+<img width="1920" height="1080" alt="Step1" src="https://github.com/user-attachments/assets/255b0ac0-7101-4cf9-be8f-724623c3361d" />
+<p>We will then look for &quot;BassOS_KIOSK [ Build Date ] Force EFI OEM Install to detected harddisk&quot; and select it.</p>
+<img width="1920" height="1080" alt="Step2" src="https://github.com/user-attachments/assets/5d700e24-8336-4bdc-af17-bf92e1de7b38" />
+<p>The installer will then format the disk to prepare it for installation.</p>
+<img width="1920" height="1080" alt="Step3" src="https://github.com/user-attachments/assets/01d7fee1-5439-4d5e-8f2e-1f07fc4a8f06" />
+<p>At this point it will run a filesystem check to verify the formatting was done correctly.</p>
+<img width="1920" height="1080" alt="Step4" src="https://github.com/user-attachments/assets/257cbce3-5cb8-429d-94e4-5c59e4f70498" />
+<p>Installing (This takes the longest)</p>
+<img width="1920" height="1080" alt="Step5" src="https://github.com/user-attachments/assets/cd1dc249-2e69-4669-b030-4c8354e1ca50" />
+<p>Preparing a seprate partition for updates (A/B partitions)</p>
+<img width="1920" height="1080" alt="Step6" src="https://github.com/user-attachments/assets/6e7f785a-a647-4f18-9ad3-6b0f2b215119" />
+<p>Now it will reboot and we can unplug the USB drive.</p>
+<img width="1920" height="1080" alt="Step7" src="https://github.com/user-attachments/assets/93690acf-d224-4c99-9079-4a659c94bd34" />
 
                                 
                                 <!-- Required only on API pages -->
