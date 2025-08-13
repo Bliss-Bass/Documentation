@@ -1,6 +1,6 @@
 **Navotpala Tech Privacy Policy**
 
-**Effective Date:** 2024-08-29
+**Effective Starting Date:** 2024-08-29
 
 **1\. Introduction**
 
