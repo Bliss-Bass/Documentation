@@ -50,7 +50,7 @@ If you have any questions or concerns about this Privacy Policy or our data prac
 
 **Navotpala Tech** (Bliss Co-Labs)
 
-1549 Richmond St NW.   
+128 Dale St NE.   
 Grand Rapids, MI 49505\. USA
 
 info@navotpala.tech
