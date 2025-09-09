@@ -33,6 +33,7 @@ For most devices, we suggest using the following options:
 - Media Codecs > FFMPEG Codecs > Set FFMPEG Codec2 as default
 - Audio > Set default Audio HAL to x86
 - Bluetooth > Use btlinux Bluetooth HAL instead
+- Power/Sleep Options > Set power non-boot CPU off
 
 Bass OS Options (all options underneath "miscellaneous") at the bottom will also have all the added features and configs available in Bass OS. To test initial compatibility, we suggest installing with a bare minimum set of options and then testing through Grub for target use-cases. Once the required options are defined through testing, you can reinstall with the required options.
 
