@@ -21,11 +21,21 @@ Connect to the device using ADB, and run the following command to collect its se
  
  `adb shell getprop ro.bliss.serialnumber`
 
-Take the value returned and you can contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Ad/Signage%20Licensing) with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete. 
+## License Payment
 
-From there, you can use adb to reboot each device for it to confirm it's license status once it reconnects to the internet:
+### Single Device Licensing
+
+We offer an easy method to purchase single device licenses through our website here: [BassOS Single Device Licensing](https://bassos.navotpala.tech/licensing/#device-license)
+
+### Bulk Licensing
+
+We require a licensing contract for any more than 10 licenses. Follow the steps above to gather the serial numbers required, and contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing) with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete. 
+
+From there, you can manually navigate each device to Settings > Device Status & check license status from there, reboot each device, or use adb to reboot each device for it to confirm it's license status once it reconnects to the internet:
 
 ```
 adb root
 adb shell reboot -f
 ```
+
+We also offer bulk license management through our Access Guard application which is available through contract only. For more info on that service, please contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Access Guard Licensing) and express your interest. 
