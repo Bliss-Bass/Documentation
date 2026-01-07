@@ -39,6 +39,10 @@ icon: home
 * [License Activation](setup_and_configuration/license-activation.md)
 * [Updating Legacy Grub](setup_and_configuration/updating_legacy_grub.md)
 
+## Troubleshooting
+
+* [Debug Mode Guide](troubleshooting/debug_mode_guide.md)
+
 ## Features
 
 * [Admin Restriction](features/admin-restriction.md)
