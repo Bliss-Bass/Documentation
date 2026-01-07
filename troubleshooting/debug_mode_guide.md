@@ -154,3 +154,50 @@ Once you have saved the boot log or `dmesg` output to an external USB drive, you
 - `:wq`: Save the file and quit.
 
 These commands should help you navigate and analyze the saved logs using Vim. Remember to consult the Vim documentation for more advanced commands and features.
+
+## Debugging with a Live Linux (Ubuntu) USB
+
+If you have access to a Live Linux (Ubuntu) USB, you can use it to debug your Bliss OS/Bass OS device. Here's how you can do it:
+
+1. Boot your device into debug mode (`DEBUG=1` or `DEBUG=2`).
+2. Type `'exit'` to continue booting the device.
+3. Boot until the device hangs or encounters an issue.
+4. Power off the device.
+5. Boot into the Live Linux (Ubuntu) USB. Make sure it supports the architecture of your device (e.g., 32-bit or 64-bit).
+6. Once the Live Linux (Ubuntu) USB is booted, connect it to your device using a USB cable.
+7. Open a terminal on the Live Linux (Ubuntu) USB.
+8. Run the following command to mount the drive of your Bliss OS/Bass OS device:
+
+   ```
+   sudo mount /dev/sdX /mnt
+   ```
+
+   Replace `/dev/sdX` with the actual device name of your Bliss OS/Bass OS device.
+
+9. Navigate to the mounted drive using the `cd` command. For example:
+
+   ```
+   cd /mnt
+   ```
+
+10. Find the `/tmp/log` file on the mounted drive. You can use the `ls` command to list the files and directories. For example:
+
+    ```
+    ls
+    ```
+
+11. Copy the `/tmp/log` file from the mounted drive to the Live Linux (Ubuntu) USB. You can use the `cp` command to copy the file. For example:
+
+    ```
+    sudo cp /mnt/tmp/log /path/to/destination/on/the/Live/Linux/USB/log.txt
+    ```
+
+    Replace `/path/to/destination/on/the/Live/Linux/USB` with the actual path where you want to save the file on the Live Linux (Ubuntu) USB.
+
+12. Unmount the drive when you're done:
+
+    ```
+    sudo umount /mnt
+    ```
+
+13. Now you can use the Live Linux (Ubuntu) USB to analyze the copied log file using tools like Vim, grep, or any other text editors or utilities available on the Live Linux (Ubuntu) USB.
