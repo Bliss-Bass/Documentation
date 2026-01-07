@@ -132,29 +132,6 @@ Now you have the `dmesg` output saved to the external USB drive for further anal
 
 Remember to consult the official documentation for Bliss OS/Bass OS for more detailed information on using the debug modes and troubleshooting specific issues.
 
-## Navigating Saved Logs with Vim
-
-Once you have saved the boot log or `dmesg` output to an external USB drive, you can use Vim to navigate and analyze the logs. Here are some common Vim commands to help you navigate the saved logs:
-
-- `j`: Move down one line.
-- `k`: Move up one line.
-- `Ctrl + d`: Scroll down half a screen.
-- `Ctrl + u`: Scroll up half a screen.
-- `gg`: Move to the beginning of the file.
-- `G`: Move to the end of the file.
-- `i`: Enter insert mode at the beginning of a line.
-- `a`: Enter insert mode at the end of a line.
-- `Esc`: Exit insert mode.
-- `yy`: Copy current line.
-- `p`: Paste after the cursor.
-- `P`: Paste before the cursor.
-- `:w`: Save the file.
-- `:q`: Quit the file.
-- `:q!`: Quit the file without saving.
-- `:wq`: Save the file and quit.
-
-These commands should help you navigate and analyze the saved logs using Vim. Remember to consult the Vim documentation for more advanced commands and features.
-
 ## Debugging with a Live Linux (Ubuntu) USB
 
 If you have access to a Live Linux (Ubuntu) USB, you can use it to debug your Bliss OS/Bass OS device. Here's how you can do it:
@@ -201,3 +178,26 @@ If you have access to a Live Linux (Ubuntu) USB, you can use it to debug your Bl
     ```
 
 13. Now you can use the Live Linux (Ubuntu) USB to analyze the copied log file using tools like Vim, grep, or any other text editors or utilities available on the Live Linux (Ubuntu) USB.
+
+## Navigating Saved Logs with Vim
+
+Once you have saved the boot log or `dmesg` output to an external USB drive, you can use Vim to navigate and analyze the logs. Here are some common Vim commands to help you navigate the saved logs:
+
+- `j`: Move down one line.
+- `k`: Move up one line.
+- `Ctrl + d`: Scroll down half a screen.
+- `Ctrl + u`: Scroll up half a screen.
+- `gg`: Move to the beginning of the file.
+- `G`: Move to the end of the file.
+- `i`: Enter insert mode at the beginning of a line.
+- `a`: Enter insert mode at the end of a line.
+- `Esc`: Exit insert mode.
+- `yy`: Copy current line.
+- `p`: Paste after the cursor.
+- `P`: Paste before the cursor.
+- `:w`: Save the file.
+- `:q`: Quit the file.
+- `:q!`: Quit the file without saving.
+- `:wq`: Save the file and quit.
+
+These commands should help you navigate and analyze the saved logs using Vim. Remember to consult the Vim documentation for more advanced commands and features.
