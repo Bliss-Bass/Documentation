@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.821065569370">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.821068418737">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.821065569370" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.821068418737" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.821065569370" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.821068418737" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.821065569370" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.821068418737" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -321,32 +321,6 @@
 </ol>
 <p>Now you have the <code v-pre>dmesg</code> output saved to the external USB drive for further analysis.</p>
 <p>Remember to consult the official documentation for Bliss OS/Bass OS for more detailed information on using the debug modes and troubleshooting specific issues.</p>
-<doc-anchor-target id="navigating-saved-logs-with-vim">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#navigating-saved-logs-with-vim">#</doc-anchor-trigger>
-        <span>Navigating Saved Logs with Vim</span>
-    </h2>
-</doc-anchor-target>
-<p>Once you have saved the boot log or <code v-pre>dmesg</code> output to an external USB drive, you can use Vim to navigate and analyze the logs. Here are some common Vim commands to help you navigate the saved logs:</p>
-<ul>
-<li><code v-pre>j</code>: Move down one line.</li>
-<li><code v-pre>k</code>: Move up one line.</li>
-<li><code v-pre>Ctrl + d</code>: Scroll down half a screen.</li>
-<li><code v-pre>Ctrl + u</code>: Scroll up half a screen.</li>
-<li><code v-pre>gg</code>: Move to the beginning of the file.</li>
-<li><code v-pre>G</code>: Move to the end of the file.</li>
-<li><code v-pre>i</code>: Enter insert mode at the beginning of a line.</li>
-<li><code v-pre>a</code>: Enter insert mode at the end of a line.</li>
-<li><code v-pre>Esc</code>: Exit insert mode.</li>
-<li><code v-pre>yy</code>: Copy current line.</li>
-<li><code v-pre>p</code>: Paste after the cursor.</li>
-<li><code v-pre>P</code>: Paste before the cursor.</li>
-<li><code v-pre>:w</code>: Save the file.</li>
-<li><code v-pre>:q</code>: Quit the file.</li>
-<li><code v-pre>:q!</code>: Quit the file without saving.</li>
-<li><code v-pre>:wq</code>: Save the file and quit.</li>
-</ul>
-<p>These commands should help you navigate and analyze the saved logs using Vim. Remember to consult the Vim documentation for more advanced commands and features.</p>
 <doc-anchor-target id="debugging-with-a-live-linux-ubuntu-usb">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#debugging-with-a-live-linux-ubuntu-usb">#</doc-anchor-trigger>
@@ -391,6 +365,32 @@
 </li>
 <li>Now you can use the Live Linux (Ubuntu) USB to analyze the copied log file using tools like Vim, grep, or any other text editors or utilities available on the Live Linux (Ubuntu) USB.</li>
 </ol>
+<doc-anchor-target id="navigating-saved-logs-with-vim">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#navigating-saved-logs-with-vim">#</doc-anchor-trigger>
+        <span>Navigating Saved Logs with Vim</span>
+    </h2>
+</doc-anchor-target>
+<p>Once you have saved the boot log or <code v-pre>dmesg</code> output to an external USB drive, you can use Vim to navigate and analyze the logs. Here are some common Vim commands to help you navigate the saved logs:</p>
+<ul>
+<li><code v-pre>j</code>: Move down one line.</li>
+<li><code v-pre>k</code>: Move up one line.</li>
+<li><code v-pre>Ctrl + d</code>: Scroll down half a screen.</li>
+<li><code v-pre>Ctrl + u</code>: Scroll up half a screen.</li>
+<li><code v-pre>gg</code>: Move to the beginning of the file.</li>
+<li><code v-pre>G</code>: Move to the end of the file.</li>
+<li><code v-pre>i</code>: Enter insert mode at the beginning of a line.</li>
+<li><code v-pre>a</code>: Enter insert mode at the end of a line.</li>
+<li><code v-pre>Esc</code>: Exit insert mode.</li>
+<li><code v-pre>yy</code>: Copy current line.</li>
+<li><code v-pre>p</code>: Paste after the cursor.</li>
+<li><code v-pre>P</code>: Paste before the cursor.</li>
+<li><code v-pre>:w</code>: Save the file.</li>
+<li><code v-pre>:q</code>: Quit the file.</li>
+<li><code v-pre>:q!</code>: Quit the file without saving.</li>
+<li><code v-pre>:wq</code>: Save the file and quit.</li>
+</ul>
+<p>These commands should help you navigate and analyze the saved logs using Vim. Remember to consult the Vim documentation for more advanced commands and features.</p>
 
                                 
                                 <!-- Required only on API pages -->
