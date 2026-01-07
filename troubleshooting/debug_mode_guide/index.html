@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.821064829768">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.821065569370">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.821064829768" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.821065569370" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.821064829768" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.821065569370" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.821064829768" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.821065569370" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -347,6 +347,50 @@
 <li><code v-pre>:wq</code>: Save the file and quit.</li>
 </ul>
 <p>These commands should help you navigate and analyze the saved logs using Vim. Remember to consult the Vim documentation for more advanced commands and features.</p>
+<doc-anchor-target id="debugging-with-a-live-linux-ubuntu-usb">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#debugging-with-a-live-linux-ubuntu-usb">#</doc-anchor-trigger>
+        <span>Debugging with a Live Linux (Ubuntu) USB</span>
+    </h2>
+</doc-anchor-target>
+<p>If you have access to a Live Linux (Ubuntu) USB, you can use it to debug your Bliss OS/Bass OS device. Here&#x27;s how you can do it:</p>
+<ol>
+<li>Boot your device into debug mode (<code v-pre>DEBUG=1</code> or <code v-pre>DEBUG=2</code>).</li>
+<li>Type <code v-pre>'exit'</code> to continue booting the device.</li>
+<li>Boot until the device hangs or encounters an issue.</li>
+<li>Power off the device.</li>
+<li>Boot into the Live Linux (Ubuntu) USB. Make sure it supports the architecture of your device (e.g., 32-bit or 64-bit).</li>
+<li>Once the Live Linux (Ubuntu) USB is booted, connect it to your device using a USB cable.</li>
+<li>Open a terminal on the Live Linux (Ubuntu) USB.</li>
+<li><p>Run the following command to mount the drive of your Bliss OS/Bass OS device:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">sudo mount /dev/sdX /mnt</code></pre>
+</doc-codeblock></div>
+<p>Replace <code v-pre>/dev/sdX</code> with the actual device name of your Bliss OS/Bass OS device.</p>
+</li>
+<li><p>Navigate to the mounted drive using the <code v-pre>cd</code> command. For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">cd /mnt</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Find the <code v-pre>/tmp/log</code> file on the mounted drive. You can use the <code v-pre>ls</code> command to list the files and directories. For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">ls</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Copy the <code v-pre>/tmp/log</code> file from the mounted drive to the Live Linux (Ubuntu) USB. You can use the <code v-pre>cp</code> command to copy the file. For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">sudo cp /mnt/tmp/log /path/to/destination/on/the/Live/Linux/USB/log.txt</code></pre>
+</doc-codeblock></div>
+<p>Replace <code v-pre>/path/to/destination/on/the/Live/Linux/USB</code> with the actual path where you want to save the file on the Live Linux (Ubuntu) USB.</p>
+</li>
+<li><p>Unmount the drive when you&#x27;re done:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">sudo umount /mnt</code></pre>
+</doc-codeblock></div>
+</li>
+<li>Now you can use the Live Linux (Ubuntu) USB to analyze the copied log file using tools like Vim, grep, or any other text editors or utilities available on the Live Linux (Ubuntu) USB.</li>
+</ol>
 
                                 
                                 <!-- Required only on API pages -->
