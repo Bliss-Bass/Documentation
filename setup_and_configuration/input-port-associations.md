@@ -22,17 +22,17 @@ Use the getevent command via adb shell to find the unique "location" string for 
 adb shell getevent -i | grep location
 ```
 This command will output information like:
-- location: "usb-xhci-hcd.0.auto-1.1/input0"
-- location: "usb-xhci-hcd.0.auto-1.2/input0"
+- location: "usb-0000:00:14.0-7.3.4/input0"
+- location: "usb-0000:00:14.0-7.2.4/input0"
 
 ### Edit the input-port-addon.xml file:
 Create the file to update the associations between the display ports and input locations.Example XML structure:
 ```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <input-port-associations>
-    <!-- Bind input device with location "usb-xhci-hcd.0.auto-1.1/input0" to display port "0" -->
+    <!-- Bind input device with location "usb-0000:00:14.0-7.3.4/input0" to display port "0" -->
     <port display="0" input="usb-0000:00:14.0-7.3.4/input0" />
-    <!-- Bind input device with location "usb-xhci-hcd.0.auto-1.2/input0" to display port "1" -->
+    <!-- Bind input device with location "usb-0000:00:14.0-7.2.4/input0" to display port "1" -->
     <port display="1" input="usb-0000:00:14.0-7.2.4/input0" />
 </input-port-associations>
 ```
