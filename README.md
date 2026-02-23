@@ -38,6 +38,7 @@ icon: home
 * [Configuring Aaropa builds after install](setup_and_configuration/configuring-aaropa-builds-after-install.md)
 * [License Activation](setup_and_configuration/license-activation.md)
 * [Updating Legacy Grub](setup_and_configuration/updating_legacy_grub.md)
+* [Creating an input-port-addon.xml file](setup_and_configuration/input-port-associations.md)
 
 ## Troubleshooting
 
