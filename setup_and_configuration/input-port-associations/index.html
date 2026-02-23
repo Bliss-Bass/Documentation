@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.825189306844">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.825190223680">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.12.0.825189306844" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0.825190223680" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0.825189306844" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0.825190223680" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0.825189306844" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0.825189306844" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0.825190223680" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.12.0.825190223680" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -191,8 +191,10 @@
 </doc-codeblock></div>
 <p>This command will output information like:</p>
 <ul>
-<li>Display 4693505326422272 (HWC display 0): port=0 ...</li>
-<li>Display 4693505326422273 (HWC display 1): port=1 ...</li>
+<li>Display 4693505326422272 (HWC display 0): port=0 pnpId=DEL displayName=&quot;DELL P2314T&quot;</li>
+<li>Display 4693505326422273 (HWC display 1): port=1 pnpId=DEL displayName=&quot;DELL P2314T&quot;</li>
+<li>Display 4692921138614786 (HWC display 2): port=2 pnpId=DEL displayName=&quot;DELL S2740L&quot;</li>
+<li>Display 18309706364381699 (HWC display 3): port=3 pnpId=PHL displayName=&quot;PHL 245C5&quot;</li>
 </ul>
 <doc-anchor-target id="obtain-input-device-locations">
     <h3>
@@ -208,6 +210,7 @@
 <ul>
 <li>location: &quot;usb-0000:00:14.0-7.3.4/input0&quot;</li>
 <li>location: &quot;usb-0000:00:14.0-7.2.4/input0&quot;</li>
+<li>...</li>
 </ul>
 <doc-anchor-target id="edit-the-input-port-addonxml-file">
     <h3>
@@ -217,13 +220,14 @@
 </doc-anchor-target>
 <p>Create the file to update the associations between the display ports and input locations.Example XML structure:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;?xml version='1.0' encoding='utf-8' standalone='yes' ?&gt;
-&lt;input-port-associations&gt;
-    &lt;!-- Bind input device with location &quot;usb-0000:00:14.0-7.3.4/input0&quot; to display port &quot;0&quot; --&gt;
-    &lt;port display=&quot;0&quot; input=&quot;usb-0000:00:14.0-7.3.4/input0&quot; /&gt;
-    &lt;!-- Bind input device with location &quot;usb-0000:00:14.0-7.2.4/input0&quot; to display port &quot;1&quot; --&gt;
-    &lt;port display=&quot;1&quot; input=&quot;usb-0000:00:14.0-7.2.4/input0&quot; /&gt;
-&lt;/input-port-associations&gt;</code></pre>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;ports&gt;
+	&lt;port display=&quot;0&quot; input=&quot;usb-xhci-cdns3-1.1.4/input0&quot; /&gt;
+	&lt;port display=&quot;1&quot; input=&quot;usb-xhci-cdns3-1.2.4/input0&quot; /&gt;
+	&lt;port display=&quot;2&quot; input=&quot;usb-xhci-cdns3-1.3.4/input0&quot; /&gt;
+	&lt;port display=&quot;3&quot; input=&quot;usb-xhci-cdns3-1.4.4/input0&quot; /&gt;
+	&lt;port display=&quot;0&quot; input=&quot;usb-xhci-cdns3-1.4/input0&quot; /&gt;
+	&lt;port display=&quot;0&quot; input=&quot;usb-ci_hdrc.0-1.4/input0&quot; /&gt;
+&lt;/ports&gt;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="push-the-change-to-the-device">
     <h3>
