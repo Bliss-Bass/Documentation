@@ -56,6 +56,7 @@ icon: home
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md)
 * [Bliss Kiosk Launcher](applications/BlissKioskLauncher/BlissKioskLauncher.md)
 * [Bliss Restricted Launcher](applications/BlissRestrictedLauncher/BlissRestrictedLauncher.md)
+* [SmartDock DFC](applications/SmartDockDFC/README.md)
 
 ## Interfaces
 
