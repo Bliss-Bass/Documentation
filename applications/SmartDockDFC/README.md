@@ -45,6 +45,3 @@ SmartDock DFC is a commercial distribution. While it incorporates components and
 For licensing inquiries, volume distribution, or enterprise support, please contact Navotpala Tech (Bliss Co-Labs Inc):
 - **Email:** info@navotpala.tech
 
-## Contributors
-Created by Axel358 & electrikjesus.
-[See full list of contributors](Contributors.md)
