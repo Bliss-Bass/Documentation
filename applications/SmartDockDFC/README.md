@@ -1,5 +1,4 @@
 <div align="center">
-  <h1>Smart Dock DFC</h1>
   Smart Desktop Framework Component for Android.
   A user-friendly desktop mode launcher that offers a modern and customizable user interface.
 </div>
