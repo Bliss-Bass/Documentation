@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827710232733">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827771639702">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.4.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>SmartDockDFC</title>
     <meta name="title" content="SmartDockDFC">
-    <meta name="description" content="SmartDock DFC (Desktop Framework Component) is a complete reimagining of the Android interface, built to bridge the gap between mobile flexibility and">
+    <meta name="description" content="Apps menu QSW/Notifications drawer">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/smartdockdfc/">
@@ -21,7 +21,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/smartdockdfc/">
     <meta property="og:title" content="SmartDockDFC">
-    <meta property="og:description" content="SmartDock DFC (Desktop Framework Component) is a complete reimagining of the Android interface, built to bridge the gap between mobile flexibility and">
+    <meta property="og:description" content="Apps menu QSW/Notifications drawer">
+    <meta property="og:image" content="https://docs.blisscolabs.dev/applications/smartdockdfc/images/ss02.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="SmartDockDFC">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -29,16 +33,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/smartdockdfc/">
     <meta name="twitter:title" content="SmartDockDFC">
-    <meta name="twitter:description" content="SmartDock DFC (Desktop Framework Component) is a complete reimagining of the Android interface, built to bridge the gap between mobile flexibility and">
+    <meta name="twitter:description" content="Apps menu QSW/Notifications drawer">
+    <meta name="twitter:image" content="https://docs.blisscolabs.dev/applications/smartdockdfc/images/ss02.png">
+    <meta name="twitter:image:alt" content="SmartDockDFC">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.4.0.827710232733" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.4.0.827771639702" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827710232733" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827771639702" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827710232733" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.4.0.827710232733" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827771639702" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.4.0.827771639702" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -161,9 +167,14 @@
   Smart Desktop Framework Component for Android.
   A user-friendly desktop mode launcher that offers a modern and customizable user interface.
 </div>
-<p align="center">
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/ss02.png" width="45%" />
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/ss03.png" width="45%" />
+<p><figure class="content-center">
+    <img src="images/ss02.png" alt="Apps menu" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1920" height="1080" title="image_tooltip" />
+    <figcaption class="caption">Apps menu</figcaption>
+</figure>
+<figure class="content-center">
+    <img src="images/ss03.png" alt="QSW/Notifications drawer" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1920" height="1080" title="image_tooltip" />
+    <figcaption class="caption">QSW/Notifications drawer</figcaption>
+</figure>
 </p>
 <h2 id="overview">Overview</h2>
 <p>SmartDock DFC (Desktop Framework Component) is a complete reimagining of the Android interface, built to bridge the gap between mobile flexibility and desktop productivity. It transforms any AOSP-based device into a professional workstation with a focus on multi-window multitasking and OEM-level customization.</p>
@@ -192,17 +203,12 @@
 </doc-codeblock></div>
 <h3 id="build-environment">Build Environment</h3>
 <p>SmartDock DFC is designed to be built as a privileged system component. Refer to the <strong><a href="vendor_guide/">Vendor Implementation Guide</a></strong> for instructions on including the <code translate="no" v-pre>SmartDock.mk</code> product configuration in your AOSP build.</p>
-<h2 id="get-help-and-ask-questions">Get help and ask questions</h2>
-<ul>
-<li><strong>Telegram Support:</strong> <a href="https://t.me/smartdock358">Join the group</a></li>
-</ul>
 <h2 id="licensing">Licensing</h2>
 <p>SmartDock DFC is a commercial distribution. While it incorporates components and logic derived from the open-source GPL-licensed SmartDock project, this DFC edition has been extensively modified and enhanced for professional OEM and enterprise environments.</p>
 <p><strong>This version is NOT licensed under the GPL and is available exclusively via commercial licensing.</strong></p>
 <p>For licensing inquiries, volume distribution, or enterprise support, please contact Navotpala Tech (Bliss Co-Labs Inc):</p>
 <ul>
 <li><strong>Email:</strong> <a href="mailto:info@navotpala.tech">info@navotpala.tech</a></li>
-<li><strong>Telegram:</strong> @electrikjesus / @Axel358</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <p>Created by Axel358 &amp; electrikjesus.
