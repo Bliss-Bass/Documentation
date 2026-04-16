@@ -17,6 +17,7 @@ The Software is licensed, not sold. The Company retains all rights, title, and i
 You may not:
 
 * Modify, adapt, translate, or create derivative works based on the Software.
+* Repackage, redistribute, or remove any default components, content, or configurations included with the Software.
 * Disable any system services that are used in licensing or serial number generation.
 * Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Software.  
 * Rent, lease, sell, sublicense, assign, or transfer your rights under this Agreement to any third party.
