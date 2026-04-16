@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827775276301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829671661647">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.4.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Using DroidVNC-NG</title>
@@ -16,6 +16,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/remote_management/using_droidvnc-ng/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -31,14 +32,17 @@
     <meta name="twitter:title" content="Using DroidVNC-NG">
     <meta name="twitter:description" content="(These instructions are based off the project readme found here)">
 
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/remote_management/using_droidvnc-ng.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.4.0.827775276301" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829671661647" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.4.0.827775276301" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.829671661647" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -151,9 +155,11 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
 <h1 id="using-droidvnc-ng">Using DroidVNC-NG</h1>
 <p>(These instructions are based off the project readme found <a href="https://github.com/bk138/droidVNC-NG">here</a>)</p>
@@ -176,9 +182,14 @@
 </ul>
 <h3 id="for-accepting-connections-from-outside">For accepting connections from outside</h3>
 <ol>
-<li>You should allow <a href="https://en.wikipedia.org/wiki/Port_forwarding">Port Forwarding</a> in your router&#x27;s Firewall settings. Login to your router&#x27;s settings (usually open 192.168.1.1 in your browser, some routers have password written on them).</li>
-<li>Find Port Forwarding, usually it&#x27;s somewhere in <strong>Network - Firewall - Port Forwards</strong>.</li>
-<li><p>Create a new rule, this is an example from OpenWRT firmware.</p>
+<li>
+<p>You should allow <a href="https://en.wikipedia.org/wiki/Port_forwarding">Port Forwarding</a> in your router&#x27;s Firewall settings. Login to your router&#x27;s settings (usually open 192.168.1.1 in your browser, some routers have password written on them).</p>
+</li>
+<li>
+<p>Find Port Forwarding, usually it&#x27;s somewhere in <strong>Network - Firewall - Port Forwards</strong>.</p>
+</li>
+<li>
+<p>Create a new rule, this is an example from OpenWRT firmware.</p>
 <p>Name: <strong>VNC forwarding</strong></p>
 <p>Protocol: <strong>TCP</strong></p>
 <p>Source zone: <strong>wan</strong> may be &quot;internet&quot;, &quot;modem&quot;, something that suggests the external source.</p>
@@ -187,9 +198,15 @@
 <p>Internal IP address: your device&#x27;s local IP address, leaving <strong>any</strong> is less secure. The device&#x27;s address may change over time! You can look it up in your routers&#x27; connected clients info.</p>
 <p>Internal port: same as external port.</p>
 </li>
-<li>Apply the settings, sometimes it requires rebooting a router.</li>
-<li>Figure out your public address i.e. <a href="https://www.hashemian.com/whoami/">https://www.hashemian.com/whoami/</a>.</li>
-<li>Use this address and port from above to connect to your device.</li>
+<li>
+<p>Apply the settings, sometimes it requires rebooting a router.</p>
+</li>
+<li>
+<p>Figure out your public address i.e. <a href="https://www.hashemian.com/whoami/">https://www.hashemian.com/whoami/</a>.</p>
+</li>
+<li>
+<p>Use this address and port from above to connect to your device.</p>
+</li>
 </ol>
 <h3 id="how-to-pre-seed-preferences">How to Pre-seed Preferences</h3>
 <p>DroidVNC-NG can read a JSON file with default settings that apply if settings were not changed
@@ -221,7 +238,8 @@ like <a href="https://www.macrodroid.com/">MacroDroid</a>, <a href="https://llam
 <p>You basically send an explicit Intent to <code translate="no" v-pre>net.christianbeier.droidvnc_ng.MainService</code> with one of
 the following Actions and associated Extras set:</p>
 <ul>
-<li><p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_START</code>: Starts the server.</p>
+<li>
+<p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_START</code>: Starts the server.</p>
 <ul>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_ACCESS_KEY</code>: Required String Extra containing the remote control interface&#x27;s access key. You can get/set this from the Admin Panel.</li>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_REQUEST_ID</code>: Optional String Extra containing a unique id for this request. Used to identify the answer from the service.</li>
@@ -235,7 +253,8 @@ the following Actions and associated Extras set:</p>
 user interaction to start but is slow and needs view-only to be off. Only applicable to Android 10 and newer.</li>
 </ul>
 </li>
-<li><p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_CONNECT_REVERSE</code>: Make an outbound connection to a listening viewer.</p>
+<li>
+<p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_CONNECT_REVERSE</code>: Make an outbound connection to a listening viewer.</p>
 <ul>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_ACCESS_KEY</code>: Required String Extra containing the remote control interface&#x27;s access key. You can get/set this from the Admin Panel.</li>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_REQUEST_ID</code>: Optional String Extra containing a unique id for this request. Used to identify the answer from the service.</li>
@@ -244,7 +263,8 @@ user interaction to start but is slow and needs view-only to be off. Only applic
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_RECONNECT_TRIES</code>: Optional Integer Extra setting the number of tries reconnecting a once established connection. Needs request id to be set.</li>
 </ul>
 </li>
-<li><p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_CONNECT_REPEATER</code> Make an outbound connection to a repeater.</p>
+<li>
+<p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_CONNECT_REPEATER</code> Make an outbound connection to a repeater.</p>
 <ul>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_ACCESS_KEY</code>: Required String Extra containing the remote control interface&#x27;s access key. You can get/set this from the Admin Panel.</li>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_REQUEST_ID</code>: Optional String Extra containing a unique id for this request. Used to identify the answer from the service.</li>
@@ -254,7 +274,8 @@ user interaction to start but is slow and needs view-only to be off. Only applic
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_RECONNECT_TRIES</code>: Optional Integer Extra setting the number of tries reconnecting a once established connection. Needs request id to be set.</li>
 </ul>
 </li>
-<li><p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_STOP</code>: Stops the server.</p>
+<li>
+<p><code translate="no" v-pre>net.christianbeier.droidvnc_ng.ACTION_STOP</code>: Stops the server.</p>
 <ul>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_ACCESS_KEY</code>: Required String Extra containing the remote control interface&#x27;s access key. You can get/set this from the Admin Panel.</li>
 <li><code translate="no" v-pre>net.christianbeier.droidvnc_ng.EXTRA_REQUEST_ID</code>: Optional String Extra containing a unique id for this request. Used to identify the answer from the service.</li>
@@ -407,6 +428,6 @@ startForegroundService(intent)</code></pre>
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Using DroidVNC-NG", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Using DroidVNC-NG", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/remote_management/using_droidvnc-ng.md" }</script>
 </body>
 </html>

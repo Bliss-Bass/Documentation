@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827775276301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829671661647">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.4.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Debug Mode Guide for Bliss OS/Bass OS</title>
     <meta name="title" content="Debug Mode Guide for Bliss OS/Bass OS">
-    <meta name="description" content="Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device">
+    <meta name="description" content="Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device that is not booting correctly.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/troubleshooting/debug_mode_guide/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/troubleshooting/debug_mode_guide/">
     <meta property="og:title" content="Debug Mode Guide for Bliss OS/Bass OS">
-    <meta property="og:description" content="Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device">
+    <meta property="og:description" content="Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device that is not booting correctly.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -29,15 +30,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/troubleshooting/debug_mode_guide/">
     <meta name="twitter:title" content="Debug Mode Guide for Bliss OS/Bass OS">
-    <meta name="twitter:description" content="Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device">
+    <meta name="twitter:description" content="Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device that is not booting correctly.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/troubleshooting/debug_mode_guide.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.4.0.827775276301" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829671661647" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -150,9 +154,11 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
 <h1 id="debug-mode-guide-for-bliss-osbass-os">Debug Mode Guide for Bliss OS/Bass OS</h1>
 <p>Bliss OS/Bass OS provides two debug modes: <code translate="no" v-pre>DEBUG=1</code> and <code translate="no" v-pre>DEBUG=2</code>. These modes offer different features and troubleshooting steps to help you debug a device that is not booting correctly.</p>
@@ -197,13 +203,15 @@
 <h2 id="troubleshooting-steps">Troubleshooting Steps</h2>
 <p>Here are some common troubleshooting steps you can follow in debug mode:</p>
 <ol>
-<li><p>Check the boot logs: Review the detailed boot logs to identify any errors or issues that may be causing the device to fail to boot. This command opens the boot log file in Vim for editing:</p>
+<li>
+<p>Check the boot logs: Review the detailed boot logs to identify any errors or issues that may be causing the device to fail to boot. This command opens the boot log file in Vim for editing:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">vi /tmp/log</code></pre>
 </doc-codeblock></div>
 </li>
 <li>Access the serial console: Use the serial console to interact with the boot process and gather more information about the issue.</li>
-<li><p>Check kernel messages: Review the debug kernel messages to identify any kernel-related issues.</p>
+<li>
+<p>Check kernel messages: Review the debug kernel messages to identify any kernel-related issues.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">dmesg &gt; /tmp/dmesg.log</code></pre>
 </doc-codeblock></div>
@@ -219,19 +227,22 @@
 <ol>
 <li>Boot your device into debug mode (<code translate="no" v-pre>DEBUG=1</code> or <code translate="no" v-pre>DEBUG=2</code>).</li>
 <li>Connect an external USB drive to your device.</li>
-<li><p>Mount the USB drive to a directory on your device. For example, you can use the following command to mount the USB drive to <code translate="no" v-pre>/mnt</code>:</p>
+<li>
+<p>Mount the USB drive to a directory on your device. For example, you can use the following command to mount the USB drive to <code translate="no" v-pre>/mnt</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo mount /dev/sdX /mnt</code></pre>
 </doc-codeblock></div>
 <p>Replace <code translate="no" v-pre>/dev/sdX</code> with the actual device name of your USB drive.</p>
 </li>
-<li><p>Copy the boot log from <code translate="no" v-pre>/tmp/log</code> to the USB drive. You can use the following command to copy the file:</p>
+<li>
+<p>Copy the boot log from <code translate="no" v-pre>/tmp/log</code> to the USB drive. You can use the following command to copy the file:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo cp /tmp/log /mnt/boot_log.txt</code></pre>
 </doc-codeblock></div>
 <p>This command copies the contents of <code translate="no" v-pre>/tmp/log</code> to the <code translate="no" v-pre>/mnt/boot_log.txt</code> file on the USB drive.</p>
 </li>
-<li><p>Unmount the USB drive when you&#x27;re done:</p>
+<li>
+<p>Unmount the USB drive when you&#x27;re done:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo umount /mnt</code></pre>
 </doc-codeblock></div>
@@ -243,19 +254,22 @@
 <ol>
 <li>Boot your device into debug mode (<code translate="no" v-pre>DEBUG=1</code> or <code translate="no" v-pre>DEBUG=2</code>).</li>
 <li>Connect an external USB drive to your device.</li>
-<li><p>Mount the USB drive to a directory on your device. For example, you can use the following command to mount the USB drive to <code translate="no" v-pre>/mnt</code>:</p>
+<li>
+<p>Mount the USB drive to a directory on your device. For example, you can use the following command to mount the USB drive to <code translate="no" v-pre>/mnt</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo mount /dev/sdX /mnt</code></pre>
 </doc-codeblock></div>
 <p>Replace <code translate="no" v-pre>/dev/sdX</code> with the actual device name of your USB drive.</p>
 </li>
-<li><p>Run the <code translate="no" v-pre>dmesg</code> command to collect the kernel messages:</p>
+<li>
+<p>Run the <code translate="no" v-pre>dmesg</code> command to collect the kernel messages:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo dmesg &gt; /mnt/dmesg.txt</code></pre>
 </doc-codeblock></div>
 <p>This command redirects the output of <code translate="no" v-pre>dmesg</code> to the <code translate="no" v-pre>/mnt/dmesg.txt</code> file on the USB drive.</p>
 </li>
-<li><p>Unmount the USB drive when you&#x27;re done:</p>
+<li>
+<p>Unmount the USB drive when you&#x27;re done:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo umount /mnt</code></pre>
 </doc-codeblock></div>
@@ -274,29 +288,34 @@
 <li>Boot into the Live Linux (Ubuntu) USB. Make sure it supports the architecture of your device (e.g., 32-bit or 64-bit).</li>
 <li>Once the Live Linux (Ubuntu) USB is booted, connect it to your device using a USB cable.</li>
 <li>Open a terminal on the Live Linux (Ubuntu) USB.</li>
-<li><p>Run the following command to mount the drive of your Bliss OS/Bass OS device:</p>
+<li>
+<p>Run the following command to mount the drive of your Bliss OS/Bass OS device:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo mount /dev/sdX /mnt</code></pre>
 </doc-codeblock></div>
 <p>Replace <code translate="no" v-pre>/dev/sdX</code> with the actual device name of your Bliss OS/Bass OS device.</p>
 </li>
-<li><p>Navigate to the mounted drive using the <code translate="no" v-pre>cd</code> command. For example:</p>
+<li>
+<p>Navigate to the mounted drive using the <code translate="no" v-pre>cd</code> command. For example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">cd /mnt</code></pre>
 </doc-codeblock></div>
 </li>
-<li><p>Find the <code translate="no" v-pre>/tmp/log</code> file on the mounted drive. You can use the <code translate="no" v-pre>ls</code> command to list the files and directories. For example:</p>
+<li>
+<p>Find the <code translate="no" v-pre>/tmp/log</code> file on the mounted drive. You can use the <code translate="no" v-pre>ls</code> command to list the files and directories. For example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">ls</code></pre>
 </doc-codeblock></div>
 </li>
-<li><p>Copy the <code translate="no" v-pre>/tmp/log</code> file from the mounted drive to the Live Linux (Ubuntu) USB. You can use the <code translate="no" v-pre>cp</code> command to copy the file. For example:</p>
+<li>
+<p>Copy the <code translate="no" v-pre>/tmp/log</code> file from the mounted drive to the Live Linux (Ubuntu) USB. You can use the <code translate="no" v-pre>cp</code> command to copy the file. For example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo cp /mnt/tmp/log /path/to/destination/on/the/Live/Linux/USB/log.txt</code></pre>
 </doc-codeblock></div>
 <p>Replace <code translate="no" v-pre>/path/to/destination/on/the/Live/Linux/USB</code> with the actual path where you want to save the file on the Live Linux (Ubuntu) USB.</p>
 </li>
-<li><p>Unmount the drive when you&#x27;re done:</p>
+<li>
+<p>Unmount the drive when you&#x27;re done:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo umount /mnt</code></pre>
 </doc-codeblock></div>
@@ -399,6 +418,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Debug Mode Guide for Bliss OS/Bass OS", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Debug Mode Guide for Bliss OS/Bass OS", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/troubleshooting/debug_mode_guide.md" }</script>
 </body>
 </html>

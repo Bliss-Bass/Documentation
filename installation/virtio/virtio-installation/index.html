@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827775276301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829671661647">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.4.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Virtio installation</title>
     <meta name="title" content="Virtio installation">
-    <meta name="description" content="On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as">
+    <meta name="description" content="On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as well as theirs dependencies.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/installation/virtio/virtio-installation/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/installation/virtio/virtio-installation/">
     <meta property="og:title" content="Virtio installation">
-    <meta property="og:description" content="On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as">
+    <meta property="og:description" content="On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as well as theirs dependencies.">
     <meta property="og:image" content="https://docs.blisscolabs.dev/installation/virtio/images/setup_storage.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,17 +34,20 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/installation/virtio/virtio-installation/">
     <meta name="twitter:title" content="Virtio installation">
-    <meta name="twitter:description" content="On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as">
+    <meta name="twitter:description" content="On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as well as theirs dependencies.">
     <meta name="twitter:image" content="https://docs.blisscolabs.dev/installation/virtio/images/setup_storage.png">
     <meta name="twitter:image:alt" content="Virtio installation">
 
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/installation/virtio/virtio-installation.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.4.0.827775276301" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.829671661647" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -156,9 +160,11 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
 <h1 id="virtio-installation">Virtio installation</h1>
 <h2 id="install-bass-os-virtio-builds">Install Bass OS VirtIO builds</h2>
@@ -274,17 +280,27 @@ and select the network which you wish to connect to in <code translate="no" v-pr
 <p>On <code translate="no" v-pre>Memory</code> tab, toggle <code translate="no" v-pre>Enable shared memory</code>, click <code translate="no" v-pre>Apply</code>.</p>
 <h3 id="create-virtual-disks">Create virtual disks</h3>
 <ol>
-<li>Click <code translate="no" v-pre>Add Hardware</code> on the bottom left corner, new window <code translate="no" v-pre>Add New Virtual Hardware</code> will appear.</li>
-<li>Select <code translate="no" v-pre>Storage</code>, select <code translate="no" v-pre>Disk device</code> on <code translate="no" v-pre>Device type</code> menu, and select <code translate="no" v-pre>VirtIO</code> on <code translate="no" v-pre>Bus type</code> menu.</li>
-<li>Fill in the disk size.
-{% include alerts/note.html content=&quot;Virtual A/B build (default) requires 13 GiB of size for the first disk, and A-only build requires 5 GiB of size for the first disk.&quot; %}</li>
-<li>Click <code translate="no" v-pre>Finish</code>.
+<li>
+<p>Click <code translate="no" v-pre>Add Hardware</code> on the bottom left corner, new window <code translate="no" v-pre>Add New Virtual Hardware</code> will appear.</p>
+</li>
+<li>
+<p>Select <code translate="no" v-pre>Storage</code>, select <code translate="no" v-pre>Disk device</code> on <code translate="no" v-pre>Device type</code> menu, and select <code translate="no" v-pre>VirtIO</code> on <code translate="no" v-pre>Bus type</code> menu.</p>
+</li>
+<li>
+<p>Fill in the disk size.
+{% include alerts/note.html content=&quot;Virtual A/B build (default) requires 13 GiB of size for the first disk, and A-only build requires 5 GiB of size for the first disk.&quot; %}</p>
+</li>
+<li>
+<p>Click <code translate="no" v-pre>Finish</code>.
 <figure class="content-center">
     <img src="../images/setup_storage.png" alt="setup_storage" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1510" height="1410" />
     <figcaption class="caption">setup_storage</figcaption>
 </figure>
+</p>
 </li>
-<li>Repeat the above steps, to add disk for storing userdata. Minimum size of 2 GiB is recommended.</li>
+<li>
+<p>Repeat the above steps, to add disk for storing userdata. Minimum size of 2 GiB is recommended.</p>
+</li>
 </ol>
 <h3 id="attach-the-installation-image">Attach the installation image</h3>
 <ol>
@@ -328,7 +344,8 @@ or if you are controlling from remote desktop, you shall use tablet input device
 <li>If <code translate="no" v-pre>Video</code> tab is missing, add it using the <code translate="no" v-pre>Add Hardware</code> button on the bottom left corner.</li>
 <li>On <code translate="no" v-pre>Video</code> tab, select <code translate="no" v-pre>Virtio</code> on <code translate="no" v-pre>Model</code> menu, click <code translate="no" v-pre>Apply</code>.</li>
 <li>If the PC and the remote desktop application (if you&#x27;re viewing from it) supports 3D accelerated graphics, Toggle <code translate="no" v-pre>3D acceleration</code>, click <code translate="no" v-pre>Apply</code>.</li>
-<li><p>(Optional) To specify custom display resolution, switch to <code translate="no" v-pre>XML</code> tab, insert <code translate="no" v-pre>&lt;resolution x=&quot;&lt;Width&gt;&quot; y=&quot;&lt;Height&gt;&quot;/&gt;</code>, like this:</p>
+<li>
+<p>(Optional) To specify custom display resolution, switch to <code translate="no" v-pre>XML</code> tab, insert <code translate="no" v-pre>&lt;resolution x=&quot;&lt;Width&gt;&quot; y=&quot;&lt;Height&gt;&quot;/&gt;</code>, like this:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">&lt;video&gt;
 &lt;model type=&quot;virtio&quot; heads=&quot;1&quot; primary=&quot;yes&quot;&gt;
@@ -508,6 +525,6 @@ or if you are controlling from remote desktop, you shall use tablet input device
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Virtio installation", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Virtio installation", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/installation/virtio/virtio-installation.md" }</script>
 </body>
 </html>

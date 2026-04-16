@@ -1,0 +1,88 @@
+﻿# Welcome to Bass OS Documentation
+
+> Install From Bootable USB
+
+- [Welcome to Bass OS Documentation](https://docs.blisscolabs.dev/readme.md): Welcome to Bass OS Documentation
+- [Code of Conduct](https://docs.blisscolabs.dev/code_of_conduct.md): We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body
+
+## Installation
+
+### Raspberry pi
+
+- [Bass OS for the Raspberry PI 4 series based on the GloDroid project](https://docs.blisscolabs.dev/installation/raspberry-pi/raspberry-pi-installation.md): GloDroid ProjectStatus License
+
+### Virtio
+
+- [Virtio installation](https://docs.blisscolabs.dev/installation/virtio/virtio-installation.md): On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as well as theirs dependencies.
+
+### X86 64-v2
+
+- [Bass OS (Android 13-15) Install Process](https://docs.blisscolabs.dev/installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md): This document will go over how to use our Devuan GNU-Linux based installer (aka: Aaropa initrd/installer). This is quite the departure from our normal
+- [Collecting bug reports](https://docs.blisscolabs.dev/installation/x86_64-v2/collecting-bug-reports.md): This process is mostly the same as Android-x86 builds, but with a few additions that help things along. If you need to collect logs in order to submit a bug report, then the first thing you will want to do is reboot your Bass OS install using debug mode.
+- [Install From Bootable USB](https://docs.blisscolabs.dev/installation/x86_64-v2/install-from-bootable-usb.md): Install from bootable USB Installer
+- [Using Android-x86 Installer](https://docs.blisscolabs.dev/installation/x86_64-v2/using-android-x86-installer.md): This installer is developed and maintained by Xtr126 and is intended to be used to dual-boot Bass OS along with Linux or Windows
+
+## Applications
+
+### SmartDockDFC
+
+- [SmartDockDFC](https://docs.blisscolabs.dev/applications/smartdockdfc/readme.md): Apps menu QSW/Notifications drawer
+- [SmartDock DFC (Desktop Framework Component) - Feature Overview](https://docs.blisscolabs.dev/applications/smartdockdfc/smartdock_features.md): SmartDock DFC is a deep-integration desktop framework for Android, designed to transform mobile interfaces into productive, multi-display desktop environments.
+- [SmartDock DFC: OEM & Enterprise Sales Guide](https://docs.blisscolabs.dev/applications/smartdockdfc/sales_guide.md): SmartDock DFC (Desktop Framework Component) is a high-performance, deep-integration desktop shell designed for Android (AOSP). It transforms mobile
+- [SmartDock DFC: The Vision of a Unified Computing Future](https://docs.blisscolabs.dev/applications/smartdockdfc/marketing.md): For over a decade, the industry has viewed mobile and desktop as two separate worlds. Mobile was for consumption; desktop was for creation. But the boundaries have dissolved.
+- [Vendor Implementation Guide: SmartDock DFC](https://docs.blisscolabs.dev/applications/smartdockdfc/vendor_guide.md): This guide provides exhaustive documentation for Original Equipment Manufacturers (OEMs) and AOSP integrators to integrate and pre-configure SmartDock DFC.
+- [BlissEthernetManager](https://docs.blisscolabs.dev/applications/blissethernetmanager/blissethernetmanager.md): If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them.
+- [Setting Up Bliss Kiosk Launcher](https://docs.blisscolabs.dev/applications/blisskiosklauncher/blisskiosklauncher.md): If your BlissBass builds comes with Bliss Kiosk Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as
+- [Setting Up Bliss Restricted Launcher](https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/blissrestrictedlauncher.md): If your BlissBass builds comes with Bliss Restricted Launcher, then you have the ability to restrict it’s access to various packages on the device, as well
+
+## Development
+
+- [Addon development](https://docs.blisscolabs.dev/development/addon-development.md): Learning our addon development process will give you a good concept of how things are put together.
+- [Bass - High Level Overview](https://docs.blisscolabs.dev/development/bass-high-level-overview.md): Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.
+- [Bass OS - Android 12L](https://docs.blisscolabs.dev/development/building-bass.md): License
+- [Contributing to Bass OS](https://docs.blisscolabs.dev/development/contributing-documentation.md): We are not going to require any elitist rules for you to contribute to the project. That's just silly. So this doc will cover the various parts of the project and explain how to do things.
+- [Development FAQ](https://docs.blisscolabs.dev/development/development-faq.md): Much of what we are doing with Android source is lacking proper documentation as to what it does, and how. This document will try to answer a few of those questions.
+- [Maintaining Proper Authorship](https://docs.blisscolabs.dev/development/maintaining-proper-authorship.md): One of the most important things you need to keep in mind while working on open-source projects is maintaining correct authorship. In this article, we'll
+- [Porting Linux Drivers](https://docs.blisscolabs.dev/development/porting-linux-drivers.md): When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search online for a Linux kernel module for your target component.
+- [What are Linux Drivers?](https://docs.blisscolabs.dev/development/what-are-linux-drivers.md): For those looking to help gain a better understanding of how Linux drivers work, here is a YouTube video that helps to explain things a bit
+
+## Features
+
+- [Admin Restriction](https://docs.blisscolabs.dev/features/admin-restriction.md): Some Bass Lockdown builds come with a password restricted Admin mode. We use a grub flag to pass the password through to the system, which then creates a sha256 hash of that string and compares it against the hash saved within the system.
+- [Internet Restriction (DNS)](https://docs.blisscolabs.dev/features/dns-internet-restriction.md): In some cases, the system is equipped with an internet restriction method that is active while the device is in Lockdown mode.
+- [Updating Bliss Bass builds](https://docs.blisscolabs.dev/features/updates-and-ota.md): We support a variety of methods for updating Bliss Bass builds. Our installwe is simular to Bliss OS, but we add a few product focused options and features.
+
+## Interfaces
+
+### BlissPowerManagerAIDL
+
+- [Power Management API](https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl.md): We include a simple app to demonstrate the power management API.
+
+## Legal
+
+- [END USER LICENSE AGREEMENT](https://docs.blisscolabs.dev/legal/end_user_license_agreement.md): END USER LICENSE AGREEMENT (EULA)
+- [Licensing](https://docs.blisscolabs.dev/legal/licensing.md): Bass OS is available under different licensing options designed to accommodate the needs of our various users:
+- [Navotpala Tech Privacy Policy](https://docs.blisscolabs.dev/legal/navotpala_tech_privacy_policy.md): Navotpala Tech Privacy Policy
+- [Privacy Policy](https://docs.blisscolabs.dev/legal/privacy_policy_for_bass_os_website.md): Privacy Policy for Bass OS
+
+## Remote management
+
+- [Using DroidVNC-NG](https://docs.blisscolabs.dev/remote_management/using_droidvnc-ng.md): (These instructions are based off the project readme found here)
+- [Using Scrcpy For Remote Management](https://docs.blisscolabs.dev/remote_management/using_scrcpy_for_remote_management.md): scrcpy is a popular open-source tool that allows remote access and control of your Android device using adb interface.
+- [Using ScreenView](https://docs.blisscolabs.dev/remote_management/using_screenview.md): ScreenView is used to view and control the primary screen from an external display. To use it, open the app on an external display.
+- [Using Sshd4a](https://docs.blisscolabs.dev/remote_management/using_sshd4a.md): (These instructions are based off the project wiki found here)
+
+## Setup and configuration
+
+- [Booting into generic builds](https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds.md): !!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING
+- [Booting into lockdown builds](https://docs.blisscolabs.dev/setup_and_configuration/booting-into-lockdown-builds.md): !!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING
+- [Configuration Through Command Line Parameters](https://docs.blisscolabs.dev/setup_and_configuration/configuration-through-command-line-parameters.md): Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.
+- [Configuring Aaropa builds after install](https://docs.blisscolabs.dev/setup_and_configuration/configuring-aaropa-builds-after-install.md): When you install one of our Aaropa based builds, the Linux GUI based installer allows you to configure many of the properties in the build on install like codecs, audio HAL, bluetooth HAL, and more.
+- [Creating an input-port-addon.xml file](https://docs.blisscolabs.dev/setup_and_configuration/input-port-associations.md): Use the Boot Config editor from Settings > System to enable/add the following boot flag, or select the following boot flag from the installer during a
+- [How to edit grub from your Bass OS install](https://docs.blisscolabs.dev/setup_and_configuration/updating_legacy_grub.md): Follow these steps to edit EFI from rooted Bass OS
+- [IDC Addon](https://docs.blisscolabs.dev/setup_and_configuration/addon_idc.md): This addon allows us to place idc files in data/system/devices/idc and if found, will bind mount them to system/usr/idc
+- [License Activation](https://docs.blisscolabs.dev/setup_and_configuration/license-activation.md): Some of the Bass OS builds do require licensing activation. After contacting us with your device serial numbers and purchasing a license, there are a few different ways it can be activated.
+
+## Troubleshooting
+
+- [Debug Mode Guide for Bliss OS/Bass OS](https://docs.blisscolabs.dev/troubleshooting/debug_mode_guide.md): Bliss OS/Bass OS provides two debug modes: DEBUG=1 and DEBUG=2. These modes offer different features and troubleshooting steps to help you debug a device that is not booting correctly.

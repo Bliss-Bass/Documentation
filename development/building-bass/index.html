@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827775276301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829671661647">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.4.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Bass OS - Android 12L</title>
@@ -16,6 +16,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/development/building-bass/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -37,14 +38,17 @@
     <meta name="twitter:image" content="https://img.shields.io/badge/license-GPL-blue">
     <meta name="twitter:image:alt" content="Bass OS - Android 12L">
 
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/development/building-bass.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.4.0.827775276301" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829671661647" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.4.0.827775276301" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.829671661647" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -157,9 +161,11 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
 <h1 id="bass-os---android-12l">Bass OS - Android 12L</h1>
 <figure class="content-center">
@@ -336,11 +342,19 @@ Other Options:
 Below are a few combinations of the various command options put together in the form of Collections.</p>
 <h4 id="features-available">Features available</h4>
 <ul>
-<li>Menu driven interface for updating assets and branding:
-<img src="../assets/bass-customization.png" alt="Bass - Customization menu" class="max-w-full h-auto" width="502" height="403" /></li>
-<li>Generates default wallpaper overlays</li>
-<li>Generates branded bootanimation based on a single loop of frames</li>
-<li>Generates branded grub background</li>
+<li>
+<p>Menu driven interface for updating assets and branding:
+<img src="../assets/bass-customization.png" alt="Bass - Customization menu" class="max-w-full h-auto" width="502" height="403" /></p>
+</li>
+<li>
+<p>Generates default wallpaper overlays</p>
+</li>
+<li>
+<p>Generates branded bootanimation based on a single loop of frames</p>
+</li>
+<li>
+<p>Generates branded grub background</p>
+</li>
 </ul>
 <h3 id="notes">Notes</h3>
 <ul>
@@ -422,6 +436,6 @@ Below are a few combinations of the various command options put together in the 
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Bass OS - Android 12L", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Bass OS - Android 12L", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/building-bass.md" }</script>
 </body>
 </html>

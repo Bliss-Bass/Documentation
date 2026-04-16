@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827775276301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829671661647">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.4.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Configuration Through Command Line Parameters</title>
     <meta name="title" content="Configuration Through Command Line Parameters">
-    <meta name="description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be">
+    <meta name="description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/setup_and_configuration/configuration-through-command-line-parameters/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/setup_and_configuration/configuration-through-command-line-parameters/">
     <meta property="og:title" content="Configuration Through Command Line Parameters">
-    <meta property="og:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be">
+    <meta property="og:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -29,15 +30,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/setup_and_configuration/configuration-through-command-line-parameters/">
     <meta name="twitter:title" content="Configuration Through Command Line Parameters">
-    <meta name="twitter:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be">
+    <meta name="twitter:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/setup_and_configuration/configuration-through-command-line-parameters.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.4.0.827775276301" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829671661647" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -150,9 +154,11 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
 <h1 id="configuration-through-command-line-parameters">Configuration Through Command Line Parameters</h1>
 <p>Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis. This allows end users to fine tune the performance of the OS to the capabilities of the device.</p>
@@ -187,9 +193,11 @@
 <p><code translate="no" v-pre>DEBUG=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p>1: high-level debugging console (logs to /tmp/log)</p>
+<li>
+<p>1: high-level debugging console (logs to /tmp/log)</p>
 </li>
-<li><p>2: low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
+<li>
+<p>2: low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
 </li>
 </ul>
 <p>You will also need to enable the console if you wish to use alt-f1/f7 virtual consoles:</p>
@@ -209,13 +217,17 @@
 <p><code translate="no" v-pre>HWC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code translate="no" v-pre>drm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
+<li>
+<p><code translate="no" v-pre>drm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
 </li>
-<li><p><code translate="no" v-pre>drm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
+<li>
+<p><code translate="no" v-pre>drm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
 </li>
-<li><p><code translate="no" v-pre>drm_minigbm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
+<li>
+<p><code translate="no" v-pre>drm_minigbm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
 </li>
-<li><p><code translate="no" v-pre>drm_minigbm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a> with minigbm support</p>
+<li>
+<p><code translate="no" v-pre>drm_minigbm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a> with minigbm support</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -242,15 +254,20 @@
 <p><code translate="no" v-pre>GRALLOC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code translate="no" v-pre>gbm</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
+<li>
+<p><code translate="no" v-pre>gbm</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code translate="no" v-pre>gbm_hack</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
+<li>
+<p><code translate="no" v-pre>gbm_hack</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code translate="no" v-pre>minigbm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li>
+<p><code translate="no" v-pre>minigbm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code translate="no" v-pre>minigbm_arcvm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li>
+<p><code translate="no" v-pre>minigbm_arcvm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code translate="no" v-pre>minigbm_gbm_mesa</code>: This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li>
+<p><code translate="no" v-pre>minigbm_gbm_mesa</code>: This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -264,13 +281,17 @@
 </ul>
 <h4 id="angle--software-rendering">ANGLE &amp; software rendering:</h4>
 <ul>
-<li><p><a href="https://github.com/google/angle">ANGLE</a> is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using <code translate="no" v-pre>ANGLE=1</code>.</p>
+<li>
+<p><a href="https://github.com/google/angle">ANGLE</a> is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using <code translate="no" v-pre>ANGLE=1</code>.</p>
 </li>
-<li><p>Alternatively, you can also use <a href="https://github.com/google/swiftshader">SwiftShader Vulkan</a> with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting <code translate="no" v-pre>nomodeset ANGLE=1</code> or <code translate="no" v-pre>HWACCEL=0 ANGLE=1</code></p>
+<li>
+<p>Alternatively, you can also use <a href="https://github.com/google/swiftshader">SwiftShader Vulkan</a> with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting <code translate="no" v-pre>nomodeset ANGLE=1</code> or <code translate="no" v-pre>HWACCEL=0 ANGLE=1</code></p>
 </li>
-<li><p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code translate="no" v-pre>nomodeset</code> or <code translate="no" v-pre>HWACCEL=0</code> to use it.</p>
+<li>
+<p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code translate="no" v-pre>nomodeset</code> or <code translate="no" v-pre>HWACCEL=0</code> to use it.</p>
 </li>
-<li><p>For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: <code translate="no" v-pre>vt.global_cursor_default=0</code></p>
+<li>
+<p>For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: <code translate="no" v-pre>vt.global_cursor_default=0</code></p>
 </li>
 </ul>
 <p><strong>NOTE</strong> : You may want to turn on Color Inversion when using software rendering because the color might be inverted</p>
@@ -343,19 +364,26 @@ For use cases where you are dual booting or sharing system resources with multip
 <h5 id="default-sleep-mode-options">Default Sleep Mode Options:</h5>
 <p>The following are the options for <strong>mem_sleep_default</strong> (suggested values are in bold):</p>
 <ul>
-<li><p>deep: This option will choose the deepest sleep state supported by the hardware.</p>
+<li>
+<p>deep: This option will choose the deepest sleep state supported by the hardware.</p>
 </li>
-<li><p><strong>shallow</strong>: This option will choose the shallowest sleep state supported by the hardware.</p>
+<li>
+<p><strong>shallow</strong>: This option will choose the shallowest sleep state supported by the hardware.</p>
 </li>
-<li><p><strong>s2idle</strong>: This option will choose the S2 idle state.</p>
+<li>
+<p><strong>s2idle</strong>: This option will choose the S2 idle state.</p>
 </li>
-<li><p>s3bios: This option will choose the S3 BIOS state.</p>
+<li>
+<p>s3bios: This option will choose the S3 BIOS state.</p>
 </li>
-<li><p><strong>s3standby</strong>: This option will choose the S3 standby state.</p>
+<li>
+<p><strong>s3standby</strong>: This option will choose the S3 standby state.</p>
 </li>
-<li><p>mem: This option will choose the memory state.</p>
+<li>
+<p>mem: This option will choose the memory state.</p>
 </li>
-<li><p>off: This option will choose the off state.</p>
+<li>
+<p>off: This option will choose the off state.</p>
 </li>
 </ul>
 <p>The default value for mem_sleep_default is deep, and the suggested value for most devices is <strong>shallow</strong></p>
@@ -365,17 +393,23 @@ For use cases where you are dual booting or sharing system resources with multip
 </doc-codeblock></div>
 <p>The following are the options for <strong>acpi_sleep</strong> (suggested values are in bold):</p>
 <ul>
-<li><p>s3_bios: This option will use the BIOS-provided S3 sleep state.</p>
+<li>
+<p>s3_bios: This option will use the BIOS-provided S3 sleep state.</p>
 </li>
-<li><p><strong>s3_mode</strong>: This option will use the kernel&#x27;s own S3 sleep state.</p>
+<li>
+<p><strong>s3_mode</strong>: This option will use the kernel&#x27;s own S3 sleep state.</p>
 </li>
-<li><p>s4_nohwsig: This option will disable the ACPI hardware wake signal for S4 sleep.</p>
+<li>
+<p>s4_nohwsig: This option will disable the ACPI hardware wake signal for S4 sleep.</p>
 </li>
-<li><p>old_ordering: This option will use the old ACPI sleep state ordering.</p>
+<li>
+<p>old_ordering: This option will use the old ACPI sleep state ordering.</p>
 </li>
-<li><p>nonvs: This option will not save non-volatile storage (NVS) to disk before entering S4 sleep.</p>
+<li>
+<p>nonvs: This option will not save non-volatile storage (NVS) to disk before entering S4 sleep.</p>
 </li>
-<li><p>sci_force_enable: This option will force the ACPI SCI interrupt to be enabled.</p>
+<li>
+<p>sci_force_enable: This option will force the ACPI SCI interrupt to be enabled.</p>
 </li>
 </ul>
 <p>The default value for acpi_sleep is s3_bios, and the suggested value for most devices is <strong>s3_mode</strong>.</p>
@@ -386,13 +420,17 @@ For use cases where you are dual booting or sharing system resources with multip
 <h5 id="other-sleep-mode-options">Other Sleep Mode Options</h5>
 <p>There are a number of other Linux kernel command line options that can be used to configure sleep mode settings. Some of these options include:</p>
 <ul>
-<li>acpi_sleep_default: This option specifies the default sleep mode for the system. The possible values are:
+<li>
+<p>acpi_sleep_default: This option specifies the default sleep mode for the system. The possible values are:</p>
 <ul>
-<li><p><strong>s3</strong>: Standby mode</p>
+<li>
+<p><strong>s3</strong>: Standby mode</p>
 </li>
-<li><p>s4: Hibernate mode</p>
+<li>
+<p>s4: Hibernate mode</p>
 </li>
-<li><p>s5: Off mode</p>
+<li>
+<p>s5: Off mode</p>
 </li>
 </ul>
 </li>
@@ -402,11 +440,14 @@ For use cases where you are dual booting or sharing system resources with multip
 <pre translate="no" class="language-none"><code v-pre class="language-none">acpi_sleep_default=s3</code></pre>
 </doc-codeblock></div>
 <ul>
-<li>suspend_console: This option specifies whether to suspend the console when the system enters sleep mode. The possible values are:
+<li>
+<p>suspend_console: This option specifies whether to suspend the console when the system enters sleep mode. The possible values are:</p>
 <ul>
-<li><p>on: The console will be suspended.</p>
+<li>
+<p>on: The console will be suspended.</p>
 </li>
-<li><p>off: The console will not be suspended.</p>
+<li>
+<p>off: The console will not be suspended.</p>
 </li>
 </ul>
 </li>
@@ -473,92 +514,117 @@ Normal options: default, performance, balance_performance, balance_power, power<
 <h4 id="memory">Memory:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code translate="no" v-pre>FORCE_MEMORY_TRIM_ENABLE</code>: Sets the memory_trim_enable value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_MEMORY_TRIM_ENABLE</code>: Sets the memory_trim_enable value<br />
 Options: (true|false)</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_MIN_FREE_MEMORY</code>: Sets the minimum free ram limit</p>
+<li>
+<p><code translate="no" v-pre>FORCE_MIN_FREE_MEMORY</code>: Sets the minimum free ram limit</p>
 <p>Example value: &quot;512M&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_MAX_FREE_MEMORY</code>: Sets the max free ram limit</p>
+<li>
+<p><code translate="no" v-pre>FORCE_MAX_FREE_MEMORY</code>: Sets the max free ram limit</p>
 <p>Example value: &quot;1024M&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_OOM_SCORE_ADJ</code>: Sets the oom_score_adj value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_OOM_SCORE_ADJ</code>: Sets the oom_score_adj value</p>
 <p>Example value: &quot;100&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_ENFORCE_MIN_FREE_MB</code>: Sets the enforce_min_free_mb value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_ENFORCE_MIN_FREE_MB</code>: Sets the enforce_min_free_mb value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_FREE_PAGES</code>: Sets the sched_min_free_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_FREE_PAGES</code>: Sets the sched_min_free_pages value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code>: Sets the sched_min_active_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code>: Sets the sched_min_active_pages value</p>
 <p>Example value: &quot;512&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_INACTIVE_PAGES</code>: Sets the sched_min_inactive_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_INACTIVE_PAGES</code>: Sets the sched_min_inactive_pages value</p>
 <p>Example value: &quot;256&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_DIRTY_PAGES</code>: Sets the sched_min_dirty_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_DIRTY_PAGES</code>: Sets the sched_min_dirty_pages value</p>
 <p>Example value: &quot;128&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_WRITEBACK_PAGES</code>: Sets the sched_min_writeback_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_WRITEBACK_PAGES</code>: Sets the sched_min_writeback_pages value</p>
 <p>Example value: &quot;64&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_RECLAIMABLE_PAGES</code>: Sets the sched_min_reclaimable_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_RECLAIMABLE_PAGES</code>: Sets the sched_min_reclaimable_pages value</p>
 <p>Example value: &quot;32&quot;</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SCHED_MIN_UNRECLAIMABLE_PAGES</code>: Sets the sched_min_unreclaimable_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_UNRECLAIMABLE_PAGES</code>: Sets the sched_min_unreclaimable_pages value</p>
 <p>Example value: &quot;16&quot;</p>
 </li>
 </ul>
 <h3 id="lmkd">LMKD:</h3>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code translate="no" v-pre>FORCE_LOW_MEM</code>: Forces the low_mem mode in Android to the specific true/false value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_LOW_MEM</code>: Forces the low_mem mode in Android to the specific true/false value<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_MINFREE_LEVELS</code>: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+<li>
+<p><code translate="no" v-pre>FORCE_MINFREE_LEVELS</code>: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
 AOSP Default = false, Our default = true</p>
 </li>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
 <ul>
-<li><p><code translate="no" v-pre>FORCE_LMK_ENABLE</code>: Force enable LMK Daemon<br />
+<li>
+<p><code translate="no" v-pre>FORCE_LMK_ENABLE</code>: Force enable LMK Daemon<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_KILL_HEAVIEST_TASK</code>: Kill heaviest eligible task (best decision) vs. any eligible task (fast decision).<br />
+<li>
+<p><code translate="no" v-pre>FORCE_KILL_HEAVIEST_TASK</code>: Kill heaviest eligible task (best decision) vs. any eligible task (fast decision).<br />
 Default = false</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SWAP_FREE_LOW_PERCENTAGE</code>: Level of free swap as a percentage of the total swap space used as a threshold to consider the system as swap space starved.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SWAP_FREE_LOW_PERCENTAGE</code>: Level of free swap as a percentage of the total swap space used as a threshold to consider the system as swap space starved.</p>
 <p>Default for low-RAM devices = 10, for high-end devices = 20</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_THRASHING_LIMIT</code>: Number of working set defaults as a percentage of the file-backed pagecache size used as a threshold to consider system thrashing its pagecache.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_THRASHING_LIMIT</code>: Number of working set defaults as a percentage of the file-backed pagecache size used as a threshold to consider system thrashing its pagecache.</p>
 <p>Default for low-RAM devices = 30, for high-end devices = 100</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_LMK_CRITICAL</code>: The possible values of oom_adj range from -17 to +15 (Default=0).</p>
+<li>
+<p><code translate="no" v-pre>FORCE_LMK_CRITICAL</code>: The possible values of oom_adj range from -17 to +15 (Default=0).</p>
 <p>The higher the score, more likely the associated process is to be killed by OOM-killer. If oom_adj is set to -17, the process is not considered for OOM-killing.</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
 <p>High end: 70  Low end: 200</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code>: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code>: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
 <p>Recommended: 700</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_THRASHING_LIMIT_DECAY</code>: The thrashing threshold decay expressed as a percentage of the original threshold used to lower the threshold when the system doesn’t recover, even after a kill. If continuous thrashing produces unnecessary kills, decrease the value. If the response to continuous thrashing after a kill is too slow, increase the value.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_THRASHING_LIMIT_DECAY</code>: The thrashing threshold decay expressed as a percentage of the original threshold used to lower the threshold when the system doesn’t recover, even after a kill. If continuous thrashing produces unnecessary kills, decrease the value. If the response to continuous thrashing after a kill is too slow, increase the value.</p>
 <p>High end: 10  Low end: 50</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_SWAP_UTIL_MAX</code>: The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap_free_low_percentage, decrease the value to limit swap utilization.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SWAP_UTIL_MAX</code>: The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap_free_low_percentage, decrease the value to limit swap utilization.</p>
 <p>High end: 100  Low end: 100</p>
 </li>
 </ul>
 <h3 id="logginglogd">Logging/Logd:</h3>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code translate="no" v-pre>SET_MAX_LOGD</code>: Sets the maximum logd value</p>
+<li>
+<p><code translate="no" v-pre>SET_MAX_LOGD</code>: Sets the maximum logd value</p>
 <ul>
 <li>Options: 1 = on, 0 = off</li>
 </ul>
 </li>
-<li><p><code translate="no" v-pre>SET_LOGCAT_DEBUG</code>: Enables logcat debugging</p>
+<li>
+<p><code translate="no" v-pre>SET_LOGCAT_DEBUG</code>: Enables logcat debugging</p>
 <ul>
 <li>Options: true, false</li>
 </ul>
@@ -587,34 +653,46 @@ Default = false</p>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
 <ul>
-<li><p><code translate="no" v-pre>FORCE_SET_MAX_RECENTS</code>: Sets the config_maxRecents value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_SET_MAX_RECENTS</code>: Sets the config_maxRecents value<br />
 Options:</p>
 <ul>
-<li><p><code translate="no" v-pre>0</code>: Disables the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>0</code>: Disables the recent apps menu.</p>
 </li>
-<li><p><code translate="no" v-pre>1</code>: Displays up to 1 app in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>1</code>: Displays up to 1 app in the recent apps menu.</p>
 </li>
-<li><p><code translate="no" v-pre>2</code>: Displays up to 2 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>2</code>: Displays up to 2 apps in the recent apps menu.</p>
 </li>
-<li><p><code translate="no" v-pre>3</code>: Displays up to 3 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>3</code>: Displays up to 3 apps in the recent apps menu.</p>
 </li>
-<li><p><code translate="no" v-pre>4</code>: Displays up to 4 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>4</code>: Displays up to 4 apps in the recent apps menu.</p>
 </li>
-<li><p><code translate="no" v-pre>5</code>: Displays up to 5 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>5</code>: Displays up to 5 apps in the recent apps menu.</p>
 </li>
 </ul>
 </li>
-<li><p><code translate="no" v-pre>FORCE_ENABLE_CLEAR_ALL_RECENTS</code>: Sets the config_enableClearAllRecents value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_ENABLE_CLEAR_ALL_RECENTS</code>: Sets the config_enableClearAllRecents value<br />
 Options: (true|false)</p>
 </li>
-<li><p><code translate="no" v-pre>FORCE_DEFAULT_QS_TILES</code>: Sets the config_defaultQsTiles value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_DEFAULT_QS_TILES</code>: Sets the config_defaultQsTiles value<br />
 Options:</p>
 <ul>
-<li><p><strong>none:</strong> This will remove all default quick settings tiles.</p>
+<li>
+<p><strong>none:</strong> This will remove all default quick settings tiles.</p>
 </li>
-<li><p><strong>all:</strong> This will restore all default quick settings tiles.</p>
+<li>
+<p><strong>all:</strong> This will restore all default quick settings tiles.</p>
 </li>
-<li><p><strong>&lt;tile_id&gt;:</strong> This will add or remove the specified quick settings tile.</p>
+<li>
+<p><strong>&lt;tile_id&gt;:</strong> This will add or remove the specified quick settings tile.</p>
 </li>
 </ul>
 </li>
@@ -673,10 +751,12 @@ ORIENTATION_90, ORIENTATION_180, ORIENTATION_270</li>
 </ul>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code translate="no" v-pre>SET_FAKE_BATTERY_LEVEL</code>: Let us fake the total battery percentage<br />
+<li>
+<p><code translate="no" v-pre>SET_FAKE_BATTERY_LEVEL</code>: Let us fake the total battery percentage<br />
 Options: (0-100)</p>
 </li>
-<li><p><code translate="no" v-pre>SET_FAKE_CHARGING_STATUS</code>: Allow forcing battery charging status<br />
+<li>
+<p><code translate="no" v-pre>SET_FAKE_CHARGING_STATUS</code>: Allow forcing battery charging status<br />
 Options: (0|1)</p>
 </li>
 </ul>
@@ -719,10 +799,12 @@ Timezone reference can be found here: <a href="https://en.wikipedia.org/wiki/Lis
 <h4 id="serial-io">Serial IO</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass)</p>
 <ul>
-<li><p><code translate="no" v-pre>SET_USB_BUS_PORTS</code>: Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
+<li>
+<p><code translate="no" v-pre>SET_USB_BUS_PORTS</code>: Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
 Example: <code translate="no" v-pre>SET_USB_BUS_PORTS=001/001,001/002,001/003,001/004</code></p>
 </li>
-<li><p><code translate="no" v-pre>SET_TTY_PORT_PERMS</code>: Set USB bus port permissions (chmod 666) for /dev/tty*.
+<li>
+<p><code translate="no" v-pre>SET_TTY_PORT_PERMS</code>: Set USB bus port permissions (chmod 666) for /dev/tty*.
 Example: <code translate="no" v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></p>
 </li>
 </ul>
@@ -817,6 +899,6 @@ Example: <code translate="no" v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></p>
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Configuration Through Command Line Parameters", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Configuration Through Command Line Parameters", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/configuration-through-command-line-parameters.md" }</script>
 </body>
 </html>

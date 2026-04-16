@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827775276301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829671661647">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.4.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Using Sshd4a</title>
@@ -16,6 +16,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/remote_management/using_sshd4a/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -31,13 +32,16 @@
     <meta name="twitter:title" content="Using Sshd4a">
     <meta name="twitter:description" content="(These instructions are based off the project wiki found here)">
 
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/remote_management/using_sshd4a.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.4.0.827775276301" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829671661647" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.4.0.827775276301" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829671661647" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -150,9 +154,11 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
 <h1 id="using-sshd4a">Using Sshd4a</h1>
 <p>(These instructions are based off the project wiki found <a href="https://github.com/tfonteyn/Sshd4a/wiki">here</a>)</p>
@@ -162,7 +168,8 @@
 <ol>
 <li>Start the service when your device is booted.</li>
 <li>Start the service when this app is launched.</li>
-<li><p>Allow starting the service by an external Intent.</p>
+<li>
+<p>Allow starting the service by an external Intent.</p>
 <p>When enabled, the below Intents can be used to start/stop the service. There is no additional security; any app can send these intents when the option is enabled.</p>
 <p>Make sure options (1) and (2) above are both switched <strong>OFF</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -171,7 +178,8 @@
  am start -a com.hardbacknutter.sshd.fg.STOP</code></pre>
 </doc-codeblock></div>
 </li>
-<li><p>Foreground Service.</p>
+<li>
+<p>Foreground Service.</p>
 <p>The service will keep running even when this app is in the background. This is essential for using option (1) and very useful when using options (2) or (3).</p>
 </li>
 </ol>
@@ -265,6 +273,6 @@ On the other hand, anyone who can login to the SSH shell, can simply remove the 
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Using Sshd4a", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Using Sshd4a", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/remote_management/using_sshd4a.md" }</script>
 </body>
 </html>
