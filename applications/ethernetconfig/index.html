@@ -10,30 +10,30 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Configuring Aaropa builds after install</title>
-    <meta name="title" content="Configuring Aaropa builds after install">
-    <meta name="description" content="When you install one of our Aaropa based builds, the Linux GUI based installer allows you to configure many of the properties in the build on install like codecs, audio HAL, bluetooth HAL, and more.">
+    <title>Ethernet Config</title>
+    <meta name="title" content="Ethernet Config">
+    <meta name="description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blisscolabs.dev/setup_and_configuration/configuring-aaropa-builds-after-install/">
+    <link rel="canonical" href="https://docs.blisscolabs.dev/applications/ethernetconfig/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blisscolabs.dev/setup_and_configuration/configuring-aaropa-builds-after-install/">
-    <meta property="og:title" content="Configuring Aaropa builds after install">
-    <meta property="og:description" content="When you install one of our Aaropa based builds, the Linux GUI based installer allows you to configure many of the properties in the build on install like codecs, audio HAL, bluetooth HAL, and more.">
+    <meta property="og:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/">
+    <meta property="og:title" content="Ethernet Config">
+    <meta property="og:description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://docs.blisscolabs.dev/setup_and_configuration/configuring-aaropa-builds-after-install/">
-    <meta name="twitter:title" content="Configuring Aaropa builds after install">
-    <meta name="twitter:description" content="When you install one of our Aaropa based builds, the Linux GUI based installer allows you to configure many of the properties in the build on install like codecs, audio HAL, bluetooth HAL, and more.">
+    <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/">
+    <meta name="twitter:title" content="Ethernet Config">
+    <meta name="twitter:description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/setup_and_configuration/configuring-aaropa-builds-after-install.md">
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/ethernetconfig/ethernetconfig.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -42,6 +42,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837030963039" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -160,50 +161,201 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="configuring-aaropa-builds-after-install">Configuring Aaropa builds after install</h1>
-<p>When you install one of our Aaropa based builds, the Linux GUI based installer allows you to configure many of the properties in the build on install like codecs, audio HAL, bluetooth HAL, and more.</p>
-<p>But once installed, there is not obvious way to update the boot configuration from the Android UI. That is where this document comes in.</p>
-<h2 id="updating-the-boot-configuration">Updating the boot configuration</h2>
-<p>Updating the boot configuration of the build can be done in a couple different ways:</p>
+<h1 id="ethernet-config">Ethernet Config</h1>
+<p>Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older <a href="../blissethernetmanager/">Bliss Ethernet Manager</a> while keeping the same <strong><code translate="no" v-pre>blissethernet</code></strong> AIDL contract so existing integrations continue to work.</p>
+<retype-table copy-text="| | |
+|---|---|
+| **Package** | `com.example.ethernetconfig` |
+| **AIDL service** | `blissethernet` |
+| **AIDL namespace** | `org.blissos.ethernet` |
+| **AIDL reference** | [AIDL Interface](AIDL_INTERFACE.md) |
+| **Test / validate** | [Testing Guide](TESTING.md) |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Package</strong></td>
+<td><code translate="no" v-pre>com.example.ethernetconfig</code></td>
+</tr>
+<tr>
+<td><strong>AIDL service</strong></td>
+<td><code translate="no" v-pre>blissethernet</code></td>
+</tr>
+<tr>
+<td><strong>AIDL namespace</strong></td>
+<td><code translate="no" v-pre>org.blissos.ethernet</code></td>
+</tr>
+<tr>
+<td><strong>AIDL reference</strong></td>
+<td><a href="aidl_interface/">AIDL Interface</a></td>
+</tr>
+<tr>
+<td><strong>Test / validate</strong></td>
+<td><a href="testing/">Testing Guide</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="setting-up-ethernet-interfaces">Setting up Ethernet interfaces</h2>
+<p>Open <strong>Ethernet Config</strong> from the launcher (or Settings shortcuts on builds that expose it).</p>
 <ol>
-<li>Using the Bliss Boot Config editor to update the boot configuration.</li>
-<li>Using KernelSU and Termux with Nano or Vi editor to update the boot configuration.</li>
-<li>Using DEBUG mode terminal and Vi editor to update the boot configuration.</li>
+<li>Select the target interface (for example <code translate="no" v-pre>eth0</code>). Tap <strong>Refresh</strong> if the list is empty.</li>
+<li>Choose <strong>DHCP (Auto)</strong> or <strong>Static IP (Manual)</strong>.</li>
+<li>For static mode, enter IP, subnet mask, gateway, and DNS.</li>
+<li>Tap <strong>Apply configuration</strong>.</li>
+<li>Confirm link state and addresses in the status panel.</li>
 </ol>
-<h3 id="using-the-bliss-boot-config-editor">Using the Bliss Boot Config editor</h3>
-<p>If your Bass OS build includes the Boot Config editor then this will be the easiest way to update/edit the boot config after install. You will be able to find the Bliss Boot Config editor UI from <code translate="no" v-pre>Settings &gt; System &gt; Boot Options</code>. From there, the initial UI will display the currently in-use options found in the kernel cmdline.</p>
-<p>To explore the other options, the sidepanel displays icons for Slot and Other available options.</p>
-<h3 id="using-kernelsu-and-termux-with-nano-or-vi-editor">Using KernelSU and Termux with Nano or Vi editor</h3>
-<p>To update the boot configuration using KernelSU and Termux with Nano or Vi editor, follow these steps:</p>
-<ol>
-<li>Launch KernelSU app and tap the shield at the bottom of the app view.</li>
-<li>Tap on the Termux icon, and enable root for the Termux app.</li>
-<li>Close the KernelSU app.</li>
-<li>Launch the Termux app and type the following command:</li>
-</ol>
-<div id="using-kernelsu-and-termux-with-nano-or-vi-editor-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">/system/bin/su
-nano /boot/grub/android.cfg</code></pre>
+<p>Notes:</p>
+<ul>
+<li><strong>IP and subnet</strong> may be shown as separate fields in the UI; the AIDL API uses <code translate="no" v-pre>&lt;IP&gt;/&lt;prefix&gt;</code> (for example <code translate="no" v-pre>192.168.1.100/24</code>).</li>
+<li>On Android 13+, Ethernet changes require a <strong>platform-signed privileged</strong> install. Bass ROM builds include Ethernet Config that way via <code translate="no" v-pre>ethernet_config.mk</code>.</li>
+</ul>
+<h2 id="prop-based-auto-config-bass">Prop-based auto-config (Bass)</h2>
+<p>Bass can apply a static (or DHCP) Ethernet profile at boot from persistent system properties. <code translate="no" v-pre>BlissEthernetService</code> reads these props and applies them when the service starts or when the interface becomes available.</p>
+<retype-table copy-text="| Property | Example | Purpose |
+|----------|---------|---------|
+| `persist.bass.ethernet.mode` | `static` or `dhcp` | Enable auto-config (`&quot;&quot;` disables) |
+| `persist.bass.ethernet.iface` | `eth0` | Target interface |
+| `persist.bass.ethernet.ip` | `192.168.1.199` | Static IPv4 address |
+| `persist.bass.ethernet.mask` | `255.255.255.0` | Subnet mask |
+| `persist.bass.ethernet.prefix` | `24` | Optional instead of mask |
+| `persist.bass.ethernet.gateway` | `192.168.1.1` | Default gateway |
+| `persist.bass.ethernet.dns1` | `8.8.8.8` | Primary DNS |
+| `persist.bass.ethernet.dns2` | `8.8.4.4` | Secondary DNS |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Property</th>
+<th>Example</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.mode</code></td>
+<td><code translate="no" v-pre>static</code> or <code translate="no" v-pre>dhcp</code></td>
+<td>Enable auto-config (<code translate="no" v-pre>&quot;&quot;</code> disables)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.iface</code></td>
+<td><code translate="no" v-pre>eth0</code></td>
+<td>Target interface</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.ip</code></td>
+<td><code translate="no" v-pre>192.168.1.199</code></td>
+<td>Static IPv4 address</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.mask</code></td>
+<td><code translate="no" v-pre>255.255.255.0</code></td>
+<td>Subnet mask</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.prefix</code></td>
+<td><code translate="no" v-pre>24</code></td>
+<td>Optional instead of mask</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.gateway</code></td>
+<td><code translate="no" v-pre>192.168.1.1</code></td>
+<td>Default gateway</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.dns1</code></td>
+<td><code translate="no" v-pre>8.8.8.8</code></td>
+<td>Primary DNS</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>persist.bass.ethernet.dns2</code></td>
+<td><code translate="no" v-pre>8.8.4.4</code></td>
+<td>Secondary DNS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="set-props-on-a-running-device">Set props on a running device</h3>
+<div id="set-props-on-a-running-device-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell setprop persist.bass.ethernet.mode static
+adb shell setprop persist.bass.ethernet.iface eth0
+adb shell setprop persist.bass.ethernet.ip 192.168.1.199
+adb shell setprop persist.bass.ethernet.mask 255.255.255.0
+adb shell setprop persist.bass.ethernet.gateway 192.168.1.1
+adb shell setprop persist.bass.ethernet.dns1 8.8.8.8
+adb shell setprop persist.bass.ethernet.dns2 8.8.4.4</code></pre>
 </doc-codeblock></div>
-<ol start="5">
-<li>Edit the boot configuration using the Nano or Vi editor.</li>
-<li>Save the boot configuration and exit the editor.</li>
-<li>Reboot the device.</li>
-</ol>
-<h3 id="using-debug-mode-terminal-and-vi-editor">Using DEBUG mode terminal and Vi editor</h3>
-<p>To update the boot configuration using DEBUG mode terminal and Vi editor, follow these steps:</p>
-<ol>
-<li>Boot into the device using the Debug mode boot option or by adding <code translate="no" v-pre>DEBUG=1</code> to the boot command through Grub&#x27;s editor (&#x27;e&#x27; key).</li>
-<li>at the first command prompt, type the following command:</li>
-</ol>
-<div id="using-debug-mode-terminal-and-vi-editor-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">vi /boot/grub/android.cfg</code></pre>
+<p>Restart the service (or reboot) so props are applied. Changing the device IP will drop a network ADB session — reconnect to the new address. Full steps: <a href="testing/">Testing Guide</a>.</p>
+<h3 id="build-time-defaults">Build-time defaults</h3>
+<p>Uncomment or add in product makefiles (for example <code translate="no" v-pre>vendor/bass/branding.mk</code> or <code translate="no" v-pre>ethernet_config.mk</code>):</p>
+<div id="build-time-defaults-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-makefile"><code v-pre class="language-makefile">PRODUCT_PROPERTY_OVERRIDES += \
+    persist.bass.ethernet.mode=static \
+    persist.bass.ethernet.iface=eth0 \
+    persist.bass.ethernet.ip=192.168.1.199 \
+    persist.bass.ethernet.mask=255.255.255.0 \
+    persist.bass.ethernet.gateway=192.168.1.1 \
+    persist.bass.ethernet.dns1=8.8.8.8 \
+    persist.bass.ethernet.dns2=8.8.4.4</code></pre>
 </doc-codeblock></div>
-<ol start="3">
-<li>Edit the boot configuration using the Vi editor by tapping Insert, typing your changes, and then tapping Escape followed by :wq to save the changes and exit the editor.</li>
-<li>Reboot the device.</li>
-</ol>
-<p>That&#x27;s it! You should now understand how to update the boot configuration of the build after install.</p>
+<h2 id="boot-start">Boot start</h2>
+<p><code translate="no" v-pre>BlissEthernetService</code> registers the <code translate="no" v-pre>blissethernet</code> binder. On Bass ROM builds it is started without opening the UI:</p>
+<retype-table copy-text="| Path | Trigger |
+|------|---------|
+| `/system_ext/etc/init/ethernet_config.rc` | `sys.boot_completed=1` → `start-bliss-ethernet` |
+| `start-bliss-ethernet` | Ethernet iface present **or** `persist.bass.ethernet.mode` set |
+| Vendor `bass_init` bootcomplete | Same eth/prop gate (belt-and-suspenders) |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Path</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>/system_ext/etc/init/ethernet_config.rc</code></td>
+<td><code translate="no" v-pre>sys.boot_completed=1</code> → <code translate="no" v-pre>start-bliss-ethernet</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>start-bliss-ethernet</code></td>
+<td>Ethernet iface present <strong>or</strong> <code translate="no" v-pre>persist.bass.ethernet.mode</code> set</td>
+</tr>
+<tr>
+<td>Vendor <code translate="no" v-pre>bass_init</code> bootcomplete</td>
+<td>Same eth/prop gate (belt-and-suspenders)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>If the binder is missing after boot:</p>
+<div id="boot-start-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell /system/bin/sh /system_ext/bin/start-bliss-ethernet
+# or:
+adb shell am start-service -n com.example.ethernetconfig/.aidl.BlissEthernetService --user 0
+adb shell service list | grep blissethernet</code></pre>
+</doc-codeblock></div>
+<h2 id="aosp--bass-integration">AOSP / Bass integration</h2>
+<div id="aosp--bass-integration-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-makefile"><code v-pre class="language-makefile">$(call inherit-product, packages/apps/EthernetConfig/ethernet_config.mk)</code></pre>
+</doc-codeblock></div>
+<p>The product makefile installs the platform-signed privileged app, priv-app permissions, init rc, and <code translate="no" v-pre>start-bliss-ethernet</code> helper under <code translate="no" v-pre>system_ext</code>.</p>
+<h2 id="related-docs">Related docs</h2>
+<ul>
+<li><a href="aidl_interface/">AIDL Interface</a> — Java/Kotlin client API and <code translate="no" v-pre>service call</code> codes</li>
+<li><a href="testing/">Testing Guide</a> — prop auto-config, AIDL smoke tests, ADB reconnect</li>
+<li><a href="../blissethernetmanager/">Bliss Ethernet Manager</a> — legacy app docs (older builds)</li>
+</ul>
 
                 
                 <!-- Required only on API pages -->
@@ -211,7 +363,7 @@ nano /boot/grub/android.cfg</code></pre>
             </div>
             <footer id="retype-content-footer" class="clear-both">
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-14">
-                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/setup_and_configuration/configuring-aaropa-builds-after-install.md" target="_blank" rel="noopener">
+                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/applications/EthernetConfig/EthernetConfig.md" target="_blank" rel="noopener">
                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         <span>Edit on GitHub</span>
                     </a>
@@ -219,20 +371,20 @@ nano /boot/grub/android.cfg</code></pre>
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../setup_and_configuration/configuration-through-command-line-parameters/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../installation/x86_64-v2/using-android-x86-installer/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Configuration Through Command Line Parameters</span>
+                                <span class="block mt-1">Using Android-​x​86 Installer</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../setup_and_configuration/input-port-associations/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../applications/ethernetconfig/aidl_interface/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Creating an input-​port-​addon.​xml file</span>
+                                <span class="block mt-1">Ethernet Config — AIDL Interface</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -279,6 +431,6 @@ nano /boot/grub/android.cfg</code></pre>
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Configuring Aaropa builds after install", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/configuring-aaropa-builds-after-install.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Ethernet Config", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/applications/ethernetconfig/ethernetconfig.md" }</script>
 </body>
 </html>

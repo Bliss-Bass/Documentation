@@ -1,3 +1,5 @@
+> **Note:** On current Bass OS builds (Android 13+), wired Ethernet is managed by **[Ethernet Config](../EthernetConfig/EthernetConfig.md)**, which exposes the same `blissethernet` AIDL API. Prefer those docs for new deployments. This page documents the legacy Bliss Ethernet Manager app.
+
 # BlissEthernetManager
 
 ## Setting Up Ethernet Interfaces

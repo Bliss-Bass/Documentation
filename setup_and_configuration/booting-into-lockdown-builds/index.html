@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.830968221457">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030963039">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Booting into lockdown builds</title>
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.830968221457" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837030963039" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -208,8 +208,8 @@ options: true, false</p>
 <p>Once setup is complete, we can then back out and test our lockdown settings by hitting the Lock icon at the top right of the home screen, or reboot the device, and select the top boot option (some builds offer specific boot options per CPU manufacturer: <strong>Intel Default</strong> or <strong>AMD Default</strong>) to enter Lockdown mode.</p>
 <h4 id="kiosk-launcher-setup">Kiosk Launcher Setup</h4>
 <p>By default, the Bliss Kiosk Launcher UI will have two modes, Lockdown and Admin modes.</p>
-<p>To configure the launcher, we want to start off by booting onto Admin mode. Then we cna start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is <code translate="no" v-pre>123</code>.</p>
-<p>Please see <a href="../../applications/blisskiosklauncher/">BlissKioskLauncher</a> for further details on the launchers usage.</p>
+<p>To configure the launcher, we want to start off by booting onto Admin mode. Then we can start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is <code translate="no" v-pre>123</code>. From settings you can manage the whitelist, auto-launch app, and whether the home screen clock is shown.</p>
+<p>Please see <a href="../../applications/blisskiosklauncher/">BlissKioskLauncher</a> for further details on the launcher&#x27;s usage. Wired Ethernet on current builds is configured via <a href="../../applications/ethernetconfig/">Ethernet Config</a>.</p>
 
                 
                 <!-- Required only on API pages -->

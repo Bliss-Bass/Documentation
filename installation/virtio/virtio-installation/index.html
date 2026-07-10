@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.830968221457">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030963039">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Virtio installation</title>
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.830968221457" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837030963039" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -174,6 +174,11 @@
 <pre translate="no" class="language-none"><code v-pre class="language-none">sudo apt install virt-manager</code></pre>
 </doc-codeblock></div>
 <p>Also, install packages according to the architecture:</p>
+<retype-table copy-text="| Android Architecture  |       Packages to install        |
+|-----------------------|----------------------------------|
+| ARM (32-bit + 64-bit) | qemu-system-arm qemu-efi-aarch64 |
+| ARM (64-bit only)     | qemu-system-arm qemu-efi-aarch64 |
+| x86 (64-bit only)     | qemu-system-x86 ovmf             |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -198,6 +203,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="create-and-configure-virtual-machine-using-virt-manager">Create and configure virtual machine using <code translate="no" v-pre>virt-manager</code></h2>
 <blockquote>
 <p>This section uses Debian 12 (bookworm) as example. The instructions for other OSes may differ.</p>
@@ -207,6 +213,11 @@
 <p>On the menu bar, select <code translate="no" v-pre>File</code> &gt; <code translate="no" v-pre>New Virtual Machine</code>. A new window named &quot;New VM&quot; will pop up.</p>
 <h4 id="step-1---machine-architecture">Step 1 - Machine Architecture</h4>
 <p>Select <code translate="no" v-pre>Manual install</code>. Expand <code translate="no" v-pre>Architecture options</code>, select the correct architecture for the built image, as described below:</p>
+<retype-table copy-text="| Android Architecture  | QEMU Architecture |
+|-----------------------|-------------------|
+| ARM (32-bit + 64-bit) | aarch64           |
+| ARM (64-bit only)     | aarch64           |
+| x86 (64-bit only)     | x86_64            |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -231,6 +242,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <p>After selecting the correct architecture, click <code translate="no" v-pre>Forward</code>.</p>
 <h4 id="step-2---os-details">Step 2 - OS Details</h4>
 <p>Search and select <code translate="no" v-pre>Generic Linux 2022</code> on <code translate="no" v-pre>Select the operation system you are installing</code> field. Click <code translate="no" v-pre>Forward</code>.</p>
@@ -248,6 +260,11 @@ and select the network which you wish to connect to in <code translate="no" v-pr
 <h4 id="select-chipset-or-machine-and-firmware">Select <code translate="no" v-pre>Chipset</code> or <code translate="no" v-pre>Machine</code> and <code translate="no" v-pre>Firmware</code></h4>
 <p>The virtual machine configuration window will pop up.</p>
 <p>On <code translate="no" v-pre>Overview</code> tab, select <code translate="no" v-pre>Chipset</code> or <code translate="no" v-pre>Machine</code> and <code translate="no" v-pre>Firmware</code> type according to the architecture, as described below:</p>
+<retype-table copy-text="| Android Architecture  | Chipset / Machine |                     Firmware                      |
+|-----------------------|-------------------|---------------------------------------------------|
+| ARM (32-bit + 64-bit) | virt (required)   | Custom: /usr/share/AAVMF/AAVMF_CODE.no-secboot.fd |
+| ARM (64-bit only)     | virt (required)   | Custom: /usr/share/AAVMF/AAVMF_CODE.no-secboot.fd |
+| x86 (64-bit only)     | Q35 (recommended) | UEFI x86_64: /usr/share/OVMF/OVMF_CODE_4M.fd      |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -276,6 +293,7 @@ and select the network which you wish to connect to in <code translate="no" v-pr
 </tbody>
 </table>
 </div>
+</retype-table>
 <p>Click <code translate="no" v-pre>Apply</code>.</p>
 <p>On <code translate="no" v-pre>Memory</code> tab, toggle <code translate="no" v-pre>Enable shared memory</code>, click <code translate="no" v-pre>Apply</code>.</p>
 <h3 id="create-virtual-disks">Create virtual disks</h3>

@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.830968221457">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030963039">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>BlissEthernetManager</title>
     <meta name="title" content="BlissEthernetManager">
-    <meta name="description" content="If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them.">
+    <meta name="description" content="Note: On current Bass OS builds (Android 13+), wired Ethernet is managed by Ethernet Config, which exposes the same blissethernet AIDL API. Prefer those docs for new deployments.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/blissethernetmanager/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/blissethernetmanager/">
     <meta property="og:title" content="BlissEthernetManager">
-    <meta property="og:description" content="If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them.">
+    <meta property="og:description" content="Note: On current Bass OS builds (Android 13+), wired Ethernet is managed by Ethernet Config, which exposes the same blissethernet AIDL API. Prefer those docs for new deployments.">
     <meta property="og:image" content="https://docs.blisscolabs.dev/applications/blissethernetmanager/images/image27.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -34,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/blissethernetmanager/">
     <meta name="twitter:title" content="BlissEthernetManager">
-    <meta name="twitter:description" content="If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them.">
+    <meta name="twitter:description" content="Note: On current Bass OS builds (Android 13+), wired Ethernet is managed by Ethernet Config, which exposes the same blissethernet AIDL API. Prefer those docs for new deployments.">
     <meta name="twitter:image" content="https://docs.blisscolabs.dev/applications/blissethernetmanager/images/image27.png">
     <meta name="twitter:image:alt" content="BlissEthernetManager">
 
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.830968221457" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837030963039" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -166,6 +166,9 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
+<blockquote>
+<p><strong>Note:</strong> On current Bass OS builds (Android 13+), wired Ethernet is managed by <strong><a href="../ethernetconfig/">Ethernet Config</a></strong>, which exposes the same <code translate="no" v-pre>blissethernet</code> AIDL API. Prefer those docs for new deployments. This page documents the legacy Bliss Ethernet Manager app.</p>
+</blockquote>
 <h1 id="blissethernetmanager">BlissEthernetManager</h1>
 <h2 id="setting-up-ethernet-interfaces">Setting Up Ethernet Interfaces</h2>
 <p>If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them.</p>

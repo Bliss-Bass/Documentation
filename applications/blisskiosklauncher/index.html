@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.830968221457">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030963039">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Setting Up Bliss Kiosk Launcher</title>
     <meta name="title" content="Setting Up Bliss Kiosk Launcher">
-    <meta name="description" content="If your BlissBass builds comes with Bliss Kiosk Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as">
+    <meta name="description" content="If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/blisskiosklauncher/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/blisskiosklauncher/">
     <meta property="og:title" content="Setting Up Bliss Kiosk Launcher">
-    <meta property="og:description" content="If your BlissBass builds comes with Bliss Kiosk Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as">
+    <meta property="og:description" content="If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set">
     <meta property="og:image" content="https://docs.blisscolabs.dev/applications/blisskiosklauncher/images/image19.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -34,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/blisskiosklauncher/">
     <meta name="twitter:title" content="Setting Up Bliss Kiosk Launcher">
-    <meta name="twitter:description" content="If your BlissBass builds comes with Bliss Kiosk Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as">
+    <meta name="twitter:description" content="If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set">
     <meta name="twitter:image" content="https://docs.blisscolabs.dev/applications/blisskiosklauncher/images/image19.png">
     <meta name="twitter:image:alt" content="Setting Up Bliss Kiosk Launcher">
 
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.830968221457" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837030963039" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.830968221457" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030963039" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -167,7 +167,34 @@
 
                 <!-- Page content  -->
 <h1 id="setting-up-bliss-kiosk-launcher">Setting Up Bliss Kiosk Launcher</h1>
-<p>If your BlissBass builds comes with Bliss Kiosk Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as set specific packages to auto-launch when booting the device into Lockdown mode (Intel Default), or locking the device while in Admin mode (Other Options &gt; Intel - Admin).</p>
+<p>If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set specific packages to auto-launch when booting into Lockdown / Kiosk mode (Intel Default), or locking the device while in Admin mode (Other Options &gt; Intel - Admin).</p>
+<p>Boot mode is controlled by the kernel/cmdline property <strong><code translate="no" v-pre>ro.boot.bliss.bootmode</code></strong>:</p>
+<retype-table copy-text="| Value | Behavior |
+|-------|----------|
+| `lockdown` or `kiosk` | Kiosk restrictions enabled; auto-start app runs if configured |
+| `admin` (or empty / unset) | Admin UI; lock task / auto-start not forced |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>lockdown</code> or <code translate="no" v-pre>kiosk</code></td>
+<td>Kiosk restrictions enabled; auto-start app runs if configured</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>admin</code> (or empty / unset)</td>
+<td>Admin UI; lock task / auto-start not forced</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>GRUB / boot menu entries for kiosk builds set this property. See also <a href="../../setup_and_configuration/booting-into-lockdown-builds/">Booting into lockdown builds</a>.</p>
 <h3 id="lockdown-mode">Lockdown Mode:</h3>
 <figure class="content-center">
     <img src="images/image19.png" alt="alt_text" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
@@ -200,8 +227,20 @@
     <img src="images/image14.png" alt="alt_text" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">alt_text</figcaption>
 </figure>
-<p>From the settings screen, you can manage the Maintenance Password, Change whitelisted apps, and set which package you want to Auto Launch when Kiosk Launcher starts in Lockdown mode.</p>
+<p>From the settings screen, you can:</p>
+<ul>
+<li><strong>Change Password</strong> — maintenance / exit password (default <code translate="no" v-pre>123</code>)</li>
+<li><strong>Change whitelisted apps</strong> — packages shown in the lockdown app drawer</li>
+<li><strong>Auto launch app</strong> — package to start when the launcher runs in <code translate="no" v-pre>lockdown</code> or <code translate="no" v-pre>kiosk</code> boot mode</li>
+<li><strong>Show clock</strong> — display or hide the home screen clock (default on; build default via <code translate="no" v-pre>config_show_clock</code>)</li>
+</ul>
 <p>You can also test the Kiosk Launcher while within Admin mode to ensure functionality before rebooting to Lockdown mode.</p>
+<h3 id="android-15-notes">Android 15 notes</h3>
+<p>On Android 15 Bass builds:</p>
+<ul>
+<li>The home UI respects <strong>system bar insets</strong> so controls are not drawn under the status or navigation bars when those bars are visible (Admin mode).</li>
+<li>Auto-start no longer waits on a Bliss Ethernet Manager “enumeration complete” signal. Ethernet is handled by <a href="../ethernetconfig/">Ethernet Config</a>; the kiosk launcher starts the configured auto-start app directly when boot mode is <code translate="no" v-pre>lockdown</code> or <code translate="no" v-pre>kiosk</code>.</li>
+</ul>
 
                 
                 <!-- Required only on API pages -->

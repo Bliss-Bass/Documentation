@@ -24,6 +24,12 @@
 
 ## Applications
 
+### Ethernet Config
+
+- [Ethernet Config](https://docs.blisscolabs.dev/applications/ethernetconfig/ethernetconfig.md): Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.
+- [Ethernet Config — AIDL Interface](https://docs.blisscolabs.dev/applications/ethernetconfig/aidl_interface.md): This document describes the Bliss-compatible AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The interface matches the legacy Bliss Ethernet Manager so existing integrations can migrate with minimal changes.
+- [Ethernet Config — Test & Validation Guide](https://docs.blisscolabs.dev/applications/ethernetconfig/testing.md): Validate BlissEthernetService, the blissethernet AIDL binder, and persist.bass.ethernet.* prop-based auto-config on a live device.
+
 ### SmartDockDFC
 
 - [SmartDockDFC](https://docs.blisscolabs.dev/applications/smartdockdfc/readme.md): Apps menu QSW/Notifications drawer
@@ -31,8 +37,8 @@
 - [SmartDock DFC: OEM & Enterprise Sales Guide](https://docs.blisscolabs.dev/applications/smartdockdfc/sales_guide.md): SmartDock DFC (Desktop Framework Component) is a high-performance, deep-integration desktop shell designed for Android (AOSP). It transforms mobile
 - [SmartDock DFC: The Vision of a Unified Computing Future](https://docs.blisscolabs.dev/applications/smartdockdfc/marketing.md): For over a decade, the industry has viewed mobile and desktop as two separate worlds. Mobile was for consumption; desktop was for creation. But the boundaries have dissolved.
 - [Vendor Implementation Guide: SmartDock DFC](https://docs.blisscolabs.dev/applications/smartdockdfc/vendor_guide.md): This guide provides exhaustive documentation for Original Equipment Manufacturers (OEMs) and AOSP integrators to integrate and pre-configure SmartDock DFC.
-- [BlissEthernetManager](https://docs.blisscolabs.dev/applications/blissethernetmanager/blissethernetmanager.md): If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them.
-- [Setting Up Bliss Kiosk Launcher](https://docs.blisscolabs.dev/applications/blisskiosklauncher/blisskiosklauncher.md): If your BlissBass builds comes with Bliss Kiosk Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as
+- [BlissEthernetManager](https://docs.blisscolabs.dev/applications/blissethernetmanager/blissethernetmanager.md): Note: On current Bass OS builds (Android 13+), wired Ethernet is managed by Ethernet Config, which exposes the same blissethernet AIDL API. Prefer those docs for new deployments.
+- [Setting Up Bliss Kiosk Launcher](https://docs.blisscolabs.dev/applications/blisskiosklauncher/blisskiosklauncher.md): If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set
 - [Setting Up Bliss Restricted Launcher](https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/blissrestrictedlauncher.md): If your BlissBass builds comes with Bliss Restricted Launcher, then you have the ability to restrict it’s access to various packages on the device, as well
 
 ## Development

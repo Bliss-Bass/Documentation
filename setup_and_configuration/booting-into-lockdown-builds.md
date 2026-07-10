@@ -63,6 +63,6 @@ Once setup is complete, we can then back out and test our lockdown settings by h
 
 By default, the Bliss Kiosk Launcher UI will have two modes, Lockdown and Admin modes. 
 
-To configure the launcher, we want to start off by booting onto Admin mode. Then we cna start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is `123`. 
+To configure the launcher, we want to start off by booting onto Admin mode. Then we can start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is `123`. From settings you can manage the whitelist, auto-launch app, and whether the home screen clock is shown.
 
-Please see [BlissKioskLauncher](../applications/BlissKioskLauncher/BlissKioskLauncher.md) for further details on the launchers usage.
+Please see [BlissKioskLauncher](../applications/BlissKioskLauncher/BlissKioskLauncher.md) for further details on the launcher's usage. Wired Ethernet on current builds is configured via [Ethernet Config](../applications/EthernetConfig/EthernetConfig.md).
