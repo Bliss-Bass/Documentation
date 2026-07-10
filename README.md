@@ -49,27 +49,45 @@ icon: home
 
 * [Admin Restriction](features/admin-restriction.md)
 * [DNS Internet Restriction](features/dns-internet-restriction.md)
+* [Fleet Management](features/fleet-management.md)
 * [Updates and OTA](features/updates-and-ota.md)
 
 ## Applications
 
+* [Ax86 Button Manager](applications/Ax86ButtonManager/Ax86ButtonManager.md)
+* [Ax86 Docs](applications/Ax86Docs/Ax86Docs.md)
+* [Ax86 Logger](applications/Ax86Logger/Ax86Logger.md)
+* [BassView](applications/BassView/BassView.md)
+* [Bliss Config Overrides](applications/BlissConfigOverrides/BlissConfigOverrides.md)
+* [Bliss Display Mapper](applications/BlissDisplayMapper/BlissDisplayMapper.md)
+* [Bliss Touch Mapper](applications/BlissTouchMapper/BlissTouchMapper.md)
+* [Bliss Tweaks](applications/BlissTweaks/BlissTweaks.md)
+* [Boot Config](applications/BootConfig/BootConfig.md)
+* [BootSight](applications/BootSight/BootSight.md)
 * [Ethernet Config](applications/EthernetConfig/EthernetConfig.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 * [Bliss Kiosk Launcher](applications/BlissKioskLauncher/BlissKioskLauncher.md)
 * [Bliss Restricted Launcher](applications/BlissRestrictedLauncher/BlissRestrictedLauncher.md)
 * [SmartDock DFC](applications/SmartDockDFC/README.md)
+  * [Feature Overview](applications/SmartDockDFC/SMARTDOCK_FEATURES.md)
+  * [Vendor Implementation Guide](applications/SmartDockDFC/VENDOR_GUIDE.md)
+  * [A14 Physical Pointer Routing](applications/SmartDockDFC/INPUT_ROUTING_A14.md)
+  * [Sales Guide](applications/SmartDockDFC/SALES_GUIDE.md)
+  * [Marketing](applications/SmartDockDFC/MARKETING.md)
 
 ## Interfaces
 
 * [Power Management API](interfaces/power-management-aidl.md)
 * [Ethernet Config AIDL](applications/EthernetConfig/AIDL_INTERFACE.md)
+* [Button Manager AIDL](applications/Ax86ButtonManager/AIDL_INTERFACE.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 
 ## Development
 
 * [High Level Overview](development/bass-high-level-overview.md)
 * [Building Bass OS](development/building-bass.md)
-* [Addon Development](development/addon-development.md)
+* [Addon Development: Bass Lineout](development/addon-development.md)
+* [Addon Development: Legacy Bass OS](development/addon-development-legacy-bass.md)
 * [Development FAQ](development/development-faq.md)
 * [Maintaining Proper Authorship](development/maintaining-proper-authorship.md)
 * [Contributing Documentation](development/contributing-documentation.md)
