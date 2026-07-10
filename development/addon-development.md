@@ -1,50 +1,130 @@
-## Addon Development
+# Addon Development: Bass Lineout
 
-Learning our addon development process will give you a good concept of how things are put together. 
+**This page is for Bass: Lineout** (`vendor/ax86-lite`, `tools/build.sh`).
 
-Let's say that you have a change that you want to add to Bass OS, but that change can be used on many devices, so you don't want to keep it as a private change that is never shared outside this single devices source. This is where Addons come into play. 
+If you are on classic Bass OS with `private/addons/` and `unfold_bliss.sh`, use the separate guide instead:
 
-Addons can consist of one or more of the following:
+→ **[Addon Development: Legacy Bass OS](addon-development-legacy-bass.md)**
 
-* Patchsets - Single or multiple sets of patches that are to be applied on-top of the source when unfolding the OS. 
-* Prebuilt APK's - An example of this is the Restricted Launcher Pro. We offer the free version of the prebuilt for all to include, but it contains branding that cannot be changed. But we offer the Pro version that can be rebranded and further customized as an addon.
-* Package/External Sources - An example of this is our Kiosk Launcher, as that requires the private source to be included in the OS in order to use it. 
-* Script Addon - An automation script that does something or helps automate any point in the build process. 
+Do not mix the two. Lineout does **not** scan `private/addons/` the way older Bass unfold did. Legacy Bass does **not** use `vendor/ax86-lite/vendor_packages/` the same way.
 
-### Patchset Addon Development
+---
 
-The first example we will go over is for a patchsett based addon. For this, you will use a patches folder with a name following the addon_name. Along with a manifest .xml that links your addon as a .git. This will allow you to have a private repo as an addon and control access to it if needed. 
+## Lineout overview
 
-#### Example patchset addon
+On Lineout, "addon" work falls into two buckets that both belong to this product line:
 
-We have an example patchset addon for a change that can be found in `/bigblissdrive03/bass-wg01/assets/examples/addon_templates/patchsets-network_options`. Take a look at the README.md for that to get a good idea of the info we include as a starting point. 
+| Bucket | Where it lives | How you enable it |
+|--------|----------------|-------------------|
+| **Build packages** | `vendor/ax86-lite/vendor_packages/` | `build.sh` flags (`--extras`, `--btnmgr`, …) |
+| **Runtime overrides** | `/data/misc/`, GRUB flags, `addon_init` | Push files + cmdline / `setprop` |
 
-#### Where things go
+Both are documented below. Neither is the old `private/addons/` patchset model.
 
-When syncing the Bass OS project, you will want to place the patchset addon folder (`patchsets-addon_name`) in the `private/addons/` folder. This location will be searched when the project is unfolded, and any manifest file found will be synced in the unfolding process. After sync is complete, any patches that are required for the addon will be automatically applied. 
+---
 
-##### Manifest 
+## Build packages
 
-The manifest file should point to the path: `vendor/bass/patches/patchsets-addon_name`. You should also name the manifest file the unique name of your addon. The remote name defined within the manifest .xml should also be unique to your addon. 
+Features ship as product packages in the vendor tree.
 
-##### Patchset
+```text
+vendor/ax86-lite/vendor_packages/<Name>/
+  Android.bp / *.mk
+  README.md          # picked up by Ax86Docs when present
+  init .rc / .sh     # optional; keep package-local when possible
+```
 
-The patchset should be organized in multiple folders within the `addon_name` folder of your addon. 
+Enable them from `vendor/ax86-lite/tools/build.sh` (see [Building Bass OS](building-bass.md)):
 
-Example:
-- patchsets_addon_name
-- README.md
-	- manifest
-		- private-addon_name.xml
-	- addon_name
-		- device
-			- generic
-				- common
-					- 0001-change_name-1-of-3.patch
-		- bootable
-			- newinstaller
-				- 0001-change_name-2-of-3.patch
-			- recovery
-				- 0001-change_name-3-of-3.patch
+| Flag | Packages / behavior |
+|------|---------------------|
+| `--extras` | Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs |
+| `--btnmgr` | Button Manager |
+| `--logger` / `--logging-enabled` | Ax86 Logger |
+| `--bootsight` | BootSight (+ `ro.bass.fleet_mgmt=bootsight`) |
+| `--smartdock` | SmartDock DFC |
+| `--ethernetconfig` | Ethernet Config |
 
+### Adding a new Lineout package
 
+1. Create `vendor_packages/YourFeature/` with a product `.mk` and (for apps) `Android.bp`.
+2. Wire it in `ax86_lite.mk` behind a flag (or always-on if that is intentional).
+3. Add the flag to `tools/build.sh` help and export defaults.
+4. Drop a `README.md` in the package so [Ax86Docs](../applications/Ax86Docs/Ax86Docs.md) picks it up on the next `--extras` build.
+5. Prefer package-local `init.rc` / scripts. Avoid editing core `addon_init.rc` unless the feature is shared early-boot plumbing.
+
+App docs on this site:
+
+* [Touch Mapper](../applications/BlissTouchMapper/BlissTouchMapper.md)
+* [Display Mapper](../applications/BlissDisplayMapper/BlissDisplayMapper.md)
+* [Config Overrides](../applications/BlissConfigOverrides/BlissConfigOverrides.md)
+* [Bliss Tweaks](../applications/BlissTweaks/BlissTweaks.md)
+* [Button Manager](../applications/Ax86ButtonManager/Ax86ButtonManager.md)
+* [Ax86 Logger](../applications/Ax86Logger/Ax86Logger.md)
+* [BootSight](../applications/BootSight/BootSight.md)
+
+### Newer Lineout branches (`addons/<id>/`)
+
+Some newer ax86-lite branches move packages under `addons/<id>/` with `addon.cfg` and a compat symlink from `vendor_packages/<Pkg>`. See `vendor_packages/Ax86ButtonManager/docs/PORTING-23.2.md` in the vendor tree.
+
+On current Lineage 21 / A14 Lineout trees, packages still live directly under `vendor_packages/` and are gated by `ax86_lite.mk` + `tools/build.sh`. Use that layout unless your branch already has the `addons/` integrator.
+
+---
+
+## Runtime overrides (`addon_init`)
+
+Lineout also supports **on-device** overrides without rebuilding the ISO. Scripts under `/vendor/bin/addon_*.sh` run from `addon_init.rc` after `/data` is available. They can bind-mount files from `/data/misc/` over vendor/system paths, apply settings, and react to property triggers.
+
+This is still the **Lineout** product path (same vendor tree). It is not the legacy Bass private-addon unfold flow.
+
+| Path | Role |
+|------|------|
+| `/vendor/etc/init/addon_init.rc` | Triggers early and late init, mapper props |
+| `/vendor/bin/addon_init.sh` | Orchestrator (DMI props, bind mounts, late boot) |
+| `addon_hardware.sh` / `addon_peripherals.sh` / `addon_packages.sh` / `addon_mappers.sh` | Helpers used by `addon_init` |
+| `/data/misc/` | Fleet- or tech-provided override files |
+
+### GRUB / cmdline toggles (Lineout)
+
+| Flag | Effect |
+|------|--------|
+| `ADDON_IDC=1` | Custom `.idc` files from `/data/system/devices/idc` |
+| `BLISS_INPUT_PORTS_ADDON=1` | `/data/misc/input-port-addon.xml` for input↔display ports |
+| `ADDON_BOOTANIMATION=1` | `/data/misc/bootanimation.zip` |
+| `ADDON_BASSINIT=1` | Custom vendor init under `/data/vendor/etc/init/` |
+
+How-tos:
+
+* [Using IDC Addon](../setup_and_configuration/addon_idc.md)
+* [Creating an input-port-addon.xml file](../setup_and_configuration/input-port-associations.md)
+
+On `--extras` builds, [Touch Mapper](../applications/BlissTouchMapper/BlissTouchMapper.md) can generate the input-port file from Settings. Prefer that UI when available; GRUB flags still matter for headless imaging.
+
+### Config files and property triggers (Lineout)
+
+| Mechanism | Docs |
+|-----------|------|
+| `settings_*.conf`, `runtime_props.conf`, `device_config.conf` | [Config Overrides](../applications/BlissConfigOverrides/BlissConfigOverrides.md) |
+| `custom_device.prop` (early `ro.*`) | Same page; applied by `addon_init` before framework |
+| Master apply | `setprop persist.ax86.update_configs 1` |
+| Per-mapper apply | `sys.ax86.display.update`, `sys.ax86.touch.update`, `sys.ax86.radio.update`, `sys.ax86.location.update` |
+
+Vendor reference (also in Ax86Docs): `OVERRIDES.md` and `VENDOR_DEPLOYMENT.md` in `vendor/ax86-lite`.
+
+### Good uses for runtime overrides
+
+* Field fixes (digitizer axes, DPI) without a new ISO
+* Fleet imaging: push `/data/misc` files, set GRUB flags, reboot
+* Config Override examples under `vendor/ax86-lite/docs/examples/`
+
+Runtime overrides are **not** how you ship a new privileged app. New apps go under `vendor_packages/` with a build flag.
+
+---
+
+## Related (Lineout)
+
+* [Building Bass OS](building-bass.md)
+* [Ax86Docs](../applications/Ax86Docs/Ax86Docs.md)
+* [Config Overrides](../applications/BlissConfigOverrides/BlissConfigOverrides.md)
+* [Fleet Management](../features/fleet-management.md)
+* [Addon Development: Legacy Bass OS](addon-development-legacy-bass.md) (different product tree)
