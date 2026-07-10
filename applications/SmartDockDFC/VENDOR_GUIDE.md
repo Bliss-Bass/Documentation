@@ -18,6 +18,30 @@ $(call inherit-product, vendor/agp-apps/smartdock/SmartDock.mk)
 ### Overriding Default Configuration
 SmartDock DFC is designed to be highly flexible. While `SmartDock.mk` provides a set of sensible defaults in `PRODUCT_PROPERTY_OVERRIDES`, you can override any of these flags in your target device's specific makefile or `build.prop` to achieve the desired combination of features for your hardware.
 
+### Boot-time Secure Settings (`init.rc`)
+For critical system integrations, such as enabling accessibility services and notification listeners from boot, configuring settings via an `init.rc` script is the most robust method in AOSP. This ensures settings are applied at a high privilege level during the early boot sequence, before the application starts.
+
+SmartDock ships `smartdock_dfc_init.rc` and `smartdock_grant_permissions.sh` under `aosp/`. `SmartDock.mk` installs them to:
+
+*   `/vendor/etc/init/smartdock_dfc_init.rc`
+*   `/vendor/bin/smartdock_grant_permissions.sh`
+
+On `sys.boot_completed`, `smartdock_dfc_init.rc` only enables overlay settings (safe before unlock).
+
+On `sys.user.0.ce_available=1`, init enables the accessibility service, starts `DockService`, and runs `smartdock_grant_permissions`. Both `DockService` and `NotificationService` defer CE-dependent initialization (SharedPreferences, dock UI) until credential storage is unlocked.
+
+The **oneshot** service `smartdock_grant_permissions` waits for CE storage (`sys.user.0.ce_available` or `cmd user is-unlocked`), then applies:
+
+*   `pm grant` and `appops set` (overlay, usage stats, secure settings, etc.)
+*   **Notification Listener** (`enabled_notification_listeners` + `cmd notification allow_listener`)
+*   **Device Administrator** via `dpm set-active-admin`
+
+`sys.user.0.ce_available=1` starts the grant script and enables accessibility / DockService. After grants complete, the script restarts SmartDock so the notification listener binds without a stale crashed state.
+
+**Note on Placement & SELinux:**
+*   Files are copied via `SmartDock.mk` `PRODUCT_COPY_FILES` (see above paths).
+*   You will almost certainly need to adjust your SELinux policies to permit `init` (or other relevant domains like `system_server`) to write to `Settings.Secure`. This usually involves adding rules to `.te` files in your device's `sepolicy` directory.
+
 ## 2. Comprehensive Property Directory
 
 ### Core Shell Behavior
@@ -42,7 +66,7 @@ SmartDock DFC is designed to be highly flexible. While `SmartDock.mk` provides a
 | `persist.bass.sd.override_panel_alpha` | `true`, `false` | Enables manual transparency override for major panels and islands. |
 | `persist.bass.sd.panel_alpha` | `0` to `255` | Default transparency for panels when override is enabled. |
 | `persist.bass.sd.qs_height_ratio` | `0.33`, `0.66`, `0.99` | Sets the maximum vertical height ratio for the Notification Panel. |
-| `persist.bass.sd.qs_panel_width` | `100` to `200` | Sets the default relative width percentage for the Notification Panel. |
+| `persist.bass.sd.qs_panel_width` | `100` to `200` | Sets the default relative width percentage for the Notification/QS Panel. |
 | `persist.bass.sd.qs_panel_scale` | `50` to `150` | Sets the default UI scale percentage for the Notification/QS Panel. |
 
 ### App Menu Configuration
@@ -61,6 +85,27 @@ SmartDock DFC is designed to be highly flexible. While `SmartDock.mk` provides a
 | `persist.bass.sd.hide_taskbar`        | `false` | Disables the AOSP 12L+ Taskbar on large screens via overlay. |
 | `persist.bass.sd.use_custom_qs`       | `true` | Replaces the system notification shade with the Material Design QS drawer. |
 | `persist.bass.sd.enable_blur_overlay` | `false` | Enables system-wide background blur support via overlay. |
+
+### Advanced Window Type Overrides
+These properties allow for direct control over the `WindowManager.LayoutParams.type` value used for SmartDock's windows. This is an advanced configuration option primarily for AOSP integrators to fine-tune layering behavior or resolve conflicts with other system UI components. Values are integers corresponding to `WindowManager.LayoutParams.TYPE_` constants.
+
+| Property                                  | Default (Auto-detected) | Description |
+|:------------------------------------------| :--- | :--- |
+| `persist.smartdock.window_type_override`          | `2032` (A14-), `2019` (A15+) | Overrides the WindowManager.LayoutParams.TYPE_ for the main dock on the primary display. |
+| `persist.smartdock.window_type_override_handle`   | `2032` (A14-), `2024` (A15+) | Overrides the WindowManager.LayoutParams.TYPE_ for the dock handle on the primary display. |
+| `persist.smartdock.window_type_override_secondary`| `2024` | Overrides the WindowManager.LayoutParams.TYPE_ for the main dock on secondary displays. |
+| `persist.smartdock.window_type_override_handle_secondary` | `2024` | Overrides the WindowManager.LayoutParams.TYPE_ for the dock handle on secondary displays. |
+
+**Common Window Types for Overlays:**
+| Value | `WindowManager.LayoutParams.TYPE_` Constant (SDK 34) | Description |
+| :--- | :--- | :--- |
+| `2000` | `TYPE_PHONE` | Application window that is not a full-screen activity. Often used for pop-ups and overlays. |
+| `2003` | `TYPE_STATUS_BAR` | The status bar itself. **Highly restricted.** |
+| `2011` | `TYPE_TOAST` | A transient, non-interactive overlay like a toast message. |
+| `2019` | `TYPE_NAVIGATION_BAR` | The system navigation bar. **Highly restricted on modern Android.** |
+| `2024` | `TYPE_NAVIGATION_BAR_PANEL` | A panel on top of the navigation bar. Less restricted than `TYPE_NAVIGATION_BAR`. |
+| `2032` | `TYPE_ACCESSIBILITY_OVERLAY` | An overlay window for accessibility services. Generally well-suited for system-level overlays. |
+| `2038` | `TYPE_APPLICATION_OVERLAY` | Standard application overlay window. Requires `SYSTEM_ALERT_WINDOW` permission. |
 
 ### Functional Restrictions & Production Lock-down
 | Property | Default | Description |
@@ -89,4 +134,5 @@ SmartDock DFC is designed to be highly flexible. While `SmartDock.mk` provides a
 1.  **Priv-App Status:** Ensure SmartDock is in `/product/priv-app/`.
 2.  **Permissions:** Verify `privapp-permissions-smartdock.xml` is in `/product/etc/permissions/`.
 3.  **Stability:** Verify `sysconfig-smartdock.xml` is in `/product/etc/sysconfig/`.
-4.  **Properties:** Add your desired defaults to `build.prop` using the table above.
+4.  **Boot-time Settings:** Ensure `smartdock_dfc_init.rc` is correctly placed and configured as per the "Boot-time Secure Settings" section to grant critical permissions early in the boot process.
+5.  **Other Properties:** Add any other desired defaults to `build.prop` using the tables above.
