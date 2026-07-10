@@ -53,15 +53,17 @@ icon: home
 
 ## Applications
 
-* [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md)
+* [Ethernet Config](applications/EthernetConfig/EthernetConfig.md)
+* [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 * [Bliss Kiosk Launcher](applications/BlissKioskLauncher/BlissKioskLauncher.md)
 * [Bliss Restricted Launcher](applications/BlissRestrictedLauncher/BlissRestrictedLauncher.md)
 * [SmartDock DFC](applications/SmartDockDFC/README.md)
 
 ## Interfaces
 
-* [Power Management API](interfaces/power-management-aidl.md)* 
-* [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md)
+* [Power Management API](interfaces/power-management-aidl.md)
+* [Ethernet Config AIDL](applications/EthernetConfig/AIDL_INTERFACE.md)
+* [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 
 ## Development
 
