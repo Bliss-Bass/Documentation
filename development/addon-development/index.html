@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030989723">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Addon development</title>
-    <meta name="title" content="Addon development">
-    <meta name="description" content="Learning our addon development process will give you a good concept of how things are put together.">
+    <title>Addon Development: Bass Lineout</title>
+    <meta name="title" content="Addon Development: Bass Lineout">
+    <meta name="description" content="This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/development/addon-development/">
@@ -21,27 +21,27 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/development/addon-development/">
-    <meta property="og:title" content="Addon development">
-    <meta property="og:description" content="Learning our addon development process will give you a good concept of how things are put together.">
+    <meta property="og:title" content="Addon Development: Bass Lineout">
+    <meta property="og:description" content="This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/development/addon-development/">
-    <meta name="twitter:title" content="Addon development">
-    <meta name="twitter:description" content="Learning our addon development process will give you a good concept of how things are put together.">
+    <meta name="twitter:title" content="Addon Development: Bass Lineout">
+    <meta name="twitter:description" content="This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/development/addon-development.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837030989723" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -160,70 +160,252 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="addon-development">Addon development</h1>
-<h2 id="addon-development-1">Addon Development</h2>
-<p>Learning our addon development process will give you a good concept of how things are put together.</p>
-<p>Let&#x27;s say that you have a change that you want to add to Bass OS, but that change can be used on many devices, so you don&#x27;t want to keep it as a private change that is never shared outside this single devices source. This is where Addons come into play.</p>
-<p>Addons can consist of one or more of the following:</p>
+<h1 id="addon-development-bass-lineout">Addon Development: Bass Lineout</h1>
+<p><strong>This page is for Bass: Lineout</strong> (<code translate="no" v-pre>vendor/ax86-lite</code>, <code translate="no" v-pre>tools/build.sh</code>).</p>
+<p>If you are on classic Bass OS with <code translate="no" v-pre>private/addons/</code> and <code translate="no" v-pre>unfold_bliss.sh</code>, use the separate guide instead:</p>
+<p>→ <strong><a href="../addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a></strong></p>
+<p>Do not mix the two. Lineout does <strong>not</strong> scan <code translate="no" v-pre>private/addons/</code> the way older Bass unfold did. Legacy Bass does <strong>not</strong> use <code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code> the same way.</p>
+<hr>
+<h2 id="lineout-overview">Lineout overview</h2>
+<p>On Lineout, &quot;addon&quot; work falls into two buckets that both belong to this product line:</p>
+<retype-table copy-text="| Bucket | Where it lives | How you enable it |
+|--------|----------------|-------------------|
+| **Build packages** | `vendor/ax86-lite/vendor_packages/` | `build.sh` flags (`--extras`, `--btnmgr`, …) |
+| **Runtime overrides** | `/data/misc/`, GRUB flags, `addon_init` | Push files + cmdline / `setprop` |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Where it lives</th>
+<th>How you enable it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Build packages</strong></td>
+<td><code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code></td>
+<td><code translate="no" v-pre>build.sh</code> flags (<code translate="no" v-pre>--extras</code>, <code translate="no" v-pre>--btnmgr</code>, …)</td>
+</tr>
+<tr>
+<td><strong>Runtime overrides</strong></td>
+<td><code translate="no" v-pre>/data/misc/</code>, GRUB flags, <code translate="no" v-pre>addon_init</code></td>
+<td>Push files + cmdline / <code translate="no" v-pre>setprop</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>Both are documented below. Neither is the old <code translate="no" v-pre>private/addons/</code> patchset model.</p>
+<hr>
+<h2 id="build-packages">Build packages</h2>
+<p>Features ship as product packages in the vendor tree.</p>
+<div id="build-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">vendor/ax86-lite/vendor_packages/&lt;Name&gt;/
+  Android.bp / *.mk
+  README.md          # picked up by Ax86Docs when present
+  init .rc / .sh     # optional; keep package-local when possible</code></pre>
+</doc-codeblock></div>
+<p>Enable them from <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code> (see <a href="../building-bass/">Building Bass OS</a>):</p>
+<retype-table copy-text="| Flag | Packages / behavior |
+|------|---------------------|
+| `--extras` | Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs |
+| `--btnmgr` | Button Manager |
+| `--logger` / `--logging-enabled` | Ax86 Logger |
+| `--bootsight` | BootSight (+ `ro.bass.fleet_mgmt=bootsight`) |
+| `--smartdock` | SmartDock DFC |
+| `--ethernetconfig` | Ethernet Config |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Packages / behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--extras</code></td>
+<td>Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--btnmgr</code></td>
+<td>Button Manager</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--logger</code> / <code translate="no" v-pre>--logging-enabled</code></td>
+<td>Ax86 Logger</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bootsight</code></td>
+<td>BootSight (+ <code translate="no" v-pre>ro.bass.fleet_mgmt=bootsight</code>)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--smartdock</code></td>
+<td>SmartDock DFC</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--ethernetconfig</code></td>
+<td>Ethernet Config</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="adding-a-new-lineout-package">Adding a new Lineout package</h3>
+<ol>
+<li>Create <code translate="no" v-pre>vendor_packages/YourFeature/</code> with a product <code translate="no" v-pre>.mk</code> and (for apps) <code translate="no" v-pre>Android.bp</code>.</li>
+<li>Wire it in <code translate="no" v-pre>ax86_lite.mk</code> behind a flag (or always-on if that is intentional).</li>
+<li>Add the flag to <code translate="no" v-pre>tools/build.sh</code> help and export defaults.</li>
+<li>Drop a <code translate="no" v-pre>README.md</code> in the package so <a href="../../applications/ax86docs/">Ax86Docs</a> picks it up on the next <code translate="no" v-pre>--extras</code> build.</li>
+<li>Prefer package-local <code translate="no" v-pre>init.rc</code> / scripts. Avoid editing core <code translate="no" v-pre>addon_init.rc</code> unless the feature is shared early-boot plumbing.</li>
+</ol>
+<p>App docs on this site:</p>
 <ul>
-<li>Patchsets - Single or multiple sets of patches that are to be applied on-top of the source when unfolding the OS.</li>
-<li>Prebuilt APK&#x27;s - An example of this is the Restricted Launcher Pro. We offer the free version of the prebuilt for all to include, but it contains branding that cannot be changed. But we offer the Pro version that can be rebranded and further customized as an addon.</li>
-<li>Package/External Sources - An example of this is our Kiosk Launcher, as that requires the private source to be included in the OS in order to use it.</li>
-<li>Script Addon - An automation script that does something or helps automate any point in the build process.</li>
+<li><a href="../../applications/blisstouchmapper/">Touch Mapper</a></li>
+<li><a href="../../applications/blissdisplaymapper/">Display Mapper</a></li>
+<li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
+<li><a href="../../applications/blisstweaks/">Bliss Tweaks</a></li>
+<li><a href="../../applications/ax86buttonmanager/">Button Manager</a></li>
+<li><a href="../../applications/ax86logger/">Ax86 Logger</a></li>
+<li><a href="../../applications/bootsight/">BootSight</a></li>
 </ul>
-<h3 id="patchset-addon-development">Patchset Addon Development</h3>
-<p>The first example we will go over is for a patchsett based addon. For this, you will use a patches folder with a name following the addon_name. Along with a manifest .xml that links your addon as a .git. This will allow you to have a private repo as an addon and control access to it if needed.</p>
-<h4 id="example-patchset-addon">Example patchset addon</h4>
-<p>We have an example patchset addon for a change that can be found in <code translate="no" v-pre>/bigblissdrive03/bass-wg01/assets/examples/addon_templates/patchsets-network_options</code>. Take a look at the README.md for that to get a good idea of the info we include as a starting point.</p>
-<h4 id="where-things-go">Where things go</h4>
-<p>When syncing the Bass OS project, you will want to place the patchset addon folder (<code translate="no" v-pre>patchsets-addon_name</code>) in the <code translate="no" v-pre>private/addons/</code> folder. This location will be searched when the project is unfolded, and any manifest file found will be synced in the unfolding process. After sync is complete, any patches that are required for the addon will be automatically applied.</p>
-<h5 id="manifest">Manifest</h5>
-<p>The manifest file should point to the path: <code translate="no" v-pre>vendor/bass/patches/patchsets-addon_name</code>. You should also name the manifest file the unique name of your addon. The remote name defined within the manifest .xml should also be unique to your addon.</p>
-<h5 id="patchset">Patchset</h5>
-<p>The patchset should be organized in multiple folders within the <code translate="no" v-pre>addon_name</code> folder of your addon.</p>
-<p>Example:</p>
+<h3 id="newer-lineout-branches-addonsid">Newer Lineout branches (<code translate="no" v-pre>addons/&lt;id&gt;/</code>)</h3>
+<p>Some newer ax86-lite branches move packages under <code translate="no" v-pre>addons/&lt;id&gt;/</code> with <code translate="no" v-pre>addon.cfg</code> and a compat symlink from <code translate="no" v-pre>vendor_packages/&lt;Pkg&gt;</code>. See <code translate="no" v-pre>vendor_packages/Ax86ButtonManager/docs/PORTING-23.2.md</code> in the vendor tree.</p>
+<p>On current Lineage 21 / A14 Lineout trees, packages still live directly under <code translate="no" v-pre>vendor_packages/</code> and are gated by <code translate="no" v-pre>ax86_lite.mk</code> + <code translate="no" v-pre>tools/build.sh</code>. Use that layout unless your branch already has the <code translate="no" v-pre>addons/</code> integrator.</p>
+<hr>
+<h2 id="runtime-overrides-addon_init">Runtime overrides (<code translate="no" v-pre>addon_init</code>)</h2>
+<p>Lineout also supports <strong>on-device</strong> overrides without rebuilding the ISO. Scripts under <code translate="no" v-pre>/vendor/bin/addon_*.sh</code> run from <code translate="no" v-pre>addon_init.rc</code> after <code translate="no" v-pre>/data</code> is available. They can bind-mount files from <code translate="no" v-pre>/data/misc/</code> over vendor/system paths, apply settings, and react to property triggers.</p>
+<p>This is still the <strong>Lineout</strong> product path (same vendor tree). It is not the legacy Bass private-addon unfold flow.</p>
+<retype-table copy-text="| Path | Role |
+|------|------|
+| `/vendor/etc/init/addon_init.rc` | Triggers early and late init, mapper props |
+| `/vendor/bin/addon_init.sh` | Orchestrator (DMI props, bind mounts, late boot) |
+| `addon_hardware.sh` / `addon_peripherals.sh` / `addon_packages.sh` / `addon_mappers.sh` | Helpers used by `addon_init` |
+| `/data/misc/` | Fleet- or tech-provided override files |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>/vendor/etc/init/addon_init.rc</code></td>
+<td>Triggers early and late init, mapper props</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>/vendor/bin/addon_init.sh</code></td>
+<td>Orchestrator (DMI props, bind mounts, late boot)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>addon_hardware.sh</code> / <code translate="no" v-pre>addon_peripherals.sh</code> / <code translate="no" v-pre>addon_packages.sh</code> / <code translate="no" v-pre>addon_mappers.sh</code></td>
+<td>Helpers used by <code translate="no" v-pre>addon_init</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>/data/misc/</code></td>
+<td>Fleet- or tech-provided override files</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="grub--cmdline-toggles-lineout">GRUB / cmdline toggles (Lineout)</h3>
+<retype-table copy-text="| Flag | Effect |
+|------|--------|
+| `ADDON_IDC=1` | Custom `.idc` files from `/data/system/devices/idc` |
+| `BLISS_INPUT_PORTS_ADDON=1` | `/data/misc/input-port-addon.xml` for input↔display ports |
+| `ADDON_BOOTANIMATION=1` | `/data/misc/bootanimation.zip` |
+| `ADDON_BASSINIT=1` | Custom vendor init under `/data/vendor/etc/init/` |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>ADDON_IDC=1</code></td>
+<td>Custom <code translate="no" v-pre>.idc</code> files from <code translate="no" v-pre>/data/system/devices/idc</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>BLISS_INPUT_PORTS_ADDON=1</code></td>
+<td><code translate="no" v-pre>/data/misc/input-port-addon.xml</code> for input↔display ports</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_BOOTANIMATION=1</code></td>
+<td><code translate="no" v-pre>/data/misc/bootanimation.zip</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_BASSINIT=1</code></td>
+<td>Custom vendor init under <code translate="no" v-pre>/data/vendor/etc/init/</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>How-tos:</p>
 <ul>
-<li>patchsets_addon_name</li>
-<li>README.md
-<ul>
-<li>manifest
-<ul>
-<li>private-addon_name.xml</li>
+<li><a href="../../setup_and_configuration/addon_idc/">Using IDC Addon</a></li>
+<li><a href="../../setup_and_configuration/input-port-associations/">Creating an input-port-addon.xml file</a></li>
 </ul>
-</li>
-<li>addon_name
+<p>On <code translate="no" v-pre>--extras</code> builds, <a href="../../applications/blisstouchmapper/">Touch Mapper</a> can generate the input-port file from Settings. Prefer that UI when available; GRUB flags still matter for headless imaging.</p>
+<h3 id="config-files-and-property-triggers-lineout">Config files and property triggers (Lineout)</h3>
+<retype-table copy-text="| Mechanism | Docs |
+|-----------|------|
+| `settings_*.conf`, `runtime_props.conf`, `device_config.conf` | [Config Overrides](../applications/BlissConfigOverrides/BlissConfigOverrides.md) |
+| `custom_device.prop` (early `ro.*`) | Same page; applied by `addon_init` before framework |
+| Master apply | `setprop persist.ax86.update_configs 1` |
+| Per-mapper apply | `sys.ax86.display.update`, `sys.ax86.touch.update`, `sys.ax86.radio.update`, `sys.ax86.location.update` |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>settings_*.conf</code>, <code translate="no" v-pre>runtime_props.conf</code>, <code translate="no" v-pre>device_config.conf</code></td>
+<td><a href="../../applications/blissconfigoverrides/">Config Overrides</a></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>custom_device.prop</code> (early <code translate="no" v-pre>ro.*</code>)</td>
+<td>Same page; applied by <code translate="no" v-pre>addon_init</code> before framework</td>
+</tr>
+<tr>
+<td>Master apply</td>
+<td><code translate="no" v-pre>setprop persist.ax86.update_configs 1</code></td>
+</tr>
+<tr>
+<td>Per-mapper apply</td>
+<td><code translate="no" v-pre>sys.ax86.display.update</code>, <code translate="no" v-pre>sys.ax86.touch.update</code>, <code translate="no" v-pre>sys.ax86.radio.update</code>, <code translate="no" v-pre>sys.ax86.location.update</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>Vendor reference (also in Ax86Docs): <code translate="no" v-pre>OVERRIDES.md</code> and <code translate="no" v-pre>VENDOR_DEPLOYMENT.md</code> in <code translate="no" v-pre>vendor/ax86-lite</code>.</p>
+<h3 id="good-uses-for-runtime-overrides">Good uses for runtime overrides</h3>
 <ul>
-<li>device
+<li>Field fixes (digitizer axes, DPI) without a new ISO</li>
+<li>Fleet imaging: push <code translate="no" v-pre>/data/misc</code> files, set GRUB flags, reboot</li>
+<li>Config Override examples under <code translate="no" v-pre>vendor/ax86-lite/docs/examples/</code></li>
+</ul>
+<p>Runtime overrides are <strong>not</strong> how you ship a new privileged app. New apps go under <code translate="no" v-pre>vendor_packages/</code> with a build flag.</p>
+<hr>
+<h2 id="related-lineout">Related (Lineout)</h2>
 <ul>
-<li>generic
-<ul>
-<li>common
-<ul>
-<li>0001-change_name-1-of-3.patch</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>bootable
-<ul>
-<li>newinstaller
-<ul>
-<li>0001-change_name-2-of-3.patch</li>
-</ul>
-</li>
-<li>recovery
-<ul>
-<li>0001-change_name-3-of-3.patch</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="../building-bass/">Building Bass OS</a></li>
+<li><a href="../../applications/ax86docs/">Ax86Docs</a></li>
+<li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
+<li><a href="../../features/fleet-management/">Fleet Management</a></li>
+<li><a href="../addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a> (different product tree)</li>
 </ul>
 
                 
@@ -250,10 +432,10 @@
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/bass-high-level-overview/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/addon-development-legacy-bass/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Bass - High Level Overview</span>
+                                <span class="block mt-1">Addon Development: Legacy Bass OS</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -300,6 +482,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Addon development", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/addon-development.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Addon Development: Bass Lineout", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/addon-development.md" }</script>
 </body>
 </html>

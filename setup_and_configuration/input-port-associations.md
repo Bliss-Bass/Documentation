@@ -1,4 +1,13 @@
-# Creating an input-port-addon.xml file
+# Creating an input-port-addon.xml file (Lineout runtime override)
+
+This is a **Bass: Lineout** runtime override: put XML under `/data/misc/` and enable `BLISS_INPUT_PORTS_ADDON=1` on the kernel command line. Early init bind-mounts that file over the vendor associations path.
+
+It is **not** a legacy Bass `private/addons/` package.
+
+* Lineout model: [Addon Development: Bass Lineout](../development/addon-development.md)
+* Legacy Bass private addons: [Addon Development: Legacy Bass OS](../development/addon-development-legacy-bass.md)
+
+Builds with `--extras` also include [Touch Mapper](../applications/BlissTouchMapper/BlissTouchMapper.md), which can generate and save this file from Settings. Use the steps below for imaging or when you prefer ADB.
 
 ## Steps to Configure Input-Display Associations
 
@@ -29,7 +38,7 @@ This command will output information like:
 - ...
 
 ### Edit the input-port-addon.xml file:
-Create the file to update the associations between the display ports and input locations.Example XML structure:
+Create the file to update the associations between the display ports and input locations. Example XML structure:
 ```xml
 <ports>
 	<port display="0" input="usb-xhci-cdns3-1.1.4/input0" />
@@ -44,7 +53,13 @@ Create the file to update the associations between the display ports and input l
 Connect to the device using ADB and run the following commands:
 ```bash
 adb root
-adb push input-ports-addon.xml > /data/misc/inpot-port-addon.xml
+adb push input-port-addon.xml /data/misc/input-port-addon.xml
 ```
 On the next reboot, the device will pickup on the input ports associations and apply the changes. 
-Some debugging may be needed in the event you have multiple touch controllers connected that share the same name/chipset. 
+Some debugging may be needed in the event you have multiple touch controllers connected that share the same name/chipset.
+
+## Related
+
+* [Addon Development: Bass Lineout](../development/addon-development.md)
+* [Bliss Touch Mapper](../applications/BlissTouchMapper/BlissTouchMapper.md)
+* [Using IDC Addon](addon_idc.md)

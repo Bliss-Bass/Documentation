@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030989723">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837030989723" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.837030989723" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.837034514321" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -174,6 +174,27 @@
 </doc-codeblock></div>
 <h3 id="overriding-default-configuration">Overriding Default Configuration</h3>
 <p>SmartDock DFC is designed to be highly flexible. While <code translate="no" v-pre>SmartDock.mk</code> provides a set of sensible defaults in <code translate="no" v-pre>PRODUCT_PROPERTY_OVERRIDES</code>, you can override any of these flags in your target device&#x27;s specific makefile or <code translate="no" v-pre>build.prop</code> to achieve the desired combination of features for your hardware.</p>
+<h3 id="boot-time-secure-settings-initrc">Boot-time Secure Settings (<code translate="no" v-pre>init.rc</code>)</h3>
+<p>For critical system integrations, such as enabling accessibility services and notification listeners from boot, configuring settings via an <code translate="no" v-pre>init.rc</code> script is the most robust method in AOSP. This ensures settings are applied at a high privilege level during the early boot sequence, before the application starts.</p>
+<p>SmartDock ships <code translate="no" v-pre>smartdock_dfc_init.rc</code> and <code translate="no" v-pre>smartdock_grant_permissions.sh</code> under <code translate="no" v-pre>aosp/</code>. <code translate="no" v-pre>SmartDock.mk</code> installs them to:</p>
+<ul>
+<li><code translate="no" v-pre>/vendor/etc/init/smartdock_dfc_init.rc</code></li>
+<li><code translate="no" v-pre>/vendor/bin/smartdock_grant_permissions.sh</code></li>
+</ul>
+<p>On <code translate="no" v-pre>sys.boot_completed</code>, <code translate="no" v-pre>smartdock_dfc_init.rc</code> only enables overlay settings (safe before unlock).</p>
+<p>On <code translate="no" v-pre>sys.user.0.ce_available=1</code>, init enables the accessibility service, starts <code translate="no" v-pre>DockService</code>, and runs <code translate="no" v-pre>smartdock_grant_permissions</code>. Both <code translate="no" v-pre>DockService</code> and <code translate="no" v-pre>NotificationService</code> defer CE-dependent initialization (SharedPreferences, dock UI) until credential storage is unlocked.</p>
+<p>The <strong>oneshot</strong> service <code translate="no" v-pre>smartdock_grant_permissions</code> waits for CE storage (<code translate="no" v-pre>sys.user.0.ce_available</code> or <code translate="no" v-pre>cmd user is-unlocked</code>), then applies:</p>
+<ul>
+<li><code translate="no" v-pre>pm grant</code> and <code translate="no" v-pre>appops set</code> (overlay, usage stats, secure settings, etc.)</li>
+<li><strong>Notification Listener</strong> (<code translate="no" v-pre>enabled_notification_listeners</code> + <code translate="no" v-pre>cmd notification allow_listener</code>)</li>
+<li><strong>Device Administrator</strong> via <code translate="no" v-pre>dpm set-active-admin</code></li>
+</ul>
+<p><code translate="no" v-pre>sys.user.0.ce_available=1</code> starts the grant script and enables accessibility / DockService. After grants complete, the script restarts SmartDock so the notification listener binds without a stale crashed state.</p>
+<p><strong>Note on Placement &amp; SELinux:</strong></p>
+<ul>
+<li>Files are copied via <code translate="no" v-pre>SmartDock.mk</code> <code translate="no" v-pre>PRODUCT_COPY_FILES</code> (see above paths).</li>
+<li>You will almost certainly need to adjust your SELinux policies to permit <code translate="no" v-pre>init</code> (or other relevant domains like <code translate="no" v-pre>system_server</code>) to write to <code translate="no" v-pre>Settings.Secure</code>. This usually involves adding rules to <code translate="no" v-pre>.te</code> files in your device&#x27;s <code translate="no" v-pre>sepolicy</code> directory.</li>
+</ul>
 <h2 id="2-comprehensive-property-directory">2. Comprehensive Property Directory</h2>
 <h3 id="core-shell-behavior">Core Shell Behavior</h3>
 <retype-table copy-text="| Property | Valid Values | Description |
@@ -230,7 +251,7 @@
 | `persist.bass.sd.override_panel_alpha` | `true`, `false` | Enables manual transparency override for major panels and islands. |
 | `persist.bass.sd.panel_alpha` | `0` to `255` | Default transparency for panels when override is enabled. |
 | `persist.bass.sd.qs_height_ratio` | `0.33`, `0.66`, `0.99` | Sets the maximum vertical height ratio for the Notification Panel. |
-| `persist.bass.sd.qs_panel_width` | `100` to `200` | Sets the default relative width percentage for the Notification Panel. |
+| `persist.bass.sd.qs_panel_width` | `100` to `200` | Sets the default relative width percentage for the Notification/QS Panel. |
 | `persist.bass.sd.qs_panel_scale` | `50` to `150` | Sets the default UI scale percentage for the Notification/QS Panel. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -300,7 +321,7 @@
 <tr>
 <td style="text-align: left;"><code translate="no" v-pre>persist.bass.sd.qs_panel_width</code></td>
 <td style="text-align: left;"><code translate="no" v-pre>100</code> to <code translate="no" v-pre>200</code></td>
-<td style="text-align: left;">Sets the default relative width percentage for the Notification Panel.</td>
+<td style="text-align: left;">Sets the default relative width percentage for the Notification/QS Panel.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code translate="no" v-pre>persist.bass.sd.qs_panel_scale</code></td>
@@ -394,6 +415,107 @@
 <td style="text-align: left;"><code translate="no" v-pre>persist.bass.sd.enable_blur_overlay</code></td>
 <td style="text-align: left;"><code translate="no" v-pre>false</code></td>
 <td style="text-align: left;">Enables system-wide background blur support via overlay.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="advanced-window-type-overrides">Advanced Window Type Overrides</h3>
+<p>These properties allow for direct control over the <code translate="no" v-pre>WindowManager.LayoutParams.type</code> value used for SmartDock&#x27;s windows. This is an advanced configuration option primarily for AOSP integrators to fine-tune layering behavior or resolve conflicts with other system UI components. Values are integers corresponding to <code translate="no" v-pre>WindowManager.LayoutParams.TYPE_</code> constants.</p>
+<retype-table copy-text="| Property                                  | Default (Auto-detected) | Description |
+|:------------------------------------------| :--- | :--- |
+| `persist.smartdock.window_type_override`          | `2032` (A14-), `2019` (A15+) | Overrides the WindowManager.LayoutParams.TYPE_ for the main dock on the primary display. |
+| `persist.smartdock.window_type_override_handle`   | `2032` (A14-), `2024` (A15+) | Overrides the WindowManager.LayoutParams.TYPE_ for the dock handle on the primary display. |
+| `persist.smartdock.window_type_override_secondary`| `2024` | Overrides the WindowManager.LayoutParams.TYPE_ for the main dock on secondary displays. |
+| `persist.smartdock.window_type_override_handle_secondary` | `2024` | Overrides the WindowManager.LayoutParams.TYPE_ for the dock handle on secondary displays. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Default (Auto-detected)</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>persist.smartdock.window_type_override</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>2032</code> (A14-), <code translate="no" v-pre>2019</code> (A15+)</td>
+<td style="text-align: left;">Overrides the WindowManager.LayoutParams.TYPE_ for the main dock on the primary display.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>persist.smartdock.window_type_override_handle</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>2032</code> (A14-), <code translate="no" v-pre>2024</code> (A15+)</td>
+<td style="text-align: left;">Overrides the WindowManager.LayoutParams.TYPE_ for the dock handle on the primary display.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>persist.smartdock.window_type_override_secondary</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>2024</code></td>
+<td style="text-align: left;">Overrides the WindowManager.LayoutParams.TYPE_ for the main dock on secondary displays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>persist.smartdock.window_type_override_handle_secondary</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>2024</code></td>
+<td style="text-align: left;">Overrides the WindowManager.LayoutParams.TYPE_ for the dock handle on secondary displays.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Common Window Types for Overlays:</strong></p>
+<retype-table copy-text="| Value | `WindowManager.LayoutParams.TYPE_` Constant (SDK 34) | Description |
+| :--- | :--- | :--- |
+| `2000` | `TYPE_PHONE` | Application window that is not a full-screen activity. Often used for pop-ups and overlays. |
+| `2003` | `TYPE_STATUS_BAR` | The status bar itself. **Highly restricted.** |
+| `2011` | `TYPE_TOAST` | A transient, non-interactive overlay like a toast message. |
+| `2019` | `TYPE_NAVIGATION_BAR` | The system navigation bar. **Highly restricted on modern Android.** |
+| `2024` | `TYPE_NAVIGATION_BAR_PANEL` | A panel on top of the navigation bar. Less restricted than `TYPE_NAVIGATION_BAR`. |
+| `2032` | `TYPE_ACCESSIBILITY_OVERLAY` | An overlay window for accessibility services. Generally well-suited for system-level overlays. |
+| `2038` | `TYPE_APPLICATION_OVERLAY` | Standard application overlay window. Requires `SYSTEM_ALERT_WINDOW` permission. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;"><code translate="no" v-pre>WindowManager.LayoutParams.TYPE_</code> Constant (SDK 34)</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2000</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_PHONE</code></td>
+<td style="text-align: left;">Application window that is not a full-screen activity. Often used for pop-ups and overlays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2003</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_STATUS_BAR</code></td>
+<td style="text-align: left;">The status bar itself. <strong>Highly restricted.</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2011</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_TOAST</code></td>
+<td style="text-align: left;">A transient, non-interactive overlay like a toast message.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2019</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_NAVIGATION_BAR</code></td>
+<td style="text-align: left;">The system navigation bar. <strong>Highly restricted on modern Android.</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2024</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_NAVIGATION_BAR_PANEL</code></td>
+<td style="text-align: left;">A panel on top of the navigation bar. Less restricted than <code translate="no" v-pre>TYPE_NAVIGATION_BAR</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2032</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_ACCESSIBILITY_OVERLAY</code></td>
+<td style="text-align: left;">An overlay window for accessibility services. Generally well-suited for system-level overlays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>2038</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>TYPE_APPLICATION_OVERLAY</code></td>
+<td style="text-align: left;">Standard application overlay window. Requires <code translate="no" v-pre>SYSTEM_ALERT_WINDOW</code> permission.</td>
 </tr>
 </tbody>
 </table>
@@ -521,7 +643,8 @@
 <li><strong>Priv-App Status:</strong> Ensure SmartDock is in <code translate="no" v-pre>/product/priv-app/</code>.</li>
 <li><strong>Permissions:</strong> Verify <code translate="no" v-pre>privapp-permissions-smartdock.xml</code> is in <code translate="no" v-pre>/product/etc/permissions/</code>.</li>
 <li><strong>Stability:</strong> Verify <code translate="no" v-pre>sysconfig-smartdock.xml</code> is in <code translate="no" v-pre>/product/etc/sysconfig/</code>.</li>
-<li><strong>Properties:</strong> Add your desired defaults to <code translate="no" v-pre>build.prop</code> using the table above.</li>
+<li><strong>Boot-time Settings:</strong> Ensure <code translate="no" v-pre>smartdock_dfc_init.rc</code> is correctly placed and configured as per the &quot;Boot-time Secure Settings&quot; section to grant critical permissions early in the boot process.</li>
+<li><strong>Other Properties:</strong> Add any other desired defaults to <code translate="no" v-pre>build.prop</code> using the tables above.</li>
 </ol>
 
                 
@@ -538,20 +661,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../applications/smartdockdfc/marketing/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../applications/smartdockdfc/sales_guide/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Smart​Dock DFC: The Vision of a Unified Computing Future</span>
+                                <span class="block mt-1">Smart​Dock DFC: OEM &amp; Enterprise Sales Guide</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../applications/blissethernetmanager/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../applications/ax86logger/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Bliss​Ethernet​Manager</span>
+                                <span class="block mt-1">Ax​86 Logger</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>

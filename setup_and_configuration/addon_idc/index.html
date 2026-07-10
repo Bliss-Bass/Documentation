@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030989723">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>IDC Addon</title>
-    <meta name="title" content="IDC Addon">
-    <meta name="description" content="This addon allows us to place idc files in data/system/devices/idc and if found, will bind mount them to system/usr/idc">
+    <title>IDC Addon (Lineout runtime override)</title>
+    <meta name="title" content="IDC Addon (Lineout runtime override)">
+    <meta name="description" content="This is a Bass: Lineout runtime override (part of addon_init), not a legacy Bass private/addons/ package.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/setup_and_configuration/addon_idc/">
@@ -21,28 +21,28 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/setup_and_configuration/addon_idc/">
-    <meta property="og:title" content="IDC Addon">
-    <meta property="og:description" content="This addon allows us to place idc files in data/system/devices/idc and if found, will bind mount them to system/usr/idc">
+    <meta property="og:title" content="IDC Addon (Lineout runtime override)">
+    <meta property="og:description" content="This is a Bass: Lineout runtime override (part of addon_init), not a legacy Bass private/addons/ package.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/setup_and_configuration/addon_idc/">
-    <meta name="twitter:title" content="IDC Addon">
-    <meta name="twitter:description" content="This addon allows us to place idc files in data/system/devices/idc and if found, will bind mount them to system/usr/idc">
+    <meta name="twitter:title" content="IDC Addon (Lineout runtime override)">
+    <meta name="twitter:description" content="This is a Bass: Lineout runtime override (part of addon_init), not a legacy Bass private/addons/ package.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/setup_and_configuration/addon_idc.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837030989723" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837030989723" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837034514321" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -161,10 +161,12 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="idc-addon">IDC Addon</h1>
+<h1 id="idc-addon-lineout-runtime-override">IDC Addon (Lineout runtime override)</h1>
 <h2 id="input-device-configuration-files-from-data">Input Device Configuration files from data</h2>
-<p>This addon allows us to place idc files in data/system/devices/idc
-and if found, will bind mount them to system/usr/idc</p>
+<p>This is a <strong>Bass: Lineout</strong> runtime override (part of <code translate="no" v-pre>addon_init</code>), not a legacy Bass <code translate="no" v-pre>private/addons/</code> package.</p>
+<p>Place <code translate="no" v-pre>.idc</code> files under <code translate="no" v-pre>/data/system/devices/idc</code>. When enabled, early init bind-mounts them so Android&#x27;s input stack picks them up (same idea as stock <code translate="no" v-pre>/system/usr/idc</code>, but writable after install).</p>
+<p>Full Lineout addon model: <a href="../../development/addon-development/">Addon Development: Bass Lineout</a>.<br />
+Legacy Bass private addons: <a href="../../development/addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a>.</p>
 <h2 id="what-you-will-need">What you will need</h2>
 <p>You will first need to find the USB ID for your touchscreen:</p>
 <div id="what-you-will-need-code-1" class="codeblock-wrapper"><doc-codeblock>
@@ -184,7 +186,7 @@ And edit its contents with the following:</p>
 touch.deviceType = touchScreen
 </code></pre>
 </doc-codeblock></div>
-<p>Once you have your IDC file created, make sure you are using a Bass OS build with the IDC Addon or an AIO (All In One) build, and verify you have the following added to the kernel cmdline or install options:
+<p>Once you have your IDC file created, make sure you are using a Lineout build that includes the IDC addon path, and verify you have the following added to the kernel cmdline or install options:
 <code translate="no" v-pre>ADDON_IDC=1</code></p>
 <p>Then use ADB root to push it to the device (you may need to use mkdir to create the folder if not found):</p>
 <div id="what-you-will-need-code-3" class="codeblock-wrapper"><doc-codeblock>
@@ -193,6 +195,12 @@ adb root
 adb push Vendor_0eef_Product_c005.idc data/system/devices/idc/Vendor_0eef_Product_c005.idc</code></pre>
 </doc-codeblock></div>
 <p>Then reboot to test. If working, you will see your device show up in <code translate="no" v-pre>dumpsys input</code> and <code translate="no" v-pre>getevent -i</code></p>
+<h2 id="related">Related</h2>
+<ul>
+<li><a href="../../development/addon-development/">Addon Development: Bass Lineout</a></li>
+<li><a href="../../applications/blisstouchmapper/">Bliss Touch Mapper</a> (property-based mapping on <code translate="no" v-pre>--extras</code> builds)</li>
+<li><a href="../input-port-associations/">Creating an input-port-addon.xml file</a></li>
+</ul>
 
                 
                 <!-- Required only on API pages -->
@@ -268,6 +276,6 @@ adb push Vendor_0eef_Product_c005.idc data/system/devices/idc/Vendor_0eef_Produc
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "IDC Addon", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/addon_idc.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "IDC Addon (Lineout runtime override)", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/addon_idc.md" }</script>
 </body>
 </html>

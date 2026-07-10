@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030989723">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Creating an input-port-addon.xml file</title>
-    <meta name="title" content="Creating an input-port-addon.xml file">
-    <meta name="description" content="Use the Boot Config editor from Settings > System to enable/add the following boot flag, or select the following boot flag from the installer during a">
+    <title>Creating an input-port-addon.xml file (Lineout runtime override)</title>
+    <meta name="title" content="Creating an input-port-addon.xml file (Lineout runtime override)">
+    <meta name="description" content="This is a Bass: Lineout runtime override: put XML under /data/misc/ and enable BLISS_INPUT_PORTS_ADDON=1 on the kernel command line. Early init bind-mounts that file over the vendor associations path.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/setup_and_configuration/input-port-associations/">
@@ -21,28 +21,28 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/setup_and_configuration/input-port-associations/">
-    <meta property="og:title" content="Creating an input-port-addon.xml file">
-    <meta property="og:description" content="Use the Boot Config editor from Settings > System to enable/add the following boot flag, or select the following boot flag from the installer during a">
+    <meta property="og:title" content="Creating an input-port-addon.xml file (Lineout runtime override)">
+    <meta property="og:description" content="This is a Bass: Lineout runtime override: put XML under /data/misc/ and enable BLISS_INPUT_PORTS_ADDON=1 on the kernel command line. Early init bind-mounts that file over the vendor associations path.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/setup_and_configuration/input-port-associations/">
-    <meta name="twitter:title" content="Creating an input-port-addon.xml file">
-    <meta name="twitter:description" content="Use the Boot Config editor from Settings > System to enable/add the following boot flag, or select the following boot flag from the installer during a">
+    <meta name="twitter:title" content="Creating an input-port-addon.xml file (Lineout runtime override)">
+    <meta name="twitter:description" content="This is a Bass: Lineout runtime override: put XML under /data/misc/ and enable BLISS_INPUT_PORTS_ADDON=1 on the kernel command line. Early init bind-mounts that file over the vendor associations path.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/setup_and_configuration/input-port-associations.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837030989723" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837030989723" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837034514321" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -161,7 +161,14 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="creating-an-input-port-addonxml-file">Creating an input-port-addon.xml file</h1>
+<h1 id="creating-an-input-port-addonxml-file-lineout-runtime-override">Creating an input-port-addon.xml file (Lineout runtime override)</h1>
+<p>This is a <strong>Bass: Lineout</strong> runtime override: put XML under <code translate="no" v-pre>/data/misc/</code> and enable <code translate="no" v-pre>BLISS_INPUT_PORTS_ADDON=1</code> on the kernel command line. Early init bind-mounts that file over the vendor associations path.</p>
+<p>It is <strong>not</strong> a legacy Bass <code translate="no" v-pre>private/addons/</code> package.</p>
+<ul>
+<li>Lineout model: <a href="../../development/addon-development/">Addon Development: Bass Lineout</a></li>
+<li>Legacy Bass private addons: <a href="../../development/addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a></li>
+</ul>
+<p>Builds with <code translate="no" v-pre>--extras</code> also include <a href="../../applications/blisstouchmapper/">Touch Mapper</a>, which can generate and save this file from Settings. Use the steps below for imaging or when you prefer ADB.</p>
 <h2 id="steps-to-configure-input-display-associations">Steps to Configure Input-Display Associations</h2>
 <h3 id="update-the-build-config-for-the-input-ports-addon">Update the build config for the input-ports-addon:</h3>
 <p>Use the Boot Config editor from Settings &gt; System to enable/add the following boot flag, or select the following boot flag from the installer during a fresh install:</p>
@@ -192,7 +199,7 @@
 <li>...</li>
 </ul>
 <h3 id="edit-the-input-port-addonxml-file">Edit the input-port-addon.xml file:</h3>
-<p>Create the file to update the associations between the display ports and input locations.Example XML structure:</p>
+<p>Create the file to update the associations between the display ports and input locations. Example XML structure:</p>
 <div id="edit-the-input-port-addonxml-file-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;ports&gt;
 	&lt;port display=&quot;0&quot; input=&quot;usb-xhci-cdns3-1.1.4/input0&quot; /&gt;
@@ -207,10 +214,16 @@
 <p>Connect to the device using ADB and run the following commands:</p>
 <div id="push-the-change-to-the-device-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb root
-adb push input-ports-addon.xml &gt; /data/misc/inpot-port-addon.xml</code></pre>
+adb push input-port-addon.xml /data/misc/input-port-addon.xml</code></pre>
 </doc-codeblock></div>
 <p>On the next reboot, the device will pickup on the input ports associations and apply the changes.
 Some debugging may be needed in the event you have multiple touch controllers connected that share the same name/chipset.</p>
+<h2 id="related">Related</h2>
+<ul>
+<li><a href="../../development/addon-development/">Addon Development: Bass Lineout</a></li>
+<li><a href="../../applications/blisstouchmapper/">Bliss Touch Mapper</a></li>
+<li><a href="../addon_idc/">Using IDC Addon</a></li>
+</ul>
 
                 
                 <!-- Required only on API pages -->
@@ -286,6 +299,6 @@ Some debugging may be needed in the event you have multiple touch controllers co
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Creating an input-port-addon.xml file", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/input-port-associations.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Creating an input-port-addon.xml file (Lineout runtime override)", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/input-port-associations.md" }</script>
 </body>
 </html>

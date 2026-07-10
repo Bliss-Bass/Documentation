@@ -1,6 +1,8 @@
 # License Activation
 
-Some of the Bass OS builds do require licensing activation. After contacting us with your device serial numbers and purchasing a license, there are a few different ways it can be activated. 
+Some of the Bass OS builds do require licensing activation. After contacting us with your device serial numbers and purchasing a license, there are a few different ways it can be activated.
+
+On builds that include [BootSight](../applications/BootSight/BootSight.md) (`--bootsight`, `ro.bass.fleet_mgmt=bootsight`), the on-device path is Settings → **Device Status**. Builds that use an MDM instead (`--fleet-mgmt=mdm`) will not show that entry. See [Fleet Management](../features/fleet-management.md).
 
 ### Option A: On Device
 

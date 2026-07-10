@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030989723">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -43,12 +43,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837030989723" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837030989723" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837030989723" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837034514321" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -183,12 +183,13 @@
 </p>
 <h2 id="overview">Overview</h2>
 <p>SmartDock DFC (Desktop Framework Component) is a complete reimagining of the Android interface, built to bridge the gap between mobile flexibility and desktop productivity. It transforms any AOSP-based device into a professional workstation with a focus on multi-window multitasking and OEM-level customization.</p>
-<h2 id="-documentation"><span class="docs-emoji">&#x1F4D6;</span> Documentation</h2>
+<h2 id="documentation">Documentation</h2>
 <ul>
 <li><strong><a href="smartdock_features/">Feature Overview</a></strong>: Detailed breakdown of all current and experimental features.</li>
 <li><strong><a href="marketing/">The Vision</a></strong>: Explore the paradigm shift and the unified computing future of SmartDock DFC.</li>
 <li><strong><a href="sales_guide/">Sales Guide</a></strong>: A comprehensive guide for OEMs and Enterprise customers on product pillars and market strategies.</li>
 <li><strong><a href="vendor_guide/">Vendor Implementation Guide</a></strong>: Exhaustive technical documentation for OEMs and AOSP integrators, including all <code translate="no" v-pre>persist.bass.sd.*</code> system properties.</li>
+<li><strong><a href="input_routing_a14/">A14 Physical Pointer Routing</a></strong>: Routing mice and touchpads to displays on Android 14+.</li>
 </ul>
 <h2 id="main-features">Main features</h2>
 <ul>
@@ -206,14 +207,22 @@
 <div id="secure-settings-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">pm grant cu.axel.smartdock android.permission.WRITE_SECURE_SETTINGS</code></pre>
 </doc-codeblock></div>
+<h3 id="restore-preferences">Restore preferences</h3>
+<p>SmartDock DFC allows restoring preferences from a backup with a shell command. Refer to the inline documentation in <code translate="no" v-pre>PreferencesReceiver</code> (<code translate="no" v-pre>app/src/main/java/cu/axel/smartdock/receivers/PreferencesReceiver.kt</code> in the SmartDock-DFC source).</p>
 <h3 id="build-environment">Build Environment</h3>
 <p>SmartDock DFC is designed to be built as a privileged system component. Refer to the <strong><a href="vendor_guide/">Vendor Implementation Guide</a></strong> for instructions on including the <code translate="no" v-pre>SmartDock.mk</code> product configuration in your AOSP build.</p>
+<p>On Lineout / ax86-lite builds, enable it with <code translate="no" v-pre>--smartdock</code>.</p>
+<h2 id="get-help-and-ask-questions">Get help and ask questions</h2>
+<ul>
+<li><strong>Telegram Support:</strong> <a href="https://t.me/smartdock358">Join the group</a></li>
+</ul>
 <h2 id="licensing">Licensing</h2>
 <p>SmartDock DFC is a commercial distribution. While it incorporates components and logic derived from the open-source GPL-licensed SmartDock project, this DFC edition has been extensively modified and enhanced for professional OEM and enterprise environments.</p>
 <p><strong>This version is NOT licensed under the GPL and is available exclusively via commercial licensing.</strong></p>
 <p>For licensing inquiries, volume distribution, or enterprise support, please contact Navotpala Tech (Bliss Co-Labs Inc):</p>
 <ul>
 <li><strong>Email:</strong> <a href="mailto:info@navotpala.tech">info@navotpala.tech</a></li>
+<li><strong>Telegram:</strong> @electrikjesus / @Axel358</li>
 </ul>
 
                 
@@ -240,10 +249,10 @@
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../applications/smartdockdfc/smartdock_features/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../applications/smartdockdfc/input_routing_a14/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Smart​Dock DFC (Desktop Framework Component) - Feature Overview</span>
+                                <span class="block mt-1">A​14 Physical Pointer Routing</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
