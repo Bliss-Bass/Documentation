@@ -4,6 +4,8 @@ When you install one of our Aaropa based builds, the Linux GUI based installer a
 
 But once installed, there is not obvious way to update the boot configuration from the Android UI. That is where this document comes in.
 
+**Please Note:** On Android 14/16 (Bass: Lineout) builds, a **Bass boot options** submenu is also generated automatically in Grub during the initial boot. It contains the default Tablet UI / Desktop UI / Kiosk boot mode collections and appears from the next reboot onward, so you can switch between boot modes without editing the boot configuration manually. It can be disabled by booting with `androidboot.bass.boot_options=0`.
+
 ## Updating the boot configuration
 
 Updating the boot configuration of the build can be done in a couple different ways:

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -197,8 +197,14 @@ options: true, false</p>
 </ul>
 <h4 id="restricted-launcher-setup">Restricted Launcher Setup</h4>
 <p>(<strong>!!NOTICE FOR INITIAL SETUP!!</strong>) We recommend disconnecting all but the primary display when starting up the OS. Once setup is complete, you can connect any displays and continue testing and operation.</p>
+<p>(<strong>!!NOTICE FOR A14/A16 BUILDS!!</strong>) On newer Bass builds (Android 14/16, aka Bass: Lineout), the Grub menu on the very first boot after install will only show the default <strong>BlissOS</strong>, <strong>Recovery</strong>, and <strong>Advanced</strong> entries — the Kiosk boot options are not there yet. The <strong>Bass boot options</strong> submenu (containing <strong>Kiosk &gt; Lockdown</strong> and <strong>Kiosk &gt; Admin</strong> entries) is generated automatically by the OS during that initial boot and setup. So the expected flow on these builds is:</p>
+<ol>
+<li>Boot the default entry once and complete the initial boot/setup.</li>
+<li>Reboot and open the Grub menu (tap shift during BIOS logo if Grub is hidden).</li>
+<li>Select <strong>Bass boot options</strong> &gt; <strong>Kiosk</strong> and choose an <strong>Admin</strong> entry to configure the launcher, or a <strong>Lockdown</strong> entry for locked operation.</li>
+</ol>
 <p>Once the device boots into Grub, the top option or two will be our locked down mode (<strong>Intel Default</strong> or <strong>AMD Default</strong>)</p>
-<p>While the Admin modes can be found in the <strong>Other Options</strong> section of the boot menu.</p>
+<p>While the Admin modes can be found in the <strong>Other Options</strong> section of the boot menu (or under <strong>Bass boot options</strong> &gt; <strong>Kiosk</strong> on A14/A16 builds).</p>
 <p>The <strong>Restricted Launcher &amp; POS builds</strong> will initially require setup through Admin mode. So after install, you will want to reboot, the tap the shift key until the Grub menu shows. From there, select <strong>Other Options</strong> &gt; and select one of the Admin options from there.</p>
 <p>Once booted, you should setup the devices wifi/network. Afterwards, you will want to tap on the Sprocket icon at the top right, and navigate to the Security tab, and tap on <strong>Change Password</strong>.</p>
 <p>After setting the admin password, we can select the default features we want available in Lockdown mode, and navigate back to the Restricted Launcher page, and configure your Appearance, Apps and System options.</p>
@@ -206,6 +212,7 @@ options: true, false</p>
 <p><strong>Apps</strong>: Allows you to set your whitelisted apps up, you can also set what whitelisted apps you want to auto-launch per-display.</p>
 <p><strong>System</strong>: Allows you to change options for default screen timeout and on-screen keyboard display</p>
 <p>Once setup is complete, we can then back out and test our lockdown settings by hitting the Lock icon at the top right of the home screen, or reboot the device, and select the top boot option (some builds offer specific boot options per CPU manufacturer: <strong>Intel Default</strong> or <strong>AMD Default</strong>) to enter Lockdown mode.</p>
+<p>To exit a locked session while in Admin mode, open the Restricted Launcher Settings (floating sprocket button) and use the <strong>Unlock</strong> option at the top of the list. After entering the admin password, the device exits locked mode and returns to the admin home screen. See <a href="../../applications/blissrestrictedlauncher/">Bliss Restricted Launcher</a> for details.</p>
 <h4 id="kiosk-launcher-setup">Kiosk Launcher Setup</h4>
 <p>By default, the Bliss Kiosk Launcher UI will have two modes, Lockdown and Admin modes.</p>
 <p>To configure the launcher, we want to start off by booting onto Admin mode. Then we can start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is <code translate="no" v-pre>123</code>. From settings you can manage the whitelist, auto-launch app, and whether the home screen clock is shown.</p>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837034514321">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/">
     <meta property="og:title" content="Setting Up Bliss Restricted Launcher">
     <meta property="og:description" content="If your BlissBass builds comes with Bliss Restricted Launcher, then you have the ability to restrict it’s access to various packages on the device, as well">
-    <meta property="og:image" content="https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/images/admin-mode_main.png">
+    <meta property="og:image" content="https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/images/admin-home.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Setting Up Bliss Restricted Launcher">
@@ -35,7 +35,7 @@
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/">
     <meta name="twitter:title" content="Setting Up Bliss Restricted Launcher">
     <meta name="twitter:description" content="If your BlissBass builds comes with Bliss Restricted Launcher, then you have the ability to restrict it’s access to various packages on the device, as well">
-    <meta name="twitter:image" content="https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/images/admin-mode_main.png">
+    <meta name="twitter:image" content="https://docs.blisscolabs.dev/applications/blissrestrictedlauncher/images/admin-home.png">
     <meta name="twitter:image:alt" content="Setting Up Bliss Restricted Launcher">
 
     <!-- Alternate Markdown -->
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837034514321" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837034514321" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -168,13 +168,14 @@
                 <!-- Page content  -->
 <h1 id="setting-up-bliss-restricted-launcher">Setting Up Bliss Restricted Launcher</h1>
 <p>If your BlissBass builds comes with Bliss Restricted Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as set specific packages to auto-launch across multiple connected displays when booting the device into Lockdown mode (Default), or locking the device while in Admin mode (Other Options &gt; Admin).</p>
+<p><strong>Availability Note:</strong> The Settings <strong>Unlock</strong> option, live appearance/overlay updates, company logo watermark gating, and the improved Back/Home handling during locked sessions described below are only available on recent builds (<strong>Bass: Lineout</strong>) or Bliss Restricted Launcher versions newer than <strong>1.0</strong>. If your build ships an older version of the launcher, please contact us for updates.</p>
 <h3 id="admin-mode">Admin Mode:</h3>
 <p>Admin mode will display both the sprocket and the lock button on the top right of the display, and allow access to navigation, statusbar, recents, and other Android features by default.</p>
 <figure class="content-center">
-    <img src="images/admin-mode_main.png" alt="Admin mode desktop" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
+    <img src="images/admin-home.png" alt="Admin mode desktop" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">Admin mode desktop</figcaption>
 </figure>
-<p>This mode is open by default and allows for the launcher defaults to be configured.</p>
+<p>This mode is open by default and allows for the launcher defaults to be configured. Tapping the lock button (top right) prompts for the admin password and enters a locked session without rebooting: whitelisted auto-start apps are launched and pinned, and the rest of the system is locked down until the session is unlocked again.</p>
 <h3 id="configuration">Configuration:</h3>
 <p>Clicking on the sprocket from the home screen will launch the Restricted Launcher Settings screen, where it should prompt you for a password:</p>
 <figure class="content-center">
@@ -182,11 +183,30 @@
     <figcaption class="caption">Initial Settings Screen</figcaption>
 </figure>
 <p>The main settings screen has a number of suboptions to select from:</p>
+<h4 id="unlock">Unlock</h4>
+<p>When the device is in a locked session (booted into Lockdown mode, or locked from Admin mode with the lock button), an <strong>Unlock</strong> option is shown at the top of the settings list (Bass: Lineout builds / launcher versions newer than 1.0):</p>
+<figure class="content-center">
+    <img src="images/settings-unlock.png" alt="Settings with Unlock option" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
+    <figcaption class="caption">Settings with Unlock option</figcaption>
+</figure>
+<p>Tapping <strong>Unlock</strong> prompts for the admin password. Once entered, the device exits locked mode, removes the on-screen overlays, and returns to the admin home screen — no reboot required.</p>
+<figure class="content-center">
+    <img src="images/settings-unlock-password.png" alt="Unlock password prompt" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
+    <figcaption class="caption">Unlock password prompt</figcaption>
+</figure>
+<p>The Unlock option is only visible while a locked session is active; it stays hidden during normal Admin use.</p>
 <h4 id="appearance">Appearance</h4>
 <p>The appearance settings screen allows you to change a number of details about the overall look and feel of the kiosk interface. Depending on the Free or Pro version of the app, there may be some options that are unavaialable like setting custom logo, and hiding/changing the logo overlay options.</p>
 <figure class="content-center">
-    <img src="images/changelogoposition.gif" alt="ation\applications\BlissRestrictedLauncher\images\ChangeLogoPosition.gif)" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="800" height="450" />
-    <figcaption class="caption">ation\applications\BlissRestrictedLauncher\images\ChangeLogoPosition.gif)</figcaption>
+    <img src="images/appearance-settings.png" alt="Appearance settings" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
+    <figcaption class="caption">Appearance settings</figcaption>
+</figure>
+<p>Appearance options that affect the locked-session overlays (logo watermark position, margins, opacity, and the settings button placement) now apply live — changes take effect immediately, without restarting the launcher or the locked session.</p>
+<p><strong>Please Note:</strong> The logo watermark shown over locked sessions follows both toggles: <strong>Show company logo</strong> (Home screen section) and <strong>Show logo overlay</strong> (Logo overlay section). Disabling <strong>Show company logo</strong> hides the logo on the home screen <em>and</em> removes the watermark from locked sessions.</p>
+<p>The <strong>Button position</strong> option (Settings floating button section) also offers a <strong>Hidden</strong> setting. When set to Hidden, the floating settings sprocket is not drawn during locked sessions — instead, a small invisible touch area remains in the bottom-right corner of the screen. To open Settings from it, double-tap the corner and keep the second tap held for about 3 seconds; the device will vibrate to confirm before showing the settings password prompt.</p>
+<figure class="content-center">
+    <img src="images/changelogoposition.gif" alt="ChangeLogoPosition.gif" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="800" height="450" />
+    <figcaption class="caption">ChangeLogoPosition.gif</figcaption>
 </figure>
 <h4 id="apps">Apps</h4>
 <p>Apps settings has all the options related to selecting your whitelisted apps and auto-launching them across multiple displays. The auto-start app options will show a list of apps for you to select from:</p>
@@ -203,6 +223,7 @@
     <img src="images/homebutton.gif" alt="HomeButton.gif" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="800" height="450" />
     <figcaption class="caption">HomeButton.gif</figcaption>
 </figure>
+<p><strong>Please Note:</strong> While auto-start apps are configured, the Home (and Recents) lock task features are kept off during locked sessions regardless of these toggles. This matches kiosk behavior — Back at an app&#x27;s root or the Home button would otherwise briefly expose the launcher home screen behind the pinned app.</p>
 <ul>
 <li>Example below shows enabling and disabling the recents overview</li>
 </ul>
@@ -236,11 +257,18 @@
     <figcaption class="caption">lockdown mode</figcaption>
 </figure>
 <p>You can configure Restricted Launchers Lockdown mode to have navigation bar, gesture handle and status bar are all disabled, and the app drawer will only display allowed packages.</p>
+<p>When auto-start apps are configured, they are launched and pinned on their assigned displays as soon as the locked session starts. The Back and Home buttons will no longer flash the launcher home screen — the auto-start app stays in front until the session is unlocked:</p>
+<figure class="content-center">
+    <img src="images/lockdown-autostart.png" alt="lockdown auto-start app" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
+    <figcaption class="caption">lockdown auto-start app</figcaption>
+</figure>
 <p>While in Lockdown mode, you can access the Restricted Launcher Settings by clicking the sprocket at the top right of the screen, and a password prompt will display requiring the password set from Admin mode to be input:</p>
 <figure class="content-center">
     <img src="images/lockdown-password.png" alt="lockdown password prompt" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">lockdown password prompt</figcaption>
 </figure>
+<p>If the settings button position was set to <strong>Hidden</strong> under Appearance, the sprocket will not be visible — double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.</p>
+<p>From there, the <strong>Unlock</strong> option at the top of the settings list can be used to exit the locked session and return to the admin home screen (see the Unlock section above).</p>
 
                 
                 <!-- Required only on API pages -->
