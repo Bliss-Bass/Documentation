@@ -2,6 +2,8 @@
 
 If your BlissBass builds comes with Bliss Restricted Launcher, then you have the ability to restrict it’s access to various packages on the device, as well as set specific packages to auto-launch across multiple connected displays when booting the device into Lockdown mode (Default), or locking the device while in Admin mode (Other Options > Admin).
 
+**Availability Note:** The Settings **Unlock** option, live appearance/overlay updates, company logo watermark gating, and the improved Back/Home handling during locked sessions described below are only available on recent builds (**Bass: Lineout**) or Bliss Restricted Launcher versions newer than **1.0**. If your build ships an older version of the launcher, please contact us for updates.
+
 ### Admin Mode:
 
 Admin mode will display both the sprocket and the lock button on the top right of the display, and allow access to navigation, statusbar, recents, and other Android features by default. 
@@ -20,7 +22,7 @@ The main settings screen has a number of suboptions to select from:
 
 #### Unlock
 
-When the device is in a locked session (booted into Lockdown mode, or locked from Admin mode with the lock button), an **Unlock** option is shown at the top of the settings list:
+When the device is in a locked session (booted into Lockdown mode, or locked from Admin mode with the lock button), an **Unlock** option is shown at the top of the settings list (Bass: Lineout builds / launcher versions newer than 1.0):
 
 ![Settings with Unlock option](images/settings-unlock.png "image_tooltip")
 
