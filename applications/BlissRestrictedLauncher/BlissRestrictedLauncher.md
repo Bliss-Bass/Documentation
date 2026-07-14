@@ -42,6 +42,8 @@ Appearance options that affect the locked-session overlays (logo watermark posit
 
 **Please Note:** The logo watermark shown over locked sessions follows both toggles: **Show company logo** (Home screen section) and **Show logo overlay** (Logo overlay section). Disabling **Show company logo** hides the logo on the home screen *and* removes the watermark from locked sessions.
 
+The **Button position** option (Settings floating button section) also offers a **Hidden** setting. When set to Hidden, the floating settings sprocket is not drawn during locked sessions — instead, a small invisible touch area remains in the bottom-right corner of the screen. To open Settings from it, double-tap the corner and keep the second tap held for about 3 seconds; the device will vibrate to confirm before showing the settings password prompt.
+
 ![ChangeLogoPosition.gif](images/ChangeLogoPosition.gif)
 
 #### Apps
@@ -91,5 +93,7 @@ When auto-start apps are configured, they are launched and pinned on their assig
 While in Lockdown mode, you can access the Restricted Launcher Settings by clicking the sprocket at the top right of the screen, and a password prompt will display requiring the password set from Admin mode to be input:
 
 ![lockdown password prompt](images/lockdown-password.png "image_tooltip")
+
+If the settings button position was set to **Hidden** under Appearance, the sprocket will not be visible — double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.
 
 From there, the **Unlock** option at the top of the settings list can be used to exit the locked session and return to the admin home screen (see the Unlock section above).
