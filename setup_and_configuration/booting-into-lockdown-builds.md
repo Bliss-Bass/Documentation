@@ -41,9 +41,15 @@ The options used to configure those restrictions can be overridden with the foll
 
 (**!!NOTICE FOR INITIAL SETUP!!**) We recommend disconnecting all but the primary display when starting up the OS. Once setup is complete, you can connect any displays and continue testing and operation.
 
+(**!!NOTICE FOR A14/A16 BUILDS!!**) On newer Bass builds (Android 14/16, aka Bass: Lineout), the Grub menu on the very first boot after install will only show the default **BlissOS**, **Recovery**, and **Advanced** entries — the Kiosk boot options are not there yet. The **Bass boot options** submenu (containing **Kiosk > Lockdown** and **Kiosk > Admin** entries) is generated automatically by the OS during that initial boot and setup. So the expected flow on these builds is:
+
+1. Boot the default entry once and complete the initial boot/setup.
+2. Reboot and open the Grub menu (tap shift during BIOS logo if Grub is hidden).
+3. Select **Bass boot options** > **Kiosk** and choose an **Admin** entry to configure the launcher, or a **Lockdown** entry for locked operation.
+
 Once the device boots into Grub, the top option or two will be our locked down mode (**Intel Default** or **AMD Default**)
 
-While the Admin modes can be found in the **Other Options** section of the boot menu. 
+While the Admin modes can be found in the **Other Options** section of the boot menu (or under **Bass boot options** > **Kiosk** on A14/A16 builds). 
 
 The **Restricted Launcher & POS builds** will initially require setup through Admin mode. So after install, you will want to reboot, the tap the shift key until the Grub menu shows. From there, select **Other Options** > and select one of the Admin options from there. 
 
@@ -58,6 +64,8 @@ After setting the admin password, we can select the default features we want ava
 **System**: Allows you to change options for default screen timeout and on-screen keyboard display
 
 Once setup is complete, we can then back out and test our lockdown settings by hitting the Lock icon at the top right of the home screen, or reboot the device, and select the top boot option (some builds offer specific boot options per CPU manufacturer: **Intel Default** or **AMD Default**) to enter Lockdown mode. 
+
+To exit a locked session while in Admin mode, open the Restricted Launcher Settings (floating sprocket button) and use the **Unlock** option at the top of the list. After entering the admin password, the device exits locked mode and returns to the admin home screen. See [Bliss Restricted Launcher](../applications/BlissRestrictedLauncher/BlissRestrictedLauncher.md) for details.
 
 #### Kiosk Launcher Setup
 
