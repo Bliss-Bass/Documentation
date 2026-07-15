@@ -29,19 +29,29 @@ Some builds are configured for offline licensing (`persist.bass.bootsight.offlin
 
 Offline licenses are cryptographically signed and bound to each device's serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.
 
-There are two ways to apply an offline license:
+There are three ways to apply an offline license:
 
-**1. Drop a license file (best for fleets)**
+**1. USB drive + Files app (no ADB, no network)**
 
-We provide a single `license.pack` file covering every serial you purchased. The same file can be placed on every device; each device automatically picks the entry that matches its own serial. Push it into the BootSight data directory:
+We provide a single `license.pack` file covering every serial you purchased. The same file can be placed on every device; each device automatically picks the entry that matches its own serial. Individual per-device `<serial>.lic` files are also accepted.
+
+1. Copy `license.pack` (or the device's `.lic` file) to a USB drive and plug it into the device.
+2. Either leave it on the drive, or use the Android **Files** app to copy it to the **Download** or **Documents** folder on the device.
+3. If it was copied to Download/Documents, the device picks it up automatically within a few seconds. If it is still on the USB drive, go to Settings → **Device Status** → **Scan drives for license file**; BootSight scans any connected USB drives (and the Download/Documents folders) and activates on the spot.
+
+The screen shows as **Licensed** immediately, with no reboot needed. The license is copied to internal storage during activation, so the USB drive can be removed afterwards.
+
+**2. Drop the file with ADB (best for provisioning scripts)**
+
+Push the same pack into the BootSight data directory:
 
 ```
 adb push license.pack /data/misc/bootsight/license.pack
 ```
 
-The device picks up the file within a few seconds (no reboot needed) and shows as **Licensed**. Provisioning scripts or factory imaging can place the file at the same path. Individual per-device `<serial>.lic` files are also accepted.
+The device picks up the file within a few seconds and shows as **Licensed**. Provisioning scripts or factory imaging can place the file at the same path.
 
-**2. Enter or scan an activation code**
+**3. Enter or scan an activation code**
 
 On the device, go to Settings → **Device Status** → **Enter activation code**. Then either:
 

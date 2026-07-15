@@ -22,7 +22,7 @@ flowchart LR
     Key[(Private signing key, offline)] --> Tool
     Tool --> Pack[license.pack]
     Tool --> Labels[QR labels]
-    Pack -->|drop on every device| Device[BootSight verifies serial plus SKU]
+    Pack -->|USB drive, Files app, or adb push| Device[BootSight verifies serial plus SKU]
     Labels -->|scan or type| Device
     Device --> Licensed[Licensed, no server, no telemetry]
 ```
@@ -77,6 +77,11 @@ python3 bootsight_license_tool.py verify \
 
 4. Send the customer `acme-licenses.pack` (drop on every device) and/or the QR
    labels. Full option reference is in the tool's `README.md`.
+
+The customer applies the pack on each device via a USB drive (left in the drive
+and picked up with the "Scan drives for license file" button, or copied to
+Download/Documents with the Files app), or via `adb push` to
+`/data/misc/bootsight/`. Details are in the end-user doc linked above.
 
 ## Notes
 
