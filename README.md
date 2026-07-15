@@ -94,6 +94,12 @@ icon: home
 * [What are Linux Drivers?](development/what-are-linux-drivers.md)
 * [Porting Linux Drivers](development/porting-linux-drivers.md)
 
+## Sales Resources
+
+* [Bass Product Family: Sales & Positioning Guide](sales/bass-product-family-sales-guide.md)
+* [SmartDock DFC Sales Guide](applications/SmartDockDFC/SALES_GUIDE.md)
+* [SmartDock DFC Marketing](applications/SmartDockDFC/MARKETING.md)
+
 ## Remote Management
 
 * [Using DroidVNC-NG](remote_management/using_droidvnc-ng.md)
