@@ -6,7 +6,7 @@ This guide is for sales and business-development staff. It explains what the Bas
 
 ## 1. Executive Summary
 
-**Bass** (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding.
+**Bass** (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding. The same components also power dedicated arm64 builds, such as Bass-ARM for the Raspberry Pi 4/5 (see [Beyond x86](#beyond-x86-arm64-boards-raspberry-pi-45)).
 
 The core pitch in one sentence:
 
@@ -33,6 +33,14 @@ Points worth internalizing:
 - **Bass: Lineout is what we sell first.** It is the actively developed line: dynamic hardware detection (displays, audio, sensors, power), GRUB "Bass boot options" for switching between Tablet UI / Desktop UI / Kiosk modes, enterprise deployment tooling, and on-device documentation.
 - **Bass: Submix is the answer when the customer says "we also need Linux."** Because the host is Debian, the customer gets standard Linux tooling (`apt`, `systemd`, SSH) underneath a near-native Android experience. Same addons, same configuration model.
 - **Bass OS (classic) remains supported** for existing fleets and covers the older Android range, but new opportunities should be steered to Lineout or Submix.
+
+### Beyond x86: arm64 boards (Raspberry Pi 4/5)
+
+The Bass component and addon library is not limited to x86_64. The same building blocks integrate into arm64 board support packages (BSPs) as well; **Bass-ARM** delivers Android 16 on the Raspberry Pi 4/5 with our Desktop Mode (SmartDock), Kiosk work, FOSS app set, and branding options included through the same build-flag system.
+
+The key difference to understand when positioning arm64: on x86 hardware, one generic image detects and adapts to whatever device it boots on. On arm64, the boot and init sequence is locked to the specific board, so each supported board gets a dedicated, pre-tuned build rather than a universal image. The customer-facing feature set (desktop mode, kiosk lockdown, preloads, branding) carries over; it is the hardware flexibility that differs.
+
+**Sales takeaway:** if a customer's project is built around Raspberry Pi or similar arm64 boards, we can deliver the same Bass experience there. It is a per-board engagement instead of a "boot our generic image" engagement.
 
 ---
 
@@ -86,6 +94,9 @@ SmartDock DFC turns any Bass device into a windowed, multi-monitor desktop works
 
 **"We also run Linux software on these boxes."**
 Bass: Lineout ships an optional Debian subsystem alongside Android; Bass: Submix inverts the stack entirely, running Android in a container on a Debian host. Either way the customer gets `apt`, `systemd`, and standard Linux tools on the same device that runs their Android apps.
+
+**"We're standardized on Raspberry Pi / arm64 hardware."**
+The Bass addon library applies there too. Bass-ARM brings Android 16 with our Desktop Mode and Kiosk components to the Raspberry Pi 4/5. Because arm64 boards have a fixed, board-specific init sequence, these are dedicated per-board builds rather than the universal x86 image, but the feature set and configuration options the customer sees are the same.
 
 **"What happens in three years?"**
 The platform is engineered for portability across Android versions ("work with all future versions of Android with little to no changes" is a core project principle). The customer's investment in configuration and addons carries forward.
