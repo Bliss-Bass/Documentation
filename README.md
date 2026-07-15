@@ -28,7 +28,7 @@ icon: home
 
 #### Devuan Based Installer (Aaropa based initrd/installer)
 
-* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aio_android-12l-15_install_process.md)
+* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md)
 
 ## Configuration
 
@@ -77,7 +77,7 @@ icon: home
 
 ## Interfaces
 
-* [Power Management API](interfaces/power-management-aidl.md)
+* [Power Management API](interfaces/BlissPowerManagerAIDL/power-management-aidl.md)
 * [Ethernet Config AIDL](applications/EthernetConfig/AIDL_INTERFACE.md)
 * [Button Manager AIDL](applications/Ax86ButtonManager/AIDL_INTERFACE.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
