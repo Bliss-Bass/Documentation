@@ -56,7 +56,9 @@ cannot be recovered. Multiple public keys may be embedded to support rotation.
 ## Issuing a pack per purchase
 
 1. Collect the customer's device serials (Settings -> Device Status, or
-   `adb shell getprop ro.bliss.serialnumber`) into a CSV.
+   `adb shell getprop ro.bliss.serialnumber`) into a CSV. A ready-to-copy
+   template lives next to the tool at
+   `vendor/ax86-lite/vendor_packages/bootsight/tools/license-tool/example-serials.csv`.
 2. Issue:
 
 ```bash
