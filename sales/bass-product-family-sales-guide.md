@@ -6,7 +6,7 @@ This guide is for sales and business-development staff. It explains what the Bas
 
 ## 1. Executive Summary
 
-**Bass** (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding. The same components also power dedicated arm64 builds, such as Bass-ARM for the Raspberry Pi 4/5 (see [Beyond x86](#beyond-x86-arm64-boards-raspberry-pi-45)).
+**Bass** (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding. The same components also power dedicated arm64 builds, such as Bass-ARM for the Raspberry Pi 4/5, and Waydroid_NT, our Android-in-a-container product for customers who run their own Linux (both covered below).
 
 The core pitch in one sentence:
 
@@ -18,7 +18,7 @@ Customers do not need to buy purpose-built Android hardware from an OEM, and the
 
 ## 2. The Product Family at a Glance
 
-There are three product lines. All share the same configuration model, addon library, and deployment tooling; they differ in how Android is delivered to the hardware.
+There are three full-OS product lines, plus a "bring your own Linux" offering (Waydroid_NT, covered below). All share the same configuration model, addon library, and deployment tooling; they differ in how Android is delivered to the hardware.
 
 | | **Bass OS** (classic) | **Bass: Lineout** | **Bass: Submix** |
 |---|---|---|---|
@@ -33,6 +33,19 @@ Points worth internalizing:
 - **Bass: Lineout is what we sell first.** It is the actively developed line: dynamic hardware detection (displays, audio, sensors, power), GRUB "Bass boot options" for switching between Tablet UI / Desktop UI / Kiosk modes, enterprise deployment tooling, and on-device documentation.
 - **Bass: Submix is the answer when the customer says "we also need Linux."** Because the host is Debian, the customer gets standard Linux tooling (`apt`, `systemd`, SSH) underneath a near-native Android experience. Same addons, same configuration model.
 - **Bass OS (classic) remains supported** for existing fleets and covers the older Android range, but new opportunities should be steered to Lineout or Submix.
+
+### Bass for Waydroid: Waydroid_NT
+
+For customers who already run their own Linux distribution and just want Android on top of it, we offer **Waydroid_NT**. Where Bass: Submix delivers the complete stack (our Debian host plus Android), Waydroid_NT delivers only the Android-in-a-container piece: Bass-customized Android images and services that drop into the customer's existing Linux environment.
+
+Waydroid_NT comes in two forms:
+
+- **Python-based services**, built on the open-source Waydroid project, for standard container deployments.
+- **C++-based Waydroid services** (Waydroid_NT proper), our re-engineered service layer for products that need tighter integration and performance.
+
+Both forms carry the Bass addon and configuration library for the Android side, and add an **x86_64-only image target** on top of the typical multi-architecture Waydroid targets, which trims the image for Intel/AMD deployments. The core is published under Apache 2.0, with the commercial addons, features, and tools available through licensing.
+
+**Sales takeaway:** Waydroid_NT is the "bring your own Linux" option. If the customer's platform team owns the host OS and they only want a supported, brandable Android runtime with our kiosk and configuration tooling inside it, this is the product to lead with.
 
 ### Beyond x86: arm64 boards (Raspberry Pi 4/5)
 
@@ -94,6 +107,9 @@ SmartDock DFC turns any Bass device into a windowed, multi-monitor desktop works
 
 **"We also run Linux software on these boxes."**
 Bass: Lineout ships an optional Debian subsystem alongside Android; Bass: Submix inverts the stack entirely, running Android in a container on a Debian host. Either way the customer gets `apt`, `systemd`, and standard Linux tools on the same device that runs their Android apps.
+
+**"We already have our own Linux platform; we just need Android on it."**
+That is Waydroid_NT: Bass-customized Android images and container services (Python-based on open-source Waydroid, or our C++ service layer for deeper integration) that install into the customer's existing Linux distribution. They keep their host OS; we supply the Android runtime, addons, and configuration tooling inside it.
 
 **"We're standardized on Raspberry Pi / arm64 hardware."**
 The Bass addon library applies there too. Bass-ARM brings Android 16 with our Desktop Mode and Kiosk components to the Raspberry Pi 4/5. Because arm64 boards have a fixed, board-specific init sequence, these are dedicated per-board builds rather than the universal x86 image, but the feature set and configuration options the customer sees are the same.

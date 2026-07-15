@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837453711540">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837453711540" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837453711540" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837453711540" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -164,7 +164,7 @@
 <p>This guide is for sales and business-development staff. It explains what the Bass product family is, how the three product lines differ, how they compare to stock Android alternatives, and how the modular addon system translates into customer value. No engineering background is required.</p>
 <hr>
 <h2 id="1-executive-summary">1. Executive Summary</h2>
-<p><strong>Bass</strong> (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding. The same components also power dedicated arm64 builds, such as Bass-ARM for the Raspberry Pi 4/5 (see <doc-anchor-trigger to="#beyond-x86-arm64-boards-raspberry-pi-45">Beyond x86</doc-anchor-trigger>).</p>
+<p><strong>Bass</strong> (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding. The same components also power dedicated arm64 builds, such as Bass-ARM for the Raspberry Pi 4/5, and Waydroid_NT, our Android-in-a-container product for customers who run their own Linux (both covered below).</p>
 <p>The core pitch in one sentence:</p>
 <blockquote>
 <p><strong>&quot;Enterprise Android on the hardware you already have: one image, any device, only the features you need.&quot;</strong></p>
@@ -172,7 +172,7 @@
 <p>Customers do not need to buy purpose-built Android hardware from an OEM, and they do not need an engineering team to customize AOSP. Bass delivers a supported, configurable, brandable Android platform with the private customer-specific pieces kept private.</p>
 <hr>
 <h2 id="2-the-product-family-at-a-glance">2. The Product Family at a Glance</h2>
-<p>There are three product lines. All share the same configuration model, addon library, and deployment tooling; they differ in how Android is delivered to the hardware.</p>
+<p>There are three full-OS product lines, plus a &quot;bring your own Linux&quot; offering (Waydroid_NT, covered below). All share the same configuration model, addon library, and deployment tooling; they differ in how Android is delivered to the hardware.</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -223,6 +223,15 @@
 <li><strong>Bass: Submix is the answer when the customer says &quot;we also need Linux.&quot;</strong> Because the host is Debian, the customer gets standard Linux tooling (<code translate="no" v-pre>apt</code>, <code translate="no" v-pre>systemd</code>, SSH) underneath a near-native Android experience. Same addons, same configuration model.</li>
 <li><strong>Bass OS (classic) remains supported</strong> for existing fleets and covers the older Android range, but new opportunities should be steered to Lineout or Submix.</li>
 </ul>
+<h3 id="bass-for-waydroid-waydroid_nt">Bass for Waydroid: Waydroid_NT</h3>
+<p>For customers who already run their own Linux distribution and just want Android on top of it, we offer <strong>Waydroid_NT</strong>. Where Bass: Submix delivers the complete stack (our Debian host plus Android), Waydroid_NT delivers only the Android-in-a-container piece: Bass-customized Android images and services that drop into the customer&#x27;s existing Linux environment.</p>
+<p>Waydroid_NT comes in two forms:</p>
+<ul>
+<li><strong>Python-based services</strong>, built on the open-source Waydroid project, for standard container deployments.</li>
+<li><strong>C++-based Waydroid services</strong> (Waydroid_NT proper), our re-engineered service layer for products that need tighter integration and performance.</li>
+</ul>
+<p>Both forms carry the Bass addon and configuration library for the Android side, and add an <strong>x86_64-only image target</strong> on top of the typical multi-architecture Waydroid targets, which trims the image for Intel/AMD deployments. The core is published under Apache 2.0, with the commercial addons, features, and tools available through licensing.</p>
+<p><strong>Sales takeaway:</strong> Waydroid_NT is the &quot;bring your own Linux&quot; option. If the customer&#x27;s platform team owns the host OS and they only want a supported, brandable Android runtime with our kiosk and configuration tooling inside it, this is the product to lead with.</p>
 <h3 id="beyond-x86-arm64-boards-raspberry-pi-45">Beyond x86: arm64 boards (Raspberry Pi 4/5)</h3>
 <p>The Bass component and addon library is not limited to x86_64. The same building blocks integrate into arm64 board support packages (BSPs) as well; <strong>Bass-ARM</strong> delivers Android 16 on the Raspberry Pi 4/5 with our Desktop Mode (SmartDock), Kiosk work, FOSS app set, and branding options included through the same build-flag system.</p>
 <p>The key difference to understand when positioning arm64: on x86 hardware, one generic image detects and adapts to whatever device it boots on. On arm64, the boot and init sequence is locked to the specific board, so each supported board gets a dedicated, pre-tuned build rather than a universal image. The customer-facing feature set (desktop mode, kiosk lockdown, preloads, branding) carries over; it is the hardware flexibility that differs.</p>
@@ -338,6 +347,8 @@ Bass builds require no Google account and ship with curated open-source applicat
 SmartDock DFC turns any Bass device into a windowed, multi-monitor desktop workstation with taskbar, freeform windows, and per-display scaling. (See the dedicated <a href="../../applications/smartdockdfc/sales_guide/">SmartDock DFC Sales Guide</a>.)</p>
 <p><strong>&quot;We also run Linux software on these boxes.&quot;</strong>
 Bass: Lineout ships an optional Debian subsystem alongside Android; Bass: Submix inverts the stack entirely, running Android in a container on a Debian host. Either way the customer gets <code translate="no" v-pre>apt</code>, <code translate="no" v-pre>systemd</code>, and standard Linux tools on the same device that runs their Android apps.</p>
+<p><strong>&quot;We already have our own Linux platform; we just need Android on it.&quot;</strong>
+That is Waydroid_NT: Bass-customized Android images and container services (Python-based on open-source Waydroid, or our C++ service layer for deeper integration) that install into the customer&#x27;s existing Linux distribution. They keep their host OS; we supply the Android runtime, addons, and configuration tooling inside it.</p>
 <p><strong>&quot;We&#x27;re standardized on Raspberry Pi / arm64 hardware.&quot;</strong>
 The Bass addon library applies there too. Bass-ARM brings Android 16 with our Desktop Mode and Kiosk components to the Raspberry Pi 4/5. Because arm64 boards have a fixed, board-specific init sequence, these are dedicated per-board builds rather than the universal x86 image, but the feature set and configuration options the customer sees are the same.</p>
 <p><strong>&quot;What happens in three years?&quot;</strong>
