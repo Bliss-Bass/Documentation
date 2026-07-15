@@ -24,7 +24,7 @@
 
 #### Devuan Based Installer (Aaropa based initrd/installer)
 
-* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aio_android-12l-15_install_process.md)
+* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md)
 
 ## Configuration
 
@@ -73,7 +73,7 @@
 
 ## Interfaces
 
-* [Power Management API](interfaces/power-management-aidl.md)
+* [Power Management API](interfaces/BlissPowerManagerAIDL/power-management-aidl.md)
 * [Ethernet Config AIDL](applications/EthernetConfig/AIDL_INTERFACE.md)
 * [Button Manager AIDL](applications/Ax86ButtonManager/AIDL_INTERFACE.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
@@ -89,6 +89,12 @@
 * [Contributing Documentation](development/contributing-documentation.md)
 * [What are Linux Drivers?](development/what-are-linux-drivers.md)
 * [Porting Linux Drivers](development/porting-linux-drivers.md)
+
+## Sales Resources
+
+* [Bass Product Family: Sales & Positioning Guide](sales/bass-product-family-sales-guide.md)
+* [SmartDock DFC Sales Guide](applications/SmartDockDFC/SALES_GUIDE.md)
+* [SmartDock DFC Marketing](applications/SmartDockDFC/MARKETING.md)
 
 ## Remote Management
 

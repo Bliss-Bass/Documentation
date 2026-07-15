@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Bliss Touch Mapper (Input Mapper)</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,11 +163,6 @@
                 <!-- Page content  -->
 <h1 id="bliss-touch-mapper-input-mapper">Bliss Touch Mapper (Input Mapper)</h1>
 <p>Touch Mapper binds USB touchscreens, mice, touchpads, and keyboards to specific displays. It can also flip inverted X/Y axes on mismatched digitizers. Included with <code translate="no" v-pre>--extras</code>.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Settings UI** | Maps devices visually and can write `input-port-addon.xml` |
-| **Build** | Included with `--extras` |
-| **Hotplug** | `DisplayMonitorService` keeps bindings when monitors come and go |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -192,7 +187,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="map-by-vendor--product-id-slots-1-to-8">Map by vendor / product ID (slots 1 to 8)</h2>
 <p>Properties live under <code translate="no" v-pre>persist.ax86.*</code> and survive reboot.</p>
 <h3 id="touchscreens">Touchscreens</h3>
@@ -205,11 +199,6 @@ adb shell setprop persist.ax86.touch.1.flip_x &quot;0&quot;
 adb shell setprop persist.ax86.touch.1.flip_y &quot;1&quot;</code></pre>
 </doc-codeblock></div>
 <h3 id="other-input-types">Other input types</h3>
-<retype-table copy-text="| Namespace | Devices |
-|-----------|---------|
-| `persist.ax86.pointer.&lt;SLOT&gt;.*` | Mice / touchpads |
-| `persist.ax86.keyboard.&lt;SLOT&gt;.*` | Physical keyboards |
-| `persist.ax86.input.&lt;SLOT&gt;.*` | Generic inputs |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -234,7 +223,6 @@ adb shell setprop persist.ax86.touch.1.flip_y &quot;1&quot;</code></pre>
 </tbody>
 </table>
 </div>
-</retype-table>
 <h3 id="apply">Apply</h3>
 <p>Regenerate <code translate="no" v-pre>.idc</code> files and refresh the input reader:</p>
 <div id="apply-code-1" class="codeblock-wrapper"><doc-codeblock>

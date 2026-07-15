@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Boot Config (aaropa-options)</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,11 +163,6 @@
                 <!-- Page content  -->
 <h1 id="boot-config-aaropa-options">Boot Config (aaropa-options)</h1>
 <p>Boot Config is the Settings UI for toggling boot / kernel command-line options without rebuilding the image. Changes apply on the next reboot.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | `com.bliss.bootconfig` |
-| **Options source** | `boot_options/options.yaml` |
-| **Also see** | [Configuration through Command Line Parameters](../../setup_and_configuration/Configuration-through-Command-Line-Parameters.md) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -192,7 +187,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="what-you-can-change">What you can change</h2>
 <p>Categories include:</p>
 <ul>
@@ -216,10 +210,6 @@ intent.setClassName(&quot;com.bliss.bootconfig&quot;, &quot;com.bliss.bootconfig
 bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);</code></pre>
 </doc-codeblock></div>
 <h3 id="message-codes">Message codes</h3>
-<retype-table copy-text="| Code | Description | Bundle |
-|------|-------------|--------|
-| `MSG_SET_OPTIONS = 1` | Set boot options | `OPTIONS` = String array to set |
-| `MSG_GET_OPTIONS = 2` | Get boot options | Reply `OPTIONS` = String array currently set (`msg.replyTo`) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -243,7 +233,6 @@ bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);</code></pre>
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="related">Related</h2>
 <ul>
 <li><a href="../blissconfigoverrides/">Config Overrides</a> for <code translate="no" v-pre>/data/misc</code> settings files</li>

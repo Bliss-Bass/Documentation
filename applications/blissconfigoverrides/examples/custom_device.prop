@@ -1,0 +1,38 @@
+# =========================================================================
+# /data/misc/custom_device.prop
+# Early-boot Android property overrides.
+# These values are forcefully bind-mounted into the dynamic build.prop.
+#
+# To use: Push this file to /data/misc/custom_device.prop and reboot.
+# =========================================================================
+
+# --- Device Identity Spoofing ---
+ro.product.manufacturer=BlissLabs
+ro.product.model=Custom Arcade Cabinet
+
+# --- Graphics and UI ---
+# Force a specific graphics renderer (e.g., intel, amd, nouveau, swiftshader)
+# ro.hardware.vulkan=intel
+# ro.hardware.egl=mesa
+
+# Disable the navigation bar (useful for physical kiosk devices)
+qemu.hw.mainkeys=1
+
+# Force a specific global screen density (DPI)
+ro.sf.lcd_density=240
+
+# --- Screen Overrides (Per-Display) ---
+# Target specific displays (0 through 3)
+persist.ax86.display.0.resolution=1920x1080
+persist.ax86.display.0.dpi=240
+persist.ax86.display.0.orientation=1
+
+# --- Touchscreen Input Overrides (Per-Device) ---
+# Map physical USB touchscreens to specific displays or fix inverted axes.
+# Target slots 1 through 4. Vendor and Product IDs are in hex.
+persist.ax86.touch.1.vendor=27c6
+persist.ax86.touch.1.product=0118
+persist.ax86.touch.1.display=local:0
+persist.ax86.touch.1.orientation=1
+persist.ax86.touch.1.flip_x=1
+persist.ax86.touch.1.flip_y=0

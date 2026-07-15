@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Contributing to Bass OS</title>
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -166,10 +166,6 @@
 <p>This project contains many scripts and tools that help aid the support, feature selection, and option customization for Bass OS. Most of those scripts use bash and can also interface with the easy-menu-system we include.</p>
 <h2 id="addon-development">Addon Development</h2>
 <p>Pick the guide that matches your tree. They are not interchangeable.</p>
-<retype-table copy-text="| Product | Guide |
-|---------|--------|
-| **Bass: Lineout** (`vendor/ax86-lite`) | [Addon Development: Bass Lineout](addon-development.md) |
-| **Classic Bass OS** (`private/addons/`, unfold) | [Addon Development: Legacy Bass OS](addon-development-legacy-bass.md) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -190,7 +186,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p><strong>Lineout:</strong> new apps and services go in <code translate="no" v-pre>vendor_packages/</code> with a product makefile and a <code translate="no" v-pre>build.sh</code> flag. Runtime <code translate="no" v-pre>/data/misc</code> overrides use <code translate="no" v-pre>addon_init</code> (same Lineout guide).</p>
 <p><strong>Legacy Bass:</strong> patchsets and private manifests go under <code translate="no" v-pre>private/addons/</code> for unfold. That path is not how Lineout adds packages.</p>
 <h2 id="documentation">Documentation</h2>

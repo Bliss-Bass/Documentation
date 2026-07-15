@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>BootSight</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,12 +163,6 @@
                 <!-- Page content  -->
 <h1 id="bootsight">BootSight</h1>
 <p>BootSight is the Bass fleet and license UI used on builds that manage devices through BootSight rather than a third-party MDM. On those builds it shows up in Settings as <strong>Device Status</strong>, handles license checks, and can show an overlay banner or popup when a demo period expires or a device is unlicensed.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | `com.bliss.bootsight` |
-| **Build flag** | `--bootsight` (`USE_BOOTSIGHT=true`) |
-| **Fleet property** | `ro.bass.fleet_mgmt=bootsight` |
-| **Settings entry** | Device Status |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -197,7 +191,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p><code translate="no" v-pre>--bootsight</code> is independent of <code translate="no" v-pre>--extras</code>. Including BootSight also sets the fleet policy to <code translate="no" v-pre>bootsight</code>. See <a href="../../features/fleet-management/">Fleet Management</a>.</p>
 <h2 id="what-you-get">What you get</h2>
 <ul>
@@ -218,10 +211,6 @@
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --bootsight --bsbanner ...
 ./build.sh --bootsight --bspopup ...</code></pre>
 </doc-codeblock></div>
-<retype-table copy-text="| Flag | Effect |
-|------|--------|
-| `--bsbanner` | Overlay banner (implies `--bootsight`) |
-| `--bspopup` | Overlay popup (implies `--bootsight`) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -242,12 +231,7 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Runtime / product props:</p>
-<retype-table copy-text="| Property | Purpose |
-|----------|---------|
-| `ro.bootsight.banner_type` | Build-time default (`banner` or `popup`) |
-| `persist.bass.bootsight.banner_type` | Persisted overlay style |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -268,7 +252,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="when-bootsight-is-not-included">When BootSight is not included</h2>
 <p>If the fleet uses an MDM instead, build with <code translate="no" v-pre>--fleet-mgmt=mdm</code> and do <strong>not</strong> pass <code translate="no" v-pre>--bootsight</code>. BootSight init and watchdog scripts exit early unless <code translate="no" v-pre>ro.bass.fleet_mgmt</code> is <code translate="no" v-pre>bootsight</code>, so they will not run on MDM or <code translate="no" v-pre>none</code> builds even if leftover files are present.</p>
 <h2 id="related">Related</h2>

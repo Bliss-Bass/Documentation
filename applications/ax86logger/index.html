@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Ax86 Logger</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,12 +163,6 @@
                 <!-- Page content  -->
 <h1 id="ax86-logger">Ax86 Logger</h1>
 <p>Ax86 Logger is a privileged system service that captures rolling logcat output for field diagnostics. Use it when you need to pull recent system logs off a device without keeping a laptop attached the whole time.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | `com.ax86.logger` |
-| **Service / cmd** | `ax86_logger` |
-| **Build flags** | `--logger` (include the app), `--logging-enabled` (start capture by default) |
-| **Log directory** | `/data/misc/logs` |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -197,16 +191,8 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p><code translate="no" v-pre>--logging-enabled</code> implies <code translate="no" v-pre>--logger</code>. With only <code translate="no" v-pre>--logger</code>, the app is installed but capture stays off until you enable it.</p>
 <h2 id="properties-persistax86logging">Properties (<code translate="no" v-pre>persist.ax86.logging.*</code>)</h2>
-<retype-table copy-text="| Property | Default | Description |
-|----------|---------|-------------|
-| `enabled` | `false` | Start or stop capture |
-| `level` | `E` | logcat filter: `E`, `W`, `I`, `D`, `V` |
-| `max_bytes` | `10485760` | Max size per active file (10 MiB) |
-| `max_files` | `10` | How many rotated files to keep |
-| `dir` | `/data/misc/logs` | Output directory |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -245,7 +231,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Log files are named <code translate="no" v-pre>ax86-{sessionTag}.log</code>. The session tag is the UTC time capture started (<code translate="no" v-pre>yyyyMMdd'T'HHmmss'Z'</code>), for example <code translate="no" v-pre>ax86-20260702T213400Z.log</code>. That tag is set once when capture starts, so a later clock sync does not rename the active file.</p>
 <p>When a file hits <code translate="no" v-pre>max_bytes</code>, it rotates to <code translate="no" v-pre>.log.1</code>, <code translate="no" v-pre>.log.2</code>, and so on. Older files past <code translate="no" v-pre>max_files</code> are removed.</p>
 <h2 id="enable-and-check-status">Enable and check status</h2>

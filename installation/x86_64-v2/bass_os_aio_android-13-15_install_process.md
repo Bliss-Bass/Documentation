@@ -43,7 +43,7 @@ After selecting your options, click Next, and then confirm the settings by click
 
 The initial boot option presented from Grub will contain all the boot options you have configured in the installer. Bass OS also includes a few of the default collections for boot modes into the grub boot menu. Those can act as a resource for testing the combinations of boot mode options.
 
-**!!NOTICE FOR A14/A16 BUILDS!!** On newer Bass builds (Android 14/16, aka Bass: Lineout), the Grub menu directly after install will only show the default **BlissOS**, **Recovery**, and **Advanced** entries. The **Bass boot options** submenu is generated automatically by the OS during the initial boot. Simply boot the default entry once and let it finish starting up — the submenu (including the Tablet UI, Desktop UI, and Kiosk collections below) will appear in Grub from the next reboot onward. If you do not want the submenu generated, boot with `androidboot.bass.boot_options=0`.
+**!!NOTICE FOR A14/A16 BUILDS!!** On newer Bass builds (Android 14/16, aka Bass: Lineout), the Grub menu directly after install will only show the default **BlissOS**, **Recovery**, and **Advanced** entries. The **Bass boot options** submenu is generated automatically by the OS during the initial boot. Simply boot the default entry once and let it finish starting up, and the submenu (including the Tablet UI, Desktop UI, and Kiosk collections below) will appear in Grub from the next reboot onward. If you do not want the submenu generated, boot with `androidboot.bass.boot_options=0`.
 
 The boot mode collections are as follows:
 

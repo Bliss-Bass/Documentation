@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Setting Up Bliss Restricted Launcher</title>
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -189,7 +189,7 @@
     <img src="images/settings-unlock.png" alt="Settings with Unlock option" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">Settings with Unlock option</figcaption>
 </figure>
-<p>Tapping <strong>Unlock</strong> prompts for the admin password. Once entered, the device exits locked mode, removes the on-screen overlays, and returns to the admin home screen — no reboot required.</p>
+<p>Tapping <strong>Unlock</strong> prompts for the admin password. Once entered, the device exits locked mode, removes the on-screen overlays, and returns to the admin home screen. No reboot is required.</p>
 <figure class="content-center">
     <img src="images/settings-unlock-password.png" alt="Unlock password prompt" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">Unlock password prompt</figcaption>
@@ -201,9 +201,9 @@
     <img src="images/appearance-settings.png" alt="Appearance settings" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">Appearance settings</figcaption>
 </figure>
-<p>Appearance options that affect the locked-session overlays (logo watermark position, margins, opacity, and the settings button placement) now apply live — changes take effect immediately, without restarting the launcher or the locked session.</p>
+<p>Appearance options that affect the locked-session overlays (logo watermark position, margins, opacity, and the settings button placement) now apply live: changes take effect immediately, without restarting the launcher or the locked session.</p>
 <p><strong>Please Note:</strong> The logo watermark shown over locked sessions follows both toggles: <strong>Show company logo</strong> (Home screen section) and <strong>Show logo overlay</strong> (Logo overlay section). Disabling <strong>Show company logo</strong> hides the logo on the home screen <em>and</em> removes the watermark from locked sessions.</p>
-<p>The <strong>Button position</strong> option (Settings floating button section) also offers a <strong>Hidden</strong> setting. When set to Hidden, the floating settings sprocket is not drawn during locked sessions — instead, a small invisible touch area remains in the bottom-right corner of the screen. To open Settings from it, double-tap the corner and keep the second tap held for about 3 seconds; the device will vibrate to confirm before showing the settings password prompt.</p>
+<p>The <strong>Button position</strong> option (Settings floating button section) also offers a <strong>Hidden</strong> setting. When set to Hidden, the floating settings sprocket is not drawn during locked sessions. Instead, a small invisible touch area remains in the bottom-right corner of the screen. To open Settings from it, double-tap the corner and keep the second tap held for about 3 seconds; the device will vibrate to confirm before showing the settings password prompt.</p>
 <figure class="content-center">
     <img src="images/changelogoposition.gif" alt="ChangeLogoPosition.gif" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="800" height="450" />
     <figcaption class="caption">ChangeLogoPosition.gif</figcaption>
@@ -223,7 +223,7 @@
     <img src="images/homebutton.gif" alt="HomeButton.gif" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="800" height="450" />
     <figcaption class="caption">HomeButton.gif</figcaption>
 </figure>
-<p><strong>Please Note:</strong> While auto-start apps are configured, the Home (and Recents) lock task features are kept off during locked sessions regardless of these toggles. This matches kiosk behavior — Back at an app&#x27;s root or the Home button would otherwise briefly expose the launcher home screen behind the pinned app.</p>
+<p><strong>Please Note:</strong> While auto-start apps are configured, the Home (and Recents) lock task features are kept off during locked sessions regardless of these toggles. This matches kiosk behavior, as Back at an app&#x27;s root or the Home button would otherwise briefly expose the launcher home screen behind the pinned app.</p>
 <ul>
 <li>Example below shows enabling and disabling the recents overview</li>
 </ul>
@@ -257,7 +257,7 @@
     <figcaption class="caption">lockdown mode</figcaption>
 </figure>
 <p>You can configure Restricted Launchers Lockdown mode to have navigation bar, gesture handle and status bar are all disabled, and the app drawer will only display allowed packages.</p>
-<p>When auto-start apps are configured, they are launched and pinned on their assigned displays as soon as the locked session starts. The Back and Home buttons will no longer flash the launcher home screen — the auto-start app stays in front until the session is unlocked:</p>
+<p>When auto-start apps are configured, they are launched and pinned on their assigned displays as soon as the locked session starts. The Back and Home buttons will no longer flash the launcher home screen; the auto-start app stays in front until the session is unlocked:</p>
 <figure class="content-center">
     <img src="images/lockdown-autostart.png" alt="lockdown auto-start app" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">lockdown auto-start app</figcaption>
@@ -267,7 +267,7 @@
     <img src="images/lockdown-password.png" alt="lockdown password prompt" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2160" height="1440" title="image_tooltip" />
     <figcaption class="caption">lockdown password prompt</figcaption>
 </figure>
-<p>If the settings button position was set to <strong>Hidden</strong> under Appearance, the sprocket will not be visible — double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.</p>
+<p>If the settings button position was set to <strong>Hidden</strong> under Appearance, the sprocket will not be visible. In that case, double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.</p>
 <p>From there, the <strong>Unlock</strong> option at the top of the settings list can be used to exit the locked session and return to the admin home screen (see the Unlock section above).</p>
 
                 

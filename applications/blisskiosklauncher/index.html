@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Setting Up Bliss Kiosk Launcher</title>
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -169,10 +169,6 @@
 <h1 id="setting-up-bliss-kiosk-launcher">Setting Up Bliss Kiosk Launcher</h1>
 <p>If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set specific packages to auto-launch when booting into Lockdown / Kiosk mode (Intel Default), or locking the device while in Admin mode (Other Options &gt; Intel - Admin).</p>
 <p>Boot mode is controlled by the kernel/cmdline property <strong><code translate="no" v-pre>ro.boot.bliss.bootmode</code></strong>:</p>
-<retype-table copy-text="| Value | Behavior |
-|-------|----------|
-| `lockdown` or `kiosk` | Kiosk restrictions enabled; auto-start app runs if configured |
-| `admin` (or empty / unset) | Admin UI; lock task / auto-start not forced |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -193,7 +189,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>GRUB / boot menu entries for kiosk builds set this property. See also <a href="../../setup_and_configuration/booting-into-lockdown-builds/">Booting into lockdown builds</a>.</p>
 <h3 id="lockdown-mode">Lockdown Mode:</h3>
 <figure class="content-center">

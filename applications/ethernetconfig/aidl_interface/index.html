@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Ethernet Config — AIDL Interface</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -175,11 +175,6 @@
 <hr>
 <h2 id="ip-assignment-modes">IP assignment modes</h2>
 <p>Use these integer values with <code translate="no" v-pre>getIpAssignment</code> / <code translate="no" v-pre>setIpAssignment</code>:</p>
-<retype-table copy-text="| Value | Constant     | Meaning                                      |
-|------:|--------------|----------------------------------------------|
-| 0     | `UNASSIGNED` | Interface administratively down / unassigned |
-| 1     | `DHCP`       | Automatic IP via DHCP                        |
-| 2     | `STATIC`     | Static IP, gateway, and DNS                  |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -208,7 +203,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p><strong>Static IP address format:</strong> <code translate="no" v-pre>&lt;IPv4&gt;/&lt;prefix&gt;</code> (e.g. <code translate="no" v-pre>192.168.1.100/24</code>).</p>
 <hr>
 <h2 id="client-usage">Client usage</h2>
@@ -271,17 +265,6 @@ oneway interface IBlissEthernetServiceListener {
 }</code></pre>
 </doc-codeblock></div>
 <h3 id="method-reference">Method reference</h3>
-<retype-table copy-text="| Method | Description |
-|--------|-------------|
-| `getAvailableInterfaces()` | Detected Ethernet interface names |
-| `isAvailable(String iface)` | Whether the interface is available |
-| `setListener(...)` | Availability callbacks (`null` to clear) |
-| `setInterfaceUp` / `setInterfaceDown` | Bring interface up or down |
-| `getEthernetMacAddress` | MAC from sysfs / `NetworkInterface` |
-| `getIpAssignment` / `setIpAssignment` | `0` UNASSIGNED, `1` DHCP, `2` STATIC |
-| `getIpAddress` / `setIpAddress` | Static address as `ip/prefix` |
-| `getGateway` / `setGateway` | Default gateway |
-| `getDnses` / `setDnses` | DNS servers |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -330,7 +313,6 @@ oneway interface IBlissEthernetServiceListener {
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Partial updates (<code translate="no" v-pre>setIpAddress</code>, <code translate="no" v-pre>setGateway</code>, <code translate="no" v-pre>setDnses</code>) merge with the current interface configuration before applying.</p>
 <hr>
 <h2 id="authorization">Authorization</h2>
@@ -348,22 +330,6 @@ oneway interface IBlissEthernetServiceListener {
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell service call blissethernet &lt;code&gt; [parameters...]</code></pre>
 </doc-codeblock></div>
 <p><strong><code translate="no" v-pre>&lt;code&gt;</code></strong> is the 1-based transaction ID matching AIDL method order.</p>
-<retype-table copy-text="| Code | AIDL method | Parameters |
-|-----:|-------------|------------|
-| 1 | `getAvailableInterfaces` | — |
-| 2 | `isAvailable` | `s16` interface name |
-| 3 | `setListener` | listener binder (uncommon from shell) |
-| 4 | `setInterfaceUp` | `s16` interface name |
-| 5 | `setInterfaceDown` | `s16` interface name |
-| 6 | `getEthernetMacAddress` | `s16` interface name |
-| 7 | `getIpAssignment` | `s16` interface name |
-| 8 | `setIpAssignment` | `s16` iface, `i32` assignment |
-| 9 | `getIpAddress` | `s16` interface name |
-| 10 | `setIpAddress` | `s16` iface, `s16` `ip/prefix` |
-| 11 | `getGateway` | `s16` interface name |
-| 12 | `setGateway` | `s16` iface, `s16` gateway |
-| 13 | `getDnses` | `s16` interface name |
-| 14 | `setDnses` | `s16` iface, string array |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -447,7 +413,6 @@ oneway interface IBlissEthernetServiceListener {
 </tbody>
 </table>
 </div>
-</retype-table>
 <h3 id="examples">Examples</h3>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash"># List interfaces

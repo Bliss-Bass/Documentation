@@ -26,7 +26,7 @@ When the device is in a locked session (booted into Lockdown mode, or locked fro
 
 ![Settings with Unlock option](images/settings-unlock.png "image_tooltip")
 
-Tapping **Unlock** prompts for the admin password. Once entered, the device exits locked mode, removes the on-screen overlays, and returns to the admin home screen — no reboot required.
+Tapping **Unlock** prompts for the admin password. Once entered, the device exits locked mode, removes the on-screen overlays, and returns to the admin home screen. No reboot is required.
 
 ![Unlock password prompt](images/settings-unlock-password.png "image_tooltip")
 
@@ -38,11 +38,11 @@ The appearance settings screen allows you to change a number of details about th
 
 ![Appearance settings](images/appearance-settings.png "image_tooltip")
 
-Appearance options that affect the locked-session overlays (logo watermark position, margins, opacity, and the settings button placement) now apply live — changes take effect immediately, without restarting the launcher or the locked session.
+Appearance options that affect the locked-session overlays (logo watermark position, margins, opacity, and the settings button placement) now apply live: changes take effect immediately, without restarting the launcher or the locked session.
 
 **Please Note:** The logo watermark shown over locked sessions follows both toggles: **Show company logo** (Home screen section) and **Show logo overlay** (Logo overlay section). Disabling **Show company logo** hides the logo on the home screen *and* removes the watermark from locked sessions.
 
-The **Button position** option (Settings floating button section) also offers a **Hidden** setting. When set to Hidden, the floating settings sprocket is not drawn during locked sessions — instead, a small invisible touch area remains in the bottom-right corner of the screen. To open Settings from it, double-tap the corner and keep the second tap held for about 3 seconds; the device will vibrate to confirm before showing the settings password prompt.
+The **Button position** option (Settings floating button section) also offers a **Hidden** setting. When set to Hidden, the floating settings sprocket is not drawn during locked sessions. Instead, a small invisible touch area remains in the bottom-right corner of the screen. To open Settings from it, double-tap the corner and keep the second tap held for about 3 seconds; the device will vibrate to confirm before showing the settings password prompt.
 
 ![ChangeLogoPosition.gif](images/ChangeLogoPosition.gif)
 
@@ -60,7 +60,7 @@ The Security options is where you will initially want to set the Kiosk password,
 
 ![HomeButton.gif](images/HomeButton.gif)
 
-**Please Note:** While auto-start apps are configured, the Home (and Recents) lock task features are kept off during locked sessions regardless of these toggles. This matches kiosk behavior — Back at an app's root or the Home button would otherwise briefly expose the launcher home screen behind the pinned app.
+**Please Note:** While auto-start apps are configured, the Home (and Recents) lock task features are kept off during locked sessions regardless of these toggles. This matches kiosk behavior, as Back at an app's root or the Home button would otherwise briefly expose the launcher home screen behind the pinned app.
 
 - Example below shows enabling and disabling the recents overview
 
@@ -86,7 +86,7 @@ The system settings page allows you to set the kiosk screen timeout and enable/d
 
 You can configure Restricted Launchers Lockdown mode to have navigation bar, gesture handle and status bar are all disabled, and the app drawer will only display allowed packages. 
 
-When auto-start apps are configured, they are launched and pinned on their assigned displays as soon as the locked session starts. The Back and Home buttons will no longer flash the launcher home screen — the auto-start app stays in front until the session is unlocked:
+When auto-start apps are configured, they are launched and pinned on their assigned displays as soon as the locked session starts. The Back and Home buttons will no longer flash the launcher home screen; the auto-start app stays in front until the session is unlocked:
 
 ![lockdown auto-start app](images/lockdown-autostart.png "image_tooltip")
 
@@ -94,6 +94,6 @@ While in Lockdown mode, you can access the Restricted Launcher Settings by click
 
 ![lockdown password prompt](images/lockdown-password.png "image_tooltip")
 
-If the settings button position was set to **Hidden** under Appearance, the sprocket will not be visible — double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.
+If the settings button position was set to **Hidden** under Appearance, the sprocket will not be visible. In that case, double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.
 
 From there, the **Unlock** option at the top of the settings list can be used to exit the locked session and return to the admin home screen (see the Unlock section above).

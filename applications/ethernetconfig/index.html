@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Ethernet Config</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,13 +163,6 @@
                 <!-- Page content  -->
 <h1 id="ethernet-config">Ethernet Config</h1>
 <p>Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older <a href="../blissethernetmanager/">Bliss Ethernet Manager</a> while keeping the same <strong><code translate="no" v-pre>blissethernet</code></strong> AIDL contract so existing integrations continue to work.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | `com.example.ethernetconfig` |
-| **AIDL service** | `blissethernet` |
-| **AIDL namespace** | `org.blissos.ethernet` |
-| **AIDL reference** | [AIDL Interface](AIDL_INTERFACE.md) |
-| **Test / validate** | [Testing Guide](TESTING.md) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -202,7 +195,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="setting-up-ethernet-interfaces">Setting up Ethernet interfaces</h2>
 <p>Open <strong>Ethernet Config</strong> from the launcher (or Settings shortcuts on builds that expose it).</p>
 <ol>
@@ -219,16 +211,6 @@
 </ul>
 <h2 id="prop-based-auto-config-bass">Prop-based auto-config (Bass)</h2>
 <p>Bass can apply a static (or DHCP) Ethernet profile at boot from persistent system properties. <code translate="no" v-pre>BlissEthernetService</code> reads these props and applies them when the service starts or when the interface becomes available.</p>
-<retype-table copy-text="| Property | Example | Purpose |
-|----------|---------|---------|
-| `persist.bass.ethernet.mode` | `static` or `dhcp` | Enable auto-config (`&quot;&quot;` disables) |
-| `persist.bass.ethernet.iface` | `eth0` | Target interface |
-| `persist.bass.ethernet.ip` | `192.168.1.199` | Static IPv4 address |
-| `persist.bass.ethernet.mask` | `255.255.255.0` | Subnet mask |
-| `persist.bass.ethernet.prefix` | `24` | Optional instead of mask |
-| `persist.bass.ethernet.gateway` | `192.168.1.1` | Default gateway |
-| `persist.bass.ethernet.dns1` | `8.8.8.8` | Primary DNS |
-| `persist.bass.ethernet.dns2` | `8.8.4.4` | Secondary DNS |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -282,7 +264,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h3 id="set-props-on-a-running-device">Set props on a running device</h3>
 <div id="set-props-on-a-running-device-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell setprop persist.bass.ethernet.mode static
@@ -308,11 +289,6 @@ adb shell setprop persist.bass.ethernet.dns2 8.8.4.4</code></pre>
 </doc-codeblock></div>
 <h2 id="boot-start">Boot start</h2>
 <p><code translate="no" v-pre>BlissEthernetService</code> registers the <code translate="no" v-pre>blissethernet</code> binder. On Bass ROM builds it is started without opening the UI:</p>
-<retype-table copy-text="| Path | Trigger |
-|------|---------|
-| `/system_ext/etc/init/ethernet_config.rc` | `sys.boot_completed=1` → `start-bliss-ethernet` |
-| `start-bliss-ethernet` | Ethernet iface present **or** `persist.bass.ethernet.mode` set |
-| Vendor `bass_init` bootcomplete | Same eth/prop gate (belt-and-suspenders) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -337,7 +313,6 @@ adb shell setprop persist.bass.ethernet.dns2 8.8.4.4</code></pre>
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>If the binder is missing after boot:</p>
 <div id="boot-start-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell /system/bin/sh /system_ext/bin/start-bliss-ethernet

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Bliss Display Mapper</title>
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,11 +162,6 @@
                 <!-- Page content  -->
 <h1 id="bliss-display-mapper">Bliss Display Mapper</h1>
 <p>Display Mapper controls resolution, DPI, and orientation for the built-in panel and external monitors. Open it from Settings on builds that include <code translate="no" v-pre>--extras</code>.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | BlissDisplayMapper (privileged / platform-signed) |
-| **Build** | Included with `--extras` |
-| **Background service** | `OrientationService` (applies saved rules on boot and hotplug) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -191,7 +186,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="what-you-can-set">What you can set</h2>
 <ul>
 <li>Per-display resolution and DPI</li>
@@ -202,16 +196,6 @@
 </ul>
 <p>When a new display is plugged in, the background service applies any saved orientation rules for that display.</p>
 <h2 id="properties">Properties</h2>
-<retype-table copy-text="| Property | Description |
-|----------|-------------|
-| `persist.ax86.display.&lt;ID&gt;.resolution` | Resolution for display ID |
-| `persist.ax86.display.&lt;ID&gt;.dpi` | Density (DPI) for display ID |
-| `persist.ax86.display.&lt;ID&gt;.orientation` | Orientation lock for display ID |
-| `persist.debug.per_window_input_rotation` | Per-window input rotation |
-| `persist.sys.app.rotation` | App rotation policy |
-| `ro.sf.hwrotation` | SurfaceFlinger hardware rotation |
-| `persist.ax86.display.hdmirotationlock` | Lock rotation on HDMI displays |
-| `persist.ax86.hw.mainkeys` | Nav bar: `0` show, `1` hide |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -256,7 +240,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Most changes are made from the UI. Properties are listed here for scripting and support.</p>
 <h2 id="related">Related</h2>
 <ul>

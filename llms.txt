@@ -96,6 +96,10 @@
 - [Using ScreenView](https://docs.blisscolabs.dev/remote_management/using_screenview.md): ScreenView is used to view and control the primary screen from an external display. To use it, open the app on an external display.
 - [Using Sshd4a](https://docs.blisscolabs.dev/remote_management/using_sshd4a.md): (These instructions are based off the project wiki found here)
 
+## Sales
+
+- [Bass Product Family: Sales & Positioning Guide](https://docs.blisscolabs.dev/sales/bass-product-family-sales-guide.md): This guide is for sales and business-development staff. It explains what the Bass product family is, how the three product lines differ, how they compare to stock Android alternatives, and how the modular addon system translates into customer value.
+
 ## Setup and configuration
 
 - [Booting into generic builds](https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds.md): !!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Addon Development: Bass Lineout</title>
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -168,10 +168,6 @@
 <hr>
 <h2 id="lineout-overview">Lineout overview</h2>
 <p>On Lineout, &quot;addon&quot; work falls into two buckets that both belong to this product line:</p>
-<retype-table copy-text="| Bucket | Where it lives | How you enable it |
-|--------|----------------|-------------------|
-| **Build packages** | `vendor/ax86-lite/vendor_packages/` | `build.sh` flags (`--extras`, `--btnmgr`, …) |
-| **Runtime overrides** | `/data/misc/`, GRUB flags, `addon_init` | Push files + cmdline / `setprop` |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -195,7 +191,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Both are documented below. Neither is the old <code translate="no" v-pre>private/addons/</code> patchset model.</p>
 <hr>
 <h2 id="build-packages">Build packages</h2>
@@ -207,14 +202,6 @@
   init .rc / .sh     # optional; keep package-local when possible</code></pre>
 </doc-codeblock></div>
 <p>Enable them from <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code> (see <a href="../building-bass/">Building Bass OS</a>):</p>
-<retype-table copy-text="| Flag | Packages / behavior |
-|------|---------------------|
-| `--extras` | Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs |
-| `--btnmgr` | Button Manager |
-| `--logger` / `--logging-enabled` | Ax86 Logger |
-| `--bootsight` | BootSight (+ `ro.bass.fleet_mgmt=bootsight`) |
-| `--smartdock` | SmartDock DFC |
-| `--ethernetconfig` | Ethernet Config |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -251,7 +238,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h3 id="adding-a-new-lineout-package">Adding a new Lineout package</h3>
 <ol>
 <li>Create <code translate="no" v-pre>vendor_packages/YourFeature/</code> with a product <code translate="no" v-pre>.mk</code> and (for apps) <code translate="no" v-pre>Android.bp</code>.</li>
@@ -277,12 +263,6 @@
 <h2 id="runtime-overrides-addon_init">Runtime overrides (<code translate="no" v-pre>addon_init</code>)</h2>
 <p>Lineout also supports <strong>on-device</strong> overrides without rebuilding the ISO. Scripts under <code translate="no" v-pre>/vendor/bin/addon_*.sh</code> run from <code translate="no" v-pre>addon_init.rc</code> after <code translate="no" v-pre>/data</code> is available. They can bind-mount files from <code translate="no" v-pre>/data/misc/</code> over vendor/system paths, apply settings, and react to property triggers.</p>
 <p>This is still the <strong>Lineout</strong> product path (same vendor tree). It is not the legacy Bass private-addon unfold flow.</p>
-<retype-table copy-text="| Path | Role |
-|------|------|
-| `/vendor/etc/init/addon_init.rc` | Triggers early and late init, mapper props |
-| `/vendor/bin/addon_init.sh` | Orchestrator (DMI props, bind mounts, late boot) |
-| `addon_hardware.sh` / `addon_peripherals.sh` / `addon_packages.sh` / `addon_mappers.sh` | Helpers used by `addon_init` |
-| `/data/misc/` | Fleet- or tech-provided override files |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -311,14 +291,7 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h3 id="grub--cmdline-toggles-lineout">GRUB / cmdline toggles (Lineout)</h3>
-<retype-table copy-text="| Flag | Effect |
-|------|--------|
-| `ADDON_IDC=1` | Custom `.idc` files from `/data/system/devices/idc` |
-| `BLISS_INPUT_PORTS_ADDON=1` | `/data/misc/input-port-addon.xml` for input↔display ports |
-| `ADDON_BOOTANIMATION=1` | `/data/misc/bootanimation.zip` |
-| `ADDON_BASSINIT=1` | Custom vendor init under `/data/vendor/etc/init/` |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -347,7 +320,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>How-tos:</p>
 <ul>
 <li><a href="../../setup_and_configuration/addon_idc/">Using IDC Addon</a></li>
@@ -355,12 +327,6 @@
 </ul>
 <p>On <code translate="no" v-pre>--extras</code> builds, <a href="../../applications/blisstouchmapper/">Touch Mapper</a> can generate the input-port file from Settings. Prefer that UI when available; GRUB flags still matter for headless imaging.</p>
 <h3 id="config-files-and-property-triggers-lineout">Config files and property triggers (Lineout)</h3>
-<retype-table copy-text="| Mechanism | Docs |
-|-----------|------|
-| `settings_*.conf`, `runtime_props.conf`, `device_config.conf` | [Config Overrides](../applications/BlissConfigOverrides/BlissConfigOverrides.md) |
-| `custom_device.prop` (early `ro.*`) | Same page; applied by `addon_init` before framework |
-| Master apply | `setprop persist.ax86.update_configs 1` |
-| Per-mapper apply | `sys.ax86.display.update`, `sys.ax86.touch.update`, `sys.ax86.radio.update`, `sys.ax86.location.update` |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -389,7 +355,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Vendor reference (also in Ax86Docs): <code translate="no" v-pre>OVERRIDES.md</code> and <code translate="no" v-pre>VENDOR_DEPLOYMENT.md</code> in <code translate="no" v-pre>vendor/ax86-lite</code>.</p>
 <h3 id="good-uses-for-runtime-overrides">Good uses for runtime overrides</h3>
 <ul>

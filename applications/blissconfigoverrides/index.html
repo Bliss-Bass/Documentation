@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Bliss Config Overrides</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -164,11 +164,6 @@
 <h1 id="bliss-config-overrides">Bliss Config Overrides</h1>
 <p>Config Overrides lets you push flat config files to <code translate="no" v-pre>/data/misc/</code> and have the device apply them on boot (or on demand). Useful for provisioning without an MDM or a custom setup app.</p>
 <p>Included with <code translate="no" v-pre>--extras</code>.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Trigger prop** | `persist.ax86.update_configs` |
-| **Config location** | `/data/misc/` |
-| **Example files** | [examples/](examples/) (from `vendor/ax86-lite/docs/examples`) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -193,16 +188,8 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="supported-files-blissconfigoverrides">Supported files (BlissConfigOverrides)</h2>
 <p>Push these to <code translate="no" v-pre>/data/misc/</code> (example: <code translate="no" v-pre>adb push settings_system.conf /data/misc/</code>), then trigger an update or reboot.</p>
-<retype-table copy-text="| File | Applied by | Format |
-|------|------------|--------|
-| `settings_global.conf` | BlissConfigOverrides | `key=value` → `settings put global` |
-| `settings_system.conf` | BlissConfigOverrides | `key=value` → `settings put system` |
-| `settings_secure.conf` | BlissConfigOverrides | `key=value` → `settings put secure` |
-| `runtime_props.conf` | BlissConfigOverrides | `key=value` → `setprop` |
-| `device_config.conf` | BlissConfigOverrides | `namespace/key=value` → `device_config put` |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -241,7 +228,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Lines starting with <code translate="no" v-pre>#</code> and blank lines are ignored.</p>
 <h3 id="apply-without-reboot">Apply without reboot</h3>
 <div id="apply-without-reboot-code-1" class="codeblock-wrapper"><doc-codeblock>

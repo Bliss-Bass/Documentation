@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Ax86Docs (on-device documentation)</title>
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,11 +162,6 @@
                 <!-- Page content  -->
 <h1 id="ax86docs-on-device-documentation">Ax86Docs (on-device documentation)</h1>
 <p>Ax86Docs is the offline documentation app shipped on Bass: Lineout builds that include <code translate="no" v-pre>--extras</code>. It opens a WebView and renders markdown bundled into the image at build time.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | `com.navotpala.ax86docs` |
-| **Build** | Included with `--extras` |
-| **Default doc** | `PRODUCT.md` (Bass: Lineout overview) |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -191,7 +186,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <h2 id="what-it-shows">What it shows</h2>
 <p>At build time, <code translate="no" v-pre>update_docs.sh</code> collects:</p>
 <ul>
@@ -207,11 +201,6 @@
 </ol>
 <p>To pull markdown from outside <code translate="no" v-pre>vendor/ax86-lite</code>, add the path to <code translate="no" v-pre>EXTERNAL_DOCS</code> in <code translate="no" v-pre>vendor_packages/Ax86Docs/update_docs.sh</code>.</p>
 <h2 id="public-docs-vs-on-device-docs">Public docs vs on-device docs</h2>
-<retype-table copy-text="| | Ax86Docs | This Documentation site |
-|--|----------|-------------------------|
-| Where | On the device | docs.blisscolabs.dev |
-| Source | Vendor tree markdown (+ a few AOSP package docs) | This git repo |
-| Best for | Field / offline reference next to the feature | Install, licensing, and the full product guide |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -240,7 +229,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Many of the same topics appear in both places. Prefer this site for install and licensing; use Ax86Docs when you are already on the device.</p>
 <h2 id="related">Related</h2>
 <ul>

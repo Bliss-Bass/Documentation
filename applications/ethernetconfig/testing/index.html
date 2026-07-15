@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Ethernet Config — Test &amp; Validation Guide</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -166,11 +166,6 @@
 <p>Overview: <a href="../">Ethernet Config</a>. AIDL codes: <a href="../aidl_interface/">AIDL Interface</a>.</p>
 <h2 id="boot-start-paths">Boot start paths</h2>
 <p><code translate="no" v-pre>BlissEthernetService</code> should start without a manual <code translate="no" v-pre>am start-service</code>:</p>
-<retype-table copy-text="| Path | Trigger | Behavior |
-|---|---|---|
-| `/system_ext/etc/init/ethernet_config.rc` | `sys.boot_completed=1` | Runs `/system/bin/sh /system_ext/bin/start-bliss-ethernet` |
-| `start-bliss-ethernet` | eth iface present **or** `persist.bass.ethernet.mode` set | `pm enable` + `cmd package unstop` + start service (with retries) |
-| Vendor `bass_init` bootcomplete | same eth/prop gate | Belt-and-suspenders start |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -199,7 +194,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>If <code translate="no" v-pre>service call blissethernet</code> fails right after boot:</p>
 <div id="boot-start-paths-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb logcat -d | grep start-bliss-ethernet
@@ -255,14 +249,6 @@ adb -s 192.168.1.199:5555 shell id
 adb -s 192.168.1.199:5555 shell ip -4 addr show eth0</code></pre>
 </doc-codeblock></div>
 <h3 id="4-validate">4. Validate</h3>
-<retype-table copy-text="| Check | Command / expectation |
-|---|---|
-| Interface address | `ip -4 addr show eth0` → `inet 192.168.1.199/24` |
-| Props persisted | `getprop persist.bass.ethernet.ip` → `192.168.1.199` |
-| AIDL assignment | `service call blissethernet 7 s16 eth0` → `i32 2` (STATIC) |
-| AIDL IP | `service call blissethernet 9 s16 eth0` → UTF-16 `192.168.1.199/24` |
-| AIDL gateway | `service call blissethernet 11 s16 eth0` → UTF-16 `192.168.1.1` |
-| Auto-config logs | `adb logcat -d \| grep EthPropAutoConfig` |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -299,7 +285,6 @@ adb -s 192.168.1.199:5555 shell ip -4 addr show eth0</code></pre>
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Successful apply looks like:</p>
 <div id="4-validate-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">I EthPropAutoConfig: Applying prop ethernet config (availability:eth0): mode=STATIC iface=eth0

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837370531687">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837452198740">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.6.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Ax86 Button Manager</title>
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837370531687" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.837452198740" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837370531687" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.837370531687" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837452198740" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.837452198740" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,13 +163,6 @@
                 <!-- Page content  -->
 <h1 id="ax86-button-manager">Ax86 Button Manager</h1>
 <p>Button Manager maps hardware function keys (P1, P2, P3, and similar) on generic x86 devices to actions and device controls. It is a privileged, platform-signed system app with a Settings entry, an AIDL service, and a <code translate="no" v-pre>cmd</code> handler.</p>
-<retype-table copy-text="| | |
-|---|---|
-| **Package** | `com.ax86.btnmgr` |
-| **Service / cmd** | `ax86_btnmgr` |
-| **Build flag** | `--btnmgr` (`USE_BTNMGR=true`) |
-| **Config** | `/data/misc/ax86_btn_manager.conf` |
-| **Settings** | System → Button Manager |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -202,7 +195,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p><code translate="no" v-pre>--btnmgr</code> is independent of <code translate="no" v-pre>--extras</code>.</p>
 <h2 id="what-it-does">What it does</h2>
 <p>Open <strong>Button Manager</strong> from Settings, then add or edit a mapping:</p>
@@ -214,15 +206,6 @@
 </ol>
 <p>Learn mode uses the raw evdev path (MSC_SCAN), so it works for keys that Android does not always deliver as normal KeyEvents (for example Dell WMI hotkeys).</p>
 <h2 id="actions">Actions</h2>
-<retype-table copy-text="| Action | Use for |
-|--------|---------|
-| `screenshot` | Capture the screen |
-| `keyevent` | Emit a single Android keycode |
-| `keycombo` | Emit a combo such as `alt+KEYCODE_TAB` |
-| `activity` | Launch a component |
-| `device_control` | Brightness, volume, Wi-Fi, Bluetooth, and other toggles |
-| `broadcast` | Send an intent (for example dump logs) |
-| `passthrough` | Let the key through to Android unchanged |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -263,7 +246,6 @@
 </tbody>
 </table>
 </div>
-</retype-table>
 <p>Config field details: <a href="config_format/">Config Format</a>.<br />
 AIDL and <code translate="no" v-pre>cmd</code> reference: <a href="aidl_interface/">AIDL Interface</a>.</p>
 <h2 id="common-adb-commands">Common ADB commands</h2>
