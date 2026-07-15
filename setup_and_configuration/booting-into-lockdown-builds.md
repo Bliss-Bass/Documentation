@@ -41,7 +41,7 @@ The options used to configure those restrictions can be overridden with the foll
 
 (**!!NOTICE FOR INITIAL SETUP!!**) We recommend disconnecting all but the primary display when starting up the OS. Once setup is complete, you can connect any displays and continue testing and operation.
 
-(**!!NOTICE FOR A14/A16 BUILDS!!**) On newer Bass builds (Android 14/16, aka Bass: Lineout), the Grub menu on the very first boot after install will only show the default **BlissOS**, **Recovery**, and **Advanced** entries — the Kiosk boot options are not there yet. The **Bass boot options** submenu (containing **Kiosk > Lockdown** and **Kiosk > Admin** entries) is generated automatically by the OS during that initial boot and setup. So the expected flow on these builds is:
+(**!!NOTICE FOR A14/A16 BUILDS!!**) On newer Bass builds (Android 14/16, aka Bass: Lineout), the Grub menu on the very first boot after install will only show the default **BlissOS**, **Recovery**, and **Advanced** entries; the Kiosk boot options are not there yet. The **Bass boot options** submenu (containing **Kiosk > Lockdown** and **Kiosk > Admin** entries) is generated automatically by the OS during that initial boot and setup. So the expected flow on these builds is:
 
 1. Boot the default entry once and complete the initial boot/setup.
 2. Reboot and open the Grub menu (tap shift during BIOS logo if Grub is hidden).
