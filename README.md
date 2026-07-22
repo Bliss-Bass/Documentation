@@ -95,10 +95,10 @@ icon: home
 * [What are Linux Drivers?](development/what-are-linux-drivers.md)
 * [Porting Linux Drivers](development/porting-linux-drivers.md)
 
-## Sales Resources
+## Product Guide
 
-* [Bass Product Family: Sales & Positioning Guide](sales/bass-product-family-sales-guide.md)
-* [SmartDock DFC Sales Guide](applications/SmartDockDFC/SALES_GUIDE.md)
+* [Bass Product Family Guide](product-guide/bass-product-family.md)
+* [SmartDock DFC Guide](applications/SmartDockDFC/SALES_GUIDE.md)
 * [SmartDock DFC Marketing](applications/SmartDockDFC/MARKETING.md)
 
 ## Remote Management
