@@ -23,6 +23,45 @@ Connect to the device using ADB, and run the following command to collect its se
  
  `adb shell getprop ro.bliss.serialnumber`
 
+### Option C: Offline Activation (no internet)
+
+Some builds are configured for offline licensing (`persist.bass.bootsight.offline_licensing=1`, produced by `build.sh --bs-offline`). These devices never contact the license server and send no telemetry. They are activated with a signed license file or an activation code instead.
+
+Offline licenses are cryptographically signed and bound to each device's serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.
+
+There are three ways to apply an offline license:
+
+**1. USB drive + Files app (no ADB, no network)**
+
+We provide a single `license.pack` file covering every serial you purchased. The same file can be placed on every device; each device automatically picks the entry that matches its own serial. Individual per-device `<serial>.lic` files are also accepted.
+
+1. Copy `license.pack` (or the device's `.lic` file) to a USB drive and plug it into the device.
+2. Either leave it on the drive, or use the Android **Files** app to copy it to the **Download** or **Documents** folder on the device.
+3. If it was copied to Download/Documents, the device picks it up automatically within a few seconds. If it is still on the USB drive, go to Settings → **Device Status** → **Scan drives for license file**; BootSight scans any connected USB drives (and the Download/Documents folders) and activates on the spot.
+
+The screen shows as **Licensed** immediately, with no reboot needed. The license is copied to internal storage during activation, so the USB drive can be removed afterwards.
+
+**2. Drop the file with ADB (best for provisioning scripts)**
+
+Push the same pack into the BootSight data directory:
+
+```
+adb push license.pack /data/misc/bootsight/license.pack
+```
+
+The device picks up the file within a few seconds and shows as **Licensed**. Provisioning scripts or factory imaging can place the file at the same path.
+
+**3. Enter or scan an activation code**
+
+On the device, go to Settings → **Device Status** → **Enter activation code**. Then either:
+
+- Scan the QR label for that device with a USB barcode scanner (it types the code automatically), or
+- Type or paste the activation code issued for that device.
+
+Once verified, the device shows as **Licensed** immediately.
+
+To obtain offline licenses, gather your device serial numbers (Option A or B above) and send them to us with your purchase; we return a `license.pack` (and printable QR labels on request). See [Fleet Management](../features/fleet-management.md) for bulk workflows.
+
 ## License Payment
 
 ### Single Device Licensing

@@ -10,30 +10,30 @@
     <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
-    <title>Addon Development: Bass Lineout</title>
-    <meta name="title" content="Addon Development: Bass Lineout">
-    <meta name="description" content="This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).">
+    <title>BootSight Offline Licensing (Internal Runbook)</title>
+    <meta name="title" content="BootSight Offline Licensing (Internal Runbook)">
+    <meta name="description" content="This is the internal process for issuing offline BootSight activations for air-gapped or no-telemetry customers. End-user activation steps live in License Activation.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blisscolabs.dev/development/addon-development/">
+    <link rel="canonical" href="https://docs.blisscolabs.dev/development/bootsight-offline-licensing/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blisscolabs.dev/development/addon-development/">
-    <meta property="og:title" content="Addon Development: Bass Lineout">
-    <meta property="og:description" content="This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).">
+    <meta property="og:url" content="https://docs.blisscolabs.dev/development/bootsight-offline-licensing/">
+    <meta property="og:title" content="BootSight Offline Licensing (Internal Runbook)">
+    <meta property="og:description" content="This is the internal process for issuing offline BootSight activations for air-gapped or no-telemetry customers. End-user activation steps live in License Activation.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://docs.blisscolabs.dev/development/addon-development/">
-    <meta name="twitter:title" content="Addon Development: Bass Lineout">
-    <meta name="twitter:description" content="This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).">
+    <meta name="twitter:url" content="https://docs.blisscolabs.dev/development/bootsight-offline-licensing/">
+    <meta name="twitter:title" content="BootSight Offline Licensing (Internal Runbook)">
+    <meta name="twitter:description" content="This is the internal process for issuing offline BootSight activations for air-gapped or no-telemetry customers. End-user activation steps live in License Activation.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/development/addon-development.md">
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/development/bootsight-offline-licensing.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -42,6 +42,8 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.838045546327" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.838045546327" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.838045546327" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=4.5.3" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -160,217 +162,98 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="addon-development-bass-lineout">Addon Development: Bass Lineout</h1>
-<p><strong>This page is for Bass: Lineout</strong> (<code translate="no" v-pre>vendor/ax86-lite</code>, <code translate="no" v-pre>tools/build.sh</code>).</p>
-<p>If you are on classic Bass OS with <code translate="no" v-pre>private/addons/</code> and <code translate="no" v-pre>unfold_bliss.sh</code>, use the separate guide instead:</p>
-<p>→ <strong><a href="../addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a></strong></p>
-<p>Do not mix the two. Lineout does <strong>not</strong> scan <code translate="no" v-pre>private/addons/</code> the way older Bass unfold did. Legacy Bass does <strong>not</strong> use <code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code> the same way.</p>
-<hr>
-<h2 id="lineout-overview">Lineout overview</h2>
-<p>On Lineout, &quot;addon&quot; work falls into two buckets that both belong to this product line:</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Bucket</th>
-<th>Where it lives</th>
-<th>How you enable it</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Build packages</strong></td>
-<td><code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code></td>
-<td><code translate="no" v-pre>build.sh</code> flags (<code translate="no" v-pre>--extras</code>, <code translate="no" v-pre>--btnmgr</code>, …)</td>
-</tr>
-<tr>
-<td><strong>Runtime overrides</strong></td>
-<td><code translate="no" v-pre>/data/misc/</code>, GRUB flags, <code translate="no" v-pre>addon_init</code></td>
-<td>Push files + cmdline / <code translate="no" v-pre>setprop</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Both are documented below. Neither is the old <code translate="no" v-pre>private/addons/</code> patchset model.</p>
-<hr>
-<h2 id="build-packages">Build packages</h2>
-<p>Features ship as product packages in the vendor tree.</p>
-<div id="build-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">vendor/ax86-lite/vendor_packages/&lt;Name&gt;/
-  Android.bp / *.mk
-  README.md          # picked up by Ax86Docs when present
-  init .rc / .sh     # optional; keep package-local when possible</code></pre>
+<h1 id="bootsight-offline-licensing-internal-runbook">BootSight Offline Licensing (Internal Runbook)</h1>
+<p>This is the internal process for issuing offline BootSight activations for
+air-gapped or no-telemetry customers. End-user activation steps live in
+<a href="../../setup_and_configuration/license-activation/">License Activation</a>.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Offline licenses are Ed25519-signed tokens bound to a device serial + SKU. The
+signing private key never ships; only the public key is embedded in the BootSight
+app. The device re-verifies the signature and re-checks the serial + SKU against
+live system properties on every boot, so a code only ever activates the device it
+was issued for, and cloned images revert to unlicensed on the wrong hardware.</p>
+<p>Seat count is controlled at issuance: we sign exactly the serials purchased, so a
+pack can only activate those devices. No per-device involvement from us is needed
+after we hand over the pack, which keeps it zero-touch for the customer.</p>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre translate="no" class="mermaid w-full">flowchart LR
+    Serials[Customer serial list] --&gt; Tool[license tool: issue]
+    Key[(Private signing key, offline)] --&gt; Tool
+    Tool --&gt; Pack[license.pack]
+    Tool --&gt; Labels[QR labels]
+    Pack --&gt;|USB drive, Files app, or adb push| Device[BootSight verifies serial plus SKU]
+    Labels --&gt;|scan or type| Device
+    Device --&gt; Licensed[Licensed, no server, no telemetry]</pre></div>
+<h2 id="build">Build</h2>
+<p>Produce an offline-only image with:</p>
+<div id="build-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --bs-offline ...</code></pre>
 </doc-codeblock></div>
-<p>Enable them from <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code> (see <a href="../building-bass/">Building Bass OS</a>):</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Flag</th>
-<th>Packages / behavior</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>--extras</code></td>
-<td>Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--btnmgr</code></td>
-<td>Button Manager</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--logger</code> / <code translate="no" v-pre>--logging-enabled</code></td>
-<td>Ax86 Logger</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--bootsight</code></td>
-<td>BootSight (+ <code translate="no" v-pre>ro.bass.fleet_mgmt=bootsight</code>)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--smartdock</code></td>
-<td>SmartDock DFC</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--ethernetconfig</code></td>
-<td>Ethernet Config</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="adding-a-new-lineout-package">Adding a new Lineout package</h3>
+<p>This implies <code translate="no" v-pre>--bootsight</code> and sets <code translate="no" v-pre>persist.bass.bootsight.offline_licensing=1</code>,
+disabling server sync and telemetry. The BootSight APK must be built with the
+license public key embedded (see below) for verification to work.</p>
+<h2 id="one-time-key-setup">One-time key setup</h2>
+<p>The tool lives in <code translate="no" v-pre>vendor/ax86-lite/vendor_packages/bootsight/tools/license-tool/</code>.</p>
+<div id="one-time-key-setup-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">python3 bootsight_license_tool.py keygen --out bootsight_license_private.key</code></pre>
+</doc-codeblock></div>
+<p>Paste the printed public key into
+<code translate="no" v-pre>app/src/main/java/com/bliss/bootsight/offline/OfflineLicenseConfig.kt</code>
+(<code translate="no" v-pre>LICENSE_PUBLIC_KEYS_B64</code>), rebuild the BootSight APK, and drop it into the
+vendor package prebuilts. Store the private key seed offline and backed up; it
+cannot be recovered. Multiple public keys may be embedded to support rotation.</p>
+<h2 id="issuing-a-pack-per-purchase">Issuing a pack per purchase</h2>
 <ol>
-<li>Create <code translate="no" v-pre>vendor_packages/YourFeature/</code> with a product <code translate="no" v-pre>.mk</code> and (for apps) <code translate="no" v-pre>Android.bp</code>.</li>
-<li>Wire it in <code translate="no" v-pre>ax86_lite.mk</code> behind a flag (or always-on if that is intentional).</li>
-<li>Add the flag to <code translate="no" v-pre>tools/build.sh</code> help and export defaults.</li>
-<li>Drop a <code translate="no" v-pre>README.md</code> in the package so <a href="../../applications/ax86docs/">Ax86Docs</a> picks it up on the next <code translate="no" v-pre>--extras</code> build.</li>
-<li>Prefer package-local <code translate="no" v-pre>init.rc</code> / scripts. Avoid editing core <code translate="no" v-pre>addon_init.rc</code> unless the feature is shared early-boot plumbing.</li>
+<li>
+<p>Collect the customer&#x27;s device serials (Settings -&gt; Device Status, or
+<code translate="no" v-pre>adb shell getprop ro.bliss.serialnumber</code>) into a CSV. A ready-to-copy
+template lives next to the tool at
+<code translate="no" v-pre>vendor/ax86-lite/vendor_packages/bootsight/tools/license-tool/example-serials.csv</code>.</p>
+</li>
+<li>
+<p>Issue:</p>
+</li>
 </ol>
-<p>App docs on this site:</p>
+<div id="issuing-a-pack-per-purchase-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">python3 bootsight_license_tool.py issue \
+    --key bootsight_license_private.key \
+    --csv serials.csv --sku BASS.KIOSK --customer &quot;Acme Corp&quot; \
+    --pack acme-licenses.pack --out-dir acme-lic --labels acme-labels.pdf</code></pre>
+</doc-codeblock></div>
+<ol start="3">
+<li>Verify before sending:</li>
+</ol>
+<div id="issuing-a-pack-per-purchase-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">python3 bootsight_license_tool.py verify \
+    --pubkey &quot;&lt;base64 public key&gt;&quot; --pack acme-licenses.pack</code></pre>
+</doc-codeblock></div>
+<ol start="4">
+<li>Send the customer <code translate="no" v-pre>acme-licenses.pack</code> (drop on every device) and/or the QR
+labels. Full option reference is in the tool&#x27;s <code translate="no" v-pre>README.md</code>.</li>
+</ol>
+<p>The customer applies the pack on each device via a USB drive (left in the drive
+and picked up with the &quot;Scan drives for license file&quot; button, or copied to
+Download/Documents with the Files app), or via <code translate="no" v-pre>adb push</code> to
+<code translate="no" v-pre>/data/misc/bootsight/</code>. Details are in the end-user doc linked above.</p>
+<h2 id="notes">Notes</h2>
 <ul>
-<li><a href="../../applications/blisstouchmapper/">Touch Mapper</a></li>
-<li><a href="../../applications/blissdisplaymapper/">Display Mapper</a></li>
-<li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
-<li><a href="../../applications/blisstweaks/">Bliss Tweaks</a></li>
-<li><a href="../../applications/ax86buttonmanager/">Button Manager</a></li>
-<li><a href="../../applications/ax86logger/">Ax86 Logger</a></li>
-<li><a href="../../applications/bootsight/">BootSight</a></li>
-</ul>
-<h3 id="newer-lineout-branches-addonsid">Newer Lineout branches (<code translate="no" v-pre>addons/&lt;id&gt;/</code>)</h3>
-<p>Some newer ax86-lite branches move packages under <code translate="no" v-pre>addons/&lt;id&gt;/</code> with <code translate="no" v-pre>addon.cfg</code> and a compat symlink from <code translate="no" v-pre>vendor_packages/&lt;Pkg&gt;</code>. See <code translate="no" v-pre>vendor_packages/Ax86ButtonManager/docs/PORTING-23.2.md</code> in the vendor tree.</p>
-<p>On current Lineage 21 / A14 Lineout trees, packages still live directly under <code translate="no" v-pre>vendor_packages/</code> and are gated by <code translate="no" v-pre>ax86_lite.mk</code> + <code translate="no" v-pre>tools/build.sh</code>. Use that layout unless your branch already has the <code translate="no" v-pre>addons/</code> integrator.</p>
-<hr>
-<h2 id="runtime-overrides-addon_init">Runtime overrides (<code translate="no" v-pre>addon_init</code>)</h2>
-<p>Lineout also supports <strong>on-device</strong> overrides without rebuilding the ISO. Scripts under <code translate="no" v-pre>/vendor/bin/addon_*.sh</code> run from <code translate="no" v-pre>addon_init.rc</code> after <code translate="no" v-pre>/data</code> is available. They can bind-mount files from <code translate="no" v-pre>/data/misc/</code> over vendor/system paths, apply settings, and react to property triggers.</p>
-<p>This is still the <strong>Lineout</strong> product path (same vendor tree). It is not the legacy Bass private-addon unfold flow.</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Path</th>
-<th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>/vendor/etc/init/addon_init.rc</code></td>
-<td>Triggers early and late init, mapper props</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>/vendor/bin/addon_init.sh</code></td>
-<td>Orchestrator (DMI props, bind mounts, late boot)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>addon_hardware.sh</code> / <code translate="no" v-pre>addon_peripherals.sh</code> / <code translate="no" v-pre>addon_packages.sh</code> / <code translate="no" v-pre>addon_mappers.sh</code></td>
-<td>Helpers used by <code translate="no" v-pre>addon_init</code></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>/data/misc/</code></td>
-<td>Fleet- or tech-provided override files</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="grub--cmdline-toggles-lineout">GRUB / cmdline toggles (Lineout)</h3>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Flag</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>ADDON_IDC=1</code></td>
-<td>Custom <code translate="no" v-pre>.idc</code> files from <code translate="no" v-pre>/data/system/devices/idc</code></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>BLISS_INPUT_PORTS_ADDON=1</code></td>
-<td><code translate="no" v-pre>/data/misc/input-port-addon.xml</code> for input↔display ports</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>ADDON_BOOTANIMATION=1</code></td>
-<td><code translate="no" v-pre>/data/misc/bootanimation.zip</code></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>ADDON_BASSINIT=1</code></td>
-<td>Custom vendor init under <code translate="no" v-pre>/data/vendor/etc/init/</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>How-tos:</p>
-<ul>
-<li><a href="../../setup_and_configuration/addon_idc/">Using IDC Addon</a></li>
-<li><a href="../../setup_and_configuration/input-port-associations/">Creating an input-port-addon.xml file</a></li>
-</ul>
-<p>On <code translate="no" v-pre>--extras</code> builds, <a href="../../applications/blisstouchmapper/">Touch Mapper</a> can generate the input-port file from Settings. Prefer that UI when available; GRUB flags still matter for headless imaging.</p>
-<h3 id="config-files-and-property-triggers-lineout">Config files and property triggers (Lineout)</h3>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Mechanism</th>
-<th>Docs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>settings_*.conf</code>, <code translate="no" v-pre>runtime_props.conf</code>, <code translate="no" v-pre>device_config.conf</code></td>
-<td><a href="../../applications/blissconfigoverrides/">Config Overrides</a></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>custom_device.prop</code> (early <code translate="no" v-pre>ro.*</code>)</td>
-<td>Same page; applied by <code translate="no" v-pre>addon_init</code> before framework</td>
-</tr>
-<tr>
-<td>Master apply</td>
-<td><code translate="no" v-pre>setprop persist.ax86.update_configs 1</code></td>
-</tr>
-<tr>
-<td>Per-mapper apply</td>
-<td><code translate="no" v-pre>sys.ax86.display.update</code>, <code translate="no" v-pre>sys.ax86.touch.update</code>, <code translate="no" v-pre>sys.ax86.radio.update</code>, <code translate="no" v-pre>sys.ax86.location.update</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Vendor reference (also in Ax86Docs): <code translate="no" v-pre>OVERRIDES.md</code> and <code translate="no" v-pre>VENDOR_DEPLOYMENT.md</code> in <code translate="no" v-pre>vendor/ax86-lite</code>.</p>
-<h3 id="good-uses-for-runtime-overrides">Good uses for runtime overrides</h3>
-<ul>
-<li>Field fixes (digitizer axes, DPI) without a new ISO</li>
-<li>Fleet imaging: push <code translate="no" v-pre>/data/misc</code> files, set GRUB flags, reboot</li>
-<li>Config Override examples under <code translate="no" v-pre>vendor/ax86-lite/docs/examples/</code></li>
-</ul>
-<p>Runtime overrides are <strong>not</strong> how you ship a new privileged app. New apps go under <code translate="no" v-pre>vendor_packages/</code> with a build flag.</p>
-<hr>
-<h2 id="related-lineout">Related (Lineout)</h2>
-<ul>
-<li><a href="../building-bass/">Building Bass OS</a></li>
-<li><a href="../../applications/ax86docs/">Ax86Docs</a></li>
-<li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
-<li><a href="../../features/fleet-management/">Fleet Management</a></li>
-<li><a href="../addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a> (different product tree)</li>
+<li>
+<p>Expiry is optional per license; blank means perpetual.</p>
+</li>
+<li>
+<p><code translate="no" v-pre>features</code> is a capability-tag list baked into the token (CSV column or
+<code translate="no" v-pre>--features</code>). The app currently recognizes only <code translate="no" v-pre>bootsight</code> (device
+licensing), which is also the default when left blank, so leave it empty unless
+told otherwise. Other tags are signed and carried but not yet enforced
+(reserved for future per-feature gating). It applies to <code translate="no" v-pre>issue</code>, not <code translate="no" v-pre>keygen</code>.</p>
+</li>
+<li>
+<p>A short hand-typeable HMAC code tier exists but is weaker (shared secret in the
+app) and disabled by default. Only enable per contract.</p>
+</li>
+<li>
+<p>True customer-hosted issuance (a seat pool plus a customer-held signing tool
+with a local ledger) is a planned phase 2 and not part of this flow.</p>
+</li>
 </ul>
 
                 
@@ -379,7 +262,7 @@
             </div>
             <footer id="retype-content-footer" class="clear-both">
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-14">
-                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/development/addon-development.md" target="_blank" rel="noopener">
+                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/development/bootsight-offline-licensing.md" target="_blank" rel="noopener">
                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         <span>Edit on GitHub</span>
                     </a>
@@ -387,20 +270,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../applications/blissrestrictedlauncher/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../development/building-bass/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Setting Up Bliss Restricted Launcher</span>
+                                <span class="block mt-1">Bass OS - Android 12​L</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/addon-development-legacy-bass/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/contributing-documentation/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Addon Development: Legacy Bass OS</span>
+                                <span class="block mt-1">Contributing to Bass OS</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -447,6 +330,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Addon Development: Bass Lineout", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/addon-development.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "BootSight Offline Licensing (Internal Runbook)", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: true, hasMath: false, tocDepth: 23, "md": "/development/bootsight-offline-licensing.md" }</script>
 </body>
 </html>

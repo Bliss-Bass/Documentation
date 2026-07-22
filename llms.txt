@@ -63,6 +63,7 @@
 - [Addon Development: Legacy Bass OS](https://docs.blisscolabs.dev/development/addon-development-legacy-bass.md): This page is for classic Bass OS projects that use private/addons/, vendor/bass/patches/, and unfold scripts such as unfold_bliss.sh / build_bass.sh.
 - [Bass - High Level Overview](https://docs.blisscolabs.dev/development/bass-high-level-overview.md): Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.
 - [Bass OS - Android 12L](https://docs.blisscolabs.dev/development/building-bass.md): License
+- [BootSight Offline Licensing (Internal Runbook)](https://docs.blisscolabs.dev/development/bootsight-offline-licensing.md): This is the internal process for issuing offline BootSight activations for air-gapped or no-telemetry customers. End-user activation steps live in License Activation.
 - [Contributing to Bass OS](https://docs.blisscolabs.dev/development/contributing-documentation.md): We are not going to require any elitist rules for you to contribute to the project. That's just silly. So this doc will cover the various parts of the project and explain how to do things.
 - [Development FAQ](https://docs.blisscolabs.dev/development/development-faq.md): Much of what we are doing with Android source is lacking proper documentation as to what it does, and how. This document will try to answer a few of those questions.
 - [Maintaining Proper Authorship](https://docs.blisscolabs.dev/development/maintaining-proper-authorship.md): One of the most important things you need to keep in mind while working on open-source projects is maintaining correct authorship. In this article, we'll
@@ -98,7 +99,7 @@
 
 ## Sales
 
-- [Bass Product Family: Sales & Positioning Guide](https://docs.blisscolabs.dev/sales/bass-product-family-sales-guide.md): This guide is for sales and business-development staff. It explains what the Bass product family is, how the three product lines differ, how they compare to stock Android alternatives, and how the modular addon system translates into customer value.
+- [Bass Product Family: Sales & Positioning Guide](https://docs.blisscolabs.dev/sales/bass-product-family-sales-guide.md): This guide is for sales and business-development staff. It explains what Bass is, how each product line differs in plain language, and how add-ons work across the whole family.
 
 ## Setup and configuration
 

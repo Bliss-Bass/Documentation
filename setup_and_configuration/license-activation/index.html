@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.837453711540">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.838045546327">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.837453711540" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.838045546327" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.837453711540" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.838045546327" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.837453711540" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.838045546327" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -192,6 +192,32 @@
 <h3 id="option-b-using-adb">Option B: Using ADB</h3>
 <p>Connect to the device using ADB, and run the following command to collect its serial number:</p>
 <p><code translate="no" v-pre>adb shell getprop ro.bliss.serialnumber</code></p>
+<h3 id="option-c-offline-activation-no-internet">Option C: Offline Activation (no internet)</h3>
+<p>Some builds are configured for offline licensing (<code translate="no" v-pre>persist.bass.bootsight.offline_licensing=1</code>, produced by <code translate="no" v-pre>build.sh --bs-offline</code>). These devices never contact the license server and send no telemetry. They are activated with a signed license file or an activation code instead.</p>
+<p>Offline licenses are cryptographically signed and bound to each device&#x27;s serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.</p>
+<p>There are three ways to apply an offline license:</p>
+<p><strong>1. USB drive + Files app (no ADB, no network)</strong></p>
+<p>We provide a single <code translate="no" v-pre>license.pack</code> file covering every serial you purchased. The same file can be placed on every device; each device automatically picks the entry that matches its own serial. Individual per-device <code translate="no" v-pre>&lt;serial&gt;.lic</code> files are also accepted.</p>
+<ol>
+<li>Copy <code translate="no" v-pre>license.pack</code> (or the device&#x27;s <code translate="no" v-pre>.lic</code> file) to a USB drive and plug it into the device.</li>
+<li>Either leave it on the drive, or use the Android <strong>Files</strong> app to copy it to the <strong>Download</strong> or <strong>Documents</strong> folder on the device.</li>
+<li>If it was copied to Download/Documents, the device picks it up automatically within a few seconds. If it is still on the USB drive, go to Settings → <strong>Device Status</strong> → <strong>Scan drives for license file</strong>; BootSight scans any connected USB drives (and the Download/Documents folders) and activates on the spot.</li>
+</ol>
+<p>The screen shows as <strong>Licensed</strong> immediately, with no reboot needed. The license is copied to internal storage during activation, so the USB drive can be removed afterwards.</p>
+<p><strong>2. Drop the file with ADB (best for provisioning scripts)</strong></p>
+<p>Push the same pack into the BootSight data directory:</p>
+<div id="option-c-offline-activation-no-internet-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">adb push license.pack /data/misc/bootsight/license.pack</code></pre>
+</doc-codeblock></div>
+<p>The device picks up the file within a few seconds and shows as <strong>Licensed</strong>. Provisioning scripts or factory imaging can place the file at the same path.</p>
+<p><strong>3. Enter or scan an activation code</strong></p>
+<p>On the device, go to Settings → <strong>Device Status</strong> → <strong>Enter activation code</strong>. Then either:</p>
+<ul>
+<li>Scan the QR label for that device with a USB barcode scanner (it types the code automatically), or</li>
+<li>Type or paste the activation code issued for that device.</li>
+</ul>
+<p>Once verified, the device shows as <strong>Licensed</strong> immediately.</p>
+<p>To obtain offline licenses, gather your device serial numbers (Option A or B above) and send them to us with your purchase; we return a <code translate="no" v-pre>license.pack</code> (and printable QR labels on request). See <a href="../../features/fleet-management/">Fleet Management</a> for bulk workflows.</p>
 <h2 id="license-payment">License Payment</h2>
 <h3 id="single-device-licensing">Single Device Licensing</h3>
 <p>We offer an easy method to purchase single device licenses through our website here: <a href="https://bassos.navotpala.tech/licensing/#device-license">BassOS Single Device Licensing</a></p>

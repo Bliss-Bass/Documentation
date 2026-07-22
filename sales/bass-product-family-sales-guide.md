@@ -1,200 +1,285 @@
 # Bass Product Family: Sales & Positioning Guide
 
-This guide is for sales and business-development staff. It explains what the Bass product family is, how the three product lines differ, how they compare to stock Android alternatives, and how the modular addon system translates into customer value. No engineering background is required.
+This guide is for sales and business-development staff. It explains what Bass is, how each product line differs in plain language, and how add-ons work across the whole family. No engineering background is required. Use **product names only** with customers (never internal codenames).
 
 ---
 
 ## 1. Executive Summary
 
-**Bass** (Broad Apparatus Support System) turns generic x86_64 hardware (tablets, panel PCs, POS terminals, mini PCs, industrial computers) into fully supported Android devices. One generic OS image adapts itself to the hardware it boots on, and a library of modular addons layers on kiosk lockdown, desktop productivity, fleet management, and per-customer branding. The same components also power dedicated arm64 builds, such as Bass-ARM for the Raspberry Pi 4/5, and Waydroid_NT, our Android-in-a-container product for customers who run their own Linux (both covered below).
+**Bass** (Broad Apparatus Support System) turns everyday PC-class hardware into fully supported Android devices: tablets, panel PCs, POS terminals, mini PCs, and industrial computers. Customers do not need purpose-built Android hardware from a big OEM, and they do not need an engineering team to build Android from scratch.
+
+One Bass image can adapt to the hardware it boots on (for most PC-class devices). Optional **add-ons** layer on kiosk lockdown, desktop productivity, fleet management, security, and per-customer branding. Customers pay for and receive only what their deployment needs.
 
 The core pitch in one sentence:
 
-> **"Enterprise Android on the hardware you already have: one image, any device, only the features you need."**
-
-Customers do not need to buy purpose-built Android hardware from an OEM, and they do not need an engineering team to customize AOSP. Bass delivers a supported, configurable, brandable Android platform with the private customer-specific pieces kept private.
+> **"Enterprise Android on the hardware you already have: one platform family, only the features you need."**
 
 ---
 
-## 2. The Product Family at a Glance
+## 2. What customers are choosing (plain language)
 
-There are three full-OS product lines, plus a "bring your own Linux" offering (Waydroid_NT, covered below). All share the same configuration model, addon library, and deployment tooling; they differ in how Android is delivered to the hardware.
+Every Bass product gives the customer **Android apps and an Android-style experience**. The product lines differ in *how* that Android experience sits on the machine, and *who owns the underlying computer OS*.
 
-| | **Bass OS** (classic) | **Bass: Lineout** | **Bass: Submix** |
-|---|---|---|---|
-| **What it is** | The original Bass product line, built on the Android-x86 / Bliss OS lineage | The current flagship: a stable, extensible tablet & kiosk OS built on **LineageOS** with the `vendor_ax86-lite` engineering tree | A lightweight **Debian Linux host** that runs Android (LineageOS) inside a **Waydroid container** |
-| **Android versions** | Android 12L - 15 | Android 14 / 16 | Android 16 (LineageOS 23) |
-| **How Android runs** | Directly on the hardware | Directly on the hardware, with an optional Debian subsystem alongside | Inside a container on top of a minimal Linux host |
-| **Best fit** | Existing deployments, broadest legacy hardware coverage | New tablet, kiosk, and enterprise deployments; the default recommendation | Deployments that need full Linux host services (custom daemons, Linux-native peripherals, host-level networking) *and* Android apps on the same box |
-| **Internal codename** | n/a | `vendor_ax86-lite` lineage | `ax86-lite_waydroid` |
+Think of it as four buying questions:
 
-Points worth internalizing:
+1. Do they want Android running as the main OS on the device?
+2. Do they also need real Linux tools on the same box?
+3. Do they already run their own Linux and only want Android added on top?
+4. Are they standardized on Raspberry Pi / similar small boards?
 
-- **Bass: Lineout is what we sell first.** It is the actively developed line: dynamic hardware detection (displays, audio, sensors, power), GRUB "Bass boot options" for switching between Tablet UI / Desktop UI / Kiosk modes, enterprise deployment tooling, and on-device documentation.
-- **Bass: Submix is the answer when the customer says "we also need Linux."** Because the host is Debian, the customer gets standard Linux tooling (`apt`, `systemd`, SSH) underneath a near-native Android experience. Same addons, same configuration model.
-- **Bass OS (classic) remains supported** for existing fleets and covers the older Android range, but new opportunities should be steered to Lineout or Submix.
-
-### Bass for Waydroid: Waydroid_NT
-
-For customers who already run their own Linux distribution and just want Android on top of it, we offer **Waydroid_NT**. Where Bass: Submix delivers the complete stack (our Debian host plus Android), Waydroid_NT delivers only the Android-in-a-container piece: Bass-customized Android images and services that drop into the customer's existing Linux environment.
-
-Waydroid_NT comes in two forms:
-
-- **Python-based services**, built on the open-source Waydroid project, for standard container deployments.
-- **C++-based Waydroid services** (Waydroid_NT proper), our re-engineered service layer for products that need tighter integration and performance.
-
-Both forms carry the Bass addon and configuration library for the Android side, and add an **x86_64-only image target** on top of the typical multi-architecture Waydroid targets, which trims the image for Intel/AMD deployments. The core is published under Apache 2.0, with the commercial addons, features, and tools available through licensing.
-
-**Sales takeaway:** Waydroid_NT is the "bring your own Linux" option. If the customer's platform team owns the host OS and they only want a supported, brandable Android runtime with our kiosk and configuration tooling inside it, this is the product to lead with.
-
-### Beyond x86: arm64 boards (Raspberry Pi 4/5)
-
-The Bass component and addon library is not limited to x86_64. The same building blocks integrate into arm64 board support packages (BSPs) as well; **Bass-ARM** delivers Android 16 on the Raspberry Pi 4/5 with our Desktop Mode (SmartDock), Kiosk work, FOSS app set, and branding options included through the same build-flag system.
-
-The key difference to understand when positioning arm64: on x86 hardware, one generic image detects and adapts to whatever device it boots on. On arm64, the boot and init sequence is locked to the specific board, so each supported board gets a dedicated, pre-tuned build rather than a universal image. The customer-facing feature set (desktop mode, kiosk lockdown, preloads, branding) carries over; it is the hardware flexibility that differs.
-
-**Sales takeaway:** if a customer's project is built around Raspberry Pi or similar arm64 boards, we can deliver the same Bass experience there. It is a per-board engagement instead of a "boot our generic image" engagement.
-
----
-
-## 3. How Bass Compares to AOSP and OEM Android
-
-### Versus stock AOSP
-
-AOSP is a source-code reference, not a product. To go from AOSP to a shippable device, someone must do hardware enablement, build an installer, add provisioning, add kiosk features, and maintain it across Android releases. That is precisely the work Bass has already done.
-
-| Need | Stock AOSP | Bass |
+| Customer situation | Lead with | In one sentence |
 |---|---|---|
-| Runs on generic x86_64 hardware | No; targets reference boards and phones | Yes; dynamic detection of displays, audio, touch, sensors, power |
-| Installer | None | Guided USB installer (Aaropa) with GRUB integration |
-| Kiosk / lockdown mode | Build it yourself | Included (Restricted Launcher, lockdown boot modes, DNS restriction) |
-| Fleet provisioning & licensing | Build it yourself | Included (BootSight, Ethernet provisioning, config cloning) |
-| Desktop / multi-display mode | Minimal | SmartDock DFC desktop shell addon |
-| Per-customer branding | Build it yourself | Vendor configuration layer; branding without code changes |
-| Ongoing maintenance | Your engineering team | Our release cadence across Android versions |
+| New tablet, kiosk, panel PC, or POS on PC hardware | **Bass: Lineout** | Our current flagship: Android runs as the main OS on the device. |
+| Same as above, but they also need full Linux services | **Bass: Submix** | A small Linux foundation runs the computer; Android runs on top in a container. |
+| They already have Linux; they only want Android | **Waydroid_NT** | We supply the Android-in-a-container piece for *their* Linux. |
+| Existing Bass fleets / older Android range | **Bass OS** (classic) | The original Bass line; still supported for current customers. |
+| Raspberry Pi 4/5 (or similar arm boards) | **Bass-ARM** | Same Bass experience on those boards, as a dedicated per-board build. |
 
-### Versus an OEM Android device
+**Default recommendation for new PC-class deals:** Bass: Lineout.
 
-| Concern | OEM Android (Samsung, Lenovo, etc.) | Bass |
+---
+
+## 3. The product lines (what each is, and why it matters)
+
+### Bass: Lineout (flagship)
+
+**What it is:** Android is the operating system on the device. The customer turns the machine on and works in Android (tablet UI, desktop UI, or kiosk), without managing a separate computer OS underneath.
+
+**Who it is for:** New tablet, kiosk, digital signage, POS, and enterprise PC-hardware deployments.
+
+**Why customers care:**
+- Dynamic hardware detection (displays, audio, touch, sensors, power) so one image covers many device models
+- Easy switch between Tablet, Desktop, and Kiosk personalities (Bass boot options)
+- Enterprise deployment, licensing, and on-device documentation built in
+- Full access to the Bass add-on library
+
+**Android versions (customer-facing):** Android 14 and Android 16 class releases.
+
+---
+
+### Bass: Submix
+
+**What it is:** The computer boots a lightweight Linux foundation. Android runs *inside* that environment (in a container). Users still get a near-native Android experience, and IT also gets standard Linux tooling on the same box.
+
+**Who it is for:** Deployments that need both Android apps *and* Linux-native services (custom daemons, host networking, Linux peripherals, familiar Linux admin workflows).
+
+**Why customers care:**
+- Android apps and Linux tools on one machine
+- Same Bass add-ons and configuration model on the Android side as Lineout
+- Fits teams that are comfortable with Linux operations
+
+**Android versions (customer-facing):** Android 16 class releases.
+
+**How to explain the difference from Lineout:**
+- **Lineout:** Android *is* the OS.
+- **Submix:** Linux *hosts* the machine; Android runs on top.
+
+---
+
+### Bass OS (classic)
+
+**What it is:** The original Bass product line. Android runs directly on the hardware, similar in spirit to Lineout, covering a broader older Android range.
+
+**Who it is for:** Existing Bass fleets and customers already standardized on classic Bass images.
+
+**Why customers care:** Continuity for fleets already in the field; broad legacy hardware coverage.
+
+**Android versions (customer-facing):** Android 12L through Android 15 class releases.
+
+**Sales note:** Keep supporting existing classic customers. Steer **new** opportunities to Lineout or Submix unless the customer has a clear classic-only constraint.
+
+---
+
+### Waydroid_NT (“bring your own Linux”)
+
+**What it is:** We do **not** replace the customer’s computer OS. They keep their Linux distribution. We provide Bass-customized Android images and container services that install into that environment, plus our add-ons and configuration tooling on the Android side.
+
+**Who it is for:** Platform teams that already own Linux and only want a supported, brandable Android runtime on top.
+
+**Why customers care:**
+- No forced host OS swap
+- Supported Android container experience with Bass kiosk, branding, and config options
+- Commercial add-ons available through licensing
+
+**Sales takeaway:** If they say “we already run Linux; we just need Android,” lead with Waydroid_NT. If they want us to deliver the whole stack (Linux host + Android), lead with Submix.
+
+---
+
+### Bass-ARM (Raspberry Pi and similar boards)
+
+**What it is:** The same Bass building blocks and add-on library, delivered as a dedicated build for specific arm boards (today: Raspberry Pi 4/5 with Android 16 class releases).
+
+**Who it is for:** Projects standardized on Raspberry Pi or similar boards.
+
+**Why customers care:** Desktop mode, kiosk, FOSS app set, and branding options through the same add-on / build-flag model customers see on PC-class Bass.
+
+**Important difference from PC Bass:** On typical PC hardware, one generic image often adapts to many devices. On these boards, boot and setup are board-specific, so each supported board gets a **pre-tuned build**. The customer-facing features are the same idea; the hardware flexibility is what differs.
+
+---
+
+## 4. How add-ons apply across all product lines
+
+**Add-ons are shared capability, not a separate product family.**
+
+Whatever product line you sell (Lineout, Submix, classic Bass OS, Waydroid_NT, or Bass-ARM), the customer is still choosing from the **same Bass add-on catalog** for the Android experience: kiosk, desktop shell, fleet tools, security, branding, hardware helpers, and so on.
+
+### What that means for the customer
+
+| Point | Plain-language meaning |
+|---|---|
+| **One parts catalog** | Learn the add-ons once; they map across the product lines. |
+| **Pay for what you need** | A signage build does not need a desktop shell; a kiosk build does not need unused modules. |
+| **Private stays private** | Customer branding, private apps, and private config are packaged for that customer—not mixed into the public core or another customer’s build. |
+| **Same story, different delivery** | Lineout / classic / Bass-ARM deliver Android as the main (or board) OS. Submix / Waydroid_NT deliver Android in a container. The add-ons still describe what the Android side can do. |
+
+### How to say it in a meeting
+
+> “Bass is a chassis plus a parts catalog. The chassis is the product line that matches how you want Android to sit on the machine. The parts—kiosk, desktop, fleet, security, branding—are the same catalog. You only take the parts you need, and your private pieces stay yours.”
+
+### Practical sales rules
+
+1. **Pick the product line from the customer’s OS / hardware situation** (section 2–3).
+2. **Pick add-ons from the deployment need** (kiosk, desktop, fleet, branding, etc.)—not from the product-line name.
+3. **Do not imply** that SmartDock, Restricted Launcher, BootSight, or branding only exist on one line. They are Bass capabilities; availability is about licensing and the build you assemble for that customer.
+4. **Submix and Waydroid_NT:** sell Linux-side benefits as host benefits; sell add-ons as Android-side benefits.
+
+---
+
+## 5. The add-on catalog (plain language)
+
+### Hardware adaptation (make generic devices “just work”)
+
+- **Display Mapper** — resolution, DPI, and orientation per screen, including multi-monitor.
+- **Touch Mapper** — align touchscreens to the correct display; fix inverted or rotated touch.
+- **Button Manager** — map POS / industrial hardware buttons to useful actions.
+- **Dynamic hardware profiles** — automatic detection of displays, HDMI audio, sensors, lids, and power/battery behavior at boot.
+
+### Configuration and branding (customize without writing an OS)
+
+- **Config Overrides** — settings and policies from simple config files; ideal for fleets.
+- **Boot Config / Bass boot options** — choose Tablet, Desktop, or Kiosk personality.
+- **Tweaks** — customer-facing switches in Android Settings.
+- **Vendor configuration** — boot animation, wallpapers, preloads, and defaults packaged per customer.
+
+### Kiosk and security (lock the device down)
+
+- **Restricted Launcher** — admin/lockdown launcher, password unlock, app auto-start, logo watermark, hidden settings access.
+- **Internet Security** — DNS-based restriction so devices only reach approved sites.
+- **Admin restriction** — keep end users out of system settings.
+
+### Fleet and lifecycle (operate at scale)
+
+- **BootSight** — fleet identity, license activation, and status UI.
+- **Ethernet Config** — wired-network provisioning for first-boot enrollment.
+- **Logger** — on-device log capture for remote diagnostics.
+- **Updates & OTA** — controlled update channels per fleet.
+
+### User experience (optional front ends)
+
+- **SmartDock DFC** — windowed desktop shell, taskbar, multi-monitor.
+- **BassView** — web/content viewer for signage-style use.
+- **Monterey Standby** — standby / idle display experience.
+- **Ax86 Docs** — product documentation as an on-device app.
+- **FOSS app set** — curated open-source apps with no Google account requirement.
+
+---
+
+## 6. How Bass compares to “stock Android” and OEM tablets
+
+### Versus building from stock Android source yourself
+
+Stock Android source is a starting point, not a finished product. Someone still has to make it install on real hardware, add kiosk and fleet tools, brand it, and maintain it. That is the work Bass already packages.
+
+| Need | DIY stock Android | Bass |
 |---|---|---|
-| **Hardware choice** | Locked to that OEM's catalog and pricing | Any compatible x86_64 hardware, including hardware the customer already owns |
-| **Google dependency** | Google services, accounts, and telemetry baked in | No Google account required; curated FOSS app set; privacy-friendly by default |
-| **Support window** | Typically 2-4 years, then forced hardware refresh | OS updates decoupled from the hardware vendor; on Lineout the Linux kernel is even updatable independently of Android |
-| **Customization** | Surface-level (wallpaper, MDM policies) | Deep: boot modes, UI shells, preinstalled apps, hardware behavior, all configurable per customer |
-| **Kiosk features** | Requires a third-party MDM subscription | Built into the OS, no per-seat MDM fee required |
-| **Bloatware** | OEM and carrier apps included | Only what the customer's build flags include |
+| Runs on generic PC hardware | Usually not without heavy work | Yes (especially Lineout / classic on x86) |
+| Installer and provisioning | Build it yourself | Guided installer and fleet tooling |
+| Kiosk / lockdown | Build or buy third-party | Built-in add-ons |
+| Desktop / multi-display | Minimal | SmartDock DFC add-on |
+| Per-customer branding | Custom engineering | Config and vendor packaging |
+| Ongoing maintenance | Your team | Our release cadence across supported Android versions |
 
-**The cost story sells itself:** a customer with 200 existing POS terminals or panel PCs can redeploy them as locked-down Android kiosks instead of purchasing 200 new OEM tablets plus an MDM subscription.
+### Versus buying OEM Android tablets
 
----
+| Concern | Typical OEM Android | Bass |
+|---|---|---|
+| Hardware choice | Locked to that OEM’s catalog | Compatible PC hardware you choose or already own |
+| Google dependency | Often baked in | No Google account required by default |
+| Support window | Tied to OEM refresh cycles | OS lifecycle managed with the Bass platform |
+| Customization | Mostly MDM / surface settings | Boot modes, UI shells, preloads, hardware behavior |
+| Kiosk | Often needs a paid MDM stack | Available as Bass add-ons |
+| Software footprint | OEM / carrier extras | Only what the customer’s build includes |
 
-## 4. Talking Points by Customer Situation
-
-**"We have existing x86 hardware we'd like to reuse."**
-One generic image adapts to different displays, touchscreens, and peripherals automatically. No per-model firmware. Fewer SKUs to manage, and existing hardware gets a second life.
-
-**"We need a locked-down kiosk."**
-Lockdown is a first-class boot mode, not an app bolted on top. The Restricted Launcher provides admin/lockdown modes with password-protected unlock, auto-start of the customer's app, branded overlays (company logo watermark, hidden settings access), and DNS-level internet restriction so devices can only reach approved sites. On A14/A16 builds, GRUB "Bass boot options" let a technician switch a device between Tablet, Desktop, and Kiosk personalities without reimaging.
-
-**"We deploy hundreds of devices."**
-BootSight handles fleet identity and license activation. Ethernet provisioning configures devices on first boot. Configuration is file- and property-based, so a golden config can be cloned across the fleet. Remote management works over VNC or scrcpy, and OTA updates keep fleets current.
-
-**"We're worried about privacy / Google."**
-Bass builds require no Google account and ship with curated open-source applications. Customer-private applications and configurations stay in private repositories; they are never published with the generic OS.
-
-**"Our users need a desktop, not a tablet."**
-SmartDock DFC turns any Bass device into a windowed, multi-monitor desktop workstation with taskbar, freeform windows, and per-display scaling. (See the dedicated [SmartDock DFC Sales Guide](../applications/SmartDockDFC/SALES_GUIDE.md).)
-
-**"We also run Linux software on these boxes."**
-Bass: Lineout ships an optional Debian subsystem alongside Android; Bass: Submix inverts the stack entirely, running Android in a container on a Debian host. Either way the customer gets `apt`, `systemd`, and standard Linux tools on the same device that runs their Android apps.
-
-**"We already have our own Linux platform; we just need Android on it."**
-That is Waydroid_NT: Bass-customized Android images and container services (Python-based on open-source Waydroid, or our C++ service layer for deeper integration) that install into the customer's existing Linux distribution. They keep their host OS; we supply the Android runtime, addons, and configuration tooling inside it.
-
-**"We're standardized on Raspberry Pi / arm64 hardware."**
-The Bass addon library applies there too. Bass-ARM brings Android 16 with our Desktop Mode and Kiosk components to the Raspberry Pi 4/5. Because arm64 boards have a fixed, board-specific init sequence, these are dedicated per-board builds rather than the universal x86 image, but the feature set and configuration options the customer sees are the same.
-
-**"What happens in three years?"**
-The platform is engineered for portability across Android versions ("work with all future versions of Android with little to no changes" is a core project principle). The customer's investment in configuration and addons carries forward.
+**Cost story:** a customer with existing POS terminals or panel PCs can redeploy them as locked-down Android devices instead of buying a full OEM tablet fleet plus separate MDM seats.
 
 ---
 
-## 5. The Modularity Story: What the Addons Do and Why
+## 7. Talking points by customer situation
 
-### Why Bass is built as a modular system
+**“We have existing PC hardware we’d like to reuse.”**  
+Lead with Lineout (or classic if they are already on it). One image adapts across many displays and peripherals. Fewer SKUs; hardware gets a second life.
 
-Every Bass image is assembled from a **stable generic core** plus **optional addons**, each toggled with a simple build flag. This architecture is deliberate, and it is a selling point in itself:
+**“We need a locked-down kiosk.”**  
+Lockdown is a first-class personality, not a random app. Restricted Launcher, branded overlays, and optional DNS internet restriction. Technicians can switch Tablet / Desktop / Kiosk personalities without reimaging where Bass boot options are enabled.
 
-1. **Customers only get (and pay for) what they need.** A signage build doesn't carry kiosk-launcher code; a kiosk build doesn't carry a desktop shell.
-2. **Private things stay private.** Each addon lives in its own repository. A customer's branded launcher, security app, or configuration never mixes with another customer's build or with the public core.
-3. **One core, many products.** The same tested core ships to every customer, so quality improvements benefit everyone at once, while differentiation happens in the addon layer.
-4. **Fast turnaround.** Adding a customer-specific preinstalled app is a drop-in package and a build flag, not an engineering project.
+**“We deploy hundreds of devices.”**  
+BootSight for identity and licensing, Ethernet provisioning, file-based config cloning, remote tools, and OTA channels. Same add-on story whether the fleet is Lineout, Submix, or Waydroid_NT on the Android side.
 
-### The addon catalog, in plain language
+**“We’re worried about privacy / Google.”**  
+No Google account required by default; curated open-source apps. Customer-private apps and configs stay private.
 
-**Hardware adaptation**: makes generic hardware "just work":
+**“Our users need a desktop, not a tablet.”**  
+SmartDock DFC add-on: windowed multi-monitor desktop. Same add-on pitch across product lines. See the [SmartDock DFC Sales Guide](../applications/SmartDockDFC/SALES_GUIDE.md).
 
-- **Display Mapper**: per-display resolution, DPI, and orientation, including multi-monitor setups.
-- **Touch Mapper**: aligns touchscreens to the right display, fixes inverted or rotated touch.
-- **Button Manager**: maps the hardware buttons found on POS and industrial devices to Android actions.
-- **Dynamic hardware profiles**: automatic detection of displays, HDMI audio, rotation sensors, lid switches, and power/battery behavior at boot.
+**“We also run Linux software on these boxes.”**  
+- Need the full stack from us → **Submix**  
+- Already have Linux → **Waydroid_NT**  
+- Mostly Android, with optional Linux helpers → **Lineout** (and discuss their exact Linux needs)
 
-**Configuration & branding**: the "zero-code customization" layer:
+**“We’re standardized on Raspberry Pi.”**  
+**Bass-ARM:** same Bass add-on ideas, dedicated board builds.
 
-- **Config Overrides**: settings and system properties applied from simple config files, ideal for fleet-wide policies.
-- **Boot Config / Bass boot options**: on-device and GRUB-level selection of boot personality (Tablet UI, Desktop UI, Kiosk).
-- **Tweaks**: customer-facing switches added to Android Settings.
-- **Vendor configuration layer**: each customer's look-and-feel (boot animation, wallpapers, preloads, default settings) packaged separately from the OS core.
-
-**Kiosk & security**: the lockdown product:
-
-- **Restricted Launcher Pro**: admin/lockdown launcher with password-protected unlock, app auto-start, logo watermark overlay, and hidden settings access.
-- **Internet Security**: DNS-based restriction so locked-down devices reach only approved sites.
-- **Admin restriction features**: keep end users out of system settings entirely.
-
-**Fleet & lifecycle**: operations at scale:
-
-- **BootSight**: fleet identity, license activation, and status UI.
-- **Ethernet Config**: wired-network provisioning for first-boot enrollment.
-- **Logger**: rolling on-device log capture for remote diagnostics.
-- **Updates & OTA**: controlled update channels per fleet.
-
-**User experience**: optional front-ends:
-
-- **SmartDock DFC**: full desktop shell with taskbar, windows, and multi-monitor support.
-- **BassView**: web/content viewer for signage-style deployments.
-- **Monterey Standby**: standby/idle display experience.
-- **Ax86 Docs**: the product documentation compiled into an on-device app.
-- **FOSS app set**: curated open-source apps (file manager, terminal, email, and more) with no Google dependency.
-
-### How to phrase it to a customer
-
-> "Think of Bass as a chassis and a parts catalog. The chassis (the OS core) is identical and battle-tested across all of our customers. Your product is assembled from that chassis plus exactly the modules your deployment needs: your branding, your launcher, your security policy, your preloaded apps. When we improve the chassis, you benefit automatically; when you need something bespoke, it's a private module only you receive."
+**“What happens in three years?”**  
+The platform is designed so customer investment in configuration and add-ons can carry forward as Android versions advance. You are selling continuity of *their* product definition, not a one-off image.
 
 ---
 
-## 6. Quick Objection Handling
+## 8. Quick objection handling
 
-**"Is this a hobbyist Android fork?"**
-No. Bass: Lineout is built on LineageOS with an enterprise vendor layer, a defined release process, deployment tooling, licensing infrastructure, and product documentation. The hobbyist projects it descends from are the *reference*, not the product.
+**“Is this a hobbyist project?”**  
+No. Bass is a commercial product family with a defined release process, deployment tooling, licensing, documentation, and supported add-ons. Community Android projects may inform engineering practice; they are not what the customer buys.
 
-**"Can it pass our security review?"**
-Lockdown builds restrict the device to approved apps and approved network destinations (DNS restriction). There is no Google account or Google telemetry requirement. Customer-specific security modules can be added privately.
+**“Can it pass our security review?”**  
+Lockdown builds can restrict apps and network destinations. There is no Google account or Google telemetry requirement by default. Customer-specific security modules can be added privately.
 
-**"What if our hardware isn't supported?"**
-The platform is designed for generic x86_64 hardware with dynamic detection. Evaluation is straightforward: boot the live installer on the target hardware. Hardware enablement gaps become engineering tickets against the shared core, which then benefits every deployment on similar hardware.
+**“What if our hardware isn’t supported?”**  
+For PC-class hardware, evaluation is straightforward: boot the live installer on the target machine. Gaps become shared platform improvements that help similar hardware later.
 
-**"Who supports it?"**
-We do: the OS core, the addons, and the customer's private modules all come from one vendor. There is no finger-pointing between an OEM, an MDM vendor, and an app developer.
+**“Who supports it?”**  
+One vendor for the OS product line, the add-ons, and the customer’s private modules—no finger-pointing between an OEM, an MDM vendor, and an app developer.
 
 ---
 
-## 7. Where to Learn More
+## 9. Cheatsheet: which product line to open with
+
+| If the customer says… | Open with… |
+|---|---|
+| “We need Android kiosks / tablets on PC hardware.” | **Bass: Lineout** |
+| “We need Android *and* full Linux on the same box.” | **Bass: Submix** |
+| “We already run Linux; just give us Android.” | **Waydroid_NT** |
+| “We’re already on Bass / need the older Android range.” | **Bass OS** (classic) |
+| “We’re on Raspberry Pi.” | **Bass-ARM** |
+| “We need a desktop UI / multi-monitor.” | Product line from above **+ SmartDock DFC add-on** |
+| “We need lockdown / no Google / fleet licensing.” | Product line from above **+ kiosk / BootSight / security add-ons** |
+
+---
+
+## 10. Where to learn more
 
 | Topic | Document |
 |---|---|
 | Technical overview of the Bass architecture | [High Level Overview](../development/bass-high-level-overview.md) |
-| Installation walkthrough | [Install A13-A15 / Aaropa Installer](../Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md) |
+| Installation walkthrough | [Install A13–A15 / Aaropa Installer](../Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md) |
 | Kiosk / lockdown behavior | [Booting into lockdown builds](../setup_and_configuration/booting-into-lockdown-builds.md) |
 | Restricted Launcher features | [Bliss Restricted Launcher](../applications/BlissRestrictedLauncher/BlissRestrictedLauncher.md) |
 | Desktop shell sales material | [SmartDock DFC Sales Guide](../applications/SmartDockDFC/SALES_GUIDE.md) and [Marketing](../applications/SmartDockDFC/MARKETING.md) |
@@ -202,4 +287,4 @@ We do: the OS core, the addons, and the customer's private modules all come from
 | DNS internet restriction | [DNS Internet Restriction](../features/dns-internet-restriction.md) |
 | Updates | [Updates and OTA](../features/updates-and-ota.md) |
 
-For product-line naming rules (when to say "Bass: Lineout" vs. the engineering codename), sales staff should always use the **product names** (Bass OS, Bass: Lineout, Bass: Submix) in customer-facing material.
+**Customer-facing naming:** always say **Bass OS**, **Bass: Lineout**, **Bass: Submix**, **Waydroid_NT**, and **Bass-ARM**. Do not use engineering tree names in sales material.

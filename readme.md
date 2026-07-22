@@ -83,6 +83,7 @@
 * [High Level Overview](development/bass-high-level-overview.md)
 * [Building Bass OS](development/building-bass.md)
 * [Addon Development: Bass Lineout](development/addon-development.md)
+* [BootSight Offline Licensing (Internal Runbook)](development/bootsight-offline-licensing.md)
 * [Addon Development: Legacy Bass OS](development/addon-development-legacy-bass.md)
 * [Development FAQ](development/development-faq.md)
 * [Maintaining Proper Authorship](development/maintaining-proper-authorship.md)
