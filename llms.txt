@@ -90,16 +90,16 @@
 - [Navotpala Tech Privacy Policy](https://docs.blisscolabs.dev/legal/navotpala_tech_privacy_policy.md): Navotpala Tech Privacy Policy
 - [Privacy Policy](https://docs.blisscolabs.dev/legal/privacy_policy_for_bass_os_website.md): Privacy Policy for Bass OS
 
+## Product guide
+
+- [Bass Product Family Guide](https://docs.blisscolabs.dev/product-guide/bass-product-family.md): This guide explains what Bass is, how each product line differs, and how add-ons work across the whole family. It is written for readers who are new to Bass and do not need an engineering background.
+
 ## Remote management
 
 - [Using DroidVNC-NG](https://docs.blisscolabs.dev/remote_management/using_droidvnc-ng.md): (These instructions are based off the project readme found here)
 - [Using Scrcpy For Remote Management](https://docs.blisscolabs.dev/remote_management/using_scrcpy_for_remote_management.md): scrcpy is a popular open-source tool that allows remote access and control of your Android device using adb interface.
 - [Using ScreenView](https://docs.blisscolabs.dev/remote_management/using_screenview.md): ScreenView is used to view and control the primary screen from an external display. To use it, open the app on an external display.
 - [Using Sshd4a](https://docs.blisscolabs.dev/remote_management/using_sshd4a.md): (These instructions are based off the project wiki found here)
-
-## Sales
-
-- [Bass Product Family: Sales & Positioning Guide](https://docs.blisscolabs.dev/sales/bass-product-family-sales-guide.md): This guide is for sales and business-development staff. It explains what Bass is, how each product line differs in plain language, and how add-ons work across the whole family.
 
 ## Setup and configuration
 
