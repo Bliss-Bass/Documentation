@@ -10,9 +10,9 @@
 * [Collecting bug reports](Installation/x86_64-v2/collecting-bug-reports.md)
 * [Using Android-x86 GUI Installer](Installation/x86_64-v2/using-android-x86-installer.md)
 
-#### Aaropa Installer - x86_64-v2/x86_64-v3 (A13-A15)
+#### Aaropa Installer - x86_64-v2/x86_64-v3 (A13-A16)
 
-* [Install A13-A15](Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md)
+* [Install A13-A16](Installation/x86_64-v2/bass_os_aaropa_install_process.md)
 
 #### Raspberry Pi (A13) aarch64
 
@@ -24,7 +24,11 @@
 
 #### Devuan Based Installer (Aaropa based initrd/installer)
 
-* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md)
+* [Installation Using Aaropa Installer](Installation/x86_64-v2/bass_os_aaropa_install_process.md)
+
+#### Bass Submix Install (Aaropa based initrd/installer)
+
+* [Installation Guide For Bass Submix](Installation/submix/submix-install.md)
 
 ## Configuration
 

@@ -1,4 +1,4 @@
-# Bass OS (Android 13-15) Install Process
+# Bass OS/Lineout (Android 13-16) Install Process
 
 This document will go over how to use our Devuan GNU-Linux based installer (aka: Aaropa initrd/installer). This is quite the departure from our normal install process using the Legacy Dialog based installer and allows a more fine tuned and catered install experience, as well as compatibility with a number of additional features. 
 

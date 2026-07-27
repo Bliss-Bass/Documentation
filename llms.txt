@@ -11,13 +11,17 @@
 
 - [Bass OS for the Raspberry PI 4 series based on the GloDroid project](https://docs.blisscolabs.dev/installation/raspberry-pi/raspberry-pi-installation.md): GloDroid ProjectStatus License
 
+### Submix
+
+- [Bass: Submix - Quick Start Guide](https://docs.blisscolabs.dev/installation/submix/submix-install.md): Bass: Submix is a minimal Debian host that boots into a Wayland compositor and runs LineageOS / Android inside a Waydroid LXC container. This guide is the short path from a downloaded ISO to a working install - flash, install, connect Wi-Fi, and reach the device from your PC.
+
 ### Virtio
 
 - [Virtio installation](https://docs.blisscolabs.dev/installation/virtio/virtio-installation.md): On Debian / Ubuntu, installing the package virt-manager would install the GUI manager, and everything that required for libvirt QEMU virtual machine as well as theirs dependencies.
 
 ### X86 64-v2
 
-- [Bass OS (Android 13-15) Install Process](https://docs.blisscolabs.dev/installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md): This document will go over how to use our Devuan GNU-Linux based installer (aka: Aaropa initrd/installer). This is quite the departure from our normal
+- [Bass OS/Lineout (Android 13-16) Install Process](https://docs.blisscolabs.dev/installation/x86_64-v2/bass_os_aaropa_install_process.md): This document will go over how to use our Devuan GNU-Linux based installer (aka: Aaropa initrd/installer). This is quite the departure from our normal
 - [Collecting bug reports](https://docs.blisscolabs.dev/installation/x86_64-v2/collecting-bug-reports.md): This process is mostly the same as Android-x86 builds, but with a few additions that help things along. If you need to collect logs in order to submit a bug report, then the first thing you will want to do is reboot your Bass OS install using debug mode.
 - [Install From Bootable USB](https://docs.blisscolabs.dev/installation/x86_64-v2/install-from-bootable-usb.md): Install from bootable USB Installer
 - [Using Android-x86 Installer](https://docs.blisscolabs.dev/installation/x86_64-v2/using-android-x86-installer.md): This installer is developed and maintained by Xtr126 and is intended to be used to dual-boot Bass OS along with Linux or Windows
