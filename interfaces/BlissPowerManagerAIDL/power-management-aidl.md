@@ -1,7 +1,8 @@
-# Power Management API
+# Power Management API (legacy)
 
-We include a simple app to demonstrate the power management API. 
+> **Lineout note:** New builds should use **[Ax86 Power](../../applications/Ax86Power/Ax86Power.md)** (`IAx86Power`) for reboot / shutdown / sleep **and** sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.
 
+We include a simple app to demonstrate the (legacy) power management API.
 
 ## Bliss Power Management AIDL Interface:
 

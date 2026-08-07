@@ -38,12 +38,15 @@ Enable them from `vendor/ax86-lite/tools/build.sh` (see [Building Bass OS](build
 
 | Flag | Packages / behavior |
 |------|---------------------|
-| `--extras` | Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs |
+| `--extras` | Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power |
 | `--btnmgr` | Button Manager |
 | `--logger` / `--logging-enabled` | Ax86 Logger |
+| `--ax86-power` | Ax86 Power (also included with `--extras`) |
 | `--bootsight` | BootSight (+ `ro.bass.fleet_mgmt=bootsight`) |
 | `--smartdock` | SmartDock DFC |
 | `--ethernetconfig` | Ethernet Config |
+| `--bass-boot-options` / `--cxbbo` | Bass GRUB boot submenu |
+| `--ldinstall` | Lockdown install/uninstall block |
 
 ### Adding a new Lineout package
 
@@ -61,7 +64,10 @@ App docs on this site:
 * [Bliss Tweaks](../applications/BlissTweaks/BlissTweaks.md)
 * [Button Manager](../applications/Ax86ButtonManager/Ax86ButtonManager.md)
 * [Ax86 Logger](../applications/Ax86Logger/Ax86Logger.md)
+* [Ax86 Power](../applications/Ax86Power/Ax86Power.md)
 * [BootSight](../applications/BootSight/BootSight.md)
+* [Bass boot options](../setup_and_configuration/bass-boot-options.md)
+* [Lockdown install block](../features/lockdown-install-block.md)
 
 ### Newer Lineout branches (`addons/<id>/`)
 

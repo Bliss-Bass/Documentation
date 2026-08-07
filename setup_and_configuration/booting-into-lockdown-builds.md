@@ -75,5 +75,9 @@ To configure the launcher, we want to start off by booting onto Admin mode. Then
 
 Please see [BlissKioskLauncher](../applications/BlissKioskLauncher/BlissKioskLauncher.md) for further details on the launcher's usage. Wired Ethernet on current builds is configured via [Ethernet Config](../applications/EthernetConfig/EthernetConfig.md).
 
+#### Lockdown install / uninstall block (Lineout)
+
+Builds with `--ldinstall` set `ro.bass.lockdown_block_install=1`. While `ro.boot.bliss.bootmode=lockdown`, PackageInstaller UI, `pm install` / `pm uninstall`, and framework uninstall/install session APIs are blocked. See [Lockdown install / uninstall block](../features/lockdown-install-block.md).
+
 
 

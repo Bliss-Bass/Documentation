@@ -97,3 +97,14 @@ While in Lockdown mode, you can access the Restricted Launcher Settings by click
 If the settings button position was set to **Hidden** under Appearance, the sprocket will not be visible. In that case, double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.
 
 From there, the **Unlock** option at the top of the settings list can be used to exit the locked session and return to the admin home screen (see the Unlock section above).
+
+## Lineout build notes (Restricted Launcher Pro)
+
+On Bass: Lineout, enable the commercial Pro package with:
+
+```bash
+./build.sh --restrictedlauncherpro ...
+./build.sh --restrictedlauncherpro --rlptype=gs ...
+```
+
+`--rlptype` selects the prebuilt variant (`default`, `gs`, `gs_nh`, `sl`). See [Building Bass OS](../../development/building-bass.md).
