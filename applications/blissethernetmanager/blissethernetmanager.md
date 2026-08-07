@@ -1,10 +1,10 @@
-> **Note:** On current Bass OS builds (Android 13+), wired Ethernet is managed by **[Ethernet Config](../EthernetConfig/EthernetConfig.md)**, which exposes the same `blissethernet` AIDL API. Prefer those docs for new deployments. This page documents the legacy Bliss Ethernet Manager app.
+> **Note:** On current Bass OS builds (Android 13+), wired Ethernet is managed by **[Ethernet Config](../EthernetConfig/EthernetConfig.md)**, which exposes the `blissethernet` AIDL API. Prefer **[Ethernet Config — AIDL Interface](../EthernetConfig/AIDL_INTERFACE.md)** for new deployments (includes ethernet tethering and the current assignment enum). Client JAR: [`system_libs/bliss-ethernet-framework.jar`](../EthernetConfig/system_libs/). This page documents the **legacy** Bliss Ethernet Manager app.
 
 # BlissEthernetManager
 
 ## Setting Up Ethernet Interfaces
 
-If your version of BlissBass comes with the Eternet Manager, then you are able to setup multiple ethernet interfaces and configure them. 
+If your version of BlissBass comes with the Ethernet Manager, then you are able to setup multiple ethernet interfaces and configure them. 
 
 ![alt_text](images/image27.png "ethernet settings UI")
 
@@ -25,6 +25,9 @@ From there, you can set the interface as Up/Down, Unassigned/DHCP/Static, and de
 ![alt_text](images/image28.png "further info and options")
 
 ### Bliss Ethernet Manager AIDL Interface:
+
+> **Assignment enum (legacy JAR):** Unassigned=`-1`, DHCP=`0`, Static=`1`.  
+> **Current Ethernet Config:** Unassigned=`0`, DHCP=`1`, Static=`2` — see [migration table](../EthernetConfig/AIDL_INTERFACE.md#ip-assignment-modes). Use the new [client JAR](../EthernetConfig/system_libs/) for tethering APIs.
 
 The source package for BlissEthernet Manager contains the framework and system libs for the AIDL interface. 
 

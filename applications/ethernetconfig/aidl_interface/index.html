@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.838499859199">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Ethernet Config — AIDL Interface</title>
     <meta name="title" content="Ethernet Config — AIDL Interface">
-    <meta name="description" content="This document describes the Bliss-compatible AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The interface matches the legacy Bliss Ethernet Manager so existing integrations can migrate with minimal changes.">
+    <meta name="description" content="This document describes the AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The service registers a system binder named blissethernet.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/ethernetconfig/aidl_interface/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/aidl_interface/">
     <meta property="og:title" content="Ethernet Config — AIDL Interface">
-    <meta property="og:description" content="This document describes the Bliss-compatible AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The interface matches the legacy Bliss Ethernet Manager so existing integrations can migrate with minimal changes.">
+    <meta property="og:description" content="This document describes the AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The service registers a system binder named blissethernet.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,19 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/aidl_interface/">
     <meta name="twitter:title" content="Ethernet Config — AIDL Interface">
-    <meta name="twitter:description" content="This document describes the Bliss-compatible AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The interface matches the legacy Bliss Ethernet Manager so existing integrations can migrate with minimal changes.">
+    <meta name="twitter:description" content="This document describes the AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The service registers a system binder named blissethernet.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/ethernetconfig/aidl_interface.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.838499859199" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.838499859199" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,19 +162,20 @@
 
                 <!-- Page content  -->
 <h1 id="ethernet-config--aidl-interface">Ethernet Config — AIDL Interface</h1>
-<p>This document describes the <strong>Bliss-compatible</strong> AIDL API exposed by <strong>Ethernet Config</strong> (<code translate="no" v-pre>com.example.ethernetconfig</code>). The interface matches the legacy <a href="../../blissethernetmanager/">Bliss Ethernet Manager</a> so existing integrations can migrate with minimal changes.</p>
-<p>The service registers a system binder named <strong><code translate="no" v-pre>blissethernet</code></strong>, which powers both the Java/Kotlin client API and <code translate="no" v-pre>adb shell service call blissethernet</code>.</p>
-<p>For end-to-end device validation (including <code translate="no" v-pre>persist.bass.ethernet.*</code> auto-config), see <strong><a href="../testing/">Testing Guide</a></strong>. Overview and prop setup: <strong><a href="../">Ethernet Config</a></strong>.</p>
+<p>This document describes the AIDL API exposed by <strong>Ethernet Config</strong> (<code translate="no" v-pre>com.example.ethernetconfig</code>). The service registers a system binder named <strong><code translate="no" v-pre>blissethernet</code></strong>.</p>
+<p>For end-to-end device validation (including <code translate="no" v-pre>persist.bass.ethernet.*</code> auto-config), see <strong><a href="../testing/">Testing Guide</a></strong>. Overview: <strong><a href="../">Ethernet Config</a></strong>.</p>
+<p>Client JAR: <strong><a href="../system_libs/">system_libs/bliss-ethernet-framework.jar</a></strong> — see <a href="../system_libs/">system_libs/README.md</a>.</p>
 <hr>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Ethernet Config installed as a privileged/system app (Bass ROM builds include it).</li>
 <li>The <code translate="no" v-pre>blissethernet</code> service registered in <code translate="no" v-pre>ServiceManager</code> (started at boot via init / <code translate="no" v-pre>start-bliss-ethernet</code>).</li>
 <li>For third-party apps: caller must be <strong>authorized</strong> (see <doc-anchor-trigger to="#authorization">Authorization</doc-anchor-trigger>).</li>
+<li>Ethernet tethering requires <code translate="no" v-pre>TETHER_PRIVILEGED</code> on the server (granted via priv-app whitelist).</li>
 </ul>
 <hr>
 <h2 id="ip-assignment-modes">IP assignment modes</h2>
-<p>Use these integer values with <code translate="no" v-pre>getIpAssignment</code> / <code translate="no" v-pre>setIpAssignment</code>:</p>
+<p>Canonical values for <code translate="no" v-pre>getIpAssignment</code> / <code translate="no" v-pre>setIpAssignment</code>:</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -204,13 +205,98 @@
 </table>
 </div>
 <p><strong>Static IP address format:</strong> <code translate="no" v-pre>&lt;IPv4&gt;/&lt;prefix&gt;</code> (e.g. <code translate="no" v-pre>192.168.1.100/24</code>).</p>
+<h3 id="legacy-jar-migration-breaking">Legacy JAR migration (breaking)</h3>
+<p>The old Bliss Ethernet Manager client JAR used different integers:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Meaning</th>
+<th>Legacy JAR</th>
+<th>Current (Ethernet Config)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNASSIGNED</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>STATIC</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><code translate="no" v-pre>getIpAssignment</code> <strong>always</strong> returns canonical <code translate="no" v-pre>0/1/2</code>.</li>
+<li><code translate="no" v-pre>setIpAssignment</code> accepts canonical <code translate="no" v-pre>0/1/2</code> and exclusive legacy <code translate="no" v-pre>-1</code> (→ UNASSIGNED).</li>
+<li>For legacy <code translate="no" v-pre>0</code> (DHCP) / <code translate="no" v-pre>1</code> (STATIC), call <code translate="no" v-pre>BlissEthernetAssignment.fromLegacy(value)</code> before set, or update constants.</li>
+<li>The old JAR does <strong>not</strong> include ethernet tethering APIs — use the new JAR / AIDL sources.</li>
+</ul>
+<hr>
+<h2 id="ethernet-tethering">Ethernet tethering</h2>
+<p>Tethering shares the device’s upstream network over an ethernet downstream. The server uses AOSP <code translate="no" v-pre>TetheringManager</code> with an optional static IPv4 pair (gateway + single DHCP client address in the same prefix).</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>startEthernetTethering(localIpv4, clientIpv4)</code></td>
+<td>Start ethernet tether. Empty strings → defaults below.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>stopEthernetTethering()</code></td>
+<td>Stop ethernet tether.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>isEthernetTetheringActive()</code></td>
+<td>Whether a start has succeeded and not yet stopped.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>getEthernetTetherLocalIpv4()</code></td>
+<td>Last requested / default gateway <code translate="no" v-pre>ip/prefix</code>.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>getEthernetTetherClientIpv4()</code></td>
+<td>Last requested / default client <code translate="no" v-pre>ip/prefix</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Defaults when arguments are empty:</strong></p>
+<ul>
+<li>Local (gateway): <code translate="no" v-pre>192.168.10.1/24</code></li>
+<li>Client (DHCP offer): <code translate="no" v-pre>192.168.10.2/24</code></li>
+</ul>
+<p>Non-empty values must be <code translate="no" v-pre>ip/prefix</code> strings in the <strong>same</strong> prefix.</p>
+<div id="ethernet-tethering-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-java"><code v-pre class="language-java">BlissEthernetManager mgr = BlissEthernetManager.getInstance(context);
+// Product default 192.168.10.0/24
+mgr.startEthernetTethering(&quot;&quot;, &quot;&quot;);
+// Custom pair
+mgr.startEthernetTethering(&quot;192.168.10.1/24&quot;, &quot;192.168.10.50/24&quot;);
+mgr.stopEthernetTethering();</code></pre>
+</doc-codeblock></div>
 <hr>
 <h2 id="client-usage">Client usage</h2>
 <h3 id="gradle">Gradle</h3>
 <div id="gradle-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-gradle"><code v-pre class="language-gradle">implementation fileTree(dir: 'system_libs/', include: ['*.jar'])</code></pre>
 </doc-codeblock></div>
-<p>Or copy the AIDL sources into your module and enable <code translate="no" v-pre>buildFeatures { aidl = true }</code>.</p>
+<p>Or copy AIDL sources into your module and enable <code translate="no" v-pre>buildFeatures { aidl = true }</code>.</p>
 <h3 id="java">Java</h3>
 <div id="java-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-java"><code v-pre class="language-java">import org.blissos.ethernet.BlissEthernetManager;
@@ -224,7 +310,9 @@ boolean up = blissEthernetManager.isAvailable(&quot;eth0&quot;);
 blissEthernetManager.setIpAssignment(&quot;eth0&quot;, BlissEthernetAssignment.STATIC);
 blissEthernetManager.setIpAddress(&quot;eth0&quot;, &quot;192.168.1.100/24&quot;);
 blissEthernetManager.setGateway(&quot;eth0&quot;, &quot;192.168.1.1&quot;);
-blissEthernetManager.setDnses(&quot;eth0&quot;, new String[] { &quot;8.8.8.8&quot;, &quot;8.8.4.4&quot; });</code></pre>
+blissEthernetManager.setDnses(&quot;eth0&quot;, new String[] { &quot;8.8.8.8&quot;, &quot;8.8.4.4&quot; });
+
+blissEthernetManager.startEthernetTethering(&quot;&quot;, &quot;&quot;);</code></pre>
 </doc-codeblock></div>
 <h3 id="manifest-client-app">Manifest (client app)</h3>
 <div id="manifest-client-app-code-1" class="codeblock-wrapper"><doc-codeblock>
@@ -254,6 +342,12 @@ interface IBlissEthernet {
     void setGateway(String iface, String gateway);
     String[] getDnses(String iface);
     void setDnses(String iface, in String[] dnses);
+
+    void startEthernetTethering(String localIpv4, String clientIpv4);
+    void stopEthernetTethering();
+    boolean isEthernetTetheringActive();
+    String getEthernetTetherLocalIpv4();
+    String getEthernetTetherClientIpv4();
 }</code></pre>
 </doc-codeblock></div>
 <p><strong><code translate="no" v-pre>IBlissEthernetServiceListener.aidl</code>:</strong></p>
@@ -296,7 +390,7 @@ oneway interface IBlissEthernetServiceListener {
 </tr>
 <tr>
 <td><code translate="no" v-pre>getIpAssignment</code> / <code translate="no" v-pre>setIpAssignment</code></td>
-<td><code translate="no" v-pre>0</code> UNASSIGNED, <code translate="no" v-pre>1</code> DHCP, <code translate="no" v-pre>2</code> STATIC</td>
+<td>Canonical <code translate="no" v-pre>0</code> UNASSIGNED, <code translate="no" v-pre>1</code> DHCP, <code translate="no" v-pre>2</code> STATIC</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>getIpAddress</code> / <code translate="no" v-pre>setIpAddress</code></td>
@@ -309,6 +403,18 @@ oneway interface IBlissEthernetServiceListener {
 <tr>
 <td><code translate="no" v-pre>getDnses</code> / <code translate="no" v-pre>setDnses</code></td>
 <td>DNS servers</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>startEthernetTethering</code> / <code translate="no" v-pre>stopEthernetTethering</code></td>
+<td>Ethernet tether control</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>isEthernetTetheringActive</code></td>
+<td>Tether active flag</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>getEthernetTetherLocalIpv4</code> / <code translate="no" v-pre>getEthernetTetherClientIpv4</code></td>
+<td>Last tether address pair</td>
 </tr>
 </tbody>
 </table>
@@ -410,6 +516,31 @@ oneway interface IBlissEthernetServiceListener {
 <td><code translate="no" v-pre>setDnses</code></td>
 <td><code translate="no" v-pre>s16</code> iface, string array</td>
 </tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td><code translate="no" v-pre>startEthernetTethering</code></td>
+<td><code translate="no" v-pre>s16</code> localIpv4, <code translate="no" v-pre>s16</code> clientIpv4 (empty → defaults)</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td><code translate="no" v-pre>stopEthernetTethering</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td><code translate="no" v-pre>isEthernetTetheringActive</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td><code translate="no" v-pre>getEthernetTetherLocalIpv4</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td><code translate="no" v-pre>getEthernetTetherClientIpv4</code></td>
+<td>—</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -427,7 +558,17 @@ adb shell service call blissethernet 7 s16 eth0
 # Set static IP
 adb shell service call blissethernet 8 s16 eth0 i32 2
 adb shell service call blissethernet 10 s16 eth0 s16 192.168.1.100/24
-adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1</code></pre>
+adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1
+
+# Start ethernet tethering with product defaults (192.168.10.1/24 + 192.168.10.2/24)
+adb shell service call blissethernet 15 s16 &quot;&quot; s16 &quot;&quot;
+
+# Start with explicit addresses
+adb shell service call blissethernet 15 s16 192.168.10.1/24 s16 192.168.10.50/24
+
+# Status / stop
+adb shell service call blissethernet 17
+adb shell service call blissethernet 16</code></pre>
 </doc-codeblock></div>
 <h3 id="verify-service-registration">Verify service registration</h3>
 <div id="verify-service-registration-code-1" class="codeblock-wrapper"><doc-codeblock>
@@ -439,9 +580,11 @@ adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1</code></pre>
 <ul>
 <li><strong>Package namespace:</strong> <code translate="no" v-pre>org.blissos.ethernet</code> (unchanged from Bliss Ethernet Manager)</li>
 <li><strong>Service name:</strong> <code translate="no" v-pre>blissethernet</code> (unchanged)</li>
-<li><strong>AIDL signatures:</strong> Match the published Bliss Co-Labs interface</li>
+<li><strong>Client IP methods (codes 1–14):</strong> Same shapes as legacy; <strong>assignment integers changed</strong> (see table above)</li>
+<li><strong>Tethering (codes 15–19):</strong> New in Ethernet Config — not present in the legacy JAR</li>
 <li><strong>Listener:</strong> <code translate="no" v-pre>onAvailabilityChanged</code> fires while <code translate="no" v-pre>BlissEthernetService</code> is running</li>
 </ul>
+<p>Legacy app UI docs: <a href="../../blissethernetmanager/">BlissEthernetManager</a>.</p>
 
                 
                 <!-- Required only on API pages -->
@@ -457,11 +600,11 @@ adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1</code></pre>
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../applications/ethernetconfig/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../applications/ethernetconfig/system_libs/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Ethernet Config</span>
+                                <span class="block mt-1">Bliss Ethernet AIDL client library</span>
                             </span>
                         </a>
                     </div>

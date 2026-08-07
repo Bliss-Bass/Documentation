@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.838499859199">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.838499859199" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -217,6 +217,8 @@ options: true, false</p>
 <p>By default, the Bliss Kiosk Launcher UI will have two modes, Lockdown and Admin modes.</p>
 <p>To configure the launcher, we want to start off by booting onto Admin mode. Then we can start the Kiosk Launcher and configure it from there. The default password for the kiosk launcher settings is <code translate="no" v-pre>123</code>. From settings you can manage the whitelist, auto-launch app, and whether the home screen clock is shown.</p>
 <p>Please see <a href="../../applications/blisskiosklauncher/">BlissKioskLauncher</a> for further details on the launcher&#x27;s usage. Wired Ethernet on current builds is configured via <a href="../../applications/ethernetconfig/">Ethernet Config</a>.</p>
+<h4 id="lockdown-install--uninstall-block-lineout">Lockdown install / uninstall block (Lineout)</h4>
+<p>Builds with <code translate="no" v-pre>--ldinstall</code> set <code translate="no" v-pre>ro.bass.lockdown_block_install=1</code>. While <code translate="no" v-pre>ro.boot.bliss.bootmode=lockdown</code>, PackageInstaller UI, <code translate="no" v-pre>pm install</code> / <code translate="no" v-pre>pm uninstall</code>, and framework uninstall/install session APIs are blocked. See <a href="../../features/lockdown-install-block/">Lockdown install / uninstall block</a>.</p>
 
                 
                 <!-- Required only on API pages -->

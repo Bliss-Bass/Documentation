@@ -40,6 +40,7 @@
 * [Updating Legacy Grub](setup_and_configuration/updating_legacy_grub.md)
 * [Creating an input-port-addon.xml file](setup_and_configuration/input-port-associations.md)
 * [Using IDC Addon](setup_and_configuration/addon_idc.md)
+* [Bass boot options](setup_and_configuration/bass-boot-options.md)
 
 ## Troubleshooting
 
@@ -50,6 +51,7 @@
 * [Admin Restriction](features/admin-restriction.md)
 * [DNS Internet Restriction](features/dns-internet-restriction.md)
 * [Fleet Management](features/fleet-management.md)
+* [Lockdown install / uninstall block](features/lockdown-install-block.md)
 * [Updates and OTA](features/updates-and-ota.md)
 
 ## Applications
@@ -57,6 +59,7 @@
 * [Ax86 Button Manager](applications/Ax86ButtonManager/Ax86ButtonManager.md)
 * [Ax86 Docs](applications/Ax86Docs/Ax86Docs.md)
 * [Ax86 Logger](applications/Ax86Logger/Ax86Logger.md)
+* [Ax86 Power](applications/Ax86Power/Ax86Power.md)
 * [BassView](applications/BassView/BassView.md)
 * [Bliss Config Overrides](applications/BlissConfigOverrides/BlissConfigOverrides.md)
 * [Bliss Display Mapper](applications/BlissDisplayMapper/BlissDisplayMapper.md)
@@ -77,7 +80,8 @@
 
 ## Interfaces
 
-* [Power Management API](interfaces/BlissPowerManagerAIDL/power-management-aidl.md)
+* [Ax86 Power AIDL](applications/Ax86Power/AIDL_INTERFACE.md)
+* [Power Management API](interfaces/BlissPowerManagerAIDL/power-management-aidl.md) (legacy BlissPowerManager)
 * [Ethernet Config AIDL](applications/EthernetConfig/AIDL_INTERFACE.md)
 * [Button Manager AIDL](applications/Ax86ButtonManager/AIDL_INTERFACE.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)

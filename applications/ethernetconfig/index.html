@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.838499859199">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Ethernet Config</title>
     <meta name="title" content="Ethernet Config">
-    <meta name="description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.">
+    <meta name="description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the blissethernet AIDL service name.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/ethernetconfig/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/">
     <meta property="og:title" content="Ethernet Config">
-    <meta property="og:description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.">
+    <meta property="og:description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the blissethernet AIDL service name.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,19 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/">
     <meta name="twitter:title" content="Ethernet Config">
-    <meta name="twitter:description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the same blissethernet AIDL contract so existing integrations continue to work.">
+    <meta name="twitter:description" content="Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the blissethernet AIDL service name.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/ethernetconfig/ethernetconfig.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.838499859199" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.838499859199" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,7 +162,7 @@
 
                 <!-- Page content  -->
 <h1 id="ethernet-config">Ethernet Config</h1>
-<p>Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older <a href="../blissethernetmanager/">Bliss Ethernet Manager</a> while keeping the same <strong><code translate="no" v-pre>blissethernet</code></strong> AIDL contract so existing integrations continue to work.</p>
+<p>Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older <a href="../blissethernetmanager/">Bliss Ethernet Manager</a> while keeping the <strong><code translate="no" v-pre>blissethernet</code></strong> AIDL service name. See <a href="aidl_interface/">AIDL Interface</a> for the current contract (assignment enum <code translate="no" v-pre>0/1/2</code>, ethernet tethering APIs, and client JAR).</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -187,6 +187,10 @@
 <tr>
 <td><strong>AIDL reference</strong></td>
 <td><a href="aidl_interface/">AIDL Interface</a></td>
+</tr>
+<tr>
+<td><strong>Client JAR</strong></td>
+<td><a href="system_libs/">system_libs/bliss-ethernet-framework.jar</a></td>
 </tr>
 <tr>
 <td><strong>Test / validate</strong></td>
@@ -327,7 +331,8 @@ adb shell service list | grep blissethernet</code></pre>
 <p>The product makefile installs the platform-signed privileged app, priv-app permissions, init rc, and <code translate="no" v-pre>start-bliss-ethernet</code> helper under <code translate="no" v-pre>system_ext</code>.</p>
 <h2 id="related-docs">Related docs</h2>
 <ul>
-<li><a href="aidl_interface/">AIDL Interface</a> — Java/Kotlin client API and <code translate="no" v-pre>service call</code> codes</li>
+<li><a href="aidl_interface/">AIDL Interface</a> — Java/Kotlin client API, tethering, and <code translate="no" v-pre>service call</code> codes</li>
+<li><a href="system_libs/">Client JAR</a> — <code translate="no" v-pre>bliss-ethernet-framework.jar</code> for integrators</li>
 <li><a href="testing/">Testing Guide</a> — prop auto-config, AIDL smoke tests, ADB reconnect</li>
 <li><a href="../blissethernetmanager/">Bliss Ethernet Manager</a> — legacy app docs (older builds)</li>
 </ul>
@@ -346,20 +351,20 @@ adb shell service list | grep blissethernet</code></pre>
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../applications/ax86buttonmanager/config_format/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../applications/ax86power/aidl_interface/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Button Manager Config Format</span>
+                                <span class="block mt-1">Ax​86 Power AIDL</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../applications/ethernetconfig/aidl_interface/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../applications/ethernetconfig/system_libs/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Ethernet Config — AIDL Interface</span>
+                                <span class="block mt-1">Bliss Ethernet AIDL client library</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>

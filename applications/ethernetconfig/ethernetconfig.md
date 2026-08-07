@@ -1,6 +1,6 @@
 # Ethernet Config
 
-Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) while keeping the same **`blissethernet`** AIDL contract so existing integrations continue to work.
+Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) while keeping the **`blissethernet`** AIDL service name. See [AIDL Interface](AIDL_INTERFACE.md) for the current contract (assignment enum `0/1/2`, ethernet tethering APIs, and client JAR).
 
 | | |
 |---|---|
@@ -8,6 +8,7 @@ Ethernet Config is the privileged system app used on current Bass OS builds (And
 | **AIDL service** | `blissethernet` |
 | **AIDL namespace** | `org.blissos.ethernet` |
 | **AIDL reference** | [AIDL Interface](AIDL_INTERFACE.md) |
+| **Client JAR** | [system_libs/bliss-ethernet-framework.jar](system_libs/) |
 | **Test / validate** | [Testing Guide](TESTING.md) |
 
 ## Setting up Ethernet interfaces
@@ -98,6 +99,7 @@ The product makefile installs the platform-signed privileged app, priv-app permi
 
 ## Related docs
 
-* [AIDL Interface](AIDL_INTERFACE.md) — Java/Kotlin client API and `service call` codes
+* [AIDL Interface](AIDL_INTERFACE.md) — Java/Kotlin client API, tethering, and `service call` codes
+* [Client JAR](system_libs/) — `bliss-ethernet-framework.jar` for integrators
 * [Testing Guide](TESTING.md) — prop auto-config, AIDL smoke tests, ADB reconnect
 * [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) — legacy app docs (older builds)

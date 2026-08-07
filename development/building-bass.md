@@ -227,15 +227,16 @@ Current Lineout tablet builds use `vendor/ax86-lite/tools/build.sh`. Run `./buil
 
 Do not combine `--bootsight` with `--fleet-mgmt=mdm`. Details: [Fleet Management](../features/fleet-management.md), [BootSight](../applications/BootSight/BootSight.md).
 
-### Logger and Button Manager
+### Logger, Button Manager, and Power
 
 | Flag | Effect |
 |------|--------|
 | `--logger` | Include Ax86 Logger (capture off until enabled) |
 | `--logging-enabled` | Include Ax86 Logger and start capture by default |
 | `--btnmgr` | Include Ax86 Button Manager |
+| `--ax86-power` | Include Ax86 Power (sleep/wake policy UI + AIDL) |
 
-`--logging-enabled` implies `--logger`. Details: [Ax86 Logger](../applications/Ax86Logger/Ax86Logger.md), [Button Manager](../applications/Ax86ButtonManager/Ax86ButtonManager.md).
+`--logging-enabled` implies `--logger`. `--extras` also includes Ax86 Power. Details: [Ax86 Logger](../applications/Ax86Logger/Ax86Logger.md), [Button Manager](../applications/Ax86ButtonManager/Ax86ButtonManager.md), [Ax86 Power](../applications/Ax86Power/Ax86Power.md).
 
 ### Branding
 
@@ -249,18 +250,31 @@ Do not combine `--bootsight` with `--fleet-mgmt=mdm`. Details: [Fleet Management
 
 Default without those flags is the Lineage boot animation and wallpaper.
 
+### Boot options and lockdown
+
+| Flag | Effect |
+|------|--------|
+| `--bass-boot-options` | Inject Bass GRUB submenu via `custom.cfg` on first boot |
+| `--cxbbo` | Customer Bass boot catalog (`entries.customer.list`; implies boot options) |
+| `--ldinstall` | Block install/uninstall in lockdown mode |
+
+Details: [Bass boot options](../setup_and_configuration/bass-boot-options.md), [Lockdown install block](../features/lockdown-install-block.md).
+
 ### Other common Lineout flags
 
 | Flag | Effect |
 |------|--------|
-| `--extras` | Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs (does **not** include BootSight) |
+| `--extras` | Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power (does **not** include BootSight) |
 | `--ethernetconfig` | Ethernet Config |
 | `--smartdock` | SmartDock |
 | `--restrictedlauncherpro` | Restricted Launcher Pro (private access) |
+| `--rlptype=VARIANT` | RLP APK variant: `default` \| `gs` \| `gs_nh` \| `sl` (implies `--restrictedlauncherpro`) |
+| `--internet-security` | Preinstall the Internet Security user app |
+| `--monterey-standby` | Preinstall the Monterey Standby user app |
 
 Example:
 
 ```bash
 ./build.sh --target=lineage_x86_64_tablet-ap2a-userdebug \
-  --bootsight --bsbanner --btnmgr --logging-enabled --ethernetconfig
+  --bootsight --bsbanner --btnmgr --ax86-power --logging-enabled --ethernetconfig
 ```

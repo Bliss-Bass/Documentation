@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.838499859199">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -43,11 +43,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.838499859199" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -269,6 +270,13 @@
 </figure>
 <p>If the settings button position was set to <strong>Hidden</strong> under Appearance, the sprocket will not be visible. In that case, double-tap the bottom-right corner of the screen and hold the second tap for about 3 seconds (a vibration confirms the gesture) to bring up the same password prompt.</p>
 <p>From there, the <strong>Unlock</strong> option at the top of the settings list can be used to exit the locked session and return to the admin home screen (see the Unlock section above).</p>
+<h2 id="lineout-build-notes-restricted-launcher-pro">Lineout build notes (Restricted Launcher Pro)</h2>
+<p>On Bass: Lineout, enable the commercial Pro package with:</p>
+<div id="lineout-build-notes-restricted-launcher-pro-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --restrictedlauncherpro ...
+./build.sh --restrictedlauncherpro --rlptype=gs ...</code></pre>
+</doc-codeblock></div>
+<p><code translate="no" v-pre>--rlptype</code> selects the prebuilt variant (<code translate="no" v-pre>default</code>, <code translate="no" v-pre>gs</code>, <code translate="no" v-pre>gs_nh</code>, <code translate="no" v-pre>sl</code>). See <a href="../../development/building-bass/">Building Bass OS</a>.</p>
 
                 
                 <!-- Required only on API pages -->
@@ -344,6 +352,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Setting Up Bliss Restricted Launcher", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/applications/blissrestrictedlauncher/blissrestrictedlauncher.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Setting Up Bliss Restricted Launcher", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/applications/blissrestrictedlauncher/blissrestrictedlauncher.md" }</script>
 </body>
 </html>

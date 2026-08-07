@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.838499859199">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.838499859199" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.838499859199" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.838499859199" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -305,18 +305,44 @@ adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1
 # then reconnect ADB to the new IP and verify as in Test A §3–4</code></pre>
 </doc-codeblock></div>
 <hr>
-<h2 id="test-c--revert-to-dhcp">Test C — Revert to DHCP</h2>
-<div id="test-c--revert-to-dhcp-code-1" class="codeblock-wrapper"><doc-codeblock>
+<h2 id="test-c--ethernet-tethering-aidl-codes-1519">Test C — Ethernet tethering AIDL (codes 15–19)</h2>
+<p>Does <strong>not</strong> require a downstream client; validates binder start/stop and remembered addresses.</p>
+<div id="test-c--ethernet-tethering-aidl-codes-1519-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash"># Defaults → 192.168.10.1/24 (local) + 192.168.10.2/24 (client)
+adb shell service call blissethernet 15 s16 &quot;&quot; s16 &quot;&quot;
+adb shell service call blissethernet 18   # local
+adb shell service call blissethernet 19   # client
+adb shell service call blissethernet 17   # active? (i32 0/1)
+
+# Custom pair (must share prefix)
+adb shell service call blissethernet 15 s16 10.55.55.1/24 s16 10.55.55.2/24
+adb shell service call blissethernet 18
+adb shell service call blissethernet 19
+
+adb shell service call blissethernet 16   # stop</code></pre>
+</doc-codeblock></div>
+<p>Automated:</p>
+<div id="test-c--ethernet-tethering-aidl-codes-1519-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash"># On device (via run_tests.sh push)
+adb shell sh /data/local/tmp/ax86-tests/test_ethernet_config_aidl.sh
+
+# On host (tether smoke always; set ETH_NETWORK_CYCLE=0 to skip IP migration)
+cd vendor/ax86-lite/tests
+ETH_NETWORK_CYCLE=0 ./host_test_ethernet_config_aidl.sh</code></pre>
+</doc-codeblock></div>
+<hr>
+<h2 id="test-d--revert-to-dhcp">Test D — Revert to DHCP</h2>
+<div id="test-d--revert-to-dhcp-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell setprop persist.bass.ethernet.mode dhcp
 adb shell am force-stop com.example.ethernetconfig
 adb shell am start-service -n com.example.ethernetconfig/.aidl.BlissEthernetService --user 0</code></pre>
 </doc-codeblock></div>
 <p>Or via AIDL:</p>
-<div id="test-c--revert-to-dhcp-code-2" class="codeblock-wrapper"><doc-codeblock>
+<div id="test-d--revert-to-dhcp-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell service call blissethernet 8 s16 eth0 i32 1</code></pre>
 </doc-codeblock></div>
 <p>Then reconnect to whatever address DHCP assigns. To disable prop auto-config entirely:</p>
-<div id="test-c--revert-to-dhcp-code-3" class="codeblock-wrapper"><doc-codeblock>
+<div id="test-d--revert-to-dhcp-code-3" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell setprop persist.bass.ethernet.mode &quot;&quot;</code></pre>
 </doc-codeblock></div>
 <hr>
@@ -326,6 +352,7 @@ adb shell am start-service -n com.example.ethernetconfig/.aidl.BlissEthernetServ
 <li>Same-subnet ADB works even if a default route via the gateway is not visible in <code translate="no" v-pre>ip route</code>.</li>
 <li><code translate="no" v-pre>net.dns1</code> / <code translate="no" v-pre>net.dns2</code> may stay empty; DNS from EthernetManager is carried in the interface <code translate="no" v-pre>IpConfiguration</code>.</li>
 <li>System priv-apps can stay “stopped” until first launch; <code translate="no" v-pre>start-bliss-ethernet</code> / <code translate="no" v-pre>pm enable</code> exists to unblock boot start.</li>
+<li>Ethernet tethering needs <code translate="no" v-pre>TETHER_PRIVILEGED</code> (priv-app whitelist). Getters update when start is invoked even if TetheringManager fails asynchronously.</li>
 </ul>
 
                 
