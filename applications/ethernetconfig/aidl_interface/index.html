@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839707678325">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839707678325" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839707678325" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839704481213" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839707678325" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839707678325" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -171,8 +171,8 @@
 <li>Ethernet Config installed as a privileged/system app (Bass ROM builds include it).</li>
 <li>The <code translate="no" v-pre>blissethernet</code> service registered in <code translate="no" v-pre>ServiceManager</code> (started at boot via init / <code translate="no" v-pre>start-bliss-ethernet</code>).</li>
 <li>For third-party apps: caller must be <strong>authorized</strong> (see <doc-anchor-trigger to="#authorization">Authorization</doc-anchor-trigger>).</li>
-<li>Ethernet tethering requires <code translate="no" v-pre>TETHER_PRIVILEGED</code> on the server (granted via priv-app whitelist).</li>
 </ul>
+<!-- - Ethernet tethering requires `TETHER_PRIVILEGED` on the server (granted via priv-app whitelist). -->
 <hr>
 <h2 id="ip-assignment-modes">IP assignment modes</h2>
 <p>Canonical values for <code translate="no" v-pre>getIpAssignment</code> / <code translate="no" v-pre>setIpAssignment</code>:</p>
@@ -239,58 +239,40 @@
 <li><code translate="no" v-pre>getIpAssignment</code> <strong>always</strong> returns canonical <code translate="no" v-pre>0/1/2</code>.</li>
 <li><code translate="no" v-pre>setIpAssignment</code> accepts canonical <code translate="no" v-pre>0/1/2</code> and exclusive legacy <code translate="no" v-pre>-1</code> (→ UNASSIGNED).</li>
 <li>For legacy <code translate="no" v-pre>0</code> (DHCP) / <code translate="no" v-pre>1</code> (STATIC), call <code translate="no" v-pre>BlissEthernetAssignment.fromLegacy(value)</code> before set, or update constants.</li>
-<li>The old JAR does <strong>not</strong> include ethernet tethering APIs — use the new JAR / AIDL sources.</li>
 </ul>
+<!-- - The old JAR does **not** include ethernet tethering APIs — use the new JAR / AIDL sources. -->
 <hr>
-<h2 id="ethernet-tethering">Ethernet tethering</h2>
-<p>Tethering shares the device’s upstream network over an ethernet downstream. The server uses AOSP <code translate="no" v-pre>TetheringManager</code> with an optional static IPv4 pair (gateway + single DHCP client address in the same prefix).</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>startEthernetTethering(localIpv4, clientIpv4)</code></td>
-<td>Start ethernet tether. Empty strings → defaults below.</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>stopEthernetTethering()</code></td>
-<td>Stop ethernet tether.</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>isEthernetTetheringActive()</code></td>
-<td>Whether a start has succeeded and not yet stopped.</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>getEthernetTetherLocalIpv4()</code></td>
-<td>Last requested / default gateway <code translate="no" v-pre>ip/prefix</code>.</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>getEthernetTetherClientIpv4()</code></td>
-<td>Last requested / default client <code translate="no" v-pre>ip/prefix</code>.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Defaults when arguments are empty:</strong></p>
-<ul>
-<li>Local (gateway): <code translate="no" v-pre>192.168.10.1/24</code></li>
-<li>Client (DHCP offer): <code translate="no" v-pre>192.168.10.2/24</code></li>
-</ul>
-<p>Non-empty values must be <code translate="no" v-pre>ip/prefix</code> strings in the <strong>same</strong> prefix.</p>
-<div id="ethernet-tethering-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-java"><code v-pre class="language-java">BlissEthernetManager mgr = BlissEthernetManager.getInstance(context);
+<!-- Ethernet tethering docs temporarily hidden
+## Ethernet tethering
+
+Tethering shares the device’s upstream network over an ethernet downstream. The server uses AOSP `TetheringManager` with an optional static IPv4 pair (gateway + single DHCP client address in the same prefix).
+
+| Method | Description |
+|--------|-------------|
+| `startEthernetTethering(localIpv4, clientIpv4)` | Start ethernet tether. Empty strings → defaults below. |
+| `stopEthernetTethering()` | Stop ethernet tether. |
+| `isEthernetTetheringActive()` | Whether a start has succeeded and not yet stopped. |
+| `getEthernetTetherLocalIpv4()` | Last requested / default gateway `ip/prefix`. |
+| `getEthernetTetherClientIpv4()` | Last requested / default client `ip/prefix`. |
+
+**Defaults when arguments are empty:**
+
+- Local (gateway): `192.168.10.1/24`
+- Client (DHCP offer): `192.168.10.2/24`
+
+Non-empty values must be `ip/prefix` strings in the **same** prefix.
+
+```java
+BlissEthernetManager mgr = BlissEthernetManager.getInstance(context);
 // Product default 192.168.10.0/24
-mgr.startEthernetTethering(&quot;&quot;, &quot;&quot;);
+mgr.startEthernetTethering("", "");
 // Custom pair
-mgr.startEthernetTethering(&quot;192.168.10.1/24&quot;, &quot;192.168.10.50/24&quot;);
-mgr.stopEthernetTethering();</code></pre>
-</doc-codeblock></div>
-<hr>
+mgr.startEthernetTethering("192.168.10.1/24", "192.168.10.50/24");
+mgr.stopEthernetTethering();
+```
+
+---
+-->
 <h2 id="client-usage">Client usage</h2>
 <h3 id="gradle">Gradle</h3>
 <p>Download <strong><a href="../system_libs/bliss-ethernet-framework.jar">bliss-ethernet-framework.jar</a></strong> (or the <a href="../../../static/downloads/bliss-ethernet-framework.jar">static mirror</a>), place it in your app’s <code translate="no" v-pre>system_libs/</code>, then:</p>
@@ -313,7 +295,7 @@ blissEthernetManager.setIpAddress(&quot;eth0&quot;, &quot;192.168.1.100/24&quot;
 blissEthernetManager.setGateway(&quot;eth0&quot;, &quot;192.168.1.1&quot;);
 blissEthernetManager.setDnses(&quot;eth0&quot;, new String[] { &quot;8.8.8.8&quot;, &quot;8.8.4.4&quot; });
 
-blissEthernetManager.startEthernetTethering(&quot;&quot;, &quot;&quot;);</code></pre>
+// blissEthernetManager.startEthernetTethering(&quot;&quot;, &quot;&quot;);  // tethering docs temporarily hidden</code></pre>
 </doc-codeblock></div>
 <h3 id="manifest-client-app">Manifest (client app)</h3>
 <div id="manifest-client-app-code-1" class="codeblock-wrapper"><doc-codeblock>
@@ -344,11 +326,12 @@ interface IBlissEthernet {
     String[] getDnses(String iface);
     void setDnses(String iface, in String[] dnses);
 
-    void startEthernetTethering(String localIpv4, String clientIpv4);
-    void stopEthernetTethering();
-    boolean isEthernetTetheringActive();
-    String getEthernetTetherLocalIpv4();
-    String getEthernetTetherClientIpv4();
+    // Ethernet tethering (temporarily undocumented)
+    // void startEthernetTethering(String localIpv4, String clientIpv4);
+    // void stopEthernetTethering();
+    // boolean isEthernetTetheringActive();
+    // String getEthernetTetherLocalIpv4();
+    // String getEthernetTetherClientIpv4();
 }</code></pre>
 </doc-codeblock></div>
 <p><strong><code translate="no" v-pre>IBlissEthernetServiceListener.aidl</code>:</strong></p>
@@ -405,21 +388,14 @@ oneway interface IBlissEthernetServiceListener {
 <td><code translate="no" v-pre>getDnses</code> / <code translate="no" v-pre>setDnses</code></td>
 <td>DNS servers</td>
 </tr>
-<tr>
-<td><code translate="no" v-pre>startEthernetTethering</code> / <code translate="no" v-pre>stopEthernetTethering</code></td>
-<td>Ethernet tether control</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>isEthernetTetheringActive</code></td>
-<td>Tether active flag</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>getEthernetTetherLocalIpv4</code> / <code translate="no" v-pre>getEthernetTetherClientIpv4</code></td>
-<td>Last tether address pair</td>
-</tr>
 </tbody>
 </table>
 </div>
+<!--
+| `startEthernetTethering` / `stopEthernetTethering` | Ethernet tether control |
+| `isEthernetTetheringActive` | Tether active flag |
+| `getEthernetTetherLocalIpv4` / `getEthernetTetherClientIpv4` | Last tether address pair |
+-->
 <p>Partial updates (<code translate="no" v-pre>setIpAddress</code>, <code translate="no" v-pre>setGateway</code>, <code translate="no" v-pre>setDnses</code>) merge with the current interface configuration before applying.</p>
 <hr>
 <h2 id="authorization">Authorization</h2>
@@ -517,34 +493,16 @@ oneway interface IBlissEthernetServiceListener {
 <td><code translate="no" v-pre>setDnses</code></td>
 <td><code translate="no" v-pre>s16</code> iface, string array</td>
 </tr>
-<tr>
-<td style="text-align: right;">15</td>
-<td><code translate="no" v-pre>startEthernetTethering</code></td>
-<td><code translate="no" v-pre>s16</code> localIpv4, <code translate="no" v-pre>s16</code> clientIpv4 (empty → defaults)</td>
-</tr>
-<tr>
-<td style="text-align: right;">16</td>
-<td><code translate="no" v-pre>stopEthernetTethering</code></td>
-<td>—</td>
-</tr>
-<tr>
-<td style="text-align: right;">17</td>
-<td><code translate="no" v-pre>isEthernetTetheringActive</code></td>
-<td>—</td>
-</tr>
-<tr>
-<td style="text-align: right;">18</td>
-<td><code translate="no" v-pre>getEthernetTetherLocalIpv4</code></td>
-<td>—</td>
-</tr>
-<tr>
-<td style="text-align: right;">19</td>
-<td><code translate="no" v-pre>getEthernetTetherClientIpv4</code></td>
-<td>—</td>
-</tr>
 </tbody>
 </table>
 </div>
+<!--
+| 15 | `startEthernetTethering` | `s16` localIpv4, `s16` clientIpv4 (empty → defaults) |
+| 16 | `stopEthernetTethering` | — |
+| 17 | `isEthernetTetheringActive` | — |
+| 18 | `getEthernetTetherLocalIpv4` | — |
+| 19 | `getEthernetTetherClientIpv4` | — |
+-->
 <h3 id="examples">Examples</h3>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash"># List interfaces
@@ -559,18 +517,21 @@ adb shell service call blissethernet 7 s16 eth0
 # Set static IP
 adb shell service call blissethernet 8 s16 eth0 i32 2
 adb shell service call blissethernet 10 s16 eth0 s16 192.168.1.100/24
-adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1
-
+adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1</code></pre>
+</doc-codeblock></div>
+<!-- Ethernet tethering examples temporarily hidden
+```bash
 # Start ethernet tethering with product defaults (192.168.10.1/24 + 192.168.10.2/24)
-adb shell service call blissethernet 15 s16 &quot;&quot; s16 &quot;&quot;
+adb shell service call blissethernet 15 s16 "" s16 ""
 
 # Start with explicit addresses
 adb shell service call blissethernet 15 s16 192.168.10.1/24 s16 192.168.10.50/24
 
 # Status / stop
 adb shell service call blissethernet 17
-adb shell service call blissethernet 16</code></pre>
-</doc-codeblock></div>
+adb shell service call blissethernet 16
+```
+-->
 <h3 id="verify-service-registration">Verify service registration</h3>
 <div id="verify-service-registration-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell service list | grep blissethernet</code></pre>
@@ -582,7 +543,9 @@ adb shell service call blissethernet 16</code></pre>
 <li><strong>Package namespace:</strong> <code translate="no" v-pre>org.blissos.ethernet</code> (unchanged from Bliss Ethernet Manager)</li>
 <li><strong>Service name:</strong> <code translate="no" v-pre>blissethernet</code> (unchanged)</li>
 <li><strong>Client IP methods (codes 1–14):</strong> Same shapes as legacy; <strong>assignment integers changed</strong> (see table above)</li>
-<li><strong>Tethering (codes 15–19):</strong> New in Ethernet Config — not present in the legacy JAR</li>
+</ul>
+<!-- - **Tethering (codes 15–19):** New in Ethernet Config — not present in the legacy JAR -->
+<ul>
 <li><strong>Listener:</strong> <code translate="no" v-pre>onAvailabilityChanged</code> fires while <code translate="no" v-pre>BlissEthernetService</code> is running</li>
 </ul>
 <p>Legacy app UI docs: <a href="../../blissethernetmanager/">BlissEthernetManager</a>.</p>

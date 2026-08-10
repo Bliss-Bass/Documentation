@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839707678325">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.839707678325" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839707678325" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.839704481213" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839707678325" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.839707678325" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,7 +162,7 @@
 
                 <!-- Page content  -->
 <h1 id="ethernet-config">Ethernet Config</h1>
-<p>Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older <a href="../blissethernetmanager/">Bliss Ethernet Manager</a> while keeping the <strong><code translate="no" v-pre>blissethernet</code></strong> AIDL service name. See <a href="aidl_interface/">AIDL Interface</a> for the current contract (assignment enum <code translate="no" v-pre>0/1/2</code>, ethernet tethering APIs, and client JAR).</p>
+<p>Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older <a href="../blissethernetmanager/">Bliss Ethernet Manager</a> while keeping the <strong><code translate="no" v-pre>blissethernet</code></strong> AIDL service name. See <a href="aidl_interface/">AIDL Interface</a> for the current contract (assignment enum <code translate="no" v-pre>0/1/2</code> and client JAR).</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -331,7 +331,7 @@ adb shell service list | grep blissethernet</code></pre>
 <p>The product makefile installs the platform-signed privileged app, priv-app permissions, init rc, and <code translate="no" v-pre>start-bliss-ethernet</code> helper under <code translate="no" v-pre>system_ext</code>.</p>
 <h2 id="related-docs">Related docs</h2>
 <ul>
-<li><a href="aidl_interface/">AIDL Interface</a> — Java/Kotlin client API, tethering, and <code translate="no" v-pre>service call</code> codes</li>
+<li><a href="aidl_interface/">AIDL Interface</a> — Java/Kotlin client API and <code translate="no" v-pre>service call</code> codes</li>
 <li><a href="system_libs/bliss-ethernet-framework.jar">Client JAR download</a> — <code translate="no" v-pre>bliss-ethernet-framework.jar</code> for integrators (<a href="system_libs/">how to use</a>)</li>
 <li><a href="testing/">Testing Guide</a> — prop auto-config, AIDL smoke tests, ADB reconnect</li>
 <li><a href="../blissethernetmanager/">Bliss Ethernet Manager</a> — legacy app docs (older builds)</li>
