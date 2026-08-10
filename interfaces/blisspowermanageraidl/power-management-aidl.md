@@ -1,8 +1,8 @@
-# Power Management API (legacy)
+# Power Management API (legacy BlissPowerManager)
 
-> **Lineout note:** New builds should use **[Ax86 Power](../../applications/Ax86Power/Ax86Power.md)** (`IAx86Power`) for reboot / shutdown / sleep **and** sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.
+> **Lineout:** Ax86 Power provides this API as a **drop-in**. Legacy apps that use `BlissPowerManager` / `IBlissPower` / `service call blisspower` need **no code changes** when the image includes `--ax86-power` or `--extras`. See [Ax86 Power AIDL](../../applications/Ax86Power/AIDL_INTERFACE.md).
 
-We include a simple app to demonstrate the (legacy) power management API.
+We include a simple app to demonstrate the power management API.
 
 ## Bliss Power Management AIDL Interface:
 
@@ -59,7 +59,7 @@ blissPowerManager.sleep()
 adb shell service call blisspower <parameters>
 ```
 
-**&lt;parameters>** is the method number in aidl 
+**<parameters>** is the method number in aidl 
 
 1: reboot 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839704481213" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -164,7 +164,7 @@
 <h1 id="ethernet-config--aidl-interface">Ethernet Config — AIDL Interface</h1>
 <p>This document describes the AIDL API exposed by <strong>Ethernet Config</strong> (<code translate="no" v-pre>com.example.ethernetconfig</code>). The service registers a system binder named <strong><code translate="no" v-pre>blissethernet</code></strong>.</p>
 <p>For end-to-end device validation (including <code translate="no" v-pre>persist.bass.ethernet.*</code> auto-config), see <strong><a href="../testing/">Testing Guide</a></strong>. Overview: <strong><a href="../">Ethernet Config</a></strong>.</p>
-<p>Client JAR: <strong><a href="../system_libs/">system_libs/bliss-ethernet-framework.jar</a></strong> — see <a href="../system_libs/">system_libs/README.md</a>.</p>
+<p>Client JAR: <strong><a href="../system_libs/bliss-ethernet-framework.jar">Download bliss-ethernet-framework.jar</a></strong> — see <a href="../system_libs/">system_libs/README.md</a> (also mirrored at <a href="../../../static/downloads/bliss-ethernet-framework.jar"><code translate="no" v-pre>/static/downloads/bliss-ethernet-framework.jar</code></a>).</p>
 <hr>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
@@ -293,6 +293,7 @@ mgr.stopEthernetTethering();</code></pre>
 <hr>
 <h2 id="client-usage">Client usage</h2>
 <h3 id="gradle">Gradle</h3>
+<p>Download <strong><a href="../system_libs/bliss-ethernet-framework.jar">bliss-ethernet-framework.jar</a></strong> (or the <a href="../../../static/downloads/bliss-ethernet-framework.jar">static mirror</a>), place it in your app’s <code translate="no" v-pre>system_libs/</code>, then:</p>
 <div id="gradle-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-gradle"><code v-pre class="language-gradle">implementation fileTree(dir: 'system_libs/', include: ['*.jar'])</code></pre>
 </doc-codeblock></div>

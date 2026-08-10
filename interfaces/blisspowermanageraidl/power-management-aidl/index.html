@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
-    <title>Power Management API (legacy)</title>
-    <meta name="title" content="Power Management API (legacy)">
-    <meta name="description" content="Lineout note: New builds should use Ax86 Power (IAx86Power) for reboot / shutdown / sleep and sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.">
+    <title>Power Management API (legacy BlissPowerManager)</title>
+    <meta name="title" content="Power Management API (legacy BlissPowerManager)">
+    <meta name="description" content="Lineout: Ax86 Power provides this API as a drop-in. Legacy apps that use BlissPowerManager / IBlissPower / service call blisspower need no code changes when the image includes --ax86-power or --extras.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl/">
@@ -21,27 +21,27 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl/">
-    <meta property="og:title" content="Power Management API (legacy)">
-    <meta property="og:description" content="Lineout note: New builds should use Ax86 Power (IAx86Power) for reboot / shutdown / sleep and sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.">
+    <meta property="og:title" content="Power Management API (legacy BlissPowerManager)">
+    <meta property="og:description" content="Lineout: Ax86 Power provides this API as a drop-in. Legacy apps that use BlissPowerManager / IBlissPower / service call blisspower need no code changes when the image includes --ax86-power or --extras.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl/">
-    <meta name="twitter:title" content="Power Management API (legacy)">
-    <meta name="twitter:description" content="Lineout note: New builds should use Ax86 Power (IAx86Power) for reboot / shutdown / sleep and sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.">
+    <meta name="twitter:title" content="Power Management API (legacy BlissPowerManager)">
+    <meta name="twitter:description" content="Lineout: Ax86 Power provides this API as a drop-in. Legacy apps that use BlissPowerManager / IBlissPower / service call blisspower need no code changes when the image includes --ax86-power or --extras.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -160,11 +160,11 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="power-management-api-legacy">Power Management API (legacy)</h1>
+<h1 id="power-management-api-legacy-blisspowermanager">Power Management API (legacy BlissPowerManager)</h1>
 <blockquote>
-<p><strong>Lineout note:</strong> New builds should use <strong><a href="../../../applications/ax86power/">Ax86 Power</a></strong> (<code translate="no" v-pre>IAx86Power</code>) for reboot / shutdown / sleep <strong>and</strong> sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.</p>
+<p><strong>Lineout:</strong> Ax86 Power provides this API as a <strong>drop-in</strong>. Legacy apps that use <code translate="no" v-pre>BlissPowerManager</code> / <code translate="no" v-pre>IBlissPower</code> / <code translate="no" v-pre>service call blisspower</code> need <strong>no code changes</strong> when the image includes <code translate="no" v-pre>--ax86-power</code> or <code translate="no" v-pre>--extras</code>. See <a href="../../../applications/ax86power/aidl_interface/">Ax86 Power AIDL</a>.</p>
 </blockquote>
-<p>We include a simple app to demonstrate the (legacy) power management API.</p>
+<p>We include a simple app to demonstrate the power management API.</p>
 <h2 id="bliss-power-management-aidl-interface">Bliss Power Management AIDL Interface:</h2>
 <div id="bliss-power-management-aidl-interface-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">package org.blissos.powermanagerclient;
@@ -219,7 +219,7 @@ blissPowerManager.sleep()</code></pre>
 <div id="adb-interface-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">adb shell service call blisspower &lt;parameters&gt;</code></pre>
 </doc-codeblock></div>
-<p><strong>&lt;parameters&gt;</strong> is the method number in aidl</p>
+<p><strong><parameters></strong> is the method number in aidl</p>
 <p>1: reboot</p>
 <p>2: shutdown</p>
 <p>3: sleep</p>
@@ -298,6 +298,6 @@ blissPowerManager.sleep()</code></pre>
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Power Management API (legacy)", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/interfaces/blisspowermanageraidl/power-management-aidl.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Power Management API (legacy BlissPowerManager)", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/interfaces/blisspowermanageraidl/power-management-aidl.md" }</script>
 </body>
 </html>

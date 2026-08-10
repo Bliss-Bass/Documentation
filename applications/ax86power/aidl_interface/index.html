@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Ax86 Power AIDL</title>
     <meta name="title" content="Ax86 Power AIDL">
-    <meta name="description" content="Binder API for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).">
+    <meta name="description" content="Binder APIs for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/ax86power/aidl_interface/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/ax86power/aidl_interface/">
     <meta property="og:title" content="Ax86 Power AIDL">
-    <meta property="og:description" content="Binder API for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).">
+    <meta property="og:description" content="Binder APIs for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,18 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/ax86power/aidl_interface/">
     <meta name="twitter:title" content="Ax86 Power AIDL">
-    <meta name="twitter:description" content="Binder API for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).">
+    <meta name="twitter:description" content="Binder APIs for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/ax86power/aidl_interface.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839704481213" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -161,7 +162,64 @@
 
                 <!-- Page content  -->
 <h1 id="ax86-power-aidl">Ax86 Power AIDL</h1>
-<p>Binder API for sleep / wake policy and power actions. Backed by vendor <code translate="no" v-pre>apply_wake_policy</code> (<code translate="no" v-pre>persist.ax86.wake.*</code>, <code translate="no" v-pre>persist.ax86.mem_sleep</code>, <code translate="no" v-pre>sys.ax86.wake.update</code>).</p>
+<p>Binder APIs for sleep / wake policy and power actions. Backed by vendor <code translate="no" v-pre>apply_wake_policy</code> (<code translate="no" v-pre>persist.ax86.wake.*</code>, <code translate="no" v-pre>persist.ax86.mem_sleep</code>, <code translate="no" v-pre>sys.ax86.wake.update</code>).</p>
+<h2 id="legacy-blisspowermanager-drop-in">Legacy BlissPowerManager (drop-in)</h2>
+<p>Existing apps that use <code translate="no" v-pre>org.blissos.powermanager.BlissPowerManager</code> / <code translate="no" v-pre>IBlissPower</code> need <strong>no changes</strong>. Ax86 Power registers the same ServiceManager binder at boot.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ServiceManager name</strong></td>
+<td><code translate="no" v-pre>blisspower</code></td>
+</tr>
+<tr>
+<td><strong>AIDL</strong></td>
+<td><code translate="no" v-pre>org.blissos.powermanager.IBlissPower</code></td>
+</tr>
+<tr>
+<td><strong>Client</strong></td>
+<td><code translate="no" v-pre>BlissPowerManager.getInstance(context)</code></td>
+</tr>
+<tr>
+<td><strong>Permission</strong></td>
+<td>platform / <code translate="no" v-pre>DEVICE_POWER</code> on the host service</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="legacy-blisspowermanager-drop-in-code-1" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">aidl</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">package org.blissos.powermanager;
+
+interface IBlissPower {
+    void reboot();    // transaction 1
+    void shutdown();  // transaction 2
+    void sleep();     // transaction 3
+}</code></pre>
+</doc-codeblock></div>
+<div id="legacy-blisspowermanager-drop-in-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-java"><code v-pre class="language-java">import org.blissos.powermanager.BlissPowerManager;
+
+BlissPowerManager blissPowerManager = BlissPowerManager.getInstance(this);
+blissPowerManager.reboot();
+blissPowerManager.shutdown();
+blissPowerManager.sleep();</code></pre>
+</doc-codeblock></div>
+<div id="legacy-blisspowermanager-drop-in-code-3" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell service list | grep blisspower
+adb shell service call blisspower 1   # reboot
+adb shell service call blisspower 2   # shutdown
+adb shell service call blisspower 3   # sleep</code></pre>
+</doc-codeblock></div>
+<p>Ship or keep your existing <code translate="no" v-pre>bliss-power-framework.jar</code> (same as the <a href="https://github.com/Bliss-Bass/platform_packages_apps_BlissPowerManager">BlissPowerManager</a> sample). Only the on-device <code translate="no" v-pre>blisspower</code> service must be present (provided when Ax86 Power is built in).</p>
+<h2 id="ax86-native-interface-iax86power">Ax86-native interface (<code translate="no" v-pre>IAx86Power</code>)</h2>
+<p>Use this for wake-policy controls (or when binding the Ax86 Power service directly).</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -190,8 +248,7 @@
 </tbody>
 </table>
 </div>
-<h2 id="interface">Interface</h2>
-<div id="interface-code-1" class="codeblock-wrapper"><doc-codeblock>
+<div id="ax86-native-interface-iax86power-code-1" class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">aidl</div>
 <pre translate="no" class="language-none"><code v-pre class="language-none">package org.ax86.power;
 
@@ -214,13 +271,13 @@ interface IAx86Power {
     /** Apply persist props to sysfs via vendor init. */
     void apply();
 
-    /** Power actions (1:1 with legacy BlissPowerManager AIDL). */
+    /** Power actions (also on blisspower / IBlissPower). */
     void reboot();
     void shutdown();
     void sleep();
 }</code></pre>
 </doc-codeblock></div>
-<h2 id="api-roles">API roles</h2>
+<h3 id="api-roles">API roles</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -256,37 +313,11 @@ interface IAx86Power {
 </tr>
 <tr>
 <td><code translate="no" v-pre>reboot()</code> / <code translate="no" v-pre>shutdown()</code> / <code translate="no" v-pre>sleep()</code></td>
-<td>Power actions (legacy BlissPowerManager parity)</td>
+<td>Power actions</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="migrating-from-blisspowermanager">Migrating from BlissPowerManager</h2>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Legacy (<code translate="no" v-pre>BlissPowerManager</code>)</th>
-<th>Ax86 Power (<code translate="no" v-pre>IAx86Power</code>)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>reboot()</code></td>
-<td><code translate="no" v-pre>reboot()</code></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>shutdown()</code></td>
-<td><code translate="no" v-pre>shutdown()</code></td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>sleep()</code></td>
-<td><code translate="no" v-pre>sleep()</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Wake / mem_sleep policy APIs are new on Ax86 Power; they have no BlissPowerManager equivalent.</p>
 <h2 id="related">Related</h2>
 <ul>
 <li><a href="../">Ax86 Power</a></li>
@@ -367,6 +398,6 @@ interface IAx86Power {
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Ax86 Power AIDL", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/applications/ax86power/aidl_interface.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Ax86 Power AIDL", level: 3, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/applications/ax86power/aidl_interface.md" }</script>
 </body>
 </html>

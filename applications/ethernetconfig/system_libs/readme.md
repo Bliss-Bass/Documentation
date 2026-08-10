@@ -1,10 +1,22 @@
 # Bliss Ethernet AIDL client library
 
-See **[AIDL_INTERFACE.md](../AIDL_INTERFACE.md)** for the full API.
+See **[AIDL Interface](../AIDL_INTERFACE.md)** for the full API.
 
-## JAR
+## Download
 
-Copy `bliss-ethernet-framework.jar` into your app’s `system_libs/` (or reference this folder):
+**[Download bliss-ethernet-framework.jar](bliss-ethernet-framework.jar)**
+
+Same file is also published under docs static assets:
+
+**[Download (static mirror)](/static/downloads/bliss-ethernet-framework.jar)**
+
+Source tree (for integrators with repo access):
+[Bliss-Bass/packages_apps_EthernetConfig](https://github.com/Bliss-Bass/packages_apps_EthernetConfig)
+(`system_libs/bliss-ethernet-framework.jar`).
+
+## Add to your app
+
+Copy the JAR into your app’s `system_libs/` (or reference this folder):
 
 ```gradle
 implementation fileTree(dir: 'system_libs/', include: ['*.jar'])

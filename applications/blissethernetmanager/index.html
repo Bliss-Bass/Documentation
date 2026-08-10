@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -167,7 +167,7 @@
 
                 <!-- Page content  -->
 <blockquote>
-<p><strong>Note:</strong> On current Bass OS builds (Android 13+), wired Ethernet is managed by <strong><a href="../ethernetconfig/">Ethernet Config</a></strong>, which exposes the <code translate="no" v-pre>blissethernet</code> AIDL API. Prefer <strong><a href="../ethernetconfig/aidl_interface/">Ethernet Config — AIDL Interface</a></strong> for new deployments (includes ethernet tethering and the current assignment enum). Client JAR: <a href="../ethernetconfig/system_libs/"><code translate="no" v-pre>system_libs/bliss-ethernet-framework.jar</code></a>. This page documents the <strong>legacy</strong> Bliss Ethernet Manager app.</p>
+<p><strong>Note:</strong> On current Bass OS builds (Android 13+), wired Ethernet is managed by <strong><a href="../ethernetconfig/">Ethernet Config</a></strong>, which exposes the <code translate="no" v-pre>blissethernet</code> AIDL API. Prefer <strong><a href="../ethernetconfig/aidl_interface/">Ethernet Config — AIDL Interface</a></strong> for new deployments (includes ethernet tethering and the current assignment enum). Client JAR: <strong><a href="../ethernetconfig/system_libs/bliss-ethernet-framework.jar">Download bliss-ethernet-framework.jar</a></strong>. This page documents the <strong>legacy</strong> Bliss Ethernet Manager app.</p>
 </blockquote>
 <h1 id="blissethernetmanager">BlissEthernetManager</h1>
 <h2 id="setting-up-ethernet-interfaces">Setting Up Ethernet Interfaces</h2>
@@ -202,7 +202,7 @@
 <h3 id="bliss-ethernet-manager-aidl-interface">Bliss Ethernet Manager AIDL Interface:</h3>
 <blockquote>
 <p><strong>Assignment enum (legacy JAR):</strong> Unassigned=<code translate="no" v-pre>-1</code>, DHCP=<code translate="no" v-pre>0</code>, Static=<code translate="no" v-pre>1</code>.<br />
-<strong>Current Ethernet Config:</strong> Unassigned=<code translate="no" v-pre>0</code>, DHCP=<code translate="no" v-pre>1</code>, Static=<code translate="no" v-pre>2</code> — see <a href="../ethernetconfig/aidl_interface/#ip-assignment-modes">migration table</a>. Use the new <a href="../ethernetconfig/system_libs/">client JAR</a> for tethering APIs.</p>
+<strong>Current Ethernet Config:</strong> Unassigned=<code translate="no" v-pre>0</code>, DHCP=<code translate="no" v-pre>1</code>, Static=<code translate="no" v-pre>2</code> — see <a href="../ethernetconfig/aidl_interface/#ip-assignment-modes">migration table</a>. Use the new <a href="../ethernetconfig/system_libs/bliss-ethernet-framework.jar">client JAR download</a> for tethering APIs.</p>
 </blockquote>
 <p>The source package for BlissEthernet Manager contains the framework and system libs for the AIDL interface.</p>
 <p>Gradle:</p>

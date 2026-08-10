@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Bliss Ethernet AIDL client library</title>
     <meta name="title" content="Bliss Ethernet AIDL client library">
-    <meta name="description" content="See AIDL_INTERFACE.md for the full API.">
+    <meta name="description" content="See AIDL Interface for the full API.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/ethernetconfig/system_libs/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/system_libs/">
     <meta property="og:title" content="Bliss Ethernet AIDL client library">
-    <meta property="og:description" content="See AIDL_INTERFACE.md for the full API.">
+    <meta property="og:description" content="See AIDL Interface for the full API.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,19 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/ethernetconfig/system_libs/">
     <meta name="twitter:title" content="Bliss Ethernet AIDL client library">
-    <meta name="twitter:description" content="See AIDL_INTERFACE.md for the full API.">
+    <meta name="twitter:description" content="See AIDL Interface for the full API.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/ethernetconfig/system_libs/readme.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.839704481213" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,10 +162,17 @@
 
                 <!-- Page content  -->
 <h1 id="bliss-ethernet-aidl-client-library">Bliss Ethernet AIDL client library</h1>
-<p>See <strong><a href="../aidl_interface/">AIDL_INTERFACE.md</a></strong> for the full API.</p>
-<h2 id="jar">JAR</h2>
-<p>Copy <code translate="no" v-pre>bliss-ethernet-framework.jar</code> into your app’s <code translate="no" v-pre>system_libs/</code> (or reference this folder):</p>
-<div id="jar-code-1" class="codeblock-wrapper"><doc-codeblock>
+<p>See <strong><a href="../aidl_interface/">AIDL Interface</a></strong> for the full API.</p>
+<h2 id="download">Download</h2>
+<p><strong><a href="bliss-ethernet-framework.jar">Download bliss-ethernet-framework.jar</a></strong></p>
+<p>Same file is also published under docs static assets:</p>
+<p><strong><a href="../../../static/downloads/bliss-ethernet-framework.jar">Download (static mirror)</a></strong></p>
+<p>Source tree (for integrators with repo access):
+<a href="https://github.com/Bliss-Bass/packages_apps_EthernetConfig">Bliss-Bass/packages_apps_EthernetConfig</a>
+(<code translate="no" v-pre>system_libs/bliss-ethernet-framework.jar</code>).</p>
+<h2 id="add-to-your-app">Add to your app</h2>
+<p>Copy the JAR into your app’s <code translate="no" v-pre>system_libs/</code> (or reference this folder):</p>
+<div id="add-to-your-app-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-gradle"><code v-pre class="language-gradle">implementation fileTree(dir: 'system_libs/', include: ['*.jar'])</code></pre>
 </doc-codeblock></div>
 <p>The JAR includes AIDL stubs, <code translate="no" v-pre>BlissEthernetManager</code>, and <code translate="no" v-pre>BlissEthernetAssignment</code>.</p>

@@ -1,11 +1,12 @@
 # Ax86 Power
 
-Ax86 Power is the sleep / wake **policy** UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also exposes `reboot` / `shutdown` / `sleep` so clients of the old [BlissPowerManager](../../interfaces/BlissPowerManagerAIDL/power-management-aidl.md) AIDL can switch over 1:1 for those helpers.
+Ax86 Power is the sleep / wake **policy** UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also hosts the legacy [BlissPowerManager](../../interfaces/BlissPowerManagerAIDL/power-management-aidl.md) binder (`blisspower`) so existing apps keep working with **no code changes**.
 
 | | |
 |---|---|
 | **Package** | `org.ax86.power` |
-| **Service action** | `org.ax86.power.IAx86Power` |
+| **Legacy service** | ServiceManager `blisspower` (`IBlissPower`) |
+| **Ax86 service action** | `org.ax86.power.IAx86Power` |
 | **Build flags** | `--ax86-power` (`USE_AX86_POWER=true`), or `--extras` |
 | **Settings** | System → Ax86 Power (no app-drawer icon) |
 
@@ -17,11 +18,18 @@ Core vendor still applies wake defaults without this addon (`ignore_keyboard=1`,
 ┌─────────────────┐     persist.ax86.wake.*      ┌──────────────────────────┐
 │  Ax86Power app  │  persist.ax86.mem_sleep      │  addon_hardware.sh       │
 │  IAx86Power     │ ──────────────────────────► │  apply_wake_policy()     │
-│                 │  sys.ax86.wake.update=1      │  (sysfs / ACPI wakeup)   │
-└─────────────────┘                             └──────────────────────────┘
+│  IBlissPower    │  sys.ax86.wake.update=1      │  (sysfs / ACPI wakeup)   │
+│  (blisspower)   │                             └──────────────────────────┘
+└─────────────────┘
 ```
 
-`apply_wake_policy` runs at post-fs-data, again on `sys.boot_completed`, and whenever `sys.ax86.wake.update` is set to `1`. Power-button ACPI paths are never disabled.
+`apply_wake_policy` runs at post-fs-data, again on `sys.boot_completed`, and whenever `sys.ax86.wake.update` is set to `1`. Power-button ACPI paths are never disabled. The `blisspower` binder is registered at boot via BootReceiver and `Ax86Power.rc`.
+
+## Legacy apps (no changes)
+
+Keep using `BlissPowerManager.getInstance(context)` and your existing `bliss-power-framework.jar`. As long as the image includes Ax86 Power, `ServiceManager.getService("blisspower")` resolves to the same `IBlissPower` contract (`reboot` / `shutdown` / `sleep`).
+
+See [AIDL Interface](AIDL_INTERFACE.md) for `service call` examples.
 
 ## Settings entry
 
@@ -46,16 +54,6 @@ adb shell setprop persist.ax86.wake.ignore_keyboard 1
 adb shell setprop persist.ax86.mem_sleep deep
 adb shell setprop sys.ax86.wake.update 1
 ```
-
-## Power actions
-
-Same helpers as the legacy BlissPowerManager AIDL:
-
-* `reboot()`
-* `shutdown()`
-* `sleep()`
-
-See [AIDL Interface](AIDL_INTERFACE.md) for the full binder surface and client notes.
 
 ## Build
 

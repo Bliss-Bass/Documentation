@@ -36,13 +36,13 @@
 
 ### Ax86 Power
 
-- [Ax86 Power](https://docs.blisscolabs.dev/applications/ax86power/ax86power.md): Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also exposes reboot / shutdown / sleep so clients of the old BlissPowerManager AIDL can switch over 1:1 for those helpers.
-- [Ax86 Power AIDL](https://docs.blisscolabs.dev/applications/ax86power/aidl_interface.md): Binder API for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).
+- [Ax86 Power](https://docs.blisscolabs.dev/applications/ax86power/ax86power.md): Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also hosts the legacy BlissPowerManager binder (blisspower) so existing apps keep working with no code changes.
+- [Ax86 Power AIDL](https://docs.blisscolabs.dev/applications/ax86power/aidl_interface.md): Binder APIs for sleep / wake policy and power actions. Backed by vendor apply_wake_policy (persist.ax86.wake.*, persist.ax86.mem_sleep, sys.ax86.wake.update).
 
 ### Ethernet Config
 
 - [Ethernet Config](https://docs.blisscolabs.dev/applications/ethernetconfig/ethernetconfig.md): Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older Bliss Ethernet Manager while keeping the blissethernet AIDL service name.
-- [Bliss Ethernet AIDL client library](https://docs.blisscolabs.dev/applications/ethernetconfig/system_libs/readme.md): See AIDL_INTERFACE.md for the full API.
+- [Bliss Ethernet AIDL client library](https://docs.blisscolabs.dev/applications/ethernetconfig/system_libs/readme.md): See AIDL Interface for the full API.
 - [Ethernet Config — AIDL Interface](https://docs.blisscolabs.dev/applications/ethernetconfig/aidl_interface.md): This document describes the AIDL API exposed by Ethernet Config (com.example.ethernetconfig). The service registers a system binder named blissethernet.
 - [Ethernet Config — Test & Validation Guide](https://docs.blisscolabs.dev/applications/ethernetconfig/testing.md): Validate BlissEthernetService, the blissethernet AIDL binder, and persist.bass.ethernet.* prop-based auto-config on a live device.
 
@@ -92,7 +92,7 @@
 
 ### BlissPowerManagerAIDL
 
-- [Power Management API (legacy)](https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl.md): Lineout note: New builds should use Ax86 Power (IAx86Power) for reboot / shutdown / sleep and sleep/wake policy. This page documents the older BlissPowerManager AIDL still referenced by some apps and samples.
+- [Power Management API (legacy BlissPowerManager)](https://docs.blisscolabs.dev/interfaces/blisspowermanageraidl/power-management-aidl.md): Lineout: Ax86 Power provides this API as a drop-in. Legacy apps that use BlissPowerManager / IBlissPower / service call blisspower need no code changes when the image includes --ax86-power or --extras.
 
 ## Legal
 

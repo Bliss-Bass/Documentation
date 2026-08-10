@@ -8,7 +8,7 @@ Ethernet Config is the privileged system app used on current Bass OS builds (And
 | **AIDL service** | `blissethernet` |
 | **AIDL namespace** | `org.blissos.ethernet` |
 | **AIDL reference** | [AIDL Interface](AIDL_INTERFACE.md) |
-| **Client JAR** | [system_libs/bliss-ethernet-framework.jar](system_libs/) |
+| **Client JAR** | [Download bliss-ethernet-framework.jar](system_libs/bliss-ethernet-framework.jar) · [notes](system_libs/README.md) |
 | **Test / validate** | [Testing Guide](TESTING.md) |
 
 ## Setting up Ethernet interfaces
@@ -100,6 +100,6 @@ The product makefile installs the platform-signed privileged app, priv-app permi
 ## Related docs
 
 * [AIDL Interface](AIDL_INTERFACE.md) — Java/Kotlin client API, tethering, and `service call` codes
-* [Client JAR](system_libs/) — `bliss-ethernet-framework.jar` for integrators
+* [Client JAR download](system_libs/bliss-ethernet-framework.jar) — `bliss-ethernet-framework.jar` for integrators ([how to use](system_libs/README.md))
 * [Testing Guide](TESTING.md) — prop auto-config, AIDL smoke tests, ADB reconnect
 * [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) — legacy app docs (older builds)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839427358099">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839704481213">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Ax86 Power</title>
     <meta name="title" content="Ax86 Power">
-    <meta name="description" content="Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also exposes reboot / shutdown / sleep so clients of the old BlissPowerManager AIDL can switch over 1:1 for those helpers.">
+    <meta name="description" content="Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also hosts the legacy BlissPowerManager binder (blisspower) so existing apps keep working with no code changes.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/ax86power/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/ax86power/">
     <meta property="og:title" content="Ax86 Power">
-    <meta property="og:description" content="Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also exposes reboot / shutdown / sleep so clients of the old BlissPowerManager AIDL can switch over 1:1 for those helpers.">
+    <meta property="og:description" content="Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also hosts the legacy BlissPowerManager binder (blisspower) so existing apps keep working with no code changes.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,19 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/ax86power/">
     <meta name="twitter:title" content="Ax86 Power">
-    <meta name="twitter:description" content="Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also exposes reboot / shutdown / sleep so clients of the old BlissPowerManager AIDL can switch over 1:1 for those helpers.">
+    <meta name="twitter:description" content="Ax86 Power is the sleep / wake policy UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also hosts the legacy BlissPowerManager binder (blisspower) so existing apps keep working with no code changes.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/ax86power/ax86power.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.839427358099" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.839704481213" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839427358099" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.839427358099" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839704481213" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.839704481213" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,7 +162,7 @@
 
                 <!-- Page content  -->
 <h1 id="ax86-power">Ax86 Power</h1>
-<p>Ax86 Power is the sleep / wake <strong>policy</strong> UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also exposes <code translate="no" v-pre>reboot</code> / <code translate="no" v-pre>shutdown</code> / <code translate="no" v-pre>sleep</code> so clients of the old <a href="../../interfaces/blisspowermanageraidl/power-management-aidl/">BlissPowerManager</a> AIDL can switch over 1:1 for those helpers.</p>
+<p>Ax86 Power is the sleep / wake <strong>policy</strong> UI and AIDL for Bass: Lineout (x86). It controls what may resume the machine and which suspend depth to use. It also hosts the legacy <a href="../../interfaces/blisspowermanageraidl/power-management-aidl/">BlissPowerManager</a> binder (<code translate="no" v-pre>blisspower</code>) so existing apps keep working with <strong>no code changes</strong>.</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -177,7 +177,11 @@
 <td><code translate="no" v-pre>org.ax86.power</code></td>
 </tr>
 <tr>
-<td><strong>Service action</strong></td>
+<td><strong>Legacy service</strong></td>
+<td>ServiceManager <code translate="no" v-pre>blisspower</code> (<code translate="no" v-pre>IBlissPower</code>)</td>
+</tr>
+<tr>
+<td><strong>Ax86 service action</strong></td>
 <td><code translate="no" v-pre>org.ax86.power.IAx86Power</code></td>
 </tr>
 <tr>
@@ -197,10 +201,14 @@
 <pre translate="no" class="language-none"><code v-pre class="language-none">┌─────────────────┐     persist.ax86.wake.*      ┌──────────────────────────┐
 │  Ax86Power app  │  persist.ax86.mem_sleep      │  addon_hardware.sh       │
 │  IAx86Power     │ ──────────────────────────► │  apply_wake_policy()     │
-│                 │  sys.ax86.wake.update=1      │  (sysfs / ACPI wakeup)   │
-└─────────────────┘                             └──────────────────────────┘</code></pre>
+│  IBlissPower    │  sys.ax86.wake.update=1      │  (sysfs / ACPI wakeup)   │
+│  (blisspower)   │                             └──────────────────────────┘
+└─────────────────┘</code></pre>
 </doc-codeblock></div>
-<p><code translate="no" v-pre>apply_wake_policy</code> runs at post-fs-data, again on <code translate="no" v-pre>sys.boot_completed</code>, and whenever <code translate="no" v-pre>sys.ax86.wake.update</code> is set to <code translate="no" v-pre>1</code>. Power-button ACPI paths are never disabled.</p>
+<p><code translate="no" v-pre>apply_wake_policy</code> runs at post-fs-data, again on <code translate="no" v-pre>sys.boot_completed</code>, and whenever <code translate="no" v-pre>sys.ax86.wake.update</code> is set to <code translate="no" v-pre>1</code>. Power-button ACPI paths are never disabled. The <code translate="no" v-pre>blisspower</code> binder is registered at boot via BootReceiver and <code translate="no" v-pre>Ax86Power.rc</code>.</p>
+<h2 id="legacy-apps-no-changes">Legacy apps (no changes)</h2>
+<p>Keep using <code translate="no" v-pre>BlissPowerManager.getInstance(context)</code> and your existing <code translate="no" v-pre>bliss-power-framework.jar</code>. As long as the image includes Ax86 Power, <code translate="no" v-pre>ServiceManager.getService(&quot;blisspower&quot;)</code> resolves to the same <code translate="no" v-pre>IBlissPower</code> contract (<code translate="no" v-pre>reboot</code> / <code translate="no" v-pre>shutdown</code> / <code translate="no" v-pre>sleep</code>).</p>
+<p>See <a href="aidl_interface/">AIDL Interface</a> for <code translate="no" v-pre>service call</code> examples.</p>
 <h2 id="settings-entry">Settings entry</h2>
 <p>Appears under <strong>Settings → System</strong> via <code translate="no" v-pre>EXTRA_SETTINGS</code> + <code translate="no" v-pre>com.android.settings.category.ia.system</code>. There is no launcher / app-drawer icon.</p>
 <h2 id="what-you-can-configure">What you can configure</h2>
@@ -249,14 +257,6 @@
 adb shell setprop persist.ax86.mem_sleep deep
 adb shell setprop sys.ax86.wake.update 1</code></pre>
 </doc-codeblock></div>
-<h2 id="power-actions">Power actions</h2>
-<p>Same helpers as the legacy BlissPowerManager AIDL:</p>
-<ul>
-<li><code translate="no" v-pre>reboot()</code></li>
-<li><code translate="no" v-pre>shutdown()</code></li>
-<li><code translate="no" v-pre>sleep()</code></li>
-</ul>
-<p>See <a href="aidl_interface/">AIDL Interface</a> for the full binder surface and client notes.</p>
 <h2 id="build">Build</h2>
 <div id="build-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --ax86-power ...

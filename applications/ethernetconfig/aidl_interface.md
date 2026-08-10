@@ -4,7 +4,7 @@ This document describes the AIDL API exposed by **Ethernet Config** (`com.exampl
 
 For end-to-end device validation (including `persist.bass.ethernet.*` auto-config), see **[Testing Guide](TESTING.md)**. Overview: **[Ethernet Config](EthernetConfig.md)**.
 
-Client JAR: **[system_libs/bliss-ethernet-framework.jar](system_libs/)** — see [system_libs/README.md](system_libs/README.md).
+Client JAR: **[Download bliss-ethernet-framework.jar](system_libs/bliss-ethernet-framework.jar)** — see [system_libs/README.md](system_libs/README.md) (also mirrored at [`/static/downloads/bliss-ethernet-framework.jar`](/static/downloads/bliss-ethernet-framework.jar)).
 
 ---
 
@@ -79,6 +79,8 @@ mgr.stopEthernetTethering();
 ## Client usage
 
 ### Gradle
+
+Download **[bliss-ethernet-framework.jar](system_libs/bliss-ethernet-framework.jar)** (or the [static mirror](/static/downloads/bliss-ethernet-framework.jar)), place it in your app’s `system_libs/`, then:
 
 ```gradle
 implementation fileTree(dir: 'system_libs/', include: ['*.jar'])
