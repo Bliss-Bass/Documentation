@@ -1,6 +1,6 @@
 # Ethernet Config
 
-Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) while keeping the **`blissethernet`** AIDL service name. See [AIDL Interface](AIDL_INTERFACE.md) for the current contract (assignment enum `0/1/2`, ethernet tethering APIs, and client JAR).
+Ethernet Config is the privileged system app used on current Bass OS builds (Android 13+) to manage wired Ethernet. It replaces the older [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) while keeping the **`blissethernet`** AIDL service name. See [AIDL Interface](AIDL_INTERFACE.md) for the current contract (assignment enum `0/1/2` and client JAR).
 
 | | |
 |---|---|
@@ -99,7 +99,7 @@ The product makefile installs the platform-signed privileged app, priv-app permi
 
 ## Related docs
 
-* [AIDL Interface](AIDL_INTERFACE.md) — Java/Kotlin client API, tethering, and `service call` codes
+* [AIDL Interface](AIDL_INTERFACE.md) — Java/Kotlin client API and `service call` codes
 * [Client JAR download](system_libs/bliss-ethernet-framework.jar) — `bliss-ethernet-framework.jar` for integrators ([how to use](system_libs/README.md))
 * [Testing Guide](TESTING.md) — prop auto-config, AIDL smoke tests, ADB reconnect
 * [Bliss Ethernet Manager](../BlissEthernetManager/BlissEthernetManager.md) — legacy app docs (older builds)
