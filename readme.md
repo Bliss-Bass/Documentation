@@ -30,6 +30,28 @@
 
 * [Installation Guide For Bass Submix](Installation/submix/submix-install.md)
 
+## User guides
+
+How-to pages from **Bass: Lineout on Android 16**. Android 14 images can differ.
+
+* [Getting started](UserGuides/README.md)
+* [Ax86 Power](UserGuides/ax86-power.md)
+* [Bass Audio](UserGuides/bass-audio.md)
+* [Boot Config](UserGuides/boot-config.md)
+* [BootSight](UserGuides/bootsight.md)
+* [Display Mapper](UserGuides/display-mapper.md)
+* [Touch Mapper](UserGuides/touch-mapper.md)
+* [BlissTweaks](UserGuides/bliss-tweaks.md)
+* [SmartDock](UserGuides/smartdock.md)
+* [Ethernet](UserGuides/ethernet.md)
+* [BT Ferry](UserGuides/bt-ferry.md)
+* [Internet Security](UserGuides/internet-security.md)
+* [BassView](UserGuides/bassview.md)
+* [Monterey Standby](UserGuides/monterey-standby.md)
+* [Button Manager](UserGuides/button-manager.md)
+* [Bass Boot Options](UserGuides/bass-boot-options.md)
+* [Ax86Docs](UserGuides/ax86-docs.md)
+
 ## Configuration
 
 * [Configuration through Command Line Parameters](setup_and_configuration/Configuration-through-Command-Line-Parameters.md)

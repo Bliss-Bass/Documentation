@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.839707678325">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.840034818210">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.839707678325" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.840034818210" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.839707678325" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.840034818210" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.839707678325" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.840034818210" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -181,7 +181,7 @@
 </tr>
 <tr>
 <td><strong>Default doc</strong></td>
-<td><code translate="no" v-pre>PRODUCT.md</code> (Bass: Lineout overview)</td>
+<td><code translate="no" v-pre>docs/user-guide/GETTING_STARTED.md</code> (end-user hub; technical pages stay in a second group)</td>
 </tr>
 </tbody>
 </table>
@@ -195,11 +195,13 @@
 <p>Those files are packed into <code translate="no" v-pre>doc_data.js</code> and installed with the app. Pick a document from the dropdown in the app.</p>
 <h2 id="adding-docs-for-a-new-package">Adding docs for a new package</h2>
 <ol>
-<li>Put a <code translate="no" v-pre>README.md</code> (or other <code translate="no" v-pre>.md</code>) in your <code translate="no" v-pre>vendor_packages/&lt;name&gt;/</code> folder.</li>
+<li>Put a <code translate="no" v-pre>USER_GUIDE.md</code> (end users) and a <code translate="no" v-pre>README.md</code> (developers) in the addon.</li>
 <li>Rebuild with <code translate="no" v-pre>--extras</code> so <code translate="no" v-pre>build.sh</code> runs the Ax86Docs update step.</li>
-<li>The new file shows up in the on-device list automatically.</li>
+<li>User guides show under <strong>Using this device</strong>; READMEs under <strong>Technical reference</strong>.</li>
+<li>Mirror the user guide in this repo under <a href="../../userguides/">User guides</a>.</li>
 </ol>
 <p>To pull markdown from outside <code translate="no" v-pre>vendor/ax86-lite</code>, add the path to <code translate="no" v-pre>EXTERNAL_DOCS</code> in <code translate="no" v-pre>vendor_packages/Ax86Docs/update_docs.sh</code>.</p>
+<p>End-user walkthroughs live in each addon&#x27;s <code translate="no" v-pre>USER_GUIDE.md</code> and are also published on this site under <a href="../../userguides/">User guides</a>.</p>
 <h2 id="public-docs-vs-on-device-docs">Public docs vs on-device docs</h2>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
