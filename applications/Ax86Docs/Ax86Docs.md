@@ -6,7 +6,7 @@ Ax86Docs is the offline documentation app shipped on Bass: Lineout builds that i
 |---|---|
 | **Package** | `com.navotpala.ax86docs` |
 | **Build** | Included with `--extras` |
-| **Default doc** | `PRODUCT.md` (Bass: Lineout overview) |
+| **Default doc** | `docs/user-guide/GETTING_STARTED.md` (end-user hub; technical pages stay in a second group) |
 
 ## What it shows
 
@@ -19,11 +19,14 @@ Those files are packed into `doc_data.js` and installed with the app. Pick a doc
 
 ## Adding docs for a new package
 
-1. Put a `README.md` (or other `.md`) in your `vendor_packages/<name>/` folder.
+1. Put a `USER_GUIDE.md` (end users) and a `README.md` (developers) in the addon.
 2. Rebuild with `--extras` so `build.sh` runs the Ax86Docs update step.
-3. The new file shows up in the on-device list automatically.
+3. User guides show under **Using this device**; READMEs under **Technical reference**.
+4. Mirror the user guide in this repo under [User guides](../../UserGuides/README.md).
 
 To pull markdown from outside `vendor/ax86-lite`, add the path to `EXTERNAL_DOCS` in `vendor_packages/Ax86Docs/update_docs.sh`.
+
+End-user walkthroughs live in each addon's `USER_GUIDE.md` and are also published on this site under [User guides](../../UserGuides/README.md).
 
 ## Public docs vs on-device docs
 

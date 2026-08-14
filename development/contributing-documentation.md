@@ -21,4 +21,4 @@ Pick the guide that matches your tree. They are not interchangeable.
 
 ## Documentation
 
-When you add a Lineout package, put a `README.md` next to the code so [Ax86Docs](../applications/Ax86Docs/Ax86Docs.md) can pick it up, and add or update a page under this Documentation repo when the feature is user- or OEM-facing.
+When you add a Lineout package, put a `USER_GUIDE.md` (end users) and a `README.md` (developers) next to the code so [Ax86Docs](../applications/Ax86Docs/Ax86Docs.md) can pick them up. Mirror the user guide under [User guides](../UserGuides/README.md) on this site, and add or update an Applications page when the feature is OEM- or developer-facing.
