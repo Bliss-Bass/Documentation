@@ -126,7 +126,6 @@ adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1
 
 ---
 
-<!-- Ethernet tethering test temporarily hidden
 ## Test C — Ethernet tethering AIDL (codes 15–19)
 
 Does **not** require a downstream client; validates binder start/stop and remembered addresses.
@@ -158,7 +157,6 @@ ETH_NETWORK_CYCLE=0 ./host_test_ethernet_config_aidl.sh
 ```
 
 ---
--->
 
 ## Test D — Revert to DHCP
 
@@ -188,4 +186,4 @@ adb shell setprop persist.bass.ethernet.mode ""
 - Same-subnet ADB works even if a default route via the gateway is not visible in `ip route`.
 - `net.dns1` / `net.dns2` may stay empty; DNS from EthernetManager is carried in the interface `IpConfiguration`.
 - System priv-apps can stay “stopped” until first launch; `start-bliss-ethernet` / `pm enable` exists to unblock boot start.
-<!-- - Ethernet tethering needs `TETHER_PRIVILEGED` (priv-app whitelist). Getters update when start is invoked even if TetheringManager fails asynchronously. -->
+- Ethernet tethering needs `TETHER_PRIVILEGED` (priv-app whitelist). Getters update when start is invoked even if TetheringManager fails asynchronously.

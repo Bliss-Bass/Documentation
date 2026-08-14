@@ -13,7 +13,7 @@ Client JAR: **[Download bliss-ethernet-framework.jar](system_libs/bliss-ethernet
 - Ethernet Config installed as a privileged/system app (Bass ROM builds include it).
 - The `blissethernet` service registered in `ServiceManager` (started at boot via init / `start-bliss-ethernet`).
 - For third-party apps: caller must be **authorized** (see [Authorization](#authorization)).
-<!-- - Ethernet tethering requires `TETHER_PRIVILEGED` on the server (granted via priv-app whitelist). -->
+- Ethernet tethering requires `TETHER_PRIVILEGED` on the server (granted via priv-app whitelist).
 
 ---
 
@@ -42,11 +42,10 @@ The old Bliss Ethernet Manager client JAR used different integers:
 - `getIpAssignment` **always** returns canonical `0/1/2`.
 - `setIpAssignment` accepts canonical `0/1/2` and exclusive legacy `-1` (→ UNASSIGNED).
 - For legacy `0` (DHCP) / `1` (STATIC), call `BlissEthernetAssignment.fromLegacy(value)` before set, or update constants.
-<!-- - The old JAR does **not** include ethernet tethering APIs — use the new JAR / AIDL sources. -->
+- The old JAR does **not** include ethernet tethering APIs — use the new JAR / AIDL sources.
 
 ---
 
-<!-- Ethernet tethering docs temporarily hidden
 ## Ethernet tethering
 
 Tethering shares the device’s upstream network over an ethernet downstream. The server uses AOSP `TetheringManager` with an optional static IPv4 pair (gateway + single DHCP client address in the same prefix).
@@ -76,7 +75,6 @@ mgr.stopEthernetTethering();
 ```
 
 ---
--->
 
 ## Client usage
 
@@ -106,7 +104,7 @@ blissEthernetManager.setIpAddress("eth0", "192.168.1.100/24");
 blissEthernetManager.setGateway("eth0", "192.168.1.1");
 blissEthernetManager.setDnses("eth0", new String[] { "8.8.8.8", "8.8.4.4" });
 
-// blissEthernetManager.startEthernetTethering("", "");  // tethering docs temporarily hidden
+blissEthernetManager.startEthernetTethering("", "");
 ```
 
 ### Manifest (client app)
@@ -142,12 +140,11 @@ interface IBlissEthernet {
     String[] getDnses(String iface);
     void setDnses(String iface, in String[] dnses);
 
-    // Ethernet tethering (temporarily undocumented)
-    // void startEthernetTethering(String localIpv4, String clientIpv4);
-    // void stopEthernetTethering();
-    // boolean isEthernetTetheringActive();
-    // String getEthernetTetherLocalIpv4();
-    // String getEthernetTetherClientIpv4();
+    void startEthernetTethering(String localIpv4, String clientIpv4);
+    void stopEthernetTethering();
+    boolean isEthernetTetheringActive();
+    String getEthernetTetherLocalIpv4();
+    String getEthernetTetherClientIpv4();
 }
 ```
 
@@ -174,11 +171,9 @@ oneway interface IBlissEthernetServiceListener {
 | `getIpAddress` / `setIpAddress` | Static address as `ip/prefix` |
 | `getGateway` / `setGateway` | Default gateway |
 | `getDnses` / `setDnses` | DNS servers |
-<!--
 | `startEthernetTethering` / `stopEthernetTethering` | Ethernet tether control |
 | `isEthernetTetheringActive` | Tether active flag |
 | `getEthernetTetherLocalIpv4` / `getEthernetTetherClientIpv4` | Last tether address pair |
--->
 
 Partial updates (`setIpAddress`, `setGateway`, `setDnses`) merge with the current interface configuration before applying.
 
@@ -221,13 +216,11 @@ adb shell service call blissethernet <code> [parameters...]
 | 12 | `setGateway` | `s16` iface, `s16` gateway |
 | 13 | `getDnses` | `s16` interface name |
 | 14 | `setDnses` | `s16` iface, string array |
-<!--
 | 15 | `startEthernetTethering` | `s16` localIpv4, `s16` clientIpv4 (empty → defaults) |
 | 16 | `stopEthernetTethering` | — |
 | 17 | `isEthernetTetheringActive` | — |
 | 18 | `getEthernetTetherLocalIpv4` | — |
 | 19 | `getEthernetTetherClientIpv4` | — |
--->
 
 ### Examples
 
@@ -245,10 +238,7 @@ adb shell service call blissethernet 7 s16 eth0
 adb shell service call blissethernet 8 s16 eth0 i32 2
 adb shell service call blissethernet 10 s16 eth0 s16 192.168.1.100/24
 adb shell service call blissethernet 12 s16 eth0 s16 192.168.1.1
-```
 
-<!-- Ethernet tethering examples temporarily hidden
-```bash
 # Start ethernet tethering with product defaults (192.168.10.1/24 + 192.168.10.2/24)
 adb shell service call blissethernet 15 s16 "" s16 ""
 
@@ -259,7 +249,6 @@ adb shell service call blissethernet 15 s16 192.168.10.1/24 s16 192.168.10.50/24
 adb shell service call blissethernet 17
 adb shell service call blissethernet 16
 ```
--->
 
 ### Verify service registration
 
@@ -276,7 +265,7 @@ If missing after boot, see [Ethernet Config — Boot start](EthernetConfig.md#bo
 - **Package namespace:** `org.blissos.ethernet` (unchanged from Bliss Ethernet Manager)
 - **Service name:** `blissethernet` (unchanged)
 - **Client IP methods (codes 1–14):** Same shapes as legacy; **assignment integers changed** (see table above)
-<!-- - **Tethering (codes 15–19):** New in Ethernet Config — not present in the legacy JAR -->
+- **Tethering (codes 15–19):** New in Ethernet Config — not present in the legacy JAR
 - **Listener:** `onAvailabilityChanged` fires while `BlissEthernetService` is running
 
 Legacy app UI docs: [BlissEthernetManager](../BlissEthernetManager/BlissEthernetManager.md).

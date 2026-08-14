@@ -25,5 +25,5 @@ implementation fileTree(dir: 'system_libs/', include: ['*.jar'])
 The JAR includes AIDL stubs, `BlissEthernetManager`, and `BlissEthernetAssignment`.
 
 **Note:** The legacy Bliss Ethernet Manager JAR used assignment values `-1/0/1`.
-This JAR uses canonical `0/1/2`<!-- and adds ethernet tethering APIs-->. See the
+This JAR uses canonical `0/1/2` and adds ethernet tethering APIs. See the
 [assignment migration table](../AIDL_INTERFACE.md#ip-assignment-modes) in the AIDL docs.
