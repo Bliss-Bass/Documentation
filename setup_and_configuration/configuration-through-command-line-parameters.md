@@ -230,7 +230,7 @@ For use cases where you are dual booting or sharing system resources with multip
 
 Allows switching default USB/ADB functions via cmdline 
 
-*   `FORCE_USE_ADB_CLIENT_MODE`: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)
+*   `FORCE_USE_ADB_CLIENT_MODE`: Forces USB into ADB Client mode (0=off, 1=on, 2=USB+TCP insecure ADB, 3=same as 1 plus `adb_enabled` / `adb_wifi_enabled`). Property list and runtime on/off: [ADB Client Mode Overrides](adb-client-mode-overrides.md).
 *   `FORCE_USE_ADB_MASS_STORAGE`: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
 
 ### Power & Memory:

@@ -55,6 +55,7 @@ How-to pages from **Bass: Lineout on Android 16**. Android 14 images can differ.
 ## Configuration
 
 * [Configuration through Command Line Parameters](setup_and_configuration/Configuration-through-Command-Line-Parameters.md)
+* [ADB Client Mode Overrides](setup_and_configuration/adb-client-mode-overrides.md)
 * [Booting into generic builds](setup_and_configuration/booting-into-generic-builds.md)
 * [Booting into lockdown builds](setup_and_configuration/booting-into-lockdown-builds.md)
 * [Configuring Aaropa builds after install](setup_and_configuration/configuring-aaropa-builds-after-install.md)

@@ -134,6 +134,7 @@
 
 ## Setup and configuration
 
+- [ADB Client Mode Overrides (Lineout)](https://docs.blisscolabs.dev/setup_and_configuration/adb-client-mode-overrides.md): This is a Bass: Lineout runtime override (addon_init / set_usb_mode), not a legacy Bass private/addons/ package.
 - [Bass boot options](https://docs.blisscolabs.dev/setup_and_configuration/bass-boot-options.md): On Aaropa installs, GRUB only ships BlissOS / Recovery / Advanced entries by default. With this package enabled, a Bass boot options submenu is added on first boot by writing a separate config and linking it through GRUB's custom.cfg (already sourced by 41_custom in Aaropa's grub.cfg).
 - [Booting into generic builds](https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds.md): !!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING
 - [Booting into lockdown builds](https://docs.blisscolabs.dev/setup_and_configuration/booting-into-lockdown-builds.md): !!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING
