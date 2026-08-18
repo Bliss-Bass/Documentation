@@ -164,6 +164,7 @@ adb reboot
 ## Related
 
 * [examples/](examples/) full sample files
+* [ADB Client Mode Overrides](../../setup_and_configuration/adb-client-mode-overrides.md)
 * [Touch Mapper](../BlissTouchMapper/BlissTouchMapper.md)
 * [Display Mapper](../BlissDisplayMapper/BlissDisplayMapper.md)
 * [Boot Config](../BootConfig/BootConfig.md)
