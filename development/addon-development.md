@@ -45,6 +45,7 @@ Enable them from `vendor/ax86-lite/tools/build.sh` (see [Building Bass OS](build
 | `--bootsight` | BootSight (+ `ro.bass.fleet_mgmt=bootsight`) |
 | `--smartdock` | SmartDock DFC |
 | `--ethernetconfig` | Ethernet Config |
+| `--btferry` | BT Ferry (`bass-btferry` addon; **A16 Lineout only for now**) |
 | `--bass-boot-options` / `--cxbbo` | Bass GRUB boot submenu |
 | `--ldinstall` | Lockdown install/uninstall block |
 
@@ -66,6 +67,7 @@ App docs on this site:
 * [Ax86 Logger](../applications/Ax86Logger/Ax86Logger.md)
 * [Ax86 Power](../applications/Ax86Power/Ax86Power.md)
 * [BootSight](../applications/BootSight/BootSight.md)
+* [BT Ferry](../applications/BTFerry/BTFerry.md) (A16 only for now)
 * [Bass boot options](../setup_and_configuration/bass-boot-options.md)
 * [Lockdown install block](../features/lockdown-install-block.md)
 

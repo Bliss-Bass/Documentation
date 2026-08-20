@@ -266,6 +266,7 @@ Details: [Bass boot options](../setup_and_configuration/bass-boot-options.md), [
 |------|--------|
 | `--extras` | Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power (does **not** include BootSight) |
 | `--ethernetconfig` | Ethernet Config |
+| `--btferry` | BT Ferry (A16 / Lineage 23.2 Lineout only for now) |
 | `--smartdock` | SmartDock |
 | `--restrictedlauncherpro` | Restricted Launcher Pro (private access) |
 | `--rlptype=VARIANT` | RLP APK variant: `default` \| `gs` \| `gs_nh` \| `sl` (implies `--restrictedlauncherpro`) |

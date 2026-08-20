@@ -1,6 +1,6 @@
 # BT Ferry
 
-> **Android 16 Lineout.** Screenshots and steps on these pages were taken on **Bass: Lineout** (Lineage **23.2** / Android **16**). On **Android 14** (Lineage **21.0**) the same tools can look different, sit in a different Settings place, or be missing from that image entirely.
+> **Android 16 only (for now).** BT Ferry is available on **Bass: Lineout** (Lineage **23.2** / Android **16**) builds that include the addon. It is **not** on Android **14** / Lineage **21.0** images yet.
 
 BT Ferry lets this tablet or desktop **use your phone over Bluetooth**: contacts, messages, calls, and (when supported) the phone's music on this device's speakers.
 
@@ -31,3 +31,4 @@ Picture messages, RCS, and iMessage decorations are not guaranteed: the phone st
 ## Related
 
 - [Getting started](README.md)
+- [BT Ferry (technical)](../../applications/BTFerry/BTFerry.md)

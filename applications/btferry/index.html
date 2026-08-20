@@ -10,30 +10,30 @@
     <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
-    <title>Booting into generic builds</title>
-    <meta name="title" content="Booting into generic builds">
-    <meta name="description" content="!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING">
+    <title>BT Ferry (Bass BT Ferry)</title>
+    <meta name="title" content="BT Ferry (Bass BT Ferry)">
+    <meta name="description" content="Availability: BT Ferry ships on Bass: Lineout Android 16 (Lineage 23.2) builds that enable the bass-btferry addon (--btferry). It is not available on Android 14 / Lineage 21.0 images yet.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds/">
+    <link rel="canonical" href="https://docs.blisscolabs.dev/applications/btferry/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds/">
-    <meta property="og:title" content="Booting into generic builds">
-    <meta property="og:description" content="!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING">
+    <meta property="og:url" content="https://docs.blisscolabs.dev/applications/btferry/">
+    <meta property="og:title" content="BT Ferry (Bass BT Ferry)">
+    <meta property="og:description" content="Availability: BT Ferry ships on Bass: Lineout Android 16 (Lineage 23.2) builds that enable the bass-btferry addon (--btferry). It is not available on Android 14 / Lineage 21.0 images yet.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds/">
-    <meta name="twitter:title" content="Booting into generic builds">
-    <meta name="twitter:description" content="!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING">
+    <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/btferry/">
+    <meta name="twitter:title" content="BT Ferry (Bass BT Ferry)">
+    <meta name="twitter:description" content="Availability: BT Ferry ships on Bass: Lineout Android 16 (Lineage 23.2) builds that enable the bass-btferry addon (--btferry). It is not available on Android 14 / Lineage 21.0 images yet.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/setup_and_configuration/booting-into-generic-builds.md">
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/btferry/btferry.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -42,6 +42,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.840565854964" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.840565854964" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.840565854964" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -160,25 +161,103 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="booting-into-generic-builds">Booting into generic builds</h1>
-<h2 id="booting-into-generic-builds-1">Booting into generic builds:</h2>
-<h3 id="tabletpciotiiotgame-mode-builds">Tablet/PC/IOT/IIOT/Game Mode builds</h3>
-<p><strong>!!WARNING!! - THESE BUILDS ARE MEANT TO REPLACE YOUR EXISTING OPERATING SYSTEM OR BE INSTALLED ON NEW HARDWARE. THESE ARE NOT INTENDED FOR DUAL-BOOTING</strong></p>
-<p><strong>!!Notice!!</strong>: These builds come with A/B OTA Update support, and might not work in Live mode. Only supported installer is the Bootable USB install method we include in the .iso.</p>
-<h5 id="booting-into-the-os">Booting into the OS</h5>
-<p>(<strong>!!NOTICE FOR BUILDS THAT HIDE GRUB!!</strong>) When the device reboots, it will not show the grub menu by default, and automatically boot into the last known boot mode. In order to show the grub menu, tap shift multiple times while the initial BIOS boot logo is displayed. If done correctly, you will be presented with the Grub menu. If no keys are pressed, the bios boot menu will show a black screen afterwards while Grub is loading the configuration in the background.</p>
-<p>Once the device boots into Grub, the top option or two will be our default mode (some builds offer specific boot options per CPU manufacturer: <strong>Intel Default</strong> or <strong>AMD Default</strong>) boot options.</p>
-<p>While the Debugging modes can be found in the <strong>Other Options</strong> section of the boot menu.</p>
-<h3 id="setup-steps-for-adsignage-builds">Setup Steps for Ad/Signage Builds</h3>
-<p>(This section only applies to our Ad/Signage builds using Garlic Launcher)</p>
-<h5 id="initial-setup">Initial Setup</h5>
-<p>Go through the builds SetupWizard and connect to a network. Then once complete, the Garlic-Launcher should load. Launch the Player from Garlic-Launcher and grant the permissions it requests. Swipe down and hit the power button or use ctrl-alt-del to reboot the device now.</p>
-<h5 id="smil-control-setup">SMIL Control setup</h5>
-<p>(You will need to have created an account on <a href="https://admin.smil-control.com">https://admin.smil-control.com</a> and be logged in)</p>
-<p>After the device reboots, you should see a SMIL Control screen with a code on it.</p>
-<p>Access the <a href="https://admin.smil-control.com">https://admin.smil-control.com</a> website and going to Player &gt; Transfer, and enter the code from the device in there. Once registered, your device will show on the Players default screen. You can then setup a playlist and other options from the SMIL Control web UI.</p>
-<h5 id="-playback-notice-">!! Playback Notice !!</h5>
-<p>Sometimes the playlist will show a black screen when starting. In the event this happens, we suggest sending the player commands from SMIL Control site to reboot and clear video &amp; web cache. This may need you to reboot the device or wait till the next update period is sent from SMIL Control.</p>
+<h1 id="bt-ferry-bass-bt-ferry">BT Ferry (Bass BT Ferry)</h1>
+<blockquote>
+<p><strong>Availability:</strong> BT Ferry ships on <strong>Bass: Lineout Android 16</strong> (Lineage <strong>23.2</strong>) builds that enable the <code translate="no" v-pre>bass-btferry</code> addon (<code translate="no" v-pre>--btferry</code>). It is <strong>not available on Android 14 / Lineage 21.0</strong> images yet.</p>
+</blockquote>
+<p>BT Ferry is a privileged Bluetooth <strong>phone ferry</strong> for Wi‑Fi/Bluetooth-only tablets and desktops that have no cellular modem. Pair an Android phone or iPhone over Classic Bluetooth; everyday phone presence (messages, contacts, calls, and media audio when supported) appears on the larger Bass Desktop surface. The phone keeps the cellular radio — there is no cloud relay.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Package</strong></td>
+<td><code translate="no" v-pre>com.bass.btferry</code></td>
+</tr>
+<tr>
+<td><strong>Addon id</strong></td>
+<td><code translate="no" v-pre>bass-btferry</code></td>
+</tr>
+<tr>
+<td><strong>Build flag</strong></td>
+<td><code translate="no" v-pre>--btferry</code> / <code translate="no" v-pre>USE_BTFERRY=true</code></td>
+</tr>
+<tr>
+<td><strong>Also see</strong></td>
+<td><a href="../../userguides/bt-ferry/">User guide</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="what-it-does">What it does</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bluetooth profile</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contacts sync</td>
+<td><strong>PBAP</strong></td>
+<td>Phonebook into the platform PBAP client account</td>
+</tr>
+<tr>
+<td>SMS inbox + send</td>
+<td><strong>MAP</strong></td>
+<td>MMS/RCS/iMessage chrome are best-effort / OEM-dependent</td>
+</tr>
+<tr>
+<td>Answer / reject / hang up</td>
+<td><strong>HFP</strong> Hands-Free</td>
+<td>Call audio via SCO when the stack routes it</td>
+</tr>
+<tr>
+<td>Phone media on Desktop speakers</td>
+<td><strong>A2DP Sink</strong> + <strong>AVRCP</strong></td>
+<td>External-speaker mode + transport when the phone publishes metadata</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="how-to-enable-a16-lineout">How to enable (A16 Lineout)</h2>
+<p>On a Lineage <strong>23.2</strong> workspace with the addon cloned under <code translate="no" v-pre>vendor/ax86-lite/addons/bass-btferry/</code>:</p>
+<div id="how-to-enable-a16-lineout-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --btferry
+# or
+USE_BTFERRY=true</code></pre>
+</doc-codeblock></div>
+<p>The addon stages into <code translate="no" v-pre>device/generic/x86_64_tablet/ax86-addons/BassBtFerry/</code> and inherits product Bluetooth accessory props (MAP/PBAP/HFP client, A2DP sink, SMS receiver package → <code translate="no" v-pre>com.bass.btferry</code>).</p>
+<h2 id="first-run-checklist">First-run checklist</h2>
+<ol>
+<li>Flash an image built with <code translate="no" v-pre>--btferry</code>.</li>
+<li>Confirm accessory props, e.g. <code translate="no" v-pre>getprop bluetooth.profile.a2dp.sink.enabled</code> → <code translate="no" v-pre>true</code> (also MAP/PBAP/HFP client roles and <code translate="no" v-pre>bluetooth.profile.map_client.sms_receiver_package</code> → <code translate="no" v-pre>com.bass.btferry</code>).</li>
+<li>Open <strong>BT Ferry</strong> → <strong>Bluetooth settings</strong> → pair the phone.</li>
+<li>Back in BT Ferry, select the phone / connect (PBAP + MAP + HFP + A2DP).</li>
+<li>Approve contacts / messages / phonebook prompts on the phone.</li>
+<li>Sync contacts, send a test SMS, place or receive a call, and confirm Desktop speakers for phone media.</li>
+</ol>
+<h2 id="non-goals-current">Non-goals (current)</h2>
+<ul>
+<li>Guaranteed MMS/RCS or rich iMessage decorations</li>
+<li>Full Messages/iCloud history browser</li>
+<li>Arbitrary phone-app notification mirroring (optional iPhone ANCS later)</li>
+<li>Pretending the Desktop is the cellular modem</li>
+</ul>
+<h2 id="related">Related</h2>
+<ul>
+<li><a href="../../userguides/bt-ferry/">BT Ferry user guide</a></li>
+<li><a href="../../development/building-bass/">Building Bass OS</a></li>
+<li><a href="../../development/addon-development/">Addon Development: Bass Lineout</a></li>
+</ul>
 
                 
                 <!-- Required only on API pages -->
@@ -186,7 +265,7 @@
             </div>
             <footer id="retype-content-footer" class="clear-both">
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-14">
-                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/setup_and_configuration/booting-into-generic-builds.md" target="_blank" rel="noopener">
+                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/applications/BTFerry/BTFerry.md" target="_blank" rel="noopener">
                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         <span>Edit on GitHub</span>
                     </a>
@@ -194,20 +273,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../setup_and_configuration/bass-boot-options/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../applications/bootsight/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Bass boot options</span>
+                                <span class="block mt-1">Boot​Sight</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../setup_and_configuration/booting-into-lockdown-builds/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../applications/blisskiosklauncher/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Booting into lockdown builds</span>
+                                <span class="block mt-1">Setting Up Bliss Kiosk Launcher</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -254,6 +333,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Booting into generic builds", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/setup_and_configuration/booting-into-generic-builds.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "BT Ferry (Bass BT Ferry)", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/applications/btferry/btferry.md" }</script>
 </body>
 </html>
