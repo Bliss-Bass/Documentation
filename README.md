@@ -72,6 +72,7 @@ icon: home
 * [Bliss Tweaks](applications/BlissTweaks/BlissTweaks.md)
 * [Boot Config](applications/BootConfig/BootConfig.md)
 * [BootSight](applications/BootSight/BootSight.md)
+* [BT Ferry](applications/BTFerry/BTFerry.md) (A16 Lineout only for now)
 * [Ethernet Config](applications/EthernetConfig/EthernetConfig.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 * [Bliss Kiosk Launcher](applications/BlissKioskLauncher/BlissKioskLauncher.md)
