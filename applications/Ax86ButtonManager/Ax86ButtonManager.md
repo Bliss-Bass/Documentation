@@ -2,6 +2,8 @@
 
 Button Manager maps hardware function keys (P1, P2, P3, and similar) on generic x86 devices to actions and device controls. It is a privileged, platform-signed system app with a Settings entry, an AIDL service, and a `cmd` handler.
 
+**Availability:** Lineout on both **Android 14** (Lineage 21.0) and **Android 16** (Lineage 23.2) via `--btnmgr`.
+
 | | |
 |---|---|
 | **Package** | `com.ax86.btnmgr` |

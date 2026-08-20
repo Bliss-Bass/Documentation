@@ -3,7 +3,7 @@ label: Button Manager
 ---
 # Button Manager
 
-> **Android 16 Lineout.** Screenshots and steps on these pages were taken on **Bass: Lineout** (Lineage **23.2** / Android **16**). On **Android 14** (Lineage **21.0**) the same tools can look different, sit in a different Settings place, or be missing from that image entirely.
+> **Android 14 and 16.** Button Manager ships on **Bass: Lineout** for both Lineage **21.0** (Android **14**) and Lineage **23.2** (Android **16**). The screenshot below is from an **Android 14** Lineout device (Panasonic CF-33).
 
 Button Manager assigns the extra **hardware keys** on some x86 tablets and convertibles (often labeled P1, P2, P3) to useful actions: screenshot, keyboard shortcuts, brightness, opening an app, and similar.
 
