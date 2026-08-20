@@ -9,6 +9,8 @@ Button Manager assigns the extra **hardware keys** on some x86 tablets and conve
 
 This image may not include Button Manager. If **Settings → System** has no **Button Manager** row, skip this page.
 
+![Button Manager](images/button-manager.png)
+
 ## What it is for
 
 Those extra keys do nothing useful until something maps them. Button Manager is that map.
