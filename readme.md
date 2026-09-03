@@ -69,6 +69,7 @@
 * [Boot Config](applications/BootConfig/BootConfig.md)
 * [BootSight](applications/BootSight/BootSight.md)
 * [BT Ferry](applications/BTFerry/BTFerry.md) (A16 Lineout only for now)
+* [GameNativeX64](applications/GameNativeX64/GameNativeX64.md)
 * [Ethernet Config](applications/EthernetConfig/EthernetConfig.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 * [Bliss Kiosk Launcher](applications/BlissKioskLauncher/BlissKioskLauncher.md)
