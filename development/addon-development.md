@@ -46,6 +46,7 @@ Enable them from `vendor/ax86-lite/tools/build.sh` (see [Building Bass OS](build
 | `--smartdock` | SmartDock DFC |
 | `--ethernetconfig` | Ethernet Config |
 | `--btferry` | BT Ferry (`bass-btferry` addon; **A16 Lineout only for now**) |
+| `--gamenative` | GameNativeX64 (`gamenative` addon; x86_64 PC games + Linux apps) |
 | `--bass-boot-options` / `--cxbbo` | Bass GRUB boot submenu |
 | `--ldinstall` | Lockdown install/uninstall block |
 
@@ -68,6 +69,7 @@ App docs on this site:
 * [Ax86 Power](../applications/Ax86Power/Ax86Power.md)
 * [BootSight](../applications/BootSight/BootSight.md)
 * [BT Ferry](../applications/BTFerry/BTFerry.md) (A16 only for now)
+* [GameNativeX64](../applications/GameNativeX64/GameNativeX64.md)
 * [Bass boot options](../setup_and_configuration/bass-boot-options.md)
 * [Lockdown install block](../features/lockdown-install-block.md)
 
