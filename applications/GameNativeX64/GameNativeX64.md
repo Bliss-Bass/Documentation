@@ -20,12 +20,12 @@ Linux desktop app integration for Bass tablet deployments.
 
 ## What it does
 
-* Runs Steam, Epic, and GOG PC games through Proton/Wine on x86_64 Android — no ARM
+* Runs Steam, Epic, and GOG PC games through Proton/Wine on x86_64 Android - no ARM
   translation layer
 * Uses hardware Vulkan where the device Mesa stack allows (Intel ANV, AMD RADV; lavapipe as
   software fallback)
 * Ships a guest Vulkan payload in-APK (~50 MB compressed; extracted on first launch)
-* **Linux apps** — install Debian packages inside a PRoot rootfs, launch GUI apps in per-app
+* **Linux apps** - install Debian packages inside a PRoot rootfs, launch GUI apps in per-app
   freeform windows, pin them to the app drawer via lightweight stub APKs
 
 ## Installing the APK standalone
@@ -68,7 +68,7 @@ addons are wired.
 |------|----------|---------------|
 | CPU | Box64 / FEX | Native x86_64 |
 | Vulkan | Vortek ARM proxy | Mesa ANV / RADV |
-| Linux apps | — | Session manager, per-app windows, drawer stubs |
+| Linux apps | - | Session manager, per-app windows, drawer stubs |
 | Build flavor | `arm64` | `modernX64` |
 
 Current release series: **v1.2.0-x64.*** (see GitHub releases for versionCode and notes).
@@ -77,5 +77,5 @@ Current release series: **v1.2.0-x64.*** (see GitHub releases for versionCode an
 
 * [GameNative-x64 README](https://github.com/Bliss-Bass/GameNative-x64/blob/bliss-x64/README.md)
 * [Building Bass OS](../../development/building-bass.md)
-* [Lockdown install / uninstall block](../../features/lockdown-install-block.md) — kiosk
+* [Lockdown install / uninstall block](../../features/lockdown-install-block.md) - kiosk
   lockdown images may block sideload; preinstall is required on those SKUs
