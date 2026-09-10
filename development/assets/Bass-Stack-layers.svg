@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" role="img" aria-labelledby="title desc">
+  <title id="title">Bass stack layers retained from the full architecture</title>
+  <desc id="desc">From top: vendor add-ons and branding, Bass vendor configuration, Bass apps and services, Bass configurable HALs, Android framework and runtime, Linux kernel and drivers, PC hardware.</desc>
+  <rect width="880" height="560" fill="#fafafa"/>
+
+  <text x="40" y="36" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1a1a1a">What Bass adds on top of Android (shared idea across Lineout / Submix / classic)</text>
+  <text x="40" y="58" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#555555">Same layer story as the detailed 2024 diagram - simplified for reading. Not a phone OEM stack and not Project Celadon.</text>
+
+  <!-- Top: vendor addons -->
+  <rect x="40" y="78" width="800" height="52" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="56" y="100" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#1b5e20">Vendor add-ons, apps &amp; services (yours)</text>
+  <text x="56" y="118" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Private apps, middleware, device-management / lockdown modules for your audience</text>
+
+  <!-- Vendor config -->
+  <rect x="40" y="142" width="800" height="52" rx="8" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+  <text x="56" y="164" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#880e4f">Bass vendor configuration layer</text>
+  <text x="56" y="182" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Branding, theme, boot animation, GRUB look, startup tasks, security prefs, UI options, OS name</text>
+
+  <!-- Bass apps -->
+  <rect x="40" y="206" width="800" height="52" rx="8" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="56" y="228" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0d47a1">Bass apps &amp; services</text>
+  <text x="56" y="246" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Config options, hardware management, updater, UI/UX prefs, apps &amp; permissions helpers</text>
+
+  <!-- Configurable HALs -->
+  <rect x="40" y="270" width="800" height="52" rx="8" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="56" y="292" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#e65100">Bass configurable HALs (hardware bridges)</text>
+  <text x="56" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Graphics stack, audio, network, input, sensors - switchable so one generic image fits many PCs</text>
+
+  <!-- Android -->
+  <rect x="40" y="334" width="800" height="52" rx="8" fill="#eceff1" stroke="#546e7a" stroke-width="2"/>
+  <text x="56" y="356" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#37474f">Android framework, runtime &amp; system apps</text>
+  <text x="56" y="374" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Java API framework, ART, media, OpenGL ES, system apps - familiar Android for users and apps</text>
+
+  <!-- Kernel -->
+  <rect x="40" y="398" width="800" height="52" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="2"/>
+  <text x="56" y="420" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#4527a0">Linux kernel, drivers &amp; firmware</text>
+  <text x="56" y="438" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Display, storage, networking, Bluetooth, inputs, cameras, power - PC-class device support</text>
+
+  <!-- Hardware -->
+  <rect x="40" y="462" width="800" height="44" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="56" y="490" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#4a148c">PC / panel / POS / tablet hardware you choose</text>
+
+  <text x="40" y="536" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#616161">Full labeled engineering diagram: Bass-Stack.20240308.svg  |  Product-line columns: Bass-Stack-simple.png</text>
+</svg>

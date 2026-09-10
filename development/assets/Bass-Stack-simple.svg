@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Bass product lines - simple comparison</title>
+  <desc id="desc">Shared Bass add-ons on top. Three columns: Lineout (Android is the OS), Submix (Linux hosts Android), and classic Bass OS (legacy Android-on-PC).</desc>
+
+  <rect width="900" height="520" fill="#fafafa"/>
+
+  <!-- Shared add-ons banner -->
+  <rect x="40" y="24" width="820" height="64" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="60" y="52" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1b5e20">Shared Bass extras (add-ons)</text>
+  <text x="60" y="74" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#333333">Kiosk, desktop shell, fleet tools, branding - same catalog across product lines</text>
+
+  <!-- Column headers -->
+  <text x="70" y="118" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#0d47a1">Bass: Lineout (current)</text>
+  <text x="340" y="118" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#e65100">Bass: Submix (current)</text>
+  <text x="610" y="118" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#4a148c">Bass OS classic (legacy)</text>
+
+  <!-- Lineout column -->
+  <rect x="40" y="132" width="260" height="70" rx="8" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="56" y="160" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0d47a1">Android is the OS</text>
+  <text x="56" y="182" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">You boot straight into Android</text>
+
+  <rect x="40" y="214" width="260" height="70" rx="8" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="56" y="242" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#e65100">Bass platform helpers</text>
+  <text x="56" y="264" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Hardware detect, profiles, tools</text>
+
+  <rect x="40" y="296" width="260" height="70" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="56" y="324" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#4a148c">Your PC hardware</text>
+  <text x="56" y="346" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">One image, many PC devices</text>
+
+  <!-- Submix column -->
+  <rect x="320" y="132" width="260" height="70" rx="8" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="336" y="160" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0d47a1">Android on top</text>
+  <text x="336" y="182" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Android apps in a container</text>
+
+  <rect x="320" y="214" width="260" height="70" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+  <text x="336" y="242" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#f57f17">Small Linux foundation</text>
+  <text x="336" y="264" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Hosts the machine + Linux tools</text>
+
+  <rect x="320" y="296" width="260" height="70" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="336" y="324" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#4a148c">Your PC hardware</text>
+  <text x="336" y="346" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Same class of PC devices</text>
+
+  <!-- Classic column -->
+  <rect x="600" y="132" width="260" height="70" rx="8" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="616" y="160" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0d47a1">Android is the OS</text>
+  <text x="616" y="182" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Similar idea to Lineout</text>
+
+  <rect x="600" y="214" width="260" height="70" rx="8" fill="#eceff1" stroke="#546e7a" stroke-width="2"/>
+  <text x="616" y="242" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#37474f">Earlier Bass stack</text>
+  <text x="616" y="264" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Older Android ranges / fleets</text>
+
+  <rect x="600" y="296" width="260" height="70" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="616" y="324" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#4a148c">Your PC hardware</text>
+  <text x="616" y="346" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">Still supported where deployed</text>
+
+  <!-- Caption -->
+  <text x="40" y="402" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#424242">New PC projects: prefer Lineout (or Submix if you need full Linux on the same box).</text>
+  <text x="40" y="424" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#424242">Classic Bass OS remains for existing fleets. Waydroid_NT is for teams that already run their own Linux.</text>
+  <text x="40" y="456" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#616161">Tip: open this file in a browser if the editor preview does not show SVGs.</text>
+  <text x="40" y="490" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#757575">Bass documentation - product line comparison</text>
+</svg>

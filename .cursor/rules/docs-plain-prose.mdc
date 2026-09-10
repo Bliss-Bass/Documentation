@@ -1,0 +1,47 @@
+---
+description: Avoid em/en dashes and other AI prose tells in documentation
+globs: "**/*.{md,mdx,txt}"
+alwaysApply: false
+---
+
+# Documentation prose (no AI tells)
+
+When writing or editing docs (Markdown, guides, READMEs, OVERRIDES, drafts):
+
+## Punctuation (ASCII only)
+
+- Use ASCII hyphen `-` only. Never em dash `—` or en dash `–`.
+- Prefer commas, periods, colons, or parentheses over dash asides.
+- Use straight quotes `"` and `'` only. Never curly `“ ” ‘ ’`.
+- Use `...` not the ellipsis character `…`.
+- Prefer `A16` / `A13-A16` over typographic range dashes.
+
+```markdown
+<!-- BAD -->
+Bass extends Android — it does not replace it.
+“just install AOSP”
+
+<!-- GOOD -->
+Bass extends Android; it does not replace it.
+"just install AOSP"
+```
+
+Title pattern: `Bass - High Level Overview` (spaces around `-`), not `Bass — …`.
+
+## Phrasing to avoid
+
+Do not paste stock LLM filler:
+
+- "In today's rapidly evolving…", "In the world of…", "When it comes to…"
+- "delve", "landscape", "robust", "seamless", "leverage", "utilize", "empower"
+- "It's important to note that", "It is worth noting", "At the end of the day"
+- Triple negation punchlines: "Not X. Not Y. It is Z."
+- Fake enthusiasm, emoji decoration, or marketing glitter unless the existing page already uses that voice
+
+## Voice
+
+- Match the surrounding doc: plain, concrete, product-name accurate.
+- Prefer short sentences and tables over ornate parallel lists.
+- Keep Bliss/Bass naming rules from the Product Guide (public product names, no internal codenames in customer-facing text).
+
+Before finishing a docs edit, search the touched files for `—`, `–`, `“`, `”`, `‘`, `’`, and `…` and replace them.
