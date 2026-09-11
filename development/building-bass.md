@@ -219,13 +219,13 @@ Current Lineout tablet builds use `vendor/ax86-lite/tools/build.sh`. Run `./buil
 
 | Flag | Effect |
 |------|--------|
-| `--bootsight` | Include BootSight; sets `ro.bass.fleet_mgmt=bootsight` |
-| `--fleet-mgmt=mdm` | Fleet policy for MDM builds (no BootSight) |
+| `--bootsight` | Include BootSight (Bass fleet backend / Device Status) |
+| `--fleet-mgmt=mdm` | Image expects a third-party MDM (no BootSight) |
 | `--fleet-mgmt=none` | No fleet component (default when neither flag is set) |
 | `--bsbanner` | BootSight overlay banner (implies `--bootsight`) |
 | `--bspopup` | BootSight overlay popup (implies `--bootsight`) |
 
-Do not combine `--bootsight` with `--fleet-mgmt=mdm`. Details: [Fleet Management](../features/fleet-management.md), [BootSight](../applications/BootSight/BootSight.md).
+Do not combine `--bootsight` with `--fleet-mgmt=mdm`. Product overview: [Fleet Management](../features/fleet-management.md), [BootSight](../applications/BootSight/BootSight.md).
 
 ### Logger, Button Manager, and Power
 

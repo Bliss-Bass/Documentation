@@ -19,6 +19,7 @@ You do **not** need an engineering degree to use most of these guides. Start wit
 | See how the software layers fit (simple pictures) | [High Level Overview](development/bass-high-level-overview.md) |
 | Install Bass on a PC | [Install A13-A16 (Aaropa)](Installation/x86_64-v2/bass_os_aaropa_install_process.md) |
 | Set up kiosk / lockdown | [Booting into lockdown builds](setup_and_configuration/booting-into-lockdown-builds.md) |
+| Manage a fleet (with or without GMS / MDM) | [Fleet Management](features/fleet-management.md) |
 | Learn about the desktop shell | [SmartDock DFC Guide](applications/SmartDockDFC/SALES_GUIDE.md) |
 
 **Tip:** In customer-facing material, use product names such as **Bass: Lineout** and **Bass: Submix** - not internal project codenames.

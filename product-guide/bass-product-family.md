@@ -256,7 +256,7 @@ Lineout (or classic if already in use). One image adapts across many displays an
 Lockdown is a first-class personality, not a bolted-on app. Restricted Launcher, branded overlays, and optional DNS internet restriction. Where Bass boot options are enabled, a device can switch between Tablet, Desktop, and Kiosk personalities without reimaging.
 
 **Hundreds of devices.**  
-BootSight for identity and licensing, Ethernet provisioning, file-based config cloning, remote tools, and OTA channels. Same add-on model whether the fleet is Lineout, Submix, or Waydroid_NT on the Android side.
+[Fleet Management](../features/fleet-management.md) covers Bass-native management without GMS (Device Owner / lockdown / Config Overrides / BootSight) and how third-party MDMs plug in via standard `dpm` plus Bass AIDL/`cmd`/file surfaces. Same add-on model whether the fleet is Lineout, Submix, or Waydroid_NT on the Android side.
 
 **Privacy / no Google account.**  
 No Google account required by default; curated open-source apps. Private apps and configs stay private.
