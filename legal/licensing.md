@@ -23,6 +23,9 @@ Supported **Evaluation Builds** on the Downloads site may bundle a **selection o
 - **GPLv3 election (dual-licensed components only)** - appropriate when a specific addon or toolkit component is dual-licensed and you fully comply with GPLv3 for that component.
 - **Commercial-only addons** - many addons have no OSS option; they require a commercial agreement even if you build Core from public trees.
 - Alterations that remove, rebrand, or redistribute Commercial Components, or that bypass licensing / evaluation controls, require a commercial agreement (see EULA §§1B-1C, §3).
+- **Branding / white-label:** Evaluation Builds may allow only custom boot animation, default wallpaper, and a company logo for kiosk launchers. Broader rebranding needs a **Custom Build Service Agreement** (EULA §1E). **OEM embedding / resale** and **hosted / as-a-service** use need separate written agreements (EULA §1F).
+- Device seats are **SKU-scoped**; extra paid addons are not unlocked by side-loading or config tricks (EULA §1G).
+- A Device license is **not** a support/SLA contract (EULA §§1H, 3E).
 
 Bass documentation is available under commercial licenses from Navotpala Tech (Bliss Co-Labs), and under the terms of the GNU Free Documentation License (FDL) version 1.3, as published by the Free Software Foundation.
 
@@ -59,6 +62,8 @@ Cloning a disk image, templating VMs, or rebuilding guests so that more than one
 
 **OTA / updates:** A standard Device license covers updates through Company-provided or Company-authorized channels for that product SKU. Hosting your own OTA/update feed, redirecting the on-device updater to private servers, or shipping a custom update pipeline for production Devices requires a separate **OTA service** and/or **custom / OEM build** agreement. Evaluation Builds do not include a production entitlement to operate independent OTA infrastructure.
 
+**Branding, OEM, and SKUs:** On Evaluation Builds you may use only the documented boot-animation, default-wallpaper, and kiosk-launcher logo options. Any other white-label or rebrand work needs a **Custom Build Service Agreement**. Preinstalling on hardware you sell, or offering Bass as a hosted service, requires an OEM / redistribution agreement. Your seat only covers the SKU and addons you purchased. See EULA §§1E-1G.
+
 Activation steps and purchase paths: [License Activation](../setup_and_configuration/license-activation.md). Binding legal terms: [EULA](END_USER_LICENSE_AGREEMENT.md).
 
 ## FAQ
@@ -70,6 +75,26 @@ Activation steps and purchase paths: [License Activation](../setup_and_configura
 **Q: Demo builds include paid addons. Can I use those in production for free?**
 
 **A:** No. Supported Evaluation Builds may bundle paid addons for testing (as listed on the Downloads site). Production use requires commercial Device / SKU licensing. Stripping BootSight, BassView, overlays, or other licensing controls does not create a free production entitlement.
+
+**Q: Can I rebrand Bass as my own OS with a single-device license?**
+
+**A:** Only in the narrow Evaluation Build sense: documented custom boot animation, default wallpaper, and company logo for kiosk launchers. Anything beyond those three options (OEM name, about screens, full white-label, shipping under your brand, and so on) requires a **Custom Build Service Agreement**. See EULA §1E.
+
+**Q: Can I preinstall Bass on hardware I sell, or offer it as a hosted service?**
+
+**A:** Not under a website single-Device license. Embedding, resale, channel SKUs, and multi-tenant / as-a-service offerings need an OEM or redistribution agreement. See EULA §1F.
+
+**Q: If I buy a Device seat, do I get every addon / desktop / kiosk / gaming feature?**
+
+**A:** No. Entitlements follow the SKU and features listed for your purchase. Side-loading addons or flipping props to unlock unpaid features is not licensed. See EULA §1G.
+
+**Q: Does a Device license include support or an SLA?**
+
+**A:** Not by itself. Support tiers and custom builds are separate agreements or published support policies. See EULA §§1H and 3E.
+
+**Q: May I extract platform or license signing keys from an image?**
+
+**A:** No. Company signing keys and build-pipeline secrets must not be extracted, shared, or used to sign unauthorized or impersonating builds. See EULA §3D.
 
 **Q: Does a single-device license cover multiple VMs if I keep the same default product / platform identity?**
 

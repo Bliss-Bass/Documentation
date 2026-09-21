@@ -76,7 +76,7 @@ To obtain offline licenses, gather your device serial numbers (Option A or B abo
 
 We offer an easy method to purchase single device licenses through our website here: [BassOS Single Device Licensing](https://bassos.navotpala.tech/licensing/#device-license)
 
-Use this path for one physical machine or one VM guest. It does not cover multi-VM fleets, cloned images used as additional instances, or operating your own OTA/update servers.
+Use this path for one physical machine or one VM guest. It does not cover multi-VM fleets, cloned images used as additional instances, operating your own OTA/update servers, full white-label / Custom Build branding beyond the Evaluation Build boot-animation / wallpaper / kiosk-logo options, or preinstalling Bass on hardware you sell (OEM / redistribution).
 
 ### Bulk Licensing
 

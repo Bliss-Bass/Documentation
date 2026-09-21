@@ -18,7 +18,7 @@
 
 ### **1A License Grant**
 
-The Company grants you a limited, non-exclusive, non-transferable, revocable license to use the Software on a single Device, subject to the terms of this Agreement, unless a separate written commercial agreement (for example, a bulk license, buyout, OEM, branding, or OTA service agreement) expressly authorizes additional Devices or different arrangements.
+The Company grants you a limited, non-exclusive, non-transferable, revocable license to use the Software on a single Device, subject to the terms of this Agreement, unless a separate written commercial agreement (for example, a bulk license, buyout, OEM, Custom Build Service Agreement, branding, or OTA service agreement) expressly authorizes additional Devices or different arrangements.
 
 Cloning, imaging, templating, snapshot restore, or rebuilding that results in another runnable instance requires a separate per-Device license for that instance, unless your written bulk or buyout agreement covers those seats.
 
@@ -47,6 +47,32 @@ Production deployment of Company images that include Commercial Components requi
 
 The license is non-transferable to another organization without the Company's prior written consent. If a licensed Device is permanently retired, failed, or replaced (for example hardware RMA or a rebuild that is intended as the same licensed seat rather than an additional instance), you may request that the Company reassign that seat to a replacement Device identity under the Company's then-current replacement process. Until the Company confirms reassignment, the replacement instance is not licensed. Cloning or running old and new instances at the same time still requires seats for each runnable instance.
 
+### **1E Branding and white-label**
+
+Except for the limited Evaluation Build options below, a Device license does **not** include rights to rebrand, white-label, or present the Software as your own operating system or product.
+
+**Evaluation Build limited branding (only):** Supported Evaluation Builds may include documented methods that let you supply (1) a custom boot animation, (2) a default wallpaper, and/or (3) a company logo for Company-provided kiosk launchers. Those three options are the **only** white-label / branding customizations offered on Evaluation Builds. Using them does not remove Company product identity elsewhere, does not grant OEM naming rights, and does not authorize shipping the image as your own OS.
+
+**All other branding** (including without limitation OEM / manufacturer name, about screens, setup wizard branding, broader launcher or system UI rebranding, removing Company marks, or shipping images under your brand) requires a written **Custom Build Service Agreement** (and any applicable OEM / branding / toolkit terms). Standard production Device seats remain Company-branded unless that agreement says otherwise.
+
+### **1F OEM, embedded, and redistribution**
+
+Except as permitted under applicable open-source licenses for Core components alone, or under a written commercial agreement, you may not:
+
+- Preinstall, embed, or bundle the Software (including Commercial Components) on hardware you sell or lease;
+- Offer the Software as a hosted, multi-tenant, or "Android PC / kiosk as a service" product to third parties;
+- Redistribute Company images, installers, or Commercial Components as part of your appliance, firmware drop, or channel SKU.
+
+Those uses require an **OEM**, redistribution, or similar commercial agreement that states the permitted channel, seat model, and branding. A website single-Device license is for your own Device use, not for resale or embedding.
+
+### **1G SKU and feature entitlements**
+
+Licenses are SKU- and feature-scoped. A Device seat unlocks only the product line, build variant, and Commercial Components included in that purchase (or expressly listed in your contract). Enabling additional paid addons or modes by side-loading modules, flipping configuration properties, changing build flags on derived images, or otherwise unlocking features outside your entitlement is not licensed. Demo-bundled addons remain evaluation-only unless your production SKU includes them.
+
+### **1H Support and services**
+
+Unless a separate written support, SLA, custom-build, or professional-services agreement says otherwise, a Device license grants use rights only. It does **not** include guaranteed support response times, private update channels, custom images, on-site assistance, or indemnity beyond what this Agreement or your commercial contract expressly provides.
+
 ### **2 Ownership**
 
 The Software is licensed, not sold. The Company retains all rights, title, and interest in and to the Commercial Components and Company-originated materials, including all intellectual property rights, subject to third-party open-source licenses for Core and other OSS components.
@@ -57,12 +83,17 @@ You may not:
 
 - Modify, adapt, translate, or create derivative works based on Commercial Components, except as expressly permitted under an applicable open-source license for a dual-licensed component where you have validly elected and complied with that license, or under a written commercial agreement with the Company.
 - Repackage, redistribute, or remove any default components, content, or configurations included with Company images in a manner that circumvents commercial licensing, evaluation limits, or product SKU entitlements.
+- Rebrand, white-label, or remove Company product identity except for the limited Evaluation Build boot-animation / wallpaper / kiosk-logo options in Section 1E, or under a written Custom Build Service Agreement (Section 1E).
+- Preinstall, embed, resell, or offer the Software as a service to third parties except under a written OEM / redistribution agreement (Section 1F).
+- Enable or use paid addons, SKUs, or feature modes outside your purchased entitlement (Section 1G).
 - Disable, remove, bypass, or interfere with licensing, serial-number generation, integrity checks, EULA / BassView acceptance, BootSight or similar Device Status / overlay UI, evaluation banners or popups, or other technical measures that enforce licensing or evaluation terms.
 - Circumvent, forge, clone, or share Device identity or licensing state across multiple Devices in order to use fewer licenses than the number of Devices in use (including by fixing or copying default product / platform identity settings on virtual machines or clones to reuse one seat).
 - Copy, share, publish, resell, or redistribute offline license files, license packs, activation codes, QR labels, or signing materials except as needed to activate Devices you have purchased seats for; you may not use those materials to activate unpurchased serials or to operate your own license-issuance service.
+- Extract, copy, share, or use Company platform signing keys, license-signing private keys, release certificates, or build-pipeline secrets; produce or distribute images signed to impersonate Company releases; or substitute unauthorized keys to bypass licensing or integrity checks (Section 3D).
 - Operate, redirect, or configure a private, third-party, or self-hosted over-the-air (OTA) / update feed for the Software, or otherwise bypass the Company-provided updater channel, except under a written **OTA service**, custom-build, or OEM update agreement with the Company. A standard single-Device license does **not** include the right to host or point Devices at your own update servers.
 - Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of Commercial Components, except to the limited extent that applicable law prohibits this restriction or an open-source license covering a dual-licensed component expressly permits it after a valid election.
 - Rent, lease, sell, sublicense, assign, or transfer your rights under this Agreement to any third party, except for a Company-approved Device replacement under Section 1D.
+- Use the Software in violation of Section 3F (acceptable use).
 
 ### **3A Volume, bulk, and buyout licensing**
 
@@ -79,6 +110,25 @@ Unless your written agreement states otherwise:
 ### **3C Offline activation materials**
 
 Where the Company issues offline licenses (`license.pack`, per-Device `.lic` files, activation codes, or QR labels), those materials are licensed solely to activate the serials / seats you purchased. Placing the same pack on every purchased Device for activation is allowed. Redistributing packs or codes to third parties, using them on Devices beyond purchased seats, reverse-engineering issuance, or substituting your own signing keys is prohibited.
+
+### **3D Signing keys and build pipeline**
+
+Company platform keys, license-signing keys, certificates, and other build- or release-pipeline secrets remain Company property. Access granted under an OEM or builder agreement is limited to the scope of that agreement. You may not extract keys from Devices or images, share them, use them to sign unauthorized builds, or craft releases that appear to be genuine Company builds. Compromising or misusing those materials is grounds for immediate termination of this Agreement and any related commercial contracts.
+
+### **3E Support versus license**
+
+Purchase or activation of a Device license does not, by itself, create a support or SLA obligation. Support tiers, response times, custom builds, and professional services are only as stated in a separate written agreement or the Company's published support policy for your product tier.
+
+### **3F Acceptable use**
+
+You may not use the Software to:
+
+- Operate unlawful surveillance, or other activity that violates applicable law;
+- Attack, disrupt, or gain unauthorized access to networks, systems, or data;
+- Provide a multi-tenant hosting platform or shared runtime to third parties beyond the Devices you have licensed (see also Section 1F);
+- Circumvent technical or contractual limits described in this Agreement.
+
+The Company may suspend or terminate licenses for material acceptable-use violations.
 
 ### **4 Device Information Collection**
 
@@ -124,4 +174,4 @@ If any provision of this Agreement is found to be invalid or unenforceable, the 
 
 ### **11 Entire Agreement**
 
-This Agreement constitutes the entire agreement between you and the Company with respect to the Software and supersedes all prior or contemporaneous understandings regarding such subject matter, except that a signed commercial agreement between you and the Company (bulk, buyout, OEM, branding, OTA service, or similar) controls to the extent of any conflict with this EULA for the products and seats covered by that agreement.
+This Agreement constitutes the entire agreement between you and the Company with respect to the Software and supersedes all prior or contemporaneous understandings regarding such subject matter, except that a signed commercial agreement between you and the Company (bulk, buyout, OEM, branding / white-label, Custom Build Service Agreement, redistribution, OTA service, support/SLA, or similar) controls to the extent of any conflict with this EULA for the products and seats covered by that agreement.
