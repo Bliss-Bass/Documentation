@@ -2,42 +2,67 @@
 
 **Last Updated:** 2026-09-21
 
-**IMPORTANT – PLEASE READ CAREFULLY:** This End User License Agreement ("Agreement") is a legal contract between you ("User") and Navotpala Tech ("Company") regarding the use of the software application ("Software"). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement. If you do not agree to the terms, do not install or use the Software.
+**IMPORTANT – PLEASE READ CAREFULLY:** This End User License Agreement ("Agreement") is a legal contract between you ("User") and Navotpala Tech ("Company") regarding the use of the Software (as defined below). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement. If you do not agree to the terms, do not install or use the Software.
 
 **Note:** Plain-language product licensing details also appear in [Licensing](licensing.md) and [License Activation](../setup_and_configuration/license-activation.md). If those documents conflict with this Agreement, this Agreement controls until superseded by a signed commercial contract.
 
-### **1 License Grant**
+### **1 Definitions**
 
-The Company grants you a limited, non-exclusive, non-transferable, revocable license to use the Software on a single Device (as defined below), subject to the terms of this Agreement, unless a separate written commercial agreement (for example, a bulk license, buyout, OEM, or OTA service agreement) expressly authorizes additional Devices or different update arrangements.
+**"Software"** means the Company-distributed Bass / Bass: Lineout product materials you receive or download, including without limitation: system images and installers; proprietary and commercially licensed addons and modules; patchsets and tooling from the Bass Toolkit and ax86-lite Toolkit as supplied by the Company; branding and UI assets; licensing, integrity, and fleet components (including BootSight and BassView / BlissView); activation materials; and related documentation and configuration shipped with those builds. "Software" does not extinguish third-party open-source licenses that apply to specific included components (see Section 1B).
 
-### **1A Definition of Device**
+**"Device"** means each physical computer, tablet, kiosk, appliance, or other hardware unit, and each virtual machine, hypervisor guest, containerized guest, cloud instance, or other virtualized runtime that presents as a separate install of the Software. Each concurrent or separately installed instance counts as its own Device.
 
-For purposes of this Agreement, a **"Device"** means each of the following that runs an instance of the Software:
+**"Commercial Components"** means Bass addons, modules, patchsets, branding assets, licensing/integrity components, and other materials that the Company offers only under commercial terms, or under a dual GPLv3 / commercial choice where you have not validly elected and complied with the GPLv3 option for that component.
 
-- A physical computer, tablet, kiosk, appliance, or other hardware unit; and
-- A virtual machine, hypervisor guest, containerized guest, cloud instance, or other virtualized runtime that presents as a separate install of the Software.
+**"Evaluation Build"** (also called a demo or trial build) means a Company-supported image distributed for evaluation that may include a selection of paid Commercial Components for testing, as described on the Company's Downloads site and related product materials.
 
-Each concurrent or separately installed instance counts as its own Device. Cloning, imaging, templating, snapshot restore, or rebuilding that results in another runnable instance requires a separate per-Device license for that instance, unless your written bulk or buyout agreement covers those seats.
+### **1A License Grant**
+
+The Company grants you a limited, non-exclusive, non-transferable, revocable license to use the Software on a single Device, subject to the terms of this Agreement, unless a separate written commercial agreement (for example, a bulk license, buyout, OEM, branding, or OTA service agreement) expressly authorizes additional Devices or different arrangements.
+
+Cloning, imaging, templating, snapshot restore, or rebuilding that results in another runnable instance requires a separate per-Device license for that instance, unless your written bulk or buyout agreement covers those seats.
 
 Pinning, copying, or spoofing a Device's default product configuration or licensing identity (including platform, firmware, or virtualization identity settings used to derive a serial or seat) so that more than one instance appears to share a single licensed identity does **not** reduce the number of Devices you must license. Those practices are prohibited under Section 3.
 
+### **1B Open-source components and Commercial Components**
+
+Bass: Lineout **Core** (the AOSP / Lineage-derived platform and related GPL and Apache-licensed components that form the open base of the OS) remains available under the open-source licenses that accompany those components (typically Apache License 2.0 for AOSP-originated code and GPL-family licenses where applicable). Nothing in this Agreement is intended to restrict your rights under those licenses for Core components alone.
+
+**Bass Addons** and **patchsets / materials from the Bass Toolkit and ax86-lite Toolkit** are separate from Core. They are either:
+
+- dual-licensed (GPLv3 or commercial), at the Company's election for that component; or
+- available **only** under commercial license (many production addons).
+
+Where a component is dual-licensed, exercising the GPLv3 option requires full compliance with GPLv3 for that component (and any applicable downstream obligations). Choosing commercial terms, or using Commercial Components as shipped in Company images without a valid GPLv3 election and compliance path, means those components are governed by this Agreement and any applicable commercial contract.
+
+**Supported Evaluation Builds** may include a selection of paid Commercial Components so you can evaluate the product. Inclusion in a demo image is **not** a grant of production, redistribution, white-label, or perpetual commercial rights to those addons. Production use of Commercial Components requires the appropriate Device license and any addon / SKU entitlements stated for your purchase. See the Downloads site for which paid addons are bundled in a given Evaluation Build, and [Licensing](licensing.md) for the Core vs addons split.
+
+### **1C Evaluation and production use**
+
+Evaluation Builds are licensed only for internal evaluation and testing, for the period and under the conditions stated for that build (including any on-device overlay, trial window, or SKU limits). Evaluation Builds are **not** licensed for production fleets, revenue-generating deployments, redistribution as your product, or continued use after stripping licensing, integrity, or evaluation controls.
+
+Production deployment of Company images that include Commercial Components requires a valid commercial Device license (and any required bulk, buyout, OEM, branding, or OTA agreements). A Device license for one SKU does not automatically unlock other paid addons or features.
+
+### **1D Seat transfer and Device replacement**
+
+The license is non-transferable to another organization without the Company's prior written consent. If a licensed Device is permanently retired, failed, or replaced (for example hardware RMA or a rebuild that is intended as the same licensed seat rather than an additional instance), you may request that the Company reassign that seat to a replacement Device identity under the Company's then-current replacement process. Until the Company confirms reassignment, the replacement instance is not licensed. Cloning or running old and new instances at the same time still requires seats for each runnable instance.
+
 ### **2 Ownership**
 
-The Software is licensed, not sold. The Company retains all rights, title, and interest in and to the Software, including all intellectual property rights.
+The Software is licensed, not sold. The Company retains all rights, title, and interest in and to the Commercial Components and Company-originated materials, including all intellectual property rights, subject to third-party open-source licenses for Core and other OSS components.
 
 ### **3 Restrictions**
 
 You may not:
 
-- Modify, adapt, translate, or create derivative works based on the Software, except as expressly permitted under an applicable open-source license for specific components, or under a written commercial agreement with the Company.
-- Repackage, redistribute, or remove any default components, content, or configurations included with the Software.
-- Disable any system services that are used in licensing or serial number generation.
+- Modify, adapt, translate, or create derivative works based on Commercial Components, except as expressly permitted under an applicable open-source license for a dual-licensed component where you have validly elected and complied with that license, or under a written commercial agreement with the Company.
+- Repackage, redistribute, or remove any default components, content, or configurations included with Company images in a manner that circumvents commercial licensing, evaluation limits, or product SKU entitlements.
+- Disable, remove, bypass, or interfere with licensing, serial-number generation, integrity checks, EULA / BassView acceptance, BootSight or similar Device Status / overlay UI, evaluation banners or popups, or other technical measures that enforce licensing or evaluation terms.
 - Circumvent, forge, clone, or share Device identity or licensing state across multiple Devices in order to use fewer licenses than the number of Devices in use (including by fixing or copying default product / platform identity settings on virtual machines or clones to reuse one seat).
+- Copy, share, publish, resell, or redistribute offline license files, license packs, activation codes, QR labels, or signing materials except as needed to activate Devices you have purchased seats for; you may not use those materials to activate unpurchased serials or to operate your own license-issuance service.
 - Operate, redirect, or configure a private, third-party, or self-hosted over-the-air (OTA) / update feed for the Software, or otherwise bypass the Company-provided updater channel, except under a written **OTA service**, custom-build, or OEM update agreement with the Company. A standard single-Device license does **not** include the right to host or point Devices at your own update servers.
-- Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Software, except to the limited extent that applicable law prohibits this restriction or an open-source license covering a specific component expressly permits it.
-- Rent, lease, sell, sublicense, assign, or transfer your rights under this Agreement to any third party.
-
-
+- Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of Commercial Components, except to the limited extent that applicable law prohibits this restriction or an open-source license covering a dual-licensed component expressly permits it after a valid election.
+- Rent, lease, sell, sublicense, assign, or transfer your rights under this Agreement to any third party, except for a Company-approved Device replacement under Section 1D.
 
 ### **3A Volume, bulk, and buyout licensing**
 
@@ -49,9 +74,11 @@ Unless your written agreement states otherwise:
 
 - A licensed Device may receive updates only through Company-provided or Company-authorized update channels configured for that product SKU.
 - Self-hosting an update catalog, changing updater URIs or properties to point at non-Company servers, or shipping a custom update pipeline for production Devices requires an **OTA service license** and/or a **custom / OEM build** agreement.
-- Evaluation or demo builds do not grant a production entitlement to operate independent OTA infrastructure.
+- Evaluation Builds do not grant a production entitlement to operate independent OTA infrastructure.
 
+### **3C Offline activation materials**
 
+Where the Company issues offline licenses (`license.pack`, per-Device `.lic` files, activation codes, or QR labels), those materials are licensed solely to activate the serials / seats you purchased. Placing the same pack on every purchased Device for activation is allowed. Redistributing packs or codes to third parties, using them on Devices beyond purchased seats, reverse-engineering issuance, or substituting your own signing keys is prohibited.
 
 ### **4 Device Information Collection**
 
@@ -73,11 +100,11 @@ The Company may also collect additional non-personal technical signals reasonabl
 
 ### **5 Privacy**
 
-The Company respects your privacy and will handle any personal data collected in connection with the Software in accordance with the Company’s Privacy Policy, which is incorporated into this Agreement by reference. You can review the Privacy Policy [here](https://github.com/Bliss-Bass/Documentation/legal/Navotpala_Tech_Privacy_Policy.md)
+The Company respects your privacy and will handle any personal data collected in connection with the Software in accordance with the Company’s Privacy Policy, which is incorporated into this Agreement by reference. You can review the Privacy Policy [here](https://github.com/Bliss-Bass/Documentation/legal/Navotpala\_Tech\_Privacy\_Policy.md)
 
 ### **6 Term and Termination**
 
-This Agreement is effective until terminated. Your rights under this Agreement will terminate automatically without notice if you fail to comply with any term of this Agreement. Upon termination, you must cease all use of the Software and destroy all copies of the Software in your possession.
+This Agreement is effective until terminated. Your rights under this Agreement will terminate automatically without notice if you fail to comply with any term of this Agreement. Upon termination, you must cease all use of the Software and destroy all copies of the Software in your possession (including offline activation materials you are no longer entitled to use). Rights in Core components under their open-source licenses survive according to those licenses.
 
 ### **7 Disclaimer of Warranties**
 
@@ -97,4 +124,4 @@ If any provision of this Agreement is found to be invalid or unenforceable, the 
 
 ### **11 Entire Agreement**
 
-This Agreement constitutes the entire agreement between you and the Company with respect to the Software and supersedes all prior or contemporaneous understandings regarding such subject matter, except that a signed commercial agreement between you and the Company (bulk, buyout, OEM, OTA service, or similar) controls to the extent of any conflict with this EULA for the products and seats covered by that agreement.
+This Agreement constitutes the entire agreement between you and the Company with respect to the Software and supersedes all prior or contemporaneous understandings regarding such subject matter, except that a signed commercial agreement between you and the Company (bulk, buyout, OEM, branding, OTA service, or similar) controls to the extent of any conflict with this EULA for the products and seats covered by that agreement.

@@ -1,21 +1,30 @@
 
 # Licensing
 
-Bass OS is available under different licensing options designed to accommodate the needs of our various users: 
+Bass / Bass: Lineout products combine an open **Core** with separately licensed **addons** and toolkit materials. Binding terms for commercial use live in the [End User License Agreement](END_USER_LICENSE_AGREEMENT.md). This page is the plain-language map.
 
-- Bass OS licensed under commercial licenses is appropriate for development of proprietary/commercial software where you do not want to share any source code with third parties or otherwise cannot comply with the terms of the GNU GPL version 3.
-- Bass OS licensed under the GNU General Public License (GPL) version 3 is appropriate for the development of Bass OS applications provided you can comply with the terms and conditions of the GNU GPL version 3.
-- Bass OS components can be licensed under the GNU General Public License (GPL) version 3 or the commercial license choice of its developers.and are appropriate for the development of Bass OS applications commonly used with Bass OS addons or software components licensed under the commercial or GNU GPL version 3 terms and conditions.
-- Any alterations to the Bass OS source or compiled images, including repackaging, redistribution, distribution of altered images, or removal of included system components or configurations (including configuration changes), are subject to license compliance requirements. If you are unable to comply with the terms and conditions of the GNU GPL version 3, you must obtain a commercial license from Navotpala Tech (Bliss Co-Labs) to use Bass OS.
+## Bass: Lineout Core vs addons and toolkits
 
+| Layer | What it is | Typical licensing |
+|-------|------------|-------------------|
+| **Bass: Lineout Core** | AOSP / Lineage-derived platform and related GPL and Apache-licensed OS components | Open-source licenses that ship with those components (Apache 2.0 and GPL-family where applicable) |
+| **Bass Addons** | Product modules (fleet/licensing UI, desktop/kiosk extras, audio, power, and similar) | Dual-licensed **GPLv3 or commercial**, **or commercial-only** (many production addons) |
+| **Bass Toolkit / ax86-lite Toolkit patchsets** | Vendor patchsets, build/integration materials, and related toolkit output as supplied by Navotpala Tech | Dual-licensed **GPLv3 or commercial**, **or commercial-only**, per component |
 
-Bass OS also contains third-party code that is licensed under specific open-source licenses from the original authors (See Third-Party Code in Bass OS below). 
+Using Core under its OSS licenses does **not** grant production rights to Commercial Components. Shipping or deploying Company images that include paid addons, or using those addons outside a valid GPLv3 election and compliance path for dual-licensed components, requires commercial Device / SKU licensing under the [EULA](END_USER_LICENSE_AGREEMENT.md).
 
-Note: For open-source licensed Bass OS, some specific parts (Bass OS addons) are available under the GNU General Public License (GPL). See the list of Bass OS modules for details. For commercial licensees, all Bass OS addons are available under individual, commercial Bass OS licenses.
+## Evaluation (demo) builds
 
-Bass OS documentation  is available under commercial licenses from Navotpala Tech (Bliss Co-Labs), and under the terms of the GNU Free Documentation License (FDL) version 1.3, as published by the Free Software Foundation.
+Supported **Evaluation Builds** on the Downloads site may bundle a **selection of paid addons** so you can try the product. That bundle is for evaluation only. It is not a perpetual commercial license, not a right to strip licensing / integrity UI, and not permission to run production fleets or self-hosted OTA on the strength of the demo image alone. See the Downloads listing for which paid addons are included in a given demo, and [License Activation](../setup_and_configuration/license-activation.md) for turning evaluation into a licensed Device.
 
-Bass OS addon examples  are available under commercial licenses from Navotpala Tech (Bliss Co-Labs), and under a GNU GPL version 3 license.
+## Commercial licensing options
+
+- **Commercial Device licenses** - appropriate when you deploy Company images or Commercial Components in production, or when you cannot or do not wish to comply with GPLv3 for dual-licensed addons / toolkit materials.
+- **GPLv3 election (dual-licensed components only)** - appropriate when a specific addon or toolkit component is dual-licensed and you fully comply with GPLv3 for that component.
+- **Commercial-only addons** - many addons have no OSS option; they require a commercial agreement even if you build Core from public trees.
+- Alterations that remove, rebrand, or redistribute Commercial Components, or that bypass licensing / evaluation controls, require a commercial agreement (see EULA §§1B-1C, §3).
+
+Bass documentation is available under commercial licenses from Navotpala Tech (Bliss Co-Labs), and under the terms of the GNU Free Documentation License (FDL) version 1.3, as published by the Free Software Foundation.
 
 Educational licenses are available for students and educators in qualified educational institutions or universities.
 
@@ -29,7 +38,7 @@ For further information and assistance about Bass OS licensing, contact our sale
 
 The following documents the open-source licenses used in different parts of Bass OS:
 
-Bass OS core is GPL-3.0 and also inherits the same Apache v2 licensing that AOSP uses for most of the components, while many of the other components like Android-Generic Project use GPL-2.0 license. For product use, we do not include proprietary components like Google Apps, Native-Bridge (Houdini or Libndk-translation), or Widevine. Some features and toolkits like our rebranding toolkit do require additional licensing to be obtained by the customer (See Bass OS components above). 
+**Bass: Lineout Core** is built from AOSP / Lineage-class trees: much of the platform is Apache License 2.0; other components use GPL-family licenses (and projects such as Android-Generic may use GPL-2.0). For product use, we do not include proprietary components like Google Apps, Native-Bridge (Houdini or Libndk-translation), or Widevine. Rebranding toolkits and many Bass Addons require additional commercial licensing (see above).
 
 - AOSP Licenses - Bliss OS License - Bliss ROM License - Android-Generic Project License - Boringdroid License -
 
@@ -46,11 +55,21 @@ Cloning a disk image, templating VMs, or rebuilding guests so that more than one
 
 **Website single-device licenses** are for genuine one-Device use (including a single VM guest). Multi-VM fleets, imaging pipelines, and deployments over our usual volume threshold (more than ten Device licenses, or any multi-instance production fleet) need a **bulk licensing** or **buyout** contract. Contact [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing).
 
-**OTA / updates:** A standard Device license covers updates through Company-provided or Company-authorized channels for that product SKU. Hosting your own OTA/update feed, redirecting the on-device updater to private servers, or shipping a custom update pipeline for production Devices requires a separate **OTA service** and/or **custom / OEM build** agreement. Evaluation and demo builds do not include a production entitlement to operate independent OTA infrastructure.
+**Seat replacement:** A purchased seat is tied to a Device identity. Permanent hardware replacement or a same-seat rebuild can be reassigned through our replacement process; running old and new instances together still needs two seats. See EULA §1D.
+
+**OTA / updates:** A standard Device license covers updates through Company-provided or Company-authorized channels for that product SKU. Hosting your own OTA/update feed, redirecting the on-device updater to private servers, or shipping a custom update pipeline for production Devices requires a separate **OTA service** and/or **custom / OEM build** agreement. Evaluation Builds do not include a production entitlement to operate independent OTA infrastructure.
 
 Activation steps and purchase paths: [License Activation](../setup_and_configuration/license-activation.md). Binding legal terms: [EULA](END_USER_LICENSE_AGREEMENT.md).
 
 ## FAQ
+
+**Q: Is Bass: Lineout Core free / open source?**
+
+**A:** Core (AOSP / Lineage-derived GPL and Apache components) follows the open-source licenses that ship with those components. Bass Addons and Bass Toolkit / ax86-lite Toolkit patchsets are separate: dual-licensed GPLv3/commercial or commercial-only. See the table above and EULA §1B.
+
+**Q: Demo builds include paid addons. Can I use those in production for free?**
+
+**A:** No. Supported Evaluation Builds may bundle paid addons for testing (as listed on the Downloads site). Production use requires commercial Device / SKU licensing. Stripping BootSight, BassView, overlays, or other licensing controls does not create a free production entitlement.
 
 **Q: Does a single-device license cover multiple VMs if I keep the same default product / platform identity?**
 
@@ -60,9 +79,13 @@ Activation steps and purchase paths: [License Activation](../setup_and_configura
 
 **A:** No. Private or self-hosted OTA feeds and updater URI overrides for production use require an OTA service or custom-build agreement. See the [EULA](END_USER_LICENSE_AGREEMENT.md) (§3B) and [Updates and OTA](../features/updates-and-ota.md).
 
+**Q: Can I share my offline license.pack with other machines?**
+
+**A:** You may place the pack on every Device whose serial you purchased so each unit can activate. You may not redistribute packs or codes to activate serials you did not purchase, or run your own issuance. See EULA §3C.
+
 **Q: Does Bass OS include proprietary software?**
 
-**A:** Yes. Our FOSS and Vanilla builds might include some proprietary parts for drivers, firmware and media codecs. 
+**A:** Yes. Our FOSS and Vanilla builds might include some proprietary parts for drivers, firmware and media codecs. Supported Lineout Evaluation Builds may also include commercially licensed Bass Addons for evaluation only.
 
 Proprietary redistributables in all Bliss OS public builds: 
 - linux-firmware blobs 
@@ -75,7 +98,7 @@ Proprietary redistributables in all Bliss OS public builds:
 
 **Q: Is Bass OS suitable for companies?**
 
-**A:** Yes. We produce minimal vanilla and FOSS builds of Bass OS with x86/x86_64 PC hardware support. Bass OS builds come with only proprietary drivers, firmware and media support included, and those are available to test with. While those builds are very basic, they do include much of what would be needed to base a product off of. If your product requires no additional changes on top of what is released to the public, then you are free to use it at no cost.
+**A:** Yes. We produce minimal vanilla and FOSS builds of Bass OS with x86/x86_64 PC hardware support, and supported Lineout Evaluation Builds that include selected Commercial Components for testing. Core-only use under applicable OSS licenses is possible where you do not rely on Commercial Components. Production use of Company images that include paid addons, or commercial-only addons themselves, requires Device / commercial licensing under the [EULA](END_USER_LICENSE_AGREEMENT.md).
 If your product requires Google Apps, ARM/ARM64 Native-Bridge, or Widevine, due to licensing restrictions from their holding companies, we are unable to provide support. In those cases, we suggest that you reach out and we can help you look into alternative options using open-source solutions.
 
 **Q: Is there a Bass OS version with Google Play Store?**
@@ -88,12 +111,7 @@ If your product requires Google Apps, ARM/ARM64 Native-Bridge, or Widevine, due 
 
 **Q: Can my company use Bass OS in a product?**
 
-**A:** Yes, This applies to Android-PC (AOSP), Bliss OS, Bliss OS Go or Bass OS sources. If you are an individual developer, a startup, or represent some other business enterprise and you are interested in using our project, the open-source licenses we maintain allow you to use the source at no cost as long as you use it: 
-A) as-is, meaning you make no changes to how we release it.
-B) you contribute any changes made back to our source repos.
-C) produce the full source to the public independently, maintaining full git attribution.
-
-If you would like to use our source and make changes to it that you do not plan on or are not able to  release as open-source, we request you contact us to work out a per-device licensing agreement and/or setup a development contract for branding, optimizations and specific needs.
+**A:** For **Core** components, the open-source licenses that accompany them allow use subject to those licenses (including share-alike obligations where GPL applies). For **Bass Addons** and **toolkit patchsets**, you need either a valid GPLv3 path on dual-licensed components or a commercial agreement; commercial-only addons always need a commercial agreement. If you want to ship a branded Company image, paid addons, or closed changes to dual-licensed materials, contact us for per-device licensing and/or a development / OEM contract.
 
 **Q: Does my company have to release any changes made to the collective source code of Bass OS?**
 

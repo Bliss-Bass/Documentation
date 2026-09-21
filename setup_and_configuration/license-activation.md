@@ -29,7 +29,13 @@ Some builds are configured for offline licensing (`persist.bass.bootsight.offlin
 
 Offline licenses are cryptographically signed and bound to each device's serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.
 
-**Virtual machines and clones:** Each VM guest or rebuilt instance is a separate Device for licensing, even on the same hypervisor host. Pinning or copying default product / platform identity settings so multiple instances share one licensing identity does **not** let one single-device license cover a fleet. Those deployments need bulk or buyout licensing. Self-hosted or redirected OTA/update feeds are not included with a standard Device license; they require an OTA service or custom-build agreement. See the [EULA](../legal/END_USER_LICENSE_AGREEMENT.md) and [Licensing](../legal/licensing.md).
+**Virtual machines and clones:** Each VM guest or rebuilt instance is a separate Device for licensing, even on the same hypervisor host. Pinning or copying default product / platform identity settings so multiple instances share one licensing identity does **not** let one single-device license cover a fleet. Those deployments need bulk or buyout licensing. Self-hosted or redirected OTA/update feeds are not included with a standard Device license; they require an OTA service or custom-build agreement.
+
+**Offline packs:** You may place the same `license.pack` on every Device whose serial you purchased. Do not redistribute packs or codes to activate serials you did not buy.
+
+**Evaluation builds:** Supported demo images may include paid addons for testing (see the Downloads site). That is not a production license; see [Licensing](../legal/licensing.md) and the [EULA](../legal/END_USER_LICENSE_AGREEMENT.md).
+
+**Seat replacement:** For permanent hardware replacement or a same-seat rebuild, contact us to reassign the seat; running old and new instances together still needs two seats.
 
 There are three ways to apply an offline license:
 
