@@ -35,7 +35,30 @@ Bass OS core is GPL-3.0 and also inherits the same Apache v2 licensing that AOSP
 
 For Bass OS/Bliss OS source, we do catalog all the repos used and their licenses. You can view that here.
 
+## Device licenses, VMs, and updates
+
+Commercial **per-device** licensing treats each install that can run as its own licensed seat. That includes:
+
+- One physical machine = one Device
+- One virtual machine / hypervisor guest (for example QEMU/KVM under Proxmox, virt-manager, or similar) = one Device
+
+Cloning a disk image, templating VMs, or rebuilding guests so that more than one instance runs (even if default product / platform identity settings are pinned or copied so instances look like the same Device) still requires **one license per runnable instance**, unless you have a written **bulk** or **buyout** agreement that covers those seats. Sharing one single-device license across multiple VMs or hosts by spoofing identity is not permitted under the [End User License Agreement](END_USER_LICENSE_AGREEMENT.md).
+
+**Website single-device licenses** are for genuine one-Device use (including a single VM guest). Multi-VM fleets, imaging pipelines, and deployments over our usual volume threshold (more than ten Device licenses, or any multi-instance production fleet) need a **bulk licensing** or **buyout** contract. Contact [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing).
+
+**OTA / updates:** A standard Device license covers updates through Company-provided or Company-authorized channels for that product SKU. Hosting your own OTA/update feed, redirecting the on-device updater to private servers, or shipping a custom update pipeline for production Devices requires a separate **OTA service** and/or **custom / OEM build** agreement. Evaluation and demo builds do not include a production entitlement to operate independent OTA infrastructure.
+
+Activation steps and purchase paths: [License Activation](../setup_and_configuration/license-activation.md). Binding legal terms: [EULA](END_USER_LICENSE_AGREEMENT.md).
+
 ## FAQ
+
+**Q: Does a single-device license cover multiple VMs if I keep the same default product / platform identity?**
+
+**A:** No. Each VM guest is a separate Device. Pinning or copying default product configuration or platform identity so clones share one licensing identity does not reduce seats owed. Use bulk or buyout licensing for fleets of VMs; see the [EULA](END_USER_LICENSE_AGREEMENT.md) (§1A, §3, §3A).
+
+**Q: Can I point BootSight / the updater at my own OTA servers with a single-device license?**
+
+**A:** No. Private or self-hosted OTA feeds and updater URI overrides for production use require an OTA service or custom-build agreement. See the [EULA](END_USER_LICENSE_AGREEMENT.md) (§3B) and [Updates and OTA](../features/updates-and-ota.md).
 
 **Q: Does Bass OS include proprietary software?**
 

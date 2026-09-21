@@ -142,6 +142,7 @@ You do **not** need an engineering degree to use most of these guides. Start wit
 ## Legal
 
 * [End User License Agreement](legal/END_USER_LICENSE_AGREEMENT.md)
+* [Licensing](legal/licensing.md)
 * [Privacy Policy](legal/Navotpala_Tech_Privacy_Policy.md)
 * [Website Privacy Policy](legal/Privacy_Policy_for_Bass_OS_Website.md)
 

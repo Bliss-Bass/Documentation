@@ -29,6 +29,8 @@ Some builds are configured for offline licensing (`persist.bass.bootsight.offlin
 
 Offline licenses are cryptographically signed and bound to each device's serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.
 
+**Virtual machines and clones:** Each VM guest or rebuilt instance is a separate Device for licensing, even on the same hypervisor host. Pinning or copying default product / platform identity settings so multiple instances share one licensing identity does **not** let one single-device license cover a fleet. Those deployments need bulk or buyout licensing. Self-hosted or redirected OTA/update feeds are not included with a standard Device license; they require an OTA service or custom-build agreement. See the [EULA](../legal/END_USER_LICENSE_AGREEMENT.md) and [Licensing](../legal/licensing.md).
+
 There are three ways to apply an offline license:
 
 **1. USB drive + Files app (no ADB, no network)**
@@ -68,9 +70,13 @@ To obtain offline licenses, gather your device serial numbers (Option A or B abo
 
 We offer an easy method to purchase single device licenses through our website here: [BassOS Single Device Licensing](https://bassos.navotpala.tech/licensing/#device-license)
 
+Use this path for one physical machine or one VM guest. It does not cover multi-VM fleets, cloned images used as additional instances, or operating your own OTA/update servers.
+
 ### Bulk Licensing
 
-We require a licensing contract for any more than 10 licenses. Follow the steps above to gather the serial numbers required, and contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing) with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete. 
+We require a licensing contract for any more than 10 licenses, and for any multi-VM / multi-instance production deployment (including when guests are cloned or identity fields are held constant). Follow the steps above to gather the serial numbers required, and contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing) with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete.
+
+For fleets that need private update delivery or a company-specific updater feed, ask about an **OTA service** / custom-build agreement in the same conversation (or email subject line `OTA Service Licensing`). 
 
 From there, you can manually navigate each device to Settings > Device Status & check license status from there, reboot each device, or use adb to reboot each device for it to confirm it's license status once it reconnects to the internet:
 
