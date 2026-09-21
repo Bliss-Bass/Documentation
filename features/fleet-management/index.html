@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.841792698978">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843339007504">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Fleet Management</title>
     <meta name="title" content="Fleet Management">
-    <meta name="description" content="Bass builds declare how the device is managed with a single read-only property:">
+    <meta name="description" content="In plain English: Bass can run as a managed Android fleet without Google Mobile Services (GMS), Google accounts, or Google's Android Enterprise cloud. Images support two management styles: Bass's own fleet / licensing backend (BootSight Device Status), or a third-party MDM you already use.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/features/fleet-management/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/features/fleet-management/">
     <meta property="og:title" content="Fleet Management">
-    <meta property="og:description" content="Bass builds declare how the device is managed with a single read-only property:">
+    <meta property="og:description" content="In plain English: Bass can run as a managed Android fleet without Google Mobile Services (GMS), Google accounts, or Google's Android Enterprise cloud. Images support two management styles: Bass's own fleet / licensing backend (BootSight Device Status), or a third-party MDM you already use.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,19 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/features/fleet-management/">
     <meta name="twitter:title" content="Fleet Management">
-    <meta name="twitter:description" content="Bass builds declare how the device is managed with a single read-only property:">
+    <meta name="twitter:description" content="In plain English: Bass can run as a managed Android fleet without Google Mobile Services (GMS), Google accounts, or Google's Android Enterprise cloud. Images support two management styles: Bass's own fleet / licensing backend (BootSight Device Status), or a third-party MDM you already use.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/features/fleet-management.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.841792698978" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.843339007504" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.841792698978" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.843339007504" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,72 +162,363 @@
 
                 <!-- Page content  -->
 <h1 id="fleet-management">Fleet Management</h1>
-<p>Bass builds declare how the device is managed with a single read-only property:</p>
-<div id="fleet-management-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">ro.bass.fleet_mgmt</code></pre>
-</doc-codeblock></div>
+<p><strong>In plain English:</strong> Bass can run as a managed Android fleet without Google Mobile Services (GMS), Google accounts, or Google&#x27;s Android Enterprise cloud. Images support two management styles: <strong>Bass&#x27;s own fleet / licensing backend</strong> (BootSight Device Status), or a <strong>third-party MDM</strong> you already use. This page explains both paths, what Bass unlocks that GMS fleets usually cannot, and how other MDMs typically talk to Bass add-ons.</p>
+<p>Your image is assembled for a specific management path as part of the product you receive. For product-line choice, see the <a href="../../product-guide/bass-product-family/">Bass Product Family Guide</a>. For Device Status / licensing UI, see <a href="../../applications/bootsight/">BootSight</a> and <a href="../../setup_and_configuration/license-activation/">License Activation</a>.</p>
+<hr>
+<h2 id="management-modes">Management modes</h2>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
-<th>Value</th>
-<th>Meaning</th>
+<th>Mode</th>
+<th>What you get</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code translate="no" v-pre>bootsight</code></td>
-<td>BootSight is included and is the fleet / license component</td>
+<td><strong>Bass fleet backend (BootSight)</strong></td>
+<td>On-device Device Status, license activation, and Bass-side fleet identity. Common when you want Bass-native management without a third-party MDM console.</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>mdm</code></td>
-<td>A third-party MDM is expected; BootSight is not included</td>
+<td><strong>Third-party MDM</strong></td>
+<td>Your vendor&#x27;s agent / console (for example Headwind, ScaleFusion, Syncfusion, or another DPC). Bass still supplies kiosk, lockdown, white-label, and PC add-on surfaces underneath.</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>none</code></td>
-<td>No fleet component (default when neither flag is set)</td>
+<td><strong>Unmanaged</strong></td>
+<td>Lab, consumer, or desktop-style images with no fleet agent.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="build-flags">Build flags</h2>
+<p>Licensing and fleet identity on BootSight images use Device Status and the supported activation flow. Work with your Bass contact for the correct image SKU rather than trying to change management after delivery.</p>
+<hr>
+<h2 id="android-enterprise-style-management-without-gms">Android Enterprise-style management without GMS</h2>
+<p>Stock &quot;Android Enterprise&quot; marketing often assumes:</p>
+<ul>
+<li>Google Play / Play Protect</li>
+<li>a Google account or managed Google domain</li>
+<li>Android Management API (AMAPI), zero-touch, or QR enrollment tied to Google&#x27;s cloud</li>
+</ul>
+<p>Bass Lineout / Submix / legacy fleets are usually <strong>FOSS / no-GMS by default</strong>. Management still uses the same Android <strong>Device Policy</strong> building blocks (Device Admin / Device Owner via <code translate="no" v-pre>DevicePolicyManager</code> and <code translate="no" v-pre>dpm</code>), but <strong>without</strong> requiring GMS or Google&#x27;s enrollment cloud.</p>
+<h3 id="what-bass-does-on-device">What Bass does on-device</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
-<th>Flag</th>
-<th>Result</th>
+<th>Capability</th>
+<th>How Bass supports it without GMS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code translate="no" v-pre>--bootsight</code></td>
-<td>Includes BootSight and sets <code translate="no" v-pre>ro.bass.fleet_mgmt=bootsight</code></td>
+<td><strong>Device Owner / Device Admin</strong></td>
+<td>Restricted Launcher (and Pro), BootSight, and SmartDock use Android device-admin / device-owner hooks where the image is configured for them.</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>--fleet-mgmt=mdm</code></td>
-<td>Sets <code translate="no" v-pre>ro.bass.fleet_mgmt=mdm</code> without BootSight</td>
+<td><strong>Kiosk / lockdown personality</strong></td>
+<td>GRUB <strong>Bass boot options</strong> (Tablet / Desktop / Kiosk Admin / Kiosk Lockdown) plus Restricted Launcher or Kiosk Launcher - not a Play-managed &quot;dedicated device&quot; profile.</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>--fleet-mgmt=none</code></td>
-<td>Sets <code translate="no" v-pre>ro.bass.fleet_mgmt=none</code> without BootSight</td>
+<td><strong>Install / uninstall lock</strong></td>
+<td>Supported lockdown images can block PackageInstaller and <code translate="no" v-pre>pm install</code> / <code translate="no" v-pre>pm uninstall</code> while booted in lockdown. See <a href="../lockdown-install-block/">Lockdown install block</a>.</td>
+</tr>
+<tr>
+<td><strong>Settings / admin gates</strong></td>
+<td><a href="../admin-restriction/">Admin Restriction</a> and launcher admin password flows keep end users out of system settings.</td>
+</tr>
+<tr>
+<td><strong>Network allowlists</strong></td>
+<td><a href="../dns-internet-restriction/">DNS Internet Restriction</a> without Google DNS / Chrome policy.</td>
+</tr>
+<tr>
+<td><strong>Identity and licensing</strong></td>
+<td>BootSight Device Status and the documented license activation path. No Play licensing.</td>
+</tr>
+<tr>
+<td><strong>First-boot / clone provisioning</strong></td>
+<td>Flat files under <code translate="no" v-pre>/data/misc/</code> via <a href="../../applications/blissconfigoverrides/">Bliss Config Overrides</a>; Ethernet first-boot via <a href="../../applications/ethernetconfig/">Ethernet Config</a>.</td>
+</tr>
+<tr>
+<td><strong>White-label</strong></td>
+<td>Shared OS image with customer boot animation / wallpaper / branding - no per-customer Google-signed SKU. See the <a href="../../development/bass-high-level-overview/">High Level Overview</a> white-label section.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Do not combine <code translate="no" v-pre>--bootsight</code> with <code translate="no" v-pre>--fleet-mgmt=mdm</code>. Use <code translate="no" v-pre>--bootsight</code> when you want BootSight; use <code translate="no" v-pre>--fleet-mgmt</code> when you want a policy without BootSight.</p>
-<p>Examples:</p>
-<div id="build-flags-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --bootsight --bsbanner ...
-./build.sh --fleet-mgmt=mdm ...</code></pre>
+<p>These are <strong>platform</strong> policy hooks. They do not need Google Play Services to function.</p>
+<h3 id="what-managed-looks-like-day-to-day-bass-fleet-backend">What &quot;managed&quot; looks like day to day (Bass fleet backend)</h3>
+<ol>
+<li>Receive / install the image your project was provisioned with.</li>
+<li>Optionally apply Config Overrides under <code translate="no" v-pre>/data/misc/</code> and complete license activation.</li>
+<li>Complete Admin-mode setup for kiosk (whitelist, auto-launch, password).</li>
+<li>Reboot into Lockdown (or leave Desktop/Tablet personality).</li>
+<li>Use BootSight Device Status for license / serial state.</li>
+</ol>
+<hr>
+<h2 id="what-bass-allows-that-gms-fleets-usually-cannot">What Bass allows that GMS fleets usually cannot</h2>
+<p>GMS + Android Enterprise is powerful for phone/tablet fleets that live inside Google&#x27;s ecosystem. It is a poor fit for many Bass use cases. Things that work on Bass and typically <strong>do not</strong> work (or are blocked / unsupported) on sealed GMS Enterprise devices:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Bass capability</th>
+<th>Why GMS Enterprise usually cannot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Google account / no Play Services</strong></td>
+<td>AMAPI and many MDM features assume GMS. Bass FOSS images run without them.</td>
+</tr>
+<tr>
+<td><strong>PC-class hardware adaptation</strong></td>
+<td>Phone Enterprise images do not ship Bass configurable HALs, mappers, or PC GPU/display bring-up.</td>
+</tr>
+<tr>
+<td><strong>Boot-time personalities</strong> (Tablet / Desktop / Kiosk Admin / Lockdown)</td>
+<td>Not an Android Enterprise policy surface; GRUB / Bass boot options are OS-level.</td>
+</tr>
+<tr>
+<td><strong>White-label on one shared OS</strong></td>
+<td>Enterprise customers often need separate OEM builds or Play-managed branding limits; Bass overrides branding without a new platform fork.</td>
+</tr>
+<tr>
+<td><strong>Privileged add-ons with vendor AIDL</strong></td>
+<td>Power sleep policy, ethernet static/DHCP/tether, hardware button maps - exposed as system services MDMs can call, not as Play APIs.</td>
+</tr>
+<tr>
+<td><strong>File-based fleet cloning</strong> (<code translate="no" v-pre>/data/misc/*.conf</code>)</td>
+<td>Works offline and without Google&#x27;s zero-touch; GMS fleets expect cloud enrollment.</td>
+</tr>
+<tr>
+<td><strong>Lockdown that blocks even <code translate="no" v-pre>pm install</code></strong></td>
+<td>Bass lockdown install block is tied to boot mode, not a Play Protect policy.</td>
+</tr>
+<tr>
+<td><strong>Discretion / no kiss-and-tell</strong></td>
+<td>Bass does not require publishing the fleet into a Google-managed customer directory.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If a requirement is &quot;must enroll in Google zero-touch / AMAPI,&quot; that is a different product shape. Use a GMS-bearing image only when the customer truly needs that cloud, and accept the tradeoffs above.</p>
+<hr>
+<h2 id="third-party-mdms-generic-pattern">Third-party MDMs (generic pattern)</h2>
+<p>Products such as <strong>Headwind MDM</strong>, <strong>ScaleFusion</strong>, <strong>Syncfusion</strong> (and many others) follow the same Android pattern on Bass:</p>
+<ol>
+<li>Start from an image your Bass contact provisioned for third-party MDM.</li>
+<li>Install the vendor&#x27;s <strong>Device Policy Controller (DPC)</strong> / agent per that vendor&#x27;s guide.</li>
+<li>Make the DPC <strong>Device Owner</strong> (or Device Admin, depending on the product) using the enrollment method that vendor supports on AOSP / no-GMS devices (factory provisioning, QR/NFC if available without Google, or their documented <code translate="no" v-pre>dpm</code> flow).</li>
+<li>Use the MDM console for app push, remote wipe, location, and policy <strong>where that agent supports AOSP</strong>.</li>
+<li>For Bass-specific behavior (power, ethernet, buttons, config files, boot mode), drive the <strong>Bass surfaces below</strong> from the agent&#x27;s scripting, remote shell, or a small companion app - do not expect Google Play Enterprise APIs to expose them.</li>
+</ol>
+<p>Bass does not certify every MDM. Treat the names above as examples of the class. Validate Device Owner on your FOSS Bass image before you commit a fleet.</p>
+<h3 id="what-the-mdm-owns-vs-what-bass-owns">What the MDM owns vs what Bass owns</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Layer</th>
+<th>Typical owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App catalog, remote lock/wipe, compliance UI</td>
+<td>Third-party MDM agent + console</td>
+</tr>
+<tr>
+<td>Device Owner / admin rights</td>
+<td>MDM DPC on third-party MDM images; Restricted Launcher / BootSight on Bass fleet-backend images</td>
+</tr>
+<tr>
+<td>Boot personality, install block, DNS lockdown, white-label</td>
+<td>Bass OS / add-ons</td>
+</tr>
+<tr>
+<td>Power, ethernet, POS buttons, config files</td>
+<td>Bass AIDL / <code translate="no" v-pre>cmd</code> / <code translate="no" v-pre>/data/misc</code> (callable from MDM scripts)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="integration-surfaces-api-aidl-command-line">Integration surfaces (API, AIDL, command line)</h2>
+<p>Use these from an MDM remote shell, a privileged companion app, or approved imaging scripts. Full contracts live in the linked docs.</p>
+<h3 id="boot-mode-and-identity-when-present">Boot mode and identity (when present)</h3>
+<div id="boot-mode-and-identity-when-present-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell getprop ro.boot.bliss.bootmode          # e.g. lockdown, admin, ...
+adb shell getprop ro.bliss.serialnumber          # licensing / device identity on BootSight images</code></pre>
 </doc-codeblock></div>
-<h2 id="check-on-a-device">Check on a device</h2>
-<div id="check-on-a-device-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell getprop ro.bass.fleet_mgmt</code></pre>
+<h3 id="config-overrides-file-push">Config Overrides (file push)</h3>
+<p>Push key/value files, then trigger apply (or reboot):</p>
+<div id="config-overrides-file-push-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb push settings_global.conf /data/misc/
+adb push settings_system.conf /data/misc/
+adb push settings_secure.conf /data/misc/
+adb push runtime_props.conf /data/misc/
+adb push device_config.conf /data/misc/
+adb shell setprop persist.ax86.update_configs 1</code></pre>
 </doc-codeblock></div>
-<h2 id="bootsight-only-behavior">BootSight-only behavior</h2>
-<p>BootSight init and the bassboot watchdog only run when the property is <code translate="no" v-pre>bootsight</code>. On <code translate="no" v-pre>mdm</code> or <code translate="no" v-pre>none</code> builds those scripts exit early.</p>
-<p>More detail: <a href="../../applications/bootsight/">BootSight</a> and <a href="../../setup_and_configuration/license-activation/">License Activation</a>.</p>
+<p>Details and examples: <a href="../../applications/blissconfigoverrides/">Bliss Config Overrides</a>.</p>
+<h3 id="ax86-power-aidl--service-call">Ax86 Power (AIDL + <code translate="no" v-pre>service call</code>)</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ServiceManager</td>
+<td><code translate="no" v-pre>blisspower</code> (legacy <code translate="no" v-pre>IBlissPower</code>)</td>
+</tr>
+<tr>
+<td>Native</td>
+<td><code translate="no" v-pre>IAx86Power</code> / <code translate="no" v-pre>org.ax86.power</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ax86-power-aidl--service-call-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell service list | grep blisspower
+adb shell service call blisspower 1   # reboot
+adb shell service call blisspower 2   # shutdown
+adb shell service call blisspower 3   # sleep</code></pre>
+</doc-codeblock></div>
+<p>Full AIDL: <a href="../../applications/ax86power/aidl_interface/">Ax86 Power AIDL</a>, legacy notes: <a href="../../interfaces/blisspowermanageraidl/power-management-aidl/">Power Management AIDL</a>.</p>
+<h3 id="ethernet-config-aidl--service-call">Ethernet Config (AIDL + <code translate="no" v-pre>service call</code>)</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ServiceManager</td>
+<td><code translate="no" v-pre>blissethernet</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ethernet-config-aidl--service-call-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell service list | grep blissethernet
+# Transaction codes and static/DHCP/tether helpers:
+# see Ethernet Config AIDL doc</code></pre>
+</doc-codeblock></div>
+<p>Full AIDL: <a href="../../applications/ethernetconfig/aidl_interface/">Ethernet Config AIDL</a>.</p>
+<h3 id="button-manager-cmd--aidl">Button Manager (<code translate="no" v-pre>cmd</code> + AIDL)</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ServiceManager</td>
+<td><code translate="no" v-pre>ax86_btnmgr</code></td>
+</tr>
+<tr>
+<td>Shell</td>
+<td><code translate="no" v-pre>cmd ax86_btnmgr ...</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="button-manager-cmd--aidl-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell cmd ax86_btnmgr list
+adb shell cmd ax86_btnmgr export /sdcard/ax86_btn_manager.conf
+adb shell cmd ax86_btnmgr import /data/misc/ax86_btn_manager.conf --merge
+adb shell cmd ax86_btnmgr reload</code></pre>
+</doc-codeblock></div>
+<p>Full AIDL: <a href="../../applications/ax86buttonmanager/aidl_interface/">Button Manager AIDL</a>.</p>
+<h3 id="device-policy-dpm">Device policy (<code translate="no" v-pre>dpm</code>)</h3>
+<div id="device-policy-dpm-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell dpm list-owners
+adb shell dumpsys device_policy</code></pre>
+</doc-codeblock></div>
+<p>Use the component names required by your DPC or by the Bass components on your image. SmartDock documents Device Admin usage in its <a href="../../applications/smartdockdfc/vendor_guide/">Vendor Guide</a>.</p>
+<h3 id="imaging-notes">Imaging notes</h3>
+<ul>
+<li>Lineout: approved factory process can clone <code translate="no" v-pre>/data/misc</code> and boot options as part of imaging (<a href="../../development/addon-development/">Addon development</a> for builders).</li>
+<li>Submix: see vendor deployment docs linked from <a href="../../installation/submix/submix-install/">Submix install</a> for host + Android provisioning.</li>
+</ul>
+<hr>
+<h2 id="choosing-a-path">Choosing a path</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Goal</th>
+<th>What to ask for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>License + Device Status, Bass-native kiosk</td>
+<td>Image with Bass fleet backend (BootSight) (+ Restricted Launcher / lockdown as needed)</td>
+</tr>
+<tr>
+<td>Existing MDM console (Headwind, ScaleFusion, Syncfusion, etc.)</td>
+<td>Image prepared for third-party MDM + vendor DPC; use Bass AIDL/<code translate="no" v-pre>cmd</code>/files for PC extras</td>
+</tr>
+<tr>
+<td>Lab / consumer / no fleet agent</td>
+<td>Unmanaged image</td>
+</tr>
+<tr>
+<td>Strict lockdown + no sideload</td>
+<td>Lockdown-capable image with install/uninstall block enabled</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="related-reading">Related reading</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Topic</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BootSight / Device Status</td>
+<td><a href="../../applications/bootsight/">BootSight</a>, <a href="../../userguides/bootsight/">User guide</a></td>
+</tr>
+<tr>
+<td>License activation</td>
+<td><a href="../../setup_and_configuration/license-activation/">License Activation</a></td>
+</tr>
+<tr>
+<td>Kiosk boot flow</td>
+<td><a href="../../setup_and_configuration/booting-into-lockdown-builds/">Booting into lockdown builds</a></td>
+</tr>
+<tr>
+<td>Restricted Launcher</td>
+<td><a href="../../applications/blissrestrictedlauncher/">Bliss Restricted Launcher</a></td>
+</tr>
+<tr>
+<td>Updates</td>
+<td><a href="../updates-and-ota/">Updates and OTA</a></td>
+</tr>
+<tr>
+<td>High-level platform map</td>
+<td><a href="../../development/bass-high-level-overview/">High Level Overview</a></td>
+</tr>
+</tbody>
+</table>
+</div>
 
                 
                 <!-- Required only on API pages -->

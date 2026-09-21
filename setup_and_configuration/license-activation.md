@@ -2,7 +2,7 @@
 
 Some of the Bass OS builds do require licensing activation. After contacting us with your device serial numbers and purchasing a license, there are a few different ways it can be activated.
 
-On builds that include [BootSight](../applications/BootSight/BootSight.md) (`--bootsight`, `ro.bass.fleet_mgmt=bootsight`), the on-device path is Settings → **Device Status**. Builds that use an MDM instead (`--fleet-mgmt=mdm`) will not show that entry. See [Fleet Management](../features/fleet-management.md).
+On images that include [BootSight](../applications/BootSight/BootSight.md) (Bass fleet backend), the on-device path is Settings → **Device Status**. Images prepared for a third-party MDM will not show that entry. See [Fleet Management](../features/fleet-management.md).
 
 ### Option A: On Device
 
@@ -28,6 +28,14 @@ Connect to the device using ADB, and run the following command to collect its se
 Some builds are configured for offline licensing (`persist.bass.bootsight.offline_licensing=1`, produced by `build.sh --bs-offline`). These devices never contact the license server and send no telemetry. They are activated with a signed license file or an activation code instead.
 
 Offline licenses are cryptographically signed and bound to each device's serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.
+
+**Virtual machines and clones:** Each VM guest or rebuilt instance is a separate Device for licensing, even on the same hypervisor host. Pinning or copying default product / platform identity settings so multiple instances share one licensing identity does **not** let one single-device license cover a fleet. Those deployments need bulk or buyout licensing. Self-hosted or redirected OTA/update feeds are not included with a standard Device license; they require an OTA service or custom-build agreement.
+
+**Offline packs:** You may place the same `license.pack` on every Device whose serial you purchased. Do not redistribute packs or codes to activate serials you did not buy.
+
+**Evaluation builds:** Supported demo images may include paid addons for testing (see the Downloads site). That is not a production license; see [Licensing](../legal/licensing.md) and the [EULA](../legal/END_USER_LICENSE_AGREEMENT.md).
+
+**Seat replacement:** For permanent hardware replacement or a same-seat rebuild, contact us to reassign the seat; running old and new instances together still needs two seats.
 
 There are three ways to apply an offline license:
 
@@ -68,9 +76,13 @@ To obtain offline licenses, gather your device serial numbers (Option A or B abo
 
 We offer an easy method to purchase single device licenses through our website here: [BassOS Single Device Licensing](https://bassos.navotpala.tech/licensing/#device-license)
 
+Use this path for one physical machine or one VM guest. It does not cover multi-VM fleets, cloned images used as additional instances, operating your own OTA/update servers, full white-label / Custom Build branding beyond the Evaluation Build boot-animation / wallpaper / kiosk-logo options, or preinstalling Bass on hardware you sell (OEM / redistribution).
+
 ### Bulk Licensing
 
-We require a licensing contract for any more than 10 licenses. Follow the steps above to gather the serial numbers required, and contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing) with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete. 
+We require a licensing contract for any more than 10 licenses, and for any multi-VM / multi-instance production deployment (including when guests are cloned or identity fields are held constant). Follow the steps above to gather the serial numbers required, and contact us at [info@navotpala.tech](mailto:info@navotpala.tech?subject=Licensing) with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete.
+
+For fleets that need private update delivery or a company-specific updater feed, ask about an **OTA service** / custom-build agreement in the same conversation (or email subject line `OTA Service Licensing`). 
 
 From there, you can manually navigate each device to Settings > Device Status & check license status from there, reboot each device, or use adb to reboot each device for it to confirm it's license status once it reconnects to the internet:
 

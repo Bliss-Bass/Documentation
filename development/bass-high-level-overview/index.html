@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.841792698978">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843339007504">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Bass - High Level Overview</title>
     <meta name="title" content="Bass - High Level Overview">
-    <meta name="description" content="Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.">
+    <meta name="description" content="In plain English: Bass is software that lets you run Android on ordinary PC-class machines - home desktops and laptops, gaming PCs, tablets, panel PCs, POS terminals, mini PCs, and more - without buying a special \"Android-only\" device from a big OEM, and without building Android yourself.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/development/bass-high-level-overview/">
@@ -22,8 +22,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/development/bass-high-level-overview/">
     <meta property="og:title" content="Bass - High Level Overview">
-    <meta property="og:description" content="Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.">
-    <meta property="og:image" content="https://docs.blisscolabs.dev/development/assets/bass-stack.20240308.svg">
+    <meta property="og:description" content="In plain English: Bass is software that lets you run Android on ordinary PC-class machines - home desktops and laptops, gaming PCs, tablets, panel PCs, POS terminals, mini PCs, and more - without buying a special \"Android-only\" device from a big OEM, and without building Android yourself.">
+    <meta property="og:image" content="https://docs.blisscolabs.dev/development/assets/bass-stack-simple.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Bass - High Level Overview">
@@ -34,8 +34,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/development/bass-high-level-overview/">
     <meta name="twitter:title" content="Bass - High Level Overview">
-    <meta name="twitter:description" content="Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.">
-    <meta name="twitter:image" content="https://docs.blisscolabs.dev/development/assets/bass-stack.20240308.svg">
+    <meta name="twitter:description" content="In plain English: Bass is software that lets you run Android on ordinary PC-class machines - home desktops and laptops, gaming PCs, tablets, panel PCs, POS terminals, mini PCs, and more - without buying a special \"Android-only\" device from a big OEM, and without building Android yourself.">
+    <meta name="twitter:image" content="https://docs.blisscolabs.dev/development/assets/bass-stack-simple.png">
     <meta name="twitter:image:alt" content="Bass - High Level Overview">
 
     <!-- Alternate Markdown -->
@@ -43,11 +43,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.841792698978" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.843339007504" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=4.5.3" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -167,21 +168,334 @@
 
                 <!-- Page content  -->
 <h1 id="bass---high-level-overview">Bass - High Level Overview</h1>
-<p>Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.</p>
-<h2 id="overview">Overview</h2>
-<p>Bass comes with a number of parts that work together to make the system configurable and reliable as well as save time and effort.</p>
-<h3 id="bass---system-architecture">Bass - System Architecture</h3>
-<p><figure class="content-center">
-    <img src="../assets/bass-stack.20240308.svg" alt="Bass - System Architecture" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption">Bass - System Architecture</figcaption>
+<p><strong>In plain English:</strong> Bass is software that lets you run Android on ordinary PC-class machines - home desktops and laptops, gaming PCs, tablets, panel PCs, POS terminals, mini PCs, and more - without buying a special &quot;Android-only&quot; device from a big OEM, and without building Android yourself.</p>
+<p>This page is a <strong>map of how the pieces fit</strong>. For choosing a product line (Lineout, Submix, and so on), start with the <a href="../../product-guide/bass-product-family/">Bass Product Family Guide</a>.</p>
+<p>Bass is for <strong>people and organizations</strong>: everyday desktop users, gamers, journalists, privacy-minded / OPSEC setups, schools and shops, and enterprise fleets. The same platform family; different personalities and add-ons.</p>
+<hr>
+<h2 id="what-problem-does-bass-solve">What problem does Bass solve?</h2>
+<p>Stock Android is written for phones and tablets that ship with <strong>fixed, factory-tuned hardware</strong>. Plenty of people still want Android apps and an Android-style experience on <strong>PC hardware they already own or can buy off the shelf</strong> - whether that is a personal desktop, a gaming rig, a newsroom laptop, a hardened personal machine, or a store / clinic panel PC.</p>
+<p>That sounds simple - until you look at how Android actually treats devices.</p>
+<h3 id="android-is-not-generic-about-hardware">Android is not &quot;generic&quot; about hardware</h3>
+<p>On a typical PC or Linux box, many peripherals are expected to work after you plug them in: USB gadgets, PCI cards, keyboards and mice, speakers, touch panels, and so on. Drivers and userspace cooperate across a wide range of vendors.</p>
+<p><strong>Android does not work that way.</strong></p>
+<p>A commercial Android image is usually built for <strong>one device family</strong>. The OEM (or silicon partner) wires up a long list of pieces that must match that board:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Area</th>
+<th>What stock Android usually assumes</th>
+<th>What breaks on ordinary PC / panel hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>USB</strong></td>
+<td>Known controllers, gadgets, and permissions for <em>that</em> product</td>
+<td>Scanners, payment dongles, cameras, serial adapters, and hubs often need policy, HAL, and permission work - not just &quot;plug in&quot;</td>
+</tr>
+<tr>
+<td><strong>PCI / PCIe</strong></td>
+<td>A fixed set of GPUs, NICs, storage, and bridges</td>
+<td>Different chipsets and discrete cards need kernel + graphics/audio/network bring-up that phone images never shipped</td>
+</tr>
+<tr>
+<td><strong>I²C / SPI / platform buses</strong></td>
+<td>Sensors, touch controllers, PMICs, and codecs soldered to <em>that</em> board</td>
+<td>Panel PCs and tablets reuse many of these buses with <strong>different</strong> chips; wrong tables = no touch, no battery fuel gauge, dead sensors</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td>One touch panel, a few buttons, maybe a fingerprint sensor</td>
+<td>Multi-touch overlays, HID keyboards/mice, barcode wedges, and &quot;weird&quot; HID devices need mapping so Android sees them as the right kind of input</td>
+</tr>
+<tr>
+<td><strong>Audio / speakers</strong></td>
+<td>A phone-style codec path tuned in the factory</td>
+<td>HDMI audio, USB headsets, multi-channel PC sound, and panel speakers each need the right audio HAL and routing - silence or wrong output is common otherwise</td>
+</tr>
+<tr>
+<td><strong>Display</strong></td>
+<td>One internal panel with a known pipeline</td>
+<td>HDMI / DP hotplug, multiple monitors, and minipc GPUs need compositor and HWC behavior phone builds do not provide</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>On top of that, modern Android keeps <strong>tightening the walls</strong>: sealed partitions, signed images, SELinux, Treble HALs, scoped storage, and stricter USB / peripheral access. That is good for phone security. It is hard for anyone who wants <strong>one Android experience across many off-the-shelf machines</strong>.</p>
+<p>So &quot;just install AOSP on a PC&quot; is rarely enough. Without adaptive hardware bridges, device policies, and product packaging, you get a locked-down phone OS sitting on hardware it was never taught to drive.</p>
+<h3 id="what-bass-does-about-that">What Bass does about that</h3>
+<p>Bass fills the gap:</p>
+<ol>
+<li>You install a Bass image on the machine.</li>
+<li>Bass <strong>detects and adapts</strong> displays, touch, audio, USB/input paths, and related hardware at boot where the platform allows.</li>
+<li>Optional <strong>add-ons</strong> and <strong>build personalities</strong> shape the experience: desktop shell, gaming-oriented setups, journalism / field kits, security and OPSEC-minded lockdown, kiosk mode, fleet tools, branding, and more.</li>
+</ol>
+<p>You get an Android experience that fits the <strong>machine and the person using it</strong> - without a custom OS project for every SKU, and without pretending stock Android was ever a generic PC OS.</p>
+<h3 id="who-it-is-for-not-only-businesses">Who it is for (not only businesses)</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Audience</th>
+<th>Typical goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Consumers / desktop users</strong></td>
+<td>Android on a normal PC or mini PC, with a desktop-friendly shell instead of a phone UI stretched onto a monitor</td>
+</tr>
+<tr>
+<td><strong>Gaming</strong></td>
+<td>Play Android titles (and related gaming tooling) on PC hardware you already own</td>
+</tr>
+<tr>
+<td><strong>Journalism / field work</strong></td>
+<td>Portable Android on laptops and tablets with the peripherals and workflows a newsroom or freelancer needs</td>
+</tr>
+<tr>
+<td><strong>Security / OPSEC</strong></td>
+<td>Hardened, low-telemetry, no-Google-by-default builds for people who care who can see what the device does</td>
+</tr>
+<tr>
+<td><strong>Business / education / public sector</strong></td>
+<td>Kiosk, POS, panel PC, classroom, and fleet deployments with <strong>white-label</strong> branding (your look, not Bass chrome) and optional management</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Same underlying Bass platform; different combinations of product line, personality, and add-ons.</p>
+<h3 id="how-bass-is-different-quick-contrast">How Bass is different (quick contrast)</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Approach</th>
+<th>What it is</th>
+<th>What Bass does instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phone / OEM Android tablets</strong></td>
+<td>Fixed hardware + OEM skin; Google stack often baked in; limited PC flexibility</td>
+<td>Runs on <strong>PC-class hardware you choose</strong>, with desktop / gaming / kiosk / privacy options and <strong>no Google account required by default</strong></td>
+</tr>
+<tr>
+<td><strong>Intel Project Celadon</strong></td>
+<td>Android-on-PC reference built around a <strong>container-based device tree</strong>: often a <strong>separate Android container per display</strong>. Displays can be isolated that way, but USB, PCI, I2C, input, and audio still sit behind Android&#x27;s usual lockdown - not a generic &quot;plug in any PC peripheral&quot; host</td>
+<td><strong>One</strong> Android system on the machine for normal PC use (Lineout as the OS, or Submix with a single Android container on a Linux host). Multi-monitor is handled in the Android/desktop shell, while Bass works the <strong>adaptive HAL / policy</strong> problem so ordinary PC hardware and peripherals are usable - not another sealed phone image per screen</td>
+</tr>
+<tr>
+<td><strong>DIY AOSP / android-x86 alone</strong></td>
+<td>You assemble hardware bring-up, desktop/gaming/kiosk packaging, and maintenance yourself</td>
+<td>Those concerns are <strong>packaged</strong> as Bass platform + optional add-ons and personalities</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Bliss (and Bass as the PC-facing product family) is therefore <strong>not</strong> &quot;stock Android with a wallpaper,&quot; and it is <strong>not</strong> Celadon rebranded. Celadon is a useful reference for some silicon and virtualization paths; it does not solve generic PC peripheral access the way Bass targets. Bass is the product you install and use.</p>
+<hr>
+<h2 id="the-simple-picture-product-lines">The simple picture (product lines)</h2>
+<p>Bass shares the same <strong>extras catalog</strong> (desktop, gaming helpers, kiosk, fleet, security, white-label branding, and more). Product lines differ in <strong>how Android sits on the machine</strong>:</p>
+<figure class="content-center">
+    <img src="../assets/bass-stack-simple.png" alt="Bass product lines - simple comparison" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="900" height="520" />
+    <figcaption class="caption">Bass product lines - simple comparison</figcaption>
 </figure>
-The various parts added to Android with Bass are as follows:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bass: Lineout</strong> (current)</td>
+<td>Android <em>is</em> the OS. Best default for new PC projects. White-label branding without a separate OS fork.</td>
+</tr>
+<tr>
+<td><strong>Bass: Submix</strong> (current)</td>
+<td>A small Linux foundation hosts the machine; Android runs on top. Same white-label model on the Android side.</td>
+</tr>
+<tr>
+<td><strong>Bass OS classic</strong> (legacy)</td>
+<td>Earlier Android-on-PC line - still for existing fleets; new work prefers Lineout/Submix. Same branding override approach.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Not shown as a full column:</strong> <strong>Waydroid_NT</strong> (you already run Linux; Bass only adds Android) and <strong>Bass-ARM</strong> (Raspberry Pi-class boards). See the <a href="../../product-guide/bass-product-family/">Product Family Guide</a>.</p>
+<p>Vector source: <a href="../assets/bass-stack-simple.svg"><code translate="no" v-pre>Bass-Stack-simple.svg</code></a> (open in a browser if the editor SVG preview is blank).</p>
+<hr>
+<h2 id="bass-layers-we-keep-from-the-full-architecture">Bass layers we keep from the full architecture</h2>
+<p>The original engineering diagram (<code translate="no" v-pre>Bass-Stack.20240308.svg</code>) shows the whole Android stack plus Bass blocks. We <strong>still ship that file</strong>. For day-to-day reading, here is the same Bass-specific story without the phone-style density:</p>
+<figure class="content-center">
+    <img src="../assets/bass-stack-layers.png" alt="Bass stack layers" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="880" height="560" />
+    <figcaption class="caption">Bass stack layers</figcaption>
+</figure>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Layer (from the 2024 architecture)</th>
+<th>Everyday meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vendor add-ons, apps &amp; services</strong></td>
+<td>Your private apps and device-management pieces</td>
+</tr>
+<tr>
+<td><strong>Bass vendor configuration</strong></td>
+<td>White-label wallpapers, boot animation, themes, startup prefs (same OS, your look)</td>
+</tr>
+<tr>
+<td><strong>Bass apps &amp; services</strong></td>
+<td>Helpers for config, hardware management, updates, permissions</td>
+</tr>
+<tr>
+<td><strong>Bass configurable HALs</strong></td>
+<td>Adaptive bridges so graphics/audio/input/network fit many PCs</td>
+</tr>
+<tr>
+<td><strong>Android framework &amp; runtime</strong></td>
+<td>Normal Android for users and apps</td>
+</tr>
+<tr>
+<td><strong>Linux kernel / drivers</strong></td>
+<td>PC device support underneath</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>So: <strong>three diagrams, three jobs</strong></p>
+<ol>
+<li><code translate="no" v-pre>Bass-Stack-simple</code> - Lineout vs Submix vs classic</li>
+<li><code translate="no" v-pre>Bass-Stack-layers</code> - Bass blocks retained from the full architecture (readable)</li>
+<li><code translate="no" v-pre>Bass-Stack.20240308.svg</code> - full labeled engineering stack (unchanged, still linked below)</li>
+</ol>
+<hr>
+<h2 id="how-the-pieces-work-together">How the pieces work together</h2>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre translate="no" class="mermaid w-full">flowchart TB
+  subgraph users [People using the device]
+    U[Touch, mouse, keyboard]
+  end
+
+  subgraph experience [What they see]
+    UI[Android apps and UI]
+    ADD[Personalities and add-ons: desktop, gaming, kiosk, privacy]
+  end
+
+  subgraph bass [What Bass does]
+    DETECT[Detect hardware at boot]
+    CONFIG[Apply settings and profiles]
+    APPS[Bass helper apps and services]
+  end
+
+  subgraph hw [Physical machine]
+    PC[PC / tablet / panel / POS]
+  end
+
+  U --&gt; UI
+  ADD --&gt; UI
+  UI --&gt; APPS
+  APPS --&gt; DETECT
+  APPS --&gt; CONFIG
+  DETECT --&gt; PC
+  CONFIG --&gt; PC</pre></div>
+<p><strong>Boot time (short version):</strong></p>
+<ol>
+<li>The machine starts and Bass looks at what hardware is attached.</li>
+<li>It applies the right display, audio, touch, and power behavior when it can.</li>
+<li>Android starts with your chosen personality (tablet, desktop, kiosk, or a specialized build such as gaming, journalism, or security/OPSEC) if those options are in the image.</li>
+<li>Add-ons and branding included with that build are already part of the image - you do not assemble the stack by hand.</li>
+</ol>
+<hr>
+<h2 id="four-ideas-that-show-up-everywhere">Four ideas that show up everywhere</h2>
+<h3 id="1-one-platform-family-several-product-lines">1. One platform family, several product lines</h3>
+<p>Bass is a <strong>family</strong>. Product lines differ mainly in <em>how Android sits on the machine</em>:</p>
 <ul>
-<li><strong>BASS Configurable HAL&#x27;s:</strong>  These are switchable Hardware Abstraction Layers for Graphics cards &amp; rendering engines, audio interfaces, network interfaces, input &amp; sensor interfaces, and more.</li>
-<li><strong>BASS Apps &amp; Services:</strong> These are the various apps and system services that interface with the hardware and added configurations and allow for a tailored out of the box solution using a generic build.</li>
-<li><strong>BASS Vendor Configuration Layer:</strong> This layer is what handles the targeted look and feel as well the individual configurations specific to the brand or target application.</li>
-<li><strong>Vendor Addons, Apps &amp; Services:</strong> These are all the private parts of the system that are not open-source or parts not meant for a generic audience. This provides the interface and middleware required for the addons and vendor specific apps or services to be included in the system that are specific to that devices target audience.</li>
+<li><strong>Bass: Lineout</strong> - Android <em>is</em> the OS (most common for new PC projects).</li>
+<li><strong>Bass: Submix</strong> - a small Linux foundation hosts the machine; Android runs on top.</li>
+<li><strong>Waydroid_NT</strong> - you keep your own Linux; Bass adds Android in a container.</li>
+<li><strong>Bass OS (classic)</strong> / <strong>Bass-ARM</strong> - earlier PC line, or Raspberry Pi-class boards.</li>
 </ul>
+<p>Details and a choice table: <a href="../../product-guide/bass-product-family/">Product Family Guide</a>.</p>
+<h3 id="2-add-ons-are-optional-parts-not-a-separate-os">2. Add-ons are optional parts, not a separate OS</h3>
+<p>Think of add-ons as a <strong>parts catalog</strong>: desktop shell, gaming helpers, kiosk launcher, journalism/field tools, security and OPSEC modules, fleet licensing, DNS lockdown, display/touch helpers, and so on. You (or your image builder) pick what that machine needs. The catalog is shared across product lines on the Android side.</p>
+<h3 id="3-configurable-hals-in-everyday-words">3. &quot;Configurable HALs&quot; in everyday words</h3>
+<p>In Android engineering, a <strong>HAL</strong> is the bridge between software and hardware. Phone OEMs ship HALs that match <strong>one</strong> bill of materials. Bass includes <strong>switchable / adaptive bridges</strong> for graphics, audio, network, input, and related paths so <strong>one</strong> product image can behave correctly across many PC chipsets and peripherals - the opposite of a sealed single-SKU phone build.</p>
+<p>You do not configure HALs by hand day to day. You notice the result: the right screen lights up, touch lines up, USB devices show up usefully, HDMI audio works, and so on.</p>
+<h3 id="4-white-label-branding-same-os-your-face">4. White-label branding (same OS, your face)</h3>
+<p>On a normal Android product, wallpaper packs, boot animation, and other brand chrome often mean a <strong>completely separate build</strong> (and a separate maintenance trail) for every customer.</p>
+<p>Lineout, Submix, and legacy Bass are built so those overrides can ride on the <strong>same</strong> OS:</p>
+<ul>
+<li>Boot animation, wallpapers, and related branding can be swapped without forking a new platform tree for each buyer.</li>
+<li>Most customers run that shared OS. What they and <em>their</em> end users notice is often the absence of Bass branding - the device looks like the customer&#x27;s product, not like a Bass demo image.</li>
+<li>That anonymity is intentional. We do not publish a client list or &quot;kiss and tell&quot; about who runs Bass underneath. Discretion is part of why organizations choose the platform.</li>
+</ul>
+<p>Public Bass pieces stay the shared core. <strong>Your</strong> look, private apps, and private policies stay packaged for you - not mixed into someone else&#x27;s image or into marketing material.</p>
+<hr>
+<h2 id="where-this-sits-vs-full-android-architecture">Where this sits vs full Android architecture</h2>
+<p>Android itself has many technical layers (kernel, runtime, framework, system apps). Bass <strong>does not replace</strong> Android - it <strong>extends</strong> it for PC-class use: home and desktop, gaming, journalism, security/OPSEC, education, and commercial deployments (and related product lines).</p>
+<p>That is also why Bass is not interchangeable with:</p>
+<ul>
+<li>
+<p>a typical <strong>OEM Android tablet</strong> image, or</p>
+</li>
+<li>
+<p><strong>Intel Project Celadon</strong> as a drop-in product (Celadon centers on containerized Android, often per display, with the same class of locked-down peripheral access; Bass is the installable Bass/Bliss product family with adaptive PC hardware support, add-ons, personalities, branding, and support).</p>
+</li>
+<li>
+<p>Prefer this page and the Product Guide if you are deciding <em>what to install or deploy</em>.</p>
+</li>
+<li>
+<p>Prefer the detailed stack diagram below if you need every Android box labeled.</p>
+</li>
+</ul>
+<doc-panel id="show-detailed-technical-stack-diagram-engineering---original-2024-asset" collapsed>
+    <template #title>Show detailed technical stack diagram (engineering - original 2024 asset)</template>
+<figure class="content-center">
+    <img src="../assets/bass-stack.20240308.svg" alt="Bass - System Architecture (detailed)" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Bass - System Architecture (detailed)</figcaption>
+</figure>
+<p>That diagram labels Android&#x27;s classic layers plus Bass-specific blocks (configurable HALs, Bass apps/services, vendor configuration, vendor add-ons). It remains the authoritative detailed picture; the simpler diagrams above are reading aids, not replacements. Labels can change as the platform evolves.</p>
+</doc-panel>
+<hr>
+<h2 id="related-reading">Related reading</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>If you want to...</th>
+<th>Open</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Choose Lineout vs Submix vs others</td>
+<td><a href="../../product-guide/bass-product-family/">Bass Product Family Guide</a></td>
+</tr>
+<tr>
+<td>Install on a PC</td>
+<td><a href="../../installation/x86_64-v2/bass_os_aaropa_install_process/">Install A13-A16 (Aaropa)</a></td>
+</tr>
+<tr>
+<td>Learn add-on concepts (builders)</td>
+<td><a href="../addon-development/">Addon Development: Bass Lineout</a></td>
+</tr>
+<tr>
+<td>Desktop / multi-monitor shell</td>
+<td><a href="../../applications/smartdockdfc/sales_guide/">SmartDock DFC Guide</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Naming in public material:</strong> use <strong>Bass OS</strong>, <strong>Bass: Lineout</strong>, <strong>Bass: Submix</strong>, <strong>Waydroid_NT</strong>, and <strong>Bass-ARM</strong>. Avoid internal tree or codenames.</p>
 
                 
                 <!-- Required only on API pages -->
@@ -197,20 +511,20 @@ The various parts added to Android with Bass are as follows:</p>
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../development/addon-development-legacy-bass/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../development/development-faq/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Addon Development: Legacy Bass OS</span>
+                                <span class="block mt-1">Development FAQ</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/building-bass/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/maintaining-proper-authorship/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Bass OS - Android 12​L</span>
+                                <span class="block mt-1">Maintaining Proper Authorship</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -257,6 +571,6 @@ The various parts added to Android with Bass are as follows:</p>
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Bass - High Level Overview", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/bass-high-level-overview.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "High Level Overview", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: true, hasMath: false, tocDepth: 23, "md": "/development/bass-high-level-overview.md" }</script>
 </body>
 </html>

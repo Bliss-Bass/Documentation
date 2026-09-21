@@ -1,5 +1,26 @@
 # Welcome to Bass OS Documentation
 
+**Bass** helps organizations run Android on everyday PC hardware - tablets, panel PCs, POS systems, mini PCs - with optional kiosk, desktop, fleet, and branding features.
+
+You do **not** need an engineering degree to use most of these guides. Start with the path that matches your role.
+
+---
+
+## Start here
+
+| I want to... | Go to... |
+|---|---|
+| Understand what Bass is and which product to choose | [Bass Product Family Guide](product-guide/bass-product-family.md) |
+| See how the software layers fit (simple pictures) | [High Level Overview](development/bass-high-level-overview.md) |
+| Install Bass on a PC | [Install A13-A16 (Aaropa)](Installation/x86_64-v2/bass_os_aaropa_install_process.md) |
+| Set up kiosk / lockdown | [Booting into lockdown builds](setup_and_configuration/booting-into-lockdown-builds.md) |
+| Manage a fleet (with or without GMS / MDM) | [Fleet Management](features/fleet-management.md) |
+| Learn about the desktop shell | [SmartDock DFC Guide](applications/SmartDockDFC/SALES_GUIDE.md) |
+
+**Tip:** In customer-facing material, use product names such as **Bass: Lineout** and **Bass: Submix** - not internal project codenames.
+
+---
+
 # Table of contents
 
 ## Install Bass OS
@@ -116,6 +137,7 @@
 ## Legal
 
 * [End User License Agreement](legal/END_USER_LICENSE_AGREEMENT.md)
+* [Licensing](legal/licensing.md)
 * [Privacy Policy](legal/Navotpala_Tech_Privacy_Policy.md)
 * [Website Privacy Policy](legal/Privacy_Policy_for_Bass_OS_Website.md)
 

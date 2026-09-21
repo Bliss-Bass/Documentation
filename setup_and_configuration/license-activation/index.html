@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.841792698978">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843339007504">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -43,11 +43,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.841792698978" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.843339007504" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -168,7 +168,7 @@
                 <!-- Page content  -->
 <h1 id="license-activation">License Activation</h1>
 <p>Some of the Bass OS builds do require licensing activation. After contacting us with your device serial numbers and purchasing a license, there are a few different ways it can be activated.</p>
-<p>On builds that include <a href="../../applications/bootsight/">BootSight</a> (<code translate="no" v-pre>--bootsight</code>, <code translate="no" v-pre>ro.bass.fleet_mgmt=bootsight</code>), the on-device path is Settings → <strong>Device Status</strong>. Builds that use an MDM instead (<code translate="no" v-pre>--fleet-mgmt=mdm</code>) will not show that entry. See <a href="../../features/fleet-management/">Fleet Management</a>.</p>
+<p>On images that include <a href="../../applications/bootsight/">BootSight</a> (Bass fleet backend), the on-device path is Settings → <strong>Device Status</strong>. Images prepared for a third-party MDM will not show that entry. See <a href="../../features/fleet-management/">Fleet Management</a>.</p>
 <h3 id="option-a-on-device">Option A: On Device</h3>
 <p>Start off by going into Android Settings
 <figure class="content-center">
@@ -195,6 +195,10 @@
 <h3 id="option-c-offline-activation-no-internet">Option C: Offline Activation (no internet)</h3>
 <p>Some builds are configured for offline licensing (<code translate="no" v-pre>persist.bass.bootsight.offline_licensing=1</code>, produced by <code translate="no" v-pre>build.sh --bs-offline</code>). These devices never contact the license server and send no telemetry. They are activated with a signed license file or an activation code instead.</p>
 <p>Offline licenses are cryptographically signed and bound to each device&#x27;s serial and SKU, so a code only activates the device it was issued for and cannot be reused on another device. If a licensed disk image is cloned to different hardware, it reverts to unlicensed on that hardware.</p>
+<p><strong>Virtual machines and clones:</strong> Each VM guest or rebuilt instance is a separate Device for licensing, even on the same hypervisor host. Pinning or copying default product / platform identity settings so multiple instances share one licensing identity does <strong>not</strong> let one single-device license cover a fleet. Those deployments need bulk or buyout licensing. Self-hosted or redirected OTA/update feeds are not included with a standard Device license; they require an OTA service or custom-build agreement.</p>
+<p><strong>Offline packs:</strong> You may place the same <code translate="no" v-pre>license.pack</code> on every Device whose serial you purchased. Do not redistribute packs or codes to activate serials you did not buy.</p>
+<p><strong>Evaluation builds:</strong> Supported demo images may include paid addons for testing (see the Downloads site). That is not a production license; see <a href="../../legal/licensing/">Licensing</a> and the <a href="../../legal/end_user_license_agreement/">EULA</a>.</p>
+<p><strong>Seat replacement:</strong> For permanent hardware replacement or a same-seat rebuild, contact us to reassign the seat; running old and new instances together still needs two seats.</p>
 <p>There are three ways to apply an offline license:</p>
 <p><strong>1. USB drive + Files app (no ADB, no network)</strong></p>
 <p>We provide a single <code translate="no" v-pre>license.pack</code> file covering every serial you purchased. The same file can be placed on every device; each device automatically picks the entry that matches its own serial. Individual per-device <code translate="no" v-pre>&lt;serial&gt;.lic</code> files are also accepted.</p>
@@ -221,8 +225,10 @@
 <h2 id="license-payment">License Payment</h2>
 <h3 id="single-device-licensing">Single Device Licensing</h3>
 <p>We offer an easy method to purchase single device licenses through our website here: <a href="https://bassos.navotpala.tech/licensing/#device-license">BassOS Single Device Licensing</a></p>
+<p>Use this path for one physical machine or one VM guest. It does not cover multi-VM fleets, cloned images used as additional instances, operating your own OTA/update servers, full white-label / Custom Build branding beyond the Evaluation Build boot-animation / wallpaper / kiosk-logo options, or preinstalling Bass on hardware you sell (OEM / redistribution).</p>
 <h3 id="bulk-licensing">Bulk Licensing</h3>
-<p>We require a licensing contract for any more than 10 licenses. Follow the steps above to gather the serial numbers required, and contact us at <a href="mailto:info@navotpala.tech?subject=Licensing">info@navotpala.tech</a> with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete.</p>
+<p>We require a licensing contract for any more than 10 licenses, and for any multi-VM / multi-instance production deployment (including when guests are cloned or identity fields are held constant). Follow the steps above to gather the serial numbers required, and contact us at <a href="mailto:info@navotpala.tech?subject=Licensing">info@navotpala.tech</a> with all the serial numbers you want to register. Once payment is confirmed, we will activate the license for each serial shared and send you a response when complete.</p>
+<p>For fleets that need private update delivery or a company-specific updater feed, ask about an <strong>OTA service</strong> / custom-build agreement in the same conversation (or email subject line <code translate="no" v-pre>OTA Service Licensing</code>).</p>
 <p>From there, you can manually navigate each device to Settings &gt; Device Status &amp; check license status from there, reboot each device, or use adb to reboot each device for it to confirm it&#x27;s license status once it reconnects to the internet:</p>
 <div id="bulk-licensing-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">adb root

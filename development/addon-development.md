@@ -42,7 +42,7 @@ Enable them from `vendor/ax86-lite/tools/build.sh` (see [Building Bass OS](build
 | `--btnmgr` | Button Manager |
 | `--logger` / `--logging-enabled` | Ax86 Logger |
 | `--ax86-power` | Ax86 Power (also included with `--extras`) |
-| `--bootsight` | BootSight (+ `ro.bass.fleet_mgmt=bootsight`) |
+| `--bootsight` | BootSight (Bass fleet backend / Device Status) |
 | `--smartdock` | SmartDock DFC |
 | `--ethernetconfig` | Ethernet Config |
 | `--btferry` | BT Ferry (`bass-btferry` addon; **A16 Lineout only for now**) |

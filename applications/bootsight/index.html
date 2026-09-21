@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.841792698978">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843339007504">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>BootSight</title>
     <meta name="title" content="BootSight">
-    <meta name="description" content="BootSight is the Bass fleet and license UI used on builds that manage devices through BootSight rather than a third-party MDM. On those builds it shows up">
+    <meta name="description" content="BootSight is the Bass fleet and license UI used on images that manage devices through Bass's own fleet backend rather than a third-party MDM. On those">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/applications/bootsight/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/applications/bootsight/">
     <meta property="og:title" content="BootSight">
-    <meta property="og:description" content="BootSight is the Bass fleet and license UI used on builds that manage devices through BootSight rather than a third-party MDM. On those builds it shows up">
+    <meta property="og:description" content="BootSight is the Bass fleet and license UI used on images that manage devices through Bass's own fleet backend rather than a third-party MDM. On those">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,19 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/applications/bootsight/">
     <meta name="twitter:title" content="BootSight">
-    <meta name="twitter:description" content="BootSight is the Bass fleet and license UI used on builds that manage devices through BootSight rather than a third-party MDM. On those builds it shows up">
+    <meta name="twitter:description" content="BootSight is the Bass fleet and license UI used on images that manage devices through Bass's own fleet backend rather than a third-party MDM. On those">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/applications/bootsight/bootsight.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.841792698978" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.843339007504" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.841792698978" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.843339007504" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -162,7 +162,7 @@
 
                 <!-- Page content  -->
 <h1 id="bootsight">BootSight</h1>
-<p>BootSight is the Bass fleet and license UI used on builds that manage devices through BootSight rather than a third-party MDM. On those builds it shows up in Settings as <strong>Device Status</strong>, handles license checks, and can show an overlay banner or popup when a demo period expires or a device is unlicensed.</p>
+<p>BootSight is the Bass fleet and license UI used on images that manage devices through <strong>Bass&#x27;s own fleet backend</strong> rather than a third-party MDM. On those images it shows up in Settings as <strong>Device Status</strong>, handles license checks, and can show an overlay banner or popup when a demo period expires or a device is unlicensed.</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -177,27 +177,18 @@
 <td><code translate="no" v-pre>com.bliss.bootsight</code></td>
 </tr>
 <tr>
-<td><strong>Build flag</strong></td>
-<td><code translate="no" v-pre>--bootsight</code> (<code translate="no" v-pre>USE_BOOTSIGHT=true</code>)</td>
-</tr>
-<tr>
-<td><strong>Fleet property</strong></td>
-<td><code translate="no" v-pre>ro.bass.fleet_mgmt=bootsight</code></td>
-</tr>
-<tr>
 <td><strong>Settings entry</strong></td>
 <td>Device Status</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><code translate="no" v-pre>--bootsight</code> is independent of <code translate="no" v-pre>--extras</code>. Including BootSight also sets the fleet policy to <code translate="no" v-pre>bootsight</code>. See <a href="../../features/fleet-management/">Fleet Management</a>.</p>
+<p>See <a href="../../features/fleet-management/">Fleet Management</a> for how BootSight fits next to third-party MDM images.</p>
 <h2 id="what-you-get">What you get</h2>
 <ul>
 <li>Device Status screen with product serial and license state</li>
 <li>Device admin and overlay permissions set up at boot</li>
 <li>Optional overlay style: banner or popup</li>
-<li>Watchdog scripts that only run when <code translate="no" v-pre>ro.bass.fleet_mgmt</code> is <code translate="no" v-pre>bootsight</code></li>
 </ul>
 <h2 id="license-activation">License activation</h2>
 <p>Use Device Status to read the serial and check license state after purchase. Full steps: <a href="../../setup_and_configuration/license-activation/">License Activation</a>.</p>
@@ -206,32 +197,6 @@
 <pre translate="no" class="language-bash"><code v-pre class="language-bash">adb shell getprop ro.bliss.serialnumber</code></pre>
 </doc-codeblock></div>
 <h2 id="overlay-style">Overlay style</h2>
-<p>At build time:</p>
-<div id="overlay-style-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --bootsight --bsbanner ...
-./build.sh --bootsight --bspopup ...</code></pre>
-</doc-codeblock></div>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Flag</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>--bsbanner</code></td>
-<td>Overlay banner (implies <code translate="no" v-pre>--bootsight</code>)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--bspopup</code></td>
-<td>Overlay popup (implies <code translate="no" v-pre>--bootsight</code>)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Runtime / product props:</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -243,7 +208,7 @@
 <tbody>
 <tr>
 <td><code translate="no" v-pre>ro.bootsight.banner_type</code></td>
-<td>Build-time default (<code translate="no" v-pre>banner</code> or <code translate="no" v-pre>popup</code>)</td>
+<td>Image default (<code translate="no" v-pre>banner</code> or <code translate="no" v-pre>popup</code>)</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>persist.bass.bootsight.banner_type</code></td>
@@ -252,13 +217,12 @@
 </tbody>
 </table>
 </div>
-<h2 id="when-bootsight-is-not-included">When BootSight is not included</h2>
-<p>If the fleet uses an MDM instead, build with <code translate="no" v-pre>--fleet-mgmt=mdm</code> and do <strong>not</strong> pass <code translate="no" v-pre>--bootsight</code>. BootSight init and watchdog scripts exit early unless <code translate="no" v-pre>ro.bass.fleet_mgmt</code> is <code translate="no" v-pre>bootsight</code>, so they will not run on MDM or <code translate="no" v-pre>none</code> builds even if leftover files are present.</p>
+<h2 id="when-bootsight-is-not-on-the-image">When BootSight is not on the image</h2>
+<p>Images prepared for a <strong>third-party MDM</strong> (or unmanaged consumer / lab images) do not include BootSight, so Settings will not show Device Status. Use the MDM console for fleet identity on those SKUs, or ask your Bass contact which management path your image uses.</p>
 <h2 id="related">Related</h2>
 <ul>
 <li><a href="../../features/fleet-management/">Fleet Management</a></li>
 <li><a href="../../setup_and_configuration/license-activation/">License Activation</a></li>
-<li><a href="../../development/building-bass/">Building Bass OS</a></li>
 </ul>
 
                 

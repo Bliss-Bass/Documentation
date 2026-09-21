@@ -1,6 +1,6 @@
 ﻿# Welcome to Bass OS Documentation
 
-> Install From Bootable USB
+> Bass helps organizations run Android on everyday PC hardware - tablets, panel PCs, POS systems, mini PCs - with optional kiosk, desktop, fleet, and branding features.
 
 - [Welcome to Bass OS Documentation](https://docs.blisscolabs.dev/readme.md): Welcome to Bass OS Documentation
 - [Getting started](https://docs.blisscolabs.dev/userguides/readme.md): Android 16 Lineout. Screenshots and steps on these pages were taken on Bass: Lineout (Lineage 23.2 / Android 16). On Android 14 (Lineage 21.0) the same tools can look different, sit in a different Settings place, or be missing from that image entirely.
@@ -83,7 +83,7 @@
 - [Bliss Tweaks](https://docs.blisscolabs.dev/applications/blisstweaks/blisstweaks.md): Bliss Tweaks lives under Settings → System and exposes low-level properties, secure settings, and window manager flags without needing an ADB shell. Included with --extras.
 - [BlissEthernetManager](https://docs.blisscolabs.dev/applications/blissethernetmanager/blissethernetmanager.md): Note: On current Bass OS builds (Android 13+), wired Ethernet is managed by Ethernet Config, which exposes the blissethernet AIDL API. Prefer Ethernet Config — AIDL Interface for new deployments (includes ethernet tethering and the current assignment enum).
 - [Boot Config (aaropa-options)](https://docs.blisscolabs.dev/applications/bootconfig/bootconfig.md): Boot Config is the Settings UI for toggling boot / kernel command-line options without rebuilding the image. Changes apply on the next reboot.
-- [BootSight](https://docs.blisscolabs.dev/applications/bootsight/bootsight.md): BootSight is the Bass fleet and license UI used on builds that manage devices through BootSight rather than a third-party MDM. On those builds it shows up
+- [BootSight](https://docs.blisscolabs.dev/applications/bootsight/bootsight.md): BootSight is the Bass fleet and license UI used on images that manage devices through Bass's own fleet backend rather than a third-party MDM. On those
 - [BT Ferry (Bass BT Ferry)](https://docs.blisscolabs.dev/applications/btferry/btferry.md): Availability: BT Ferry ships on Bass: Lineout Android 16 (Lineage 23.2) builds that enable the bass-btferry addon (--btferry). It is not available on Android 14 / Lineage 21.0 images yet.
 - [GameNativeX64](https://docs.blisscolabs.dev/applications/gamenativex64/gamenativex64.md): Availability: GameNativeX64 ships on Bass: Lineout x86_64 builds that enable the gamenative addon (--gamenative). It targets Intel and AMD Android tablets and desktops (ax86), not ARM handhelds.
 - [Setting Up Bliss Kiosk Launcher](https://docs.blisscolabs.dev/applications/blisskiosklauncher/blisskiosklauncher.md): If your BlissBass build comes with Bliss Kiosk Launcher, then you have the ability to restrict access to various packages on the device, as well as set
@@ -93,11 +93,11 @@
 
 - [Addon Development: Bass Lineout](https://docs.blisscolabs.dev/development/addon-development.md): This page is for Bass: Lineout (vendor/ax86-lite, tools/build.sh).
 - [Addon Development: Legacy Bass OS](https://docs.blisscolabs.dev/development/addon-development-legacy-bass.md): This page is for classic Bass OS projects that use private/addons/, vendor/bass/patches/, and unfold scripts such as unfold_bliss.sh / build_bass.sh.
-- [Bass - High Level Overview](https://docs.blisscolabs.dev/development/bass-high-level-overview.md): Bass (Broad Apparatus Support System) is the combined operation of the various layers used in the Android OS stack that provides vendors, users, businesses, etc with additional configuration options that may be required to fine-tune a generic Android image to their hardware.
-- [Bass OS - Android 12L](https://docs.blisscolabs.dev/development/building-bass.md): License
 - [BootSight Offline Licensing (Internal Runbook)](https://docs.blisscolabs.dev/development/bootsight-offline-licensing.md): This is the internal process for issuing offline BootSight activations for air-gapped or no-telemetry customers. End-user activation steps live in License Activation.
+- [Building Bass: Lineout](https://docs.blisscolabs.dev/development/building-bass.md): This page is the Bass: Lineout build guide (LineageOS 23.2 / Android 16, vendor/ax86-lite, tools/build.sh).
 - [Contributing to Bass OS](https://docs.blisscolabs.dev/development/contributing-documentation.md): We are not going to require any elitist rules for you to contribute to the project. That's just silly. So this doc will cover the various parts of the project and explain how to do things.
 - [Development FAQ](https://docs.blisscolabs.dev/development/development-faq.md): Much of what we are doing with Android source is lacking proper documentation as to what it does, and how. This document will try to answer a few of those questions.
+- [Bass - High Level Overview](https://docs.blisscolabs.dev/development/bass-high-level-overview.md): In plain English: Bass is software that lets you run Android on ordinary PC-class machines - home desktops and laptops, gaming PCs, tablets, panel PCs, POS terminals, mini PCs, and more - without buying a special "Android-only" device from a big OEM, and without building Android yourself.
 - [Maintaining Proper Authorship](https://docs.blisscolabs.dev/development/maintaining-proper-authorship.md): One of the most important things you need to keep in mind while working on open-source projects is maintaining correct authorship. In this article, we'll
 - [Porting Linux Drivers](https://docs.blisscolabs.dev/development/porting-linux-drivers.md): When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search online for a Linux kernel module for your target component.
 - [What are Linux Drivers?](https://docs.blisscolabs.dev/development/what-are-linux-drivers.md): For those looking to help gain a better understanding of how Linux drivers work, here is a YouTube video that helps to explain things a bit
@@ -105,7 +105,7 @@
 ## Features
 
 - [Admin Restriction](https://docs.blisscolabs.dev/features/admin-restriction.md): Some Bass Lockdown builds come with a password restricted Admin mode. We use a grub flag to pass the password through to the system, which then creates a sha256 hash of that string and compares it against the hash saved within the system.
-- [Fleet Management](https://docs.blisscolabs.dev/features/fleet-management.md): Bass builds declare how the device is managed with a single read-only property:
+- [Fleet Management](https://docs.blisscolabs.dev/features/fleet-management.md): In plain English: Bass can run as a managed Android fleet without Google Mobile Services (GMS), Google accounts, or Google's Android Enterprise cloud. Images support two management styles: Bass's own fleet / licensing backend (BootSight Device Status), or a third-party MDM you already use.
 - [Internet Restriction (DNS)](https://docs.blisscolabs.dev/features/dns-internet-restriction.md): In some cases, the system is equipped with an internet restriction method that is active while the device is in Lockdown mode.
 - [Lockdown install / uninstall block](https://docs.blisscolabs.dev/features/lockdown-install-block.md): Blocks package install and uninstall while the device is booted in lockdown mode. Enable with --ldinstall on Lineout builds.
 - [Updating Bliss Bass builds](https://docs.blisscolabs.dev/features/updates-and-ota.md): We support a variety of methods for updating Bliss Bass builds. Our installwe is simular to Bliss OS, but we add a few product focused options and features.
@@ -119,13 +119,13 @@
 ## Legal
 
 - [END USER LICENSE AGREEMENT](https://docs.blisscolabs.dev/legal/end_user_license_agreement.md): END USER LICENSE AGREEMENT (EULA)
-- [Licensing](https://docs.blisscolabs.dev/legal/licensing.md): Bass OS is available under different licensing options designed to accommodate the needs of our various users:
+- [Licensing](https://docs.blisscolabs.dev/legal/licensing.md): Bass / Bass: Lineout products combine an open Core with separately licensed addons and toolkit materials. Binding terms for commercial use live in the End User License Agreement.
 - [Navotpala Tech Privacy Policy](https://docs.blisscolabs.dev/legal/navotpala_tech_privacy_policy.md): Navotpala Tech Privacy Policy
 - [Privacy Policy](https://docs.blisscolabs.dev/legal/privacy_policy_for_bass_os_website.md): Privacy Policy for Bass OS
 
 ## Product guide
 
-- [Bass Product Family Guide](https://docs.blisscolabs.dev/product-guide/bass-product-family.md): This guide explains what Bass is, how each product line differs, and how add-ons work across the whole family. It is written for readers who are new to Bass and do not need an engineering background.
+- [Bass Product Family Guide](https://docs.blisscolabs.dev/product-guide/bass-product-family.md): This guide is for buyers, IT leads, and project owners - not only engineers. It explains what Bass is, how the product lines differ, and how optional add-ons fit together.
 
 ## Remote management
 

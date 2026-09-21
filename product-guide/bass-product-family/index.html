@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.841792698978">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843339007504">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Bass Product Family Guide</title>
     <meta name="title" content="Bass Product Family Guide">
-    <meta name="description" content="This guide explains what Bass is, how each product line differs, and how add-ons work across the whole family. It is written for readers who are new to Bass and do not need an engineering background.">
+    <meta name="description" content="This guide is for buyers, IT leads, and project owners - not only engineers. It explains what Bass is, how the product lines differ, and how optional add-ons fit together.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/product-guide/bass-product-family/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/product-guide/bass-product-family/">
     <meta property="og:title" content="Bass Product Family Guide">
-    <meta property="og:description" content="This guide explains what Bass is, how each product line differs, and how add-ons work across the whole family. It is written for readers who are new to Bass and do not need an engineering background.">
+    <meta property="og:description" content="This guide is for buyers, IT leads, and project owners - not only engineers. It explains what Bass is, how the product lines differ, and how optional add-ons fit together.">
     <meta property="og:site_name" content="Bliss Bass">
     <meta property="og:locale" content="en_US">
 
@@ -30,18 +30,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/product-guide/bass-product-family/">
     <meta name="twitter:title" content="Bass Product Family Guide">
-    <meta name="twitter:description" content="This guide explains what Bass is, how each product line differs, and how add-ons work across the whole family. It is written for readers who are new to Bass and do not need an engineering background.">
+    <meta name="twitter:description" content="This guide is for buyers, IT leads, and project owners - not only engineers. It explains what Bass is, how the product lines differ, and how optional add-ons fit together.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/product-guide/bass-product-family.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.841792698978" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.843339007504" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.841792698978" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843339007504" data-turbo-eval="false" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=4.5.3" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -161,7 +162,43 @@
 
                 <!-- Page content  -->
 <h1 id="bass-product-family-guide">Bass Product Family Guide</h1>
-<p>This guide explains what Bass is, how each product line differs, and how add-ons work across the whole family. It is written for readers who are new to Bass and do not need an engineering background. Use <strong>product names only</strong> in customer-facing material (never internal codenames).</p>
+<p>This guide is for <strong>buyers, IT leads, and project owners</strong> - not only engineers. It explains what Bass is, how the product lines differ, and how optional add-ons fit together. Use <strong>product names only</strong> in customer-facing material (never internal codenames).</p>
+<hr>
+<h2 id="start-here-about-one-minute">Start here (about one minute)</h2>
+<p><strong>Bass</strong> puts a supported Android experience on everyday PC hardware (and related boards), then lets you add only the extras you need - kiosk lockdown, desktop mode, fleet tools, branding, and so on.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>If you need...</th>
+<th>Start with...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Android as the main OS on a PC / panel / POS</td>
+<td><strong>Bass: Lineout</strong> (default for new PC projects)</td>
+</tr>
+<tr>
+<td>Android <strong>and</strong> a full Linux toolbox on one machine</td>
+<td><strong>Bass: Submix</strong></td>
+</tr>
+<tr>
+<td>Your own Linux already; just add Android</td>
+<td><strong>Waydroid_NT</strong></td>
+</tr>
+<tr>
+<td>Raspberry Pi-class boards</td>
+<td><strong>Bass-ARM</strong></td>
+</tr>
+<tr>
+<td>An existing older Bass fleet</td>
+<td><strong>Bass OS</strong> (classic)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Still unsure? Use the four questions in <doc-anchor-trigger to="#2-choosing-a-product-line">section 2</doc-anchor-trigger>. For a picture of how the software layers fit, see the <a href="../../development/bass-high-level-overview/">High Level Overview</a>.</p>
 <hr>
 <h2 id="1-overview">1. Overview</h2>
 <p><strong>Bass</strong> (Broad Apparatus Support System) turns everyday PC-class hardware into fully supported Android devices: tablets, panel PCs, POS terminals, mini PCs, and industrial computers. You do not need purpose-built Android hardware from a big OEM, and you do not need an engineering team to build Android from scratch.</p>
@@ -170,6 +207,10 @@
 <blockquote>
 <p><strong>Enterprise Android on the hardware you already have: one platform family, only the features you need.</strong></p>
 </blockquote>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre translate="no" class="mermaid w-full">flowchart LR
+  HW[Your PC hardware] --&gt; PL[Choose a Bass product line]
+  PL --&gt; ADD[Pick only the add-ons you need]
+  ADD --&gt; OUT[Branded Android experience]</pre></div>
 <hr>
 <h2 id="2-choosing-a-product-line">2. Choosing a product line</h2>
 <p>Every Bass product provides <strong>Android apps and an Android-style experience</strong>. The product lines differ in <em>how</em> that Android experience sits on the machine, and <em>who owns the underlying computer OS</em>.</p>
@@ -234,7 +275,7 @@
 <p><strong>Android versions:</strong> Android 14 and Android 16 class releases.</p>
 <hr>
 <h3 id="bass-submix">Bass: Submix</h3>
-<p><strong>What it is:</strong> The computer boots a lightweight Linux foundation. Android runs <em>inside</em> that environment (in a container). Users still get a near-native Android experience, and IT also gets standard Linux tooling on the same box.</p>
+<p><strong>What it is:</strong> The computer boots a small Linux foundation first. Android then runs <em>on top of that</em> (in a protected box called a container). People still use Android apps almost as usual, and IT can also use normal Linux tools on the same machine.</p>
 <p><strong>Who it is for:</strong> Deployments that need both Android apps <em>and</em> Linux-native services (custom daemons, host networking, Linux peripherals, familiar Linux admin workflows).</p>
 <p><strong>Benefits:</strong></p>
 <ul>
@@ -256,8 +297,8 @@
 <p><strong>Android versions:</strong> Android 12L through Android 15 class releases.</p>
 <p><strong>Note:</strong> Classic remains supported. New projects should use Lineout or Submix unless there is a clear classic-only constraint.</p>
 <hr>
-<h3 id="waydroid_nt-bring-your-own-linux">Waydroid_NT (“bring your own Linux”)</h3>
-<p><strong>What it is:</strong> Bass does <strong>not</strong> replace your computer OS. You keep your Linux distribution. Bass provides customized Android images and container services that install into that environment, plus add-ons and configuration tooling on the Android side.</p>
+<h3 id="waydroid_nt-bring-your-own-linux">Waydroid_NT (&quot;bring your own Linux&quot;)</h3>
+<p><strong>What it is:</strong> Bass does <strong>not</strong> replace your computer&#x27;s operating system. You keep your Linux distribution. Bass provides ready-made Android images and services that install into that environment, plus add-ons and configuration on the Android side.</p>
 <p><strong>Who it is for:</strong> Platform teams that already own Linux and only want a supported, brandable Android runtime on top.</p>
 <p><strong>Benefits:</strong></p>
 <ul>
@@ -296,7 +337,7 @@
 </tr>
 <tr>
 <td><strong>Private stays private</strong></td>
-<td>Your branding, private apps, and private config are packaged for you—not mixed into the public core or another organization’s build.</td>
+<td>Your branding, private apps, and private config are packaged for you-not mixed into the public core or another organization&#x27;s build.</td>
 </tr>
 <tr>
 <td><strong>Same capabilities, different delivery</strong></td>
@@ -307,51 +348,54 @@
 </div>
 <h3 id="how-to-think-about-it">How to think about it</h3>
 <blockquote>
-<p>Bass is a chassis plus a parts catalog. The chassis is the product line that matches how you want Android to sit on the machine. The parts—kiosk, desktop, fleet, security, branding—are the same catalog. You only take the parts you need, and your private pieces stay yours.</p>
+<p>Bass is like a <strong>vehicle chassis</strong> plus a <strong>parts catalog</strong>.<br />
+The chassis is the product line (how Android sits on the machine).<br />
+The parts - kiosk, desktop, fleet, security, branding - are the same catalog wherever you are.<br />
+You only take the parts you need, and your private pieces stay yours.</p>
 </blockquote>
 <h3 id="choosing-product-line-vs-add-ons">Choosing product line vs add-ons</h3>
 <ol>
-<li><strong>Choose the product line</strong> from your OS and hardware situation (sections 2–3).</li>
-<li><strong>Choose add-ons</strong> from the deployment need (kiosk, desktop, fleet, branding, and so on)—not from the product-line name.</li>
+<li><strong>Choose the product line</strong> from your OS and hardware situation (sections 2-3).</li>
+<li><strong>Choose add-ons</strong> from the deployment need (kiosk, desktop, fleet, branding, and so on)-not from the product-line name.</li>
 <li>Capabilities such as SmartDock, Restricted Launcher, BootSight, and branding are <strong>Bass capabilities</strong>. Availability depends on licensing and the build assembled for your project, not on which product line name you use.</li>
 <li>For <strong>Submix</strong> and <strong>Waydroid_NT</strong>, Linux-side benefits belong to the host; add-ons describe the Android-side experience.</li>
 </ol>
 <hr>
 <h2 id="5-the-add-on-catalog">5. The add-on catalog</h2>
-<h3 id="hardware-adaptation-make-generic-devices-just-work">Hardware adaptation (make generic devices “just work”)</h3>
+<h3 id="hardware-adaptation-make-generic-devices-just-work">Hardware adaptation (make generic devices &quot;just work&quot;)</h3>
 <ul>
-<li><strong>Display Mapper</strong> — resolution, DPI, and orientation per screen, including multi-monitor.</li>
-<li><strong>Touch Mapper</strong> — align touchscreens to the correct display; fix inverted or rotated touch.</li>
-<li><strong>Button Manager</strong> — map POS / industrial hardware buttons to useful actions.</li>
-<li><strong>Dynamic hardware profiles</strong> — automatic detection of displays, HDMI audio, sensors, lids, and power/battery behavior at boot.</li>
+<li><strong>Display Mapper</strong> - resolution, DPI, and orientation per screen, including multi-monitor.</li>
+<li><strong>Touch Mapper</strong> - align touchscreens to the correct display; fix inverted or rotated touch.</li>
+<li><strong>Button Manager</strong> - map POS / industrial hardware buttons to useful actions.</li>
+<li><strong>Dynamic hardware profiles</strong> - automatic detection of displays, HDMI audio, sensors, lids, and power/battery behavior at boot.</li>
 </ul>
 <h3 id="configuration-and-branding-customize-without-writing-an-os">Configuration and branding (customize without writing an OS)</h3>
 <ul>
-<li><strong>Config Overrides</strong> — settings and policies from simple config files; ideal for fleets.</li>
-<li><strong>Boot Config / Bass boot options</strong> — choose Tablet, Desktop, or Kiosk personality.</li>
-<li><strong>Tweaks</strong> — switches in Android Settings.</li>
-<li><strong>Vendor configuration</strong> — boot animation, wallpapers, preloads, and defaults packaged per organization.</li>
+<li><strong>Config Overrides</strong> - settings and policies from simple config files; ideal for fleets.</li>
+<li><strong>Boot Config / Bass boot options</strong> - choose Tablet, Desktop, or Kiosk personality.</li>
+<li><strong>Tweaks</strong> - switches in Android Settings.</li>
+<li><strong>White-label / vendor configuration</strong> - boot animation, wallpapers, and related branding overrides on the <strong>same</strong> Lineout, Submix, or legacy Bass OS (no separate OS fork per customer). End users see your product face, not Bass chrome. Client relationships stay private; we do not publish who runs Bass underneath.</li>
 </ul>
 <h3 id="kiosk-and-security-lock-the-device-down">Kiosk and security (lock the device down)</h3>
 <ul>
-<li><strong>Restricted Launcher</strong> — admin/lockdown launcher, password unlock, app auto-start, logo watermark, hidden settings access.</li>
-<li><strong>Internet Security</strong> — DNS-based restriction so devices only reach approved sites.</li>
-<li><strong>Admin restriction</strong> — keep end users out of system settings.</li>
+<li><strong>Restricted Launcher</strong> - admin/lockdown launcher, password unlock, app auto-start, logo watermark, hidden settings access.</li>
+<li><strong>Internet Security</strong> - DNS-based restriction so devices only reach approved sites.</li>
+<li><strong>Admin restriction</strong> - keep end users out of system settings.</li>
 </ul>
 <h3 id="fleet-and-lifecycle-operate-at-scale">Fleet and lifecycle (operate at scale)</h3>
 <ul>
-<li><strong>BootSight</strong> — fleet identity, license activation, and status UI.</li>
-<li><strong>Ethernet Config</strong> — wired-network provisioning for first-boot enrollment.</li>
-<li><strong>Logger</strong> — on-device log capture for remote diagnostics.</li>
-<li><strong>Updates &amp; OTA</strong> — controlled update channels per fleet.</li>
+<li><strong>BootSight</strong> - fleet identity, license activation, and status UI.</li>
+<li><strong>Ethernet Config</strong> - wired-network provisioning for first-boot enrollment.</li>
+<li><strong>Logger</strong> - on-device log capture for remote diagnostics.</li>
+<li><strong>Updates &amp; OTA</strong> - controlled update channels per fleet.</li>
 </ul>
 <h3 id="user-experience-optional-front-ends">User experience (optional front ends)</h3>
 <ul>
-<li><strong>SmartDock DFC</strong> — windowed desktop shell, taskbar, multi-monitor.</li>
-<li><strong>BassView</strong> — web/content viewer for signage-style use.</li>
-<li><strong>Monterey Standby</strong> — standby / idle display experience.</li>
-<li><strong>Ax86 Docs</strong> — product documentation as an on-device app.</li>
-<li><strong>FOSS app set</strong> — curated open-source apps with no Google account requirement.</li>
+<li><strong>SmartDock DFC</strong> - windowed desktop shell, taskbar, multi-monitor.</li>
+<li><strong>BassView</strong> - web/content viewer for signage-style use.</li>
+<li><strong>Monterey Standby</strong> - standby / idle display experience.</li>
+<li><strong>Ax86 Docs</strong> - product documentation as an on-device app.</li>
+<li><strong>FOSS app set</strong> - curated open-source apps with no Google account requirement.</li>
 </ul>
 <hr>
 <h2 id="6-how-bass-compares-to-stock-android-and-oem-tablets">6. How Bass compares to stock Android and OEM tablets</h2>
@@ -413,7 +457,7 @@
 <tbody>
 <tr>
 <td>Hardware choice</td>
-<td>Locked to that OEM’s catalog</td>
+<td>Locked to that OEM&#x27;s catalog</td>
 <td>Compatible PC hardware you choose or already own</td>
 </tr>
 <tr>
@@ -444,6 +488,7 @@
 </tbody>
 </table>
 </div>
+<p><strong>Versus Intel Project Celadon:</strong> Celadon is a container-oriented Android-on-PC reference (often a separate Android container per display). That can isolate screens, but peripherals still face Android&#x27;s usual lockdown - it is not a generic PC host for arbitrary USB/PCI/input/audio gear. Bass (and Bliss) is a separate product family: installer, adaptive PC hardware profiles, one Android system for normal desktop/multi-monitor use (or Submix&#x27;s single container on Linux), licensing where used, branding, and an add-on catalog. Celadon may inform silicon or virt bring-up; it is not the Bass product you ship or install for everyday PC use.</p>
 <p><strong>Cost perspective:</strong> existing POS terminals or panel PCs can often be redeployed as locked-down Android devices instead of buying a full OEM tablet fleet plus separate MDM seats.</p>
 <hr>
 <h2 id="7-common-goals-and-which-pieces-fit">7. Common goals and which pieces fit</h2>
@@ -452,7 +497,7 @@ Lineout (or classic if already in use). One image adapts across many displays an
 <p><strong>Locked-down kiosk.</strong><br />
 Lockdown is a first-class personality, not a bolted-on app. Restricted Launcher, branded overlays, and optional DNS internet restriction. Where Bass boot options are enabled, a device can switch between Tablet, Desktop, and Kiosk personalities without reimaging.</p>
 <p><strong>Hundreds of devices.</strong><br />
-BootSight for identity and licensing, Ethernet provisioning, file-based config cloning, remote tools, and OTA channels. Same add-on model whether the fleet is Lineout, Submix, or Waydroid_NT on the Android side.</p>
+<a href="../../features/fleet-management/">Fleet Management</a> covers Bass-native management without GMS (Device Owner / lockdown / Config Overrides / BootSight) and how third-party MDMs plug in via standard <code translate="no" v-pre>dpm</code> plus Bass AIDL/<code translate="no" v-pre>cmd</code>/file surfaces. Same add-on model whether the fleet is Lineout, Submix, or Waydroid_NT on the Android side.</p>
 <p><strong>Privacy / no Google account.</strong><br />
 No Google account required by default; curated open-source apps. Private apps and configs stay private.</p>
 <p><strong>Desktop, not tablet.</strong><br />
@@ -476,7 +521,7 @@ Lockdown builds can restrict apps and network destinations. There is no Google a
 <p><strong>What if the hardware is not supported?</strong><br />
 For PC-class hardware, evaluation is straightforward: boot the live installer on the target machine. Gaps become shared platform improvements that help similar hardware later.</p>
 <p><strong>Who supports it?</strong><br />
-One vendor for the OS product line, the add-ons, and private modules—no split between an OEM, an MDM vendor, and an app developer.</p>
+One vendor for the OS product line, the add-ons, and private modules-no split between an OEM, an MDM vendor, and an app developer.</p>
 <hr>
 <h2 id="9-quick-reference">9. Quick reference</h2>
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -531,12 +576,12 @@ One vendor for the OS product line, the add-ons, and private modules—no split 
 </thead>
 <tbody>
 <tr>
-<td>Technical overview of the Bass architecture</td>
+<td>Plain-language map of how Bass layers fit</td>
 <td><a href="../../development/bass-high-level-overview/">High Level Overview</a></td>
 </tr>
 <tr>
 <td>Installation walkthrough</td>
-<td><a href="../installation/x86_64-v2/bass_os_aio_android-13-15_install_process.md">Install A13–A15 / Aaropa Installer</a></td>
+<td><a href="../../installation/x86_64-v2/bass_os_aaropa_install_process/">Install A13-A16 / Aaropa Installer</a></td>
 </tr>
 <tr>
 <td>Kiosk / lockdown behavior</td>
@@ -641,6 +686,6 @@ One vendor for the OS product line, the add-ons, and private modules—no split 
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Bass Product Family Guide", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/product-guide/bass-product-family.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Bass Product Family Guide", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: true, hasMath: false, tocDepth: 23, "md": "/product-guide/bass-product-family.md" }</script>
 </body>
 </html>
