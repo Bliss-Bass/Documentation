@@ -1,0 +1,129 @@
+# Curated OEM series guidance for Bass:Lineout x86 (Mesa + DRM only).
+# Class-level: typical GPU fit, not an exhaustive SKU list.
+# gpu_class: intel_igpu | amd_igpu | nvidia_dgpu | mixed
+# status: supported | caveat | unsupported
+
+brands:
+  - brand: HP
+    entries:
+      - series: EliteBook / ProBook / ZBook Firefly (Intel iGPU)
+        examples: ["EliteBook 840", "ProBook 450", "ZBook Firefly 14"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Business Ultrabooks and thin workstations with Intel UHD/Iris Xe.
+      - series: EliteDesk / ProDesk / Mini (Intel)
+        examples: ["EliteDesk 800 Mini", "ProDesk 400 G9", "HP Mini"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Common office mini-PCs and desktops with Intel graphics.
+      - series: OMEN / Victus gaming (NVIDIA)
+        examples: ["OMEN 16", "Victus 15", "OMEN Desktop"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Discrete NVIDIA gaming lines need proprietary drivers; Nouveau-only here.
+
+  - brand: Dell
+    entries:
+      - series: Latitude / XPS / Precision mobile (Intel iGPU)
+        examples: ["Latitude 5440", "XPS 13", "Precision 3470"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Business and thin laptops with Intel integrated graphics.
+      - series: OptiPlex / XPS Desktop (Intel)
+        examples: ["OptiPlex 7090 Micro", "XPS Desktop (Intel)", "Inspiron small form"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Office desktops and micros with Intel iGPU.
+      - series: G-Series / Alienware (NVIDIA)
+        examples: ["G15", "Alienware m16", "Alienware Aurora"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Gaming lines with discrete NVIDIA; treat as unsupported on Bass.
+
+  - brand: Asus
+    entries:
+      - series: ExpertBook / Zenbook / VivoBook (Intel)
+        examples: ["ExpertBook B9", "Zenbook 14", "VivoBook 15"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Everyday and business notebooks with Intel iGPU.
+      - series: NUC / Mini PC (Intel)
+        examples: ["ASUS NUC", "PN series mini PC"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Compact Intel systems; strong Mesa Iris fit.
+      - series: ROG / TUF Gaming (NVIDIA)
+        examples: ["ROG Zephyrus", "ROG Strix", "TUF Gaming A15"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Discrete NVIDIA gaming; proprietary driver required for full use.
+
+  - brand: Acer
+    entries:
+      - series: Aspire / Swift / TravelMate (Intel)
+        examples: ["Aspire 5", "Swift 3", "TravelMate P2"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Mainstream and business Intel iGPU notebooks.
+      - series: Veriton / Chromebox-class desktop (Intel)
+        examples: ["Veriton N", "Aspire TC (Intel SKU)"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Office desktops with Intel graphics.
+      - series: Nitro / Predator (NVIDIA)
+        examples: ["Nitro 5", "Predator Helios", "Predator Orion"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Gaming lines centered on discrete NVIDIA GPUs.
+
+  - brand: Star Labs
+    entries:
+      - series: StarBook / StarLite / StarFighter (Intel/AMD open)
+        examples: ["StarBook Mk VI", "StarLite Mk V", "StarFighter"]
+        gpu_class: mixed
+        status: supported
+        notes: Linux-first notebooks; Intel and AMD open-GPU SKUs fit Mesa well. Confirm AMD vs Intel per unit.
+      - series: Optional NVIDIA dGPU configs
+        examples: ["StarFighter (NVIDIA option)"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Any discrete NVIDIA option is unsupported on Bass.
+
+  - brand: Framework
+    entries:
+      - series: Framework Laptop (Intel / AMD iGPU)
+        examples: ["Framework Laptop 13 Intel", "Framework Laptop 13 AMD", "Framework Laptop 16 AMD"]
+        gpu_class: mixed
+        status: supported
+        notes: Intel Iris and AMD Radeon iGPU mainboards are the expected path. AMD treated as caveat at GPU-driver level but OEM line is a strong fit.
+      - series: Framework Laptop 16 (NVIDIA Expansion Card)
+        examples: ["Framework 16 NVIDIA Graphics Module"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Discrete NVIDIA expansion module needs proprietary drivers; not supported.
+
+  # Optional brand
+  - brand: Lenovo
+    optional: true
+    entries:
+      - series: ThinkPad / ThinkCentre / Yoga (Intel)
+        examples: ["ThinkPad T14", "ThinkPad X1 Carbon", "ThinkCentre M70q", "Yoga 7"]
+        gpu_class: intel_igpu
+        status: supported
+        notes: Business and consumer Intel iGPU lines are typically well supported.
+      - series: ThinkPad AMD / IdeaPad AMD (radeonsi)
+        examples: ["ThinkPad T14s AMD", "IdeaPad Slim 5 AMD"]
+        gpu_class: amd_igpu
+        status: caveat
+        notes: AMD iGPU via amdgpu + Mesa radeonsi; validate on your release build.
+      - series: Legion / LOQ gaming (NVIDIA)
+        examples: ["Legion 5", "LOQ 15", "Legion Tower"]
+        gpu_class: nvidia_dgpu
+        status: unsupported
+        notes: Gaming lines with discrete NVIDIA; unsupported without proprietary drivers.
+
+nvidia_policy:
+  status: unsupported
+  summary: >
+    Bass ships Nouveau + Mesa only. Discrete NVIDIA (GeForce / RTX / Quadro dGPU)
+    is treated as unsupported for production use. Prefer Intel or AMD open iGPU systems.

@@ -1,0 +1,2462 @@
+{
+  "generated": "2026-09-23",
+  "generator": "scripts/gen_hardware_compat.py",
+  "source": "https://github.com/linuxhw/DMI",
+  "attribution": "linux-hardware.org / linuxhw/DMI path inventory",
+  "unique_models_inventoried": 26814,
+  "unique_models_name_brands": 20281,
+  "unique_models_industrial_pos_odm": 850,
+  "unique_models_other_x86_odm": 5683,
+  "tree_unique_models_all_vendors": 34784,
+  "form_factors_tree": {
+    "by_unique_model": {
+      "Notebook": 19983,
+      "Desktop": 11253,
+      "Convertible": 984,
+      "Mini PC": 743,
+      "All-in-One": 744,
+      "Tablet": 320,
+      "Server": 677,
+      "Stick PC": 10,
+      "System On Chip": 67,
+      "Firewall": 3
+    },
+    "by_hwid_path": {
+      "Notebook": 87622,
+      "Desktop": 63097,
+      "Convertible": 4162,
+      "Mini PC": 2588,
+      "Server": 2048,
+      "All-in-One": 2027,
+      "Tablet": 1188,
+      "System On Chip": 102,
+      "Stick PC": 15,
+      "Firewall": 4
+    }
+  },
+  "form_factors_inventoried": {
+    "Notebook": 14935,
+    "Desktop": 9188,
+    "Convertible": 862,
+    "Mini PC": 627,
+    "All-in-One": 551,
+    "Tablet": 189,
+    "Server": 454,
+    "Stick PC": 5,
+    "System On Chip": 1
+  },
+  "support_totals": {
+    "supported_likely": 25649,
+    "avoid": 1165
+  },
+  "name_brands": {
+    "HP": {
+      "brand": "HP",
+      "models": 2712,
+      "supported_likely": 2619,
+      "avoid": 93,
+      "form_factors": {
+        "Desktop": 1199,
+        "Notebook": 1103,
+        "Convertible": 177,
+        "All-in-One": 140,
+        "Server": 41,
+        "Mini PC": 38,
+        "Tablet": 14
+      },
+      "top_form_factors": [
+        "Desktop (1199)",
+        "Notebook (1103)",
+        "Convertible (177)",
+        "All-in-One (140)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "Pavilion",
+          "models": 230
+        },
+        {
+          "prefix": "Compaq",
+          "models": 163
+        },
+        {
+          "prefix": "Laptop",
+          "models": 152
+        },
+        {
+          "prefix": "ENVY",
+          "models": 141
+        },
+        {
+          "prefix": "EliteBook",
+          "models": 139
+        },
+        {
+          "prefix": "ProBook",
+          "models": 131
+        },
+        {
+          "prefix": "OMEN",
+          "models": 69
+        },
+        {
+          "prefix": "ProLiant",
+          "models": 66
+        },
+        {
+          "prefix": "p6",
+          "models": 64
+        },
+        {
+          "prefix": "ZBook",
+          "models": 59
+        },
+        {
+          "prefix": "EliteDesk",
+          "models": 52
+        },
+        {
+          "prefix": "Spectre",
+          "models": 51
+        }
+      ]
+    },
+    "Dell": {
+      "brand": "Dell",
+      "models": 1233,
+      "supported_likely": 1223,
+      "avoid": 10,
+      "form_factors": {
+        "Notebook": 750,
+        "Desktop": 253,
+        "Server": 101,
+        "Convertible": 61,
+        "All-in-One": 52,
+        "Mini PC": 8,
+        "Tablet": 7
+      },
+      "top_form_factors": [
+        "Notebook (750)",
+        "Desktop (253)",
+        "Server (101)",
+        "Convertible (61)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "Inspiron",
+          "models": 383
+        },
+        {
+          "prefix": "Latitude",
+          "models": 220
+        },
+        {
+          "prefix": "Vostro",
+          "models": 133
+        },
+        {
+          "prefix": "Precision",
+          "models": 119
+        },
+        {
+          "prefix": "PowerEdge",
+          "models": 96
+        },
+        {
+          "prefix": "OptiPlex",
+          "models": 88
+        },
+        {
+          "prefix": "XPS",
+          "models": 71
+        },
+        {
+          "prefix": "Studio",
+          "models": 24
+        },
+        {
+          "prefix": "Dimension",
+          "models": 12
+        },
+        {
+          "prefix": "System",
+          "models": 11
+        },
+        {
+          "prefix": "Venue",
+          "models": 11
+        },
+        {
+          "prefix": "G15",
+          "models": 8
+        }
+      ]
+    },
+    "Asus": {
+      "brand": "Asus",
+      "models": 3809,
+      "supported_likely": 3147,
+      "avoid": 662,
+      "form_factors": {
+        "Notebook": 2078,
+        "Desktop": 1513,
+        "Convertible": 102,
+        "All-in-One": 43,
+        "Server": 31,
+        "Mini PC": 25,
+        "Tablet": 17
+      },
+      "top_form_factors": [
+        "Notebook (2078)",
+        "Desktop (1513)",
+        "Convertible (102)",
+        "All-in-One (43)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "VivoBook_ASUSLaptop",
+          "models": 451
+        },
+        {
+          "prefix": "ROG",
+          "models": 347
+        },
+        {
+          "prefix": "ASUS",
+          "models": 244
+        },
+        {
+          "prefix": "PRIME",
+          "models": 202
+        },
+        {
+          "prefix": "TUF",
+          "models": 171
+        },
+        {
+          "prefix": "P5",
+          "models": 115
+        },
+        {
+          "prefix": "ZenBook",
+          "models": 102
+        },
+        {
+          "prefix": "VivoBook",
+          "models": 56
+        },
+        {
+          "prefix": "Zenbook",
+          "models": 49
+        },
+        {
+          "prefix": "M4",
+          "models": 37
+        },
+        {
+          "prefix": "X550",
+          "models": 28
+        },
+        {
+          "prefix": "P4",
+          "models": 27
+        }
+      ]
+    },
+    "Acer": {
+      "brand": "Acer",
+      "models": 1451,
+      "supported_likely": 1346,
+      "avoid": 105,
+      "form_factors": {
+        "Notebook": 1033,
+        "Desktop": 298,
+        "All-in-One": 73,
+        "Convertible": 35,
+        "Tablet": 11,
+        "Server": 1
+      },
+      "top_form_factors": [
+        "Notebook (1033)",
+        "Desktop (298)",
+        "All-in-One (73)",
+        "Convertible (35)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "Aspire",
+          "models": 808
+        },
+        {
+          "prefix": "TravelMate",
+          "models": 129
+        },
+        {
+          "prefix": "Veriton",
+          "models": 98
+        },
+        {
+          "prefix": "Swift",
+          "models": 75
+        },
+        {
+          "prefix": "Predator",
+          "models": 57
+        },
+        {
+          "prefix": "Extensa",
+          "models": 49
+        },
+        {
+          "prefix": "Nitro",
+          "models": 36
+        },
+        {
+          "prefix": "Spin",
+          "models": 18
+        },
+        {
+          "prefix": "One",
+          "models": 8
+        },
+        {
+          "prefix": "AO",
+          "models": 7
+        },
+        {
+          "prefix": "ConceptD",
+          "models": 6
+        },
+        {
+          "prefix": "Revo",
+          "models": 6
+        }
+      ]
+    },
+    "Lenovo": {
+      "brand": "Lenovo",
+      "models": 11068,
+      "supported_likely": 10887,
+      "avoid": 181,
+      "form_factors": {
+        "Notebook": 8548,
+        "Desktop": 1514,
+        "Convertible": 476,
+        "Mini PC": 230,
+        "All-in-One": 181,
+        "Tablet": 80,
+        "Server": 37,
+        "Stick PC": 1
+      },
+      "top_form_factors": [
+        "Notebook (8548)",
+        "Desktop (1514)",
+        "Convertible (476)",
+        "Mini PC (230)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "ThinkPad",
+          "models": 7676
+        },
+        {
+          "prefix": "ThinkCentre",
+          "models": 1140
+        },
+        {
+          "prefix": "IdeaPad",
+          "models": 501
+        },
+        {
+          "prefix": "IdeaCentre",
+          "models": 254
+        },
+        {
+          "prefix": "ThinkStation",
+          "models": 212
+        },
+        {
+          "prefix": "Yoga",
+          "models": 162
+        },
+        {
+          "prefix": "Legion",
+          "models": 160
+        },
+        {
+          "prefix": "ThinkBook",
+          "models": 71
+        },
+        {
+          "prefix": "3000",
+          "models": 46
+        },
+        {
+          "prefix": "IdeaPadFlex",
+          "models": 33
+        },
+        {
+          "prefix": "Flex",
+          "models": 17
+        },
+        {
+          "prefix": "H50-50",
+          "models": 17
+        }
+      ]
+    },
+    "Framework": {
+      "brand": "Framework",
+      "models": 3,
+      "supported_likely": 3,
+      "avoid": 0,
+      "form_factors": {
+        "Notebook": 3
+      },
+      "top_form_factors": [
+        "Notebook (3)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "Laptop",
+          "models": 3
+        }
+      ]
+    },
+    "Star Labs": {
+      "brand": "Star Labs",
+      "models": 5,
+      "supported_likely": 5,
+      "avoid": 0,
+      "form_factors": {
+        "Notebook": 4,
+        "Tablet": 1
+      },
+      "top_form_factors": [
+        "Notebook (4)",
+        "Tablet (1)"
+      ],
+      "top_prefixes": [
+        {
+          "prefix": "StarLite",
+          "models": 2
+        },
+        {
+          "prefix": "LabTop",
+          "models": 1
+        },
+        {
+          "prefix": "Lite",
+          "models": 1
+        },
+        {
+          "prefix": "StarBook",
+          "models": 1
+        }
+      ]
+    }
+  },
+  "industrial_pos_odm": {
+    "models": 850,
+    "supported_likely": 850,
+    "avoid": 0,
+    "form_factors": {
+      "Mini PC": 285,
+      "Desktop": 244,
+      "Notebook": 218,
+      "Tablet": 47,
+      "Server": 14,
+      "Convertible": 8,
+      "All-in-One": 6,
+      "Stick PC": 4,
+      "System On Chip": 1
+    },
+    "top_prefixes": [
+      {
+        "prefix": "NUC7",
+        "models": 31
+      },
+      {
+        "prefix": "NUC11",
+        "models": 23
+      },
+      {
+        "prefix": "NUC8",
+        "models": 18
+      },
+      {
+        "prefix": "CF-31",
+        "models": 14
+      },
+      {
+        "prefix": "CF-19",
+        "models": 13
+      },
+      {
+        "prefix": "NucBox",
+        "models": 10
+      },
+      {
+        "prefix": "NUC12",
+        "models": 10
+      },
+      {
+        "prefix": "CF-53",
+        "models": 10
+      },
+      {
+        "prefix": "Gemini",
+        "models": 9
+      },
+      {
+        "prefix": "NUC13",
+        "models": 9
+      },
+      {
+        "prefix": "Z83",
+        "models": 8
+      },
+      {
+        "prefix": "X",
+        "models": 8
+      }
+    ],
+    "top_vendors": [
+      {
+        "vendor": "Intel Client Systems",
+        "models": 104,
+        "supported_likely": 104,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 89,
+          "Notebook": 12,
+          "Desktop": 3
+        }
+      },
+      {
+        "vendor": "Panasonic",
+        "models": 97,
+        "supported_likely": 97,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 90,
+          "Tablet": 6,
+          "Convertible": 1
+        }
+      },
+      {
+        "vendor": "Intel",
+        "models": 88,
+        "supported_likely": 88,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 88
+        }
+      },
+      {
+        "vendor": "Shuttle",
+        "models": 69,
+        "supported_likely": 69,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 61,
+          "Notebook": 8
+        }
+      },
+      {
+        "vendor": "ZOTAC",
+        "models": 66,
+        "supported_likely": 66,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 56,
+          "Desktop": 10
+        }
+      },
+      {
+        "vendor": "Chuwi",
+        "models": 54,
+        "supported_likely": 54,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 32,
+          "Tablet": 9,
+          "Mini PC": 6,
+          "Convertible": 4,
+          "Desktop": 3
+        }
+      },
+      {
+        "vendor": "AZW",
+        "models": 54,
+        "supported_likely": 54,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 33,
+          "Mini PC": 13,
+          "Notebook": 8
+        }
+      },
+      {
+        "vendor": "BESSTAR Tech",
+        "models": 37,
+        "supported_likely": 37,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 18,
+          "Mini PC": 9,
+          "Notebook": 3,
+          "Server": 3,
+          "All-in-One": 2,
+          "Convertible": 1,
+          "Stick PC": 1
+        }
+      },
+      {
+        "vendor": "Teclast",
+        "models": 24,
+        "supported_likely": 24,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 15,
+          "Tablet": 6,
+          "Convertible": 2,
+          "All-in-One": 1
+        }
+      },
+      {
+        "vendor": "Getac",
+        "models": 24,
+        "supported_likely": 24,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 19,
+          "Tablet": 5
+        }
+      },
+      {
+        "vendor": "AAEON",
+        "models": 14,
+        "supported_likely": 14,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 12,
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "DFI",
+        "models": 13,
+        "supported_likely": 13,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 13
+        }
+      },
+      {
+        "vendor": "AOpen",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 12
+        }
+      },
+      {
+        "vendor": "CompuLab",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 7,
+          "Desktop": 4,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "GMKtec",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 6,
+          "Mini PC": 4,
+          "Notebook": 1,
+          "Server": 1
+        }
+      },
+      {
+        "vendor": "Hampoo",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 6,
+          "Tablet": 5,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "AWOW",
+        "models": 11,
+        "supported_likely": 11,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 3,
+          "Notebook": 3,
+          "Mini PC": 2,
+          "Stick PC": 2,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "Minix",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 6,
+          "Notebook": 4
+        }
+      },
+      {
+        "vendor": "WYSE",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 6,
+          "Mini PC": 3,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Neousys Technology",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Server": 9,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "RuggedPC",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Tablet": 10
+        }
+      },
+      {
+        "vendor": "ICP-iEi",
+        "models": 7,
+        "supported_likely": 7,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5,
+          "All-in-One": 2
+        }
+      },
+      {
+        "vendor": "Fanless Mini PC",
+        "models": 7,
+        "supported_likely": 7,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 6,
+          "Stick PC": 1
+        }
+      },
+      {
+        "vendor": "Beelink",
+        "models": 6,
+        "supported_likely": 6,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 3,
+          "Mini PC": 2,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "ADLINK Technology",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "ASRock Industrial",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "Jetway",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "congatec",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 3,
+          "Desktop": 2
+        }
+      },
+      {
+        "vendor": "iEi",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "Advantech",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 2,
+          "Desktop": 1,
+          "System On Chip": 1
+        }
+      },
+      {
+        "vendor": "LattePanda",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 4
+        }
+      },
+      {
+        "vendor": "SIEMENS",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 3,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Trigkey",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2,
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "Xplore",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Tablet": 3,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Cincoze",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 3
+        }
+      },
+      {
+        "vendor": "OnLogic",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Seco",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "ATOPNUC",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 3
+        }
+      },
+      {
+        "vendor": "IGEL Technology",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 3
+        }
+      },
+      {
+        "vendor": "Compulab",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1,
+          "Mini PC": 1
+        }
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "Intel Client Systems",
+        "models": 104,
+        "supported_likely": 104,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 89,
+          "Notebook": 12,
+          "Desktop": 3
+        }
+      },
+      {
+        "vendor": "Panasonic",
+        "models": 97,
+        "supported_likely": 97,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 90,
+          "Tablet": 6,
+          "Convertible": 1
+        }
+      },
+      {
+        "vendor": "Intel",
+        "models": 88,
+        "supported_likely": 88,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 88
+        }
+      },
+      {
+        "vendor": "Shuttle",
+        "models": 69,
+        "supported_likely": 69,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 61,
+          "Notebook": 8
+        }
+      },
+      {
+        "vendor": "ZOTAC",
+        "models": 66,
+        "supported_likely": 66,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 56,
+          "Desktop": 10
+        }
+      },
+      {
+        "vendor": "Chuwi",
+        "models": 54,
+        "supported_likely": 54,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 32,
+          "Tablet": 9,
+          "Mini PC": 6,
+          "Convertible": 4,
+          "Desktop": 3
+        }
+      },
+      {
+        "vendor": "AZW",
+        "models": 54,
+        "supported_likely": 54,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 33,
+          "Mini PC": 13,
+          "Notebook": 8
+        }
+      },
+      {
+        "vendor": "BESSTAR Tech",
+        "models": 37,
+        "supported_likely": 37,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 18,
+          "Mini PC": 9,
+          "Notebook": 3,
+          "Server": 3,
+          "All-in-One": 2,
+          "Convertible": 1,
+          "Stick PC": 1
+        }
+      },
+      {
+        "vendor": "Teclast",
+        "models": 24,
+        "supported_likely": 24,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 15,
+          "Tablet": 6,
+          "Convertible": 2,
+          "All-in-One": 1
+        }
+      },
+      {
+        "vendor": "Getac",
+        "models": 24,
+        "supported_likely": 24,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 19,
+          "Tablet": 5
+        }
+      },
+      {
+        "vendor": "AAEON",
+        "models": 14,
+        "supported_likely": 14,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 12,
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "DFI",
+        "models": 13,
+        "supported_likely": 13,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 13
+        }
+      },
+      {
+        "vendor": "AOpen",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 12
+        }
+      },
+      {
+        "vendor": "CompuLab",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 7,
+          "Desktop": 4,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "GMKtec",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 6,
+          "Mini PC": 4,
+          "Notebook": 1,
+          "Server": 1
+        }
+      },
+      {
+        "vendor": "Hampoo",
+        "models": 12,
+        "supported_likely": 12,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 6,
+          "Tablet": 5,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "AWOW",
+        "models": 11,
+        "supported_likely": 11,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 3,
+          "Notebook": 3,
+          "Mini PC": 2,
+          "Stick PC": 2,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "Minix",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 6,
+          "Notebook": 4
+        }
+      },
+      {
+        "vendor": "WYSE",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 6,
+          "Mini PC": 3,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Neousys Technology",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Server": 9,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "RuggedPC",
+        "models": 10,
+        "supported_likely": 10,
+        "avoid": 0,
+        "form_factors": {
+          "Tablet": 10
+        }
+      },
+      {
+        "vendor": "ICP-iEi",
+        "models": 7,
+        "supported_likely": 7,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5,
+          "All-in-One": 2
+        }
+      },
+      {
+        "vendor": "Fanless Mini PC",
+        "models": 7,
+        "supported_likely": 7,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 6,
+          "Stick PC": 1
+        }
+      },
+      {
+        "vendor": "Beelink",
+        "models": 6,
+        "supported_likely": 6,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 3,
+          "Mini PC": 2,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "ADLINK Technology",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "ASRock Industrial",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "Jetway",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "congatec",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 3,
+          "Desktop": 2
+        }
+      },
+      {
+        "vendor": "iEi",
+        "models": 5,
+        "supported_likely": 5,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 5
+        }
+      },
+      {
+        "vendor": "Advantech",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 2,
+          "Desktop": 1,
+          "System On Chip": 1
+        }
+      },
+      {
+        "vendor": "LattePanda",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 4
+        }
+      },
+      {
+        "vendor": "SIEMENS",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 3,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Trigkey",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2,
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "Xplore",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Tablet": 3,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Cincoze",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 3
+        }
+      },
+      {
+        "vendor": "OnLogic",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Seco",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "ATOPNUC",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 3
+        }
+      },
+      {
+        "vendor": "IGEL Technology",
+        "models": 3,
+        "supported_likely": 3,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 3
+        }
+      },
+      {
+        "vendor": "Compulab",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1,
+          "Mini PC": 1
+        }
+      },
+      {
+        "vendor": "NEXCOM",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1,
+          "Mini PC": 1
+        }
+      },
+      {
+        "vendor": "ReachingTech",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "Panasonic Connect",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "Touch Dynamic",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "All-in-One": 1
+        }
+      },
+      {
+        "vendor": "AMI",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "AXIOMTEK",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Elo Touch Solutions",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Kontron Europe",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Kontron",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Partner",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Portwell",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Tangent Computer",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Wearnes",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "faytech",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "ARBOR",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 1
+        }
+      },
+      {
+        "vendor": "Congatec",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Mini PC": 1
+        }
+      },
+      {
+        "vendor": "Adlinktech",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "RTD Embedded Technologies",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "SECO",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "ADLINK",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Server": 1
+        }
+      },
+      {
+        "vendor": "CAKE",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "Hanis",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Tablet": 1
+        }
+      }
+    ],
+    "segment": "industrial_pos_odm"
+  },
+  "other_x86_odm": {
+    "models": 5683,
+    "supported_likely": 5569,
+    "avoid": 114,
+    "form_factors": {
+      "Desktop": 4138,
+      "Notebook": 1169,
+      "Server": 229,
+      "All-in-One": 56,
+      "Mini PC": 25,
+      "Tablet": 12,
+      "Convertible": 3
+    },
+    "top_prefixes": [
+      {
+        "prefix": "MS",
+        "models": 229
+      },
+      {
+        "prefix": "MS-7",
+        "models": 216
+      },
+      {
+        "prefix": "H61",
+        "models": 99
+      },
+      {
+        "prefix": "H81",
+        "models": 51
+      },
+      {
+        "prefix": "X79",
+        "models": 50
+      },
+      {
+        "prefix": "H110",
+        "models": 43
+      },
+      {
+        "prefix": "G41",
+        "models": 43
+      },
+      {
+        "prefix": "Katana",
+        "models": 37
+      },
+      {
+        "prefix": "B550",
+        "models": 35
+      },
+      {
+        "prefix": "F2",
+        "models": 35
+      },
+      {
+        "prefix": "X99",
+        "models": 34
+      },
+      {
+        "prefix": "Modern",
+        "models": 33
+      }
+    ],
+    "top_vendors": [
+      {
+        "vendor": "Gigabyte Technology",
+        "models": 1404,
+        "supported_likely": 1404,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1262,
+          "Notebook": 103,
+          "Server": 34,
+          "All-in-One": 3,
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "MSI",
+        "models": 1214,
+        "supported_likely": 1130,
+        "avoid": 84,
+        "form_factors": {
+          "Notebook": 674,
+          "Desktop": 496,
+          "All-in-One": 38,
+          "Server": 3,
+          "Convertible": 1,
+          "Mini PC": 1,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "ASRock",
+        "models": 897,
+        "supported_likely": 897,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 895,
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "Intel",
+        "models": 611,
+        "supported_likely": 596,
+        "avoid": 15,
+        "form_factors": {
+          "Desktop": 515,
+          "Notebook": 40,
+          "Server": 35,
+          "Mini PC": 9,
+          "All-in-One": 8,
+          "Tablet": 4
+        }
+      },
+      {
+        "vendor": "Supermicro",
+        "models": 234,
+        "supported_likely": 234,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 118,
+          "Server": 112,
+          "Mini PC": 4
+        }
+      },
+      {
+        "vendor": "Biostar",
+        "models": 213,
+        "supported_likely": 212,
+        "avoid": 1,
+        "form_factors": {
+          "Desktop": 211,
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "ECS",
+        "models": 154,
+        "supported_likely": 151,
+        "avoid": 3,
+        "form_factors": {
+          "Desktop": 148,
+          "Notebook": 5,
+          "All-in-One": 1
+        }
+      },
+      {
+        "vendor": "Foxconn",
+        "models": 99,
+        "supported_likely": 98,
+        "avoid": 1,
+        "form_factors": {
+          "Desktop": 98,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "PC Specialist",
+        "models": 86,
+        "supported_likely": 83,
+        "avoid": 3,
+        "form_factors": {
+          "Notebook": 61,
+          "Desktop": 25
+        }
+      },
+      {
+        "vendor": "TUXEDO",
+        "models": 75,
+        "supported_likely": 75,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 75
+        }
+      },
+      {
+        "vendor": "Huanan",
+        "models": 73,
+        "supported_likely": 73,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 73
+        }
+      },
+      {
+        "vendor": "Clevo",
+        "models": 71,
+        "supported_likely": 71,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 70,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Pegatron",
+        "models": 69,
+        "supported_likely": 69,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 41,
+          "Notebook": 24,
+          "All-in-One": 4
+        }
+      },
+      {
+        "vendor": "Wortmann AG",
+        "models": 58,
+        "supported_likely": 58,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 25,
+          "Desktop": 23,
+          "Tablet": 5,
+          "Mini PC": 3,
+          "Server": 2
+        }
+      },
+      {
+        "vendor": "ASRockRack",
+        "models": 49,
+        "supported_likely": 49,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 31,
+          "Server": 18
+        }
+      },
+      {
+        "vendor": "OEM",
+        "models": 40,
+        "supported_likely": 40,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 26,
+          "Notebook": 8,
+          "Server": 4,
+          "All-in-One": 1,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "MACHINIST",
+        "models": 36,
+        "supported_likely": 36,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 36
+        }
+      },
+      {
+        "vendor": "EVGA",
+        "models": 32,
+        "supported_likely": 32,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 32
+        }
+      },
+      {
+        "vendor": "MECHREVO",
+        "models": 31,
+        "supported_likely": 24,
+        "avoid": 7,
+        "form_factors": {
+          "Notebook": 29,
+          "Desktop": 1,
+          "Mini PC": 1
+        }
+      },
+      {
+        "vendor": "System76",
+        "models": 31,
+        "supported_likely": 31,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 20,
+          "Desktop": 9,
+          "Mini PC": 1,
+          "Server": 1
+        }
+      },
+      {
+        "vendor": "ABIT",
+        "models": 30,
+        "supported_likely": 30,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 30
+        }
+      },
+      {
+        "vendor": "Micro Computer (HK) Tech Limited",
+        "models": 30,
+        "supported_likely": 30,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 25,
+          "Mini PC": 2,
+          "Notebook": 2,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "TYAN Computer",
+        "models": 24,
+        "supported_likely": 24,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 13,
+          "Server": 11
+        }
+      },
+      {
+        "vendor": "Colorful Technology",
+        "models": 22,
+        "supported_likely": 22,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 22
+        }
+      },
+      {
+        "vendor": "Compal",
+        "models": 22,
+        "supported_likely": 22,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 21,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Quanta",
+        "models": 21,
+        "supported_likely": 21,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 10,
+          "Server": 9,
+          "All-in-One": 1,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "AMI",
+        "models": 20,
+        "supported_likely": 20,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 8,
+          "Notebook": 8,
+          "Convertible": 2,
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "MAXSUN",
+        "models": 9,
+        "supported_likely": 9,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 9
+        }
+      },
+      {
+        "vendor": "TongFang",
+        "models": 7,
+        "supported_likely": 7,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 7
+        }
+      },
+      {
+        "vendor": "American Megatrends",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 3,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "TSINGHUA TONGFANG COMPUTER",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 4
+        }
+      },
+      {
+        "vendor": "Intel X79",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2
+        }
+      },
+      {
+        "vendor": "COLORFUL",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "FUJI wortmann",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Gigabyte XTRJ Operations",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "INTELBRAS",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Machinist-Runing",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Machinist",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Pegatron corproration",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Compaq(Intel)",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "Gigabyte Technology",
+        "models": 1404,
+        "supported_likely": 1404,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1262,
+          "Notebook": 103,
+          "Server": 34,
+          "All-in-One": 3,
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "MSI",
+        "models": 1214,
+        "supported_likely": 1130,
+        "avoid": 84,
+        "form_factors": {
+          "Notebook": 674,
+          "Desktop": 496,
+          "All-in-One": 38,
+          "Server": 3,
+          "Convertible": 1,
+          "Mini PC": 1,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "ASRock",
+        "models": 897,
+        "supported_likely": 897,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 895,
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "Intel",
+        "models": 611,
+        "supported_likely": 596,
+        "avoid": 15,
+        "form_factors": {
+          "Desktop": 515,
+          "Notebook": 40,
+          "Server": 35,
+          "Mini PC": 9,
+          "All-in-One": 8,
+          "Tablet": 4
+        }
+      },
+      {
+        "vendor": "Supermicro",
+        "models": 234,
+        "supported_likely": 234,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 118,
+          "Server": 112,
+          "Mini PC": 4
+        }
+      },
+      {
+        "vendor": "Biostar",
+        "models": 213,
+        "supported_likely": 212,
+        "avoid": 1,
+        "form_factors": {
+          "Desktop": 211,
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "ECS",
+        "models": 154,
+        "supported_likely": 151,
+        "avoid": 3,
+        "form_factors": {
+          "Desktop": 148,
+          "Notebook": 5,
+          "All-in-One": 1
+        }
+      },
+      {
+        "vendor": "Foxconn",
+        "models": 99,
+        "supported_likely": 98,
+        "avoid": 1,
+        "form_factors": {
+          "Desktop": 98,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "PC Specialist",
+        "models": 86,
+        "supported_likely": 83,
+        "avoid": 3,
+        "form_factors": {
+          "Notebook": 61,
+          "Desktop": 25
+        }
+      },
+      {
+        "vendor": "TUXEDO",
+        "models": 75,
+        "supported_likely": 75,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 75
+        }
+      },
+      {
+        "vendor": "Huanan",
+        "models": 73,
+        "supported_likely": 73,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 73
+        }
+      },
+      {
+        "vendor": "Clevo",
+        "models": 71,
+        "supported_likely": 71,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 70,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Pegatron",
+        "models": 69,
+        "supported_likely": 69,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 41,
+          "Notebook": 24,
+          "All-in-One": 4
+        }
+      },
+      {
+        "vendor": "Wortmann AG",
+        "models": 58,
+        "supported_likely": 58,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 25,
+          "Desktop": 23,
+          "Tablet": 5,
+          "Mini PC": 3,
+          "Server": 2
+        }
+      },
+      {
+        "vendor": "ASRockRack",
+        "models": 49,
+        "supported_likely": 49,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 31,
+          "Server": 18
+        }
+      },
+      {
+        "vendor": "OEM",
+        "models": 40,
+        "supported_likely": 40,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 26,
+          "Notebook": 8,
+          "Server": 4,
+          "All-in-One": 1,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "MACHINIST",
+        "models": 36,
+        "supported_likely": 36,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 36
+        }
+      },
+      {
+        "vendor": "EVGA",
+        "models": 32,
+        "supported_likely": 32,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 32
+        }
+      },
+      {
+        "vendor": "MECHREVO",
+        "models": 31,
+        "supported_likely": 24,
+        "avoid": 7,
+        "form_factors": {
+          "Notebook": 29,
+          "Desktop": 1,
+          "Mini PC": 1
+        }
+      },
+      {
+        "vendor": "System76",
+        "models": 31,
+        "supported_likely": 31,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 20,
+          "Desktop": 9,
+          "Mini PC": 1,
+          "Server": 1
+        }
+      },
+      {
+        "vendor": "ABIT",
+        "models": 30,
+        "supported_likely": 30,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 30
+        }
+      },
+      {
+        "vendor": "Micro Computer (HK) Tech Limited",
+        "models": 30,
+        "supported_likely": 30,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 25,
+          "Mini PC": 2,
+          "Notebook": 2,
+          "Tablet": 1
+        }
+      },
+      {
+        "vendor": "TYAN Computer",
+        "models": 24,
+        "supported_likely": 24,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 13,
+          "Server": 11
+        }
+      },
+      {
+        "vendor": "Colorful Technology",
+        "models": 22,
+        "supported_likely": 22,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 22
+        }
+      },
+      {
+        "vendor": "Compal",
+        "models": 22,
+        "supported_likely": 22,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 21,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Quanta",
+        "models": 21,
+        "supported_likely": 21,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 10,
+          "Server": 9,
+          "All-in-One": 1,
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "AMI",
+        "models": 20,
+        "supported_likely": 20,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 8,
+          "Notebook": 8,
+          "Convertible": 2,
+          "Mini PC": 2
+        }
+      },
+      {
+        "vendor": "MAXSUN",
+        "models": 9,
+        "supported_likely": 9,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 9
+        }
+      },
+      {
+        "vendor": "TongFang",
+        "models": 7,
+        "supported_likely": 7,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 7
+        }
+      },
+      {
+        "vendor": "American Megatrends",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 3,
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "TSINGHUA TONGFANG COMPUTER",
+        "models": 4,
+        "supported_likely": 4,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 4
+        }
+      },
+      {
+        "vendor": "Intel X79",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 2
+        }
+      },
+      {
+        "vendor": "COLORFUL",
+        "models": 2,
+        "supported_likely": 2,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 2
+        }
+      },
+      {
+        "vendor": "FUJI wortmann",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Gigabyte XTRJ Operations",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "INTELBRAS",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Machinist-Runing",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Machinist",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Pegatron corproration",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Desktop": 1
+        }
+      },
+      {
+        "vendor": "Compaq(Intel)",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Intelbras",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      },
+      {
+        "vendor": "Six United Intelligent",
+        "models": 1,
+        "supported_likely": 1,
+        "avoid": 0,
+        "form_factors": {
+          "Notebook": 1
+        }
+      }
+    ],
+    "segment": "other_x86_odm"
+  }
+}

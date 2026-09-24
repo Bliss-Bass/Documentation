@@ -1,0 +1,795 @@
+{
+  "generated": "2026-09-23",
+  "generator": "scripts/gen_hardware_compat.py",
+  "source": "scripts/pos_manufacturers.yaml",
+  "default_guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card.",
+  "brands": [
+    {
+      "name": "POSNation",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "posnation",
+        "pos nation"
+      ],
+      "notes": "Channel/reseller POS systems; usually rebadge Intel AiOs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Barcodes Inc.",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "barcodes inc",
+        "barcodesinc"
+      ],
+      "notes": "Reseller; hardware often third-party Intel panels.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Newegg Business",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "newegg"
+      ],
+      "notes": "Reseller/channel; DMI usually shows the ODM or panel OEM.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Elo Touch",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "elo touch",
+        "elo touch solutions",
+        "elotouch"
+      ],
+      "notes": "Touch AiO / kiosk panels; Intel iGPU SKUs fit Mesa.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "POSGuys",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "posguys",
+        "pos guys"
+      ],
+      "notes": "Reseller; treat underlying Intel/AMD panel as the real target.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Sunany",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "sunany"
+      ],
+      "notes": "Panel/POS OEM; uncommon in Linux probe datasets.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "POS Catch",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "pos catch",
+        "poscatch"
+      ],
+      "notes": "Channel POS kits; verify GPU before deploy.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Alibaba",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "alibaba"
+      ],
+      "notes": "Marketplace listings \u2014 DMI is whatever ODM flashed; not a single OEM.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Aonpos",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "aonpos"
+      ],
+      "notes": "POS terminals; rare Linux probes.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Gilong",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "gilong"
+      ],
+      "notes": "POS/panel OEM; rare in linuxhw.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Tysso",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "tysso"
+      ],
+      "notes": "POS terminals; rare Linux uploads.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Jassway",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "jassway"
+      ],
+      "notes": "Panel PC / POS; rare in linuxhw.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Beetronics",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "beetronics"
+      ],
+      "notes": "Industrial/touch monitors and panels.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Hosoton",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "hosoton"
+      ],
+      "notes": "POS / panel hardware; rare Linux probes.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Penetek",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "penetek"
+      ],
+      "notes": "Panel PC OEM; uncommon in linuxhw.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "DFPOS Machine",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "dfpos"
+      ],
+      "notes": "Dedicated POS machines; typically Windows-centric.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "CSMRT",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "csmrt"
+      ],
+      "notes": "POS OEM; rare in linuxhw.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Licon",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "licon"
+      ],
+      "notes": "POS / kiosk; rare Linux probes.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Smart Tech Systems",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "smart tech systems",
+        "smarttech systems"
+      ],
+      "notes": "Systems integrator; DMI may show ODM instead.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Ocom",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "ocom"
+      ],
+      "notes": "POS OEM; match vendor equality / word-boundary only (not \"computer\").",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Touch Dynamics",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "touch dynamic",
+        "touch dynamics",
+        "touchdynamic"
+      ],
+      "notes": "Touch AiO / POS panels.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Faytech",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "faytech"
+      ],
+      "notes": "Touch monitors and panel PCs; Intel SKUs preferred.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Elanda",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "elanda"
+      ],
+      "notes": "POS hardware; rare in linuxhw.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Advantech",
+      "in_linuxhw": true,
+      "models": 4,
+      "needles": [
+        "advantech"
+      ],
+      "notes": "Industrial / embedded / panel PC \u2014 well represented in linuxhw.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Panasonic (Toughbook)",
+      "in_linuxhw": true,
+      "models": 99,
+      "needles": [
+        "panasonic",
+        "panasonic connect"
+      ],
+      "notes": "Toughbook / Toughpad rugged class; Intel iGPU SKUs preferred.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Sam4S",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "sam4s"
+      ],
+      "notes": "POS terminals; rare Linux probes. Bass-validated: SA-660011 (Intel/AMD open path) works on Lineout \u2014 specialty I/O still per-SKU.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Toshiba (POS/Toughpad)",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "toshiba"
+      ],
+      "notes": "Count only POS/Toughpad/Toughbook-style rows \u2014 not all Toshiba laptops.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Posiflex",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "posiflex"
+      ],
+      "notes": "POS terminals and AiOs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Flytech",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "flytech"
+      ],
+      "notes": "POS / panel PC OEM.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Senor",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "senor"
+      ],
+      "notes": "POS OEM; uncommon Linux uploads.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "IEI",
+      "in_linuxhw": true,
+      "models": 12,
+      "needles": [
+        "iei",
+        "icp-iei"
+      ],
+      "notes": "Industrial / embedded IPC (ICP-IEI).",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "AAEON",
+      "in_linuxhw": true,
+      "models": 14,
+      "needles": [
+        "aaeon"
+      ],
+      "notes": "Industrial / embedded / panel.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "NEXCOM",
+      "in_linuxhw": true,
+      "models": 2,
+      "needles": [
+        "nexcom"
+      ],
+      "notes": "Industrial / transportation / embedded.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Cincoze",
+      "in_linuxhw": true,
+      "models": 3,
+      "needles": [
+        "cincoze"
+      ],
+      "notes": "Rugged embedded / panel PC.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Kontron",
+      "in_linuxhw": true,
+      "models": 3,
+      "needles": [
+        "kontron"
+      ],
+      "notes": "Embedded / industrial computing.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Shuttle",
+      "in_linuxhw": true,
+      "models": 69,
+      "needles": [
+        "shuttle"
+      ],
+      "notes": "Slim / XPC desktops and mini-PCs; common in kiosk embeds.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Getac",
+      "in_linuxhw": true,
+      "models": 24,
+      "needles": [
+        "getac"
+      ],
+      "notes": "Rugged notebooks and tablets; Intel iGPU SKUs preferred.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "DFI",
+      "in_linuxhw": true,
+      "models": 13,
+      "needles": [
+        "dfi"
+      ],
+      "notes": "Industrial / embedded motherboards and systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "AOpen",
+      "in_linuxhw": true,
+      "models": 12,
+      "needles": [
+        "aopen"
+      ],
+      "notes": "Digital signage and commercial mini-PCs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "CompuLab",
+      "in_linuxhw": true,
+      "models": 14,
+      "needles": [
+        "compulab"
+      ],
+      "notes": "Intense PC / industrial mini-PCs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Wyse (Dell)",
+      "in_linuxhw": true,
+      "models": 16,
+      "needles": [
+        "wyse",
+        "dell wyse"
+      ],
+      "notes": "Thin clients; often Intel graphics \u2014 validate peripherals.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Neousys",
+      "in_linuxhw": true,
+      "models": 10,
+      "needles": [
+        "neousys"
+      ],
+      "notes": "Rugged embedded / in-vehicle PCs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "RuggedPC / DT Research",
+      "in_linuxhw": true,
+      "models": 10,
+      "needles": [
+        "ruggedpc",
+        "dt research",
+        "dtresearch"
+      ],
+      "notes": "Rugged tablets and POS-adjacent panels.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "ADLINK",
+      "in_linuxhw": true,
+      "models": 7,
+      "needles": [
+        "adlink",
+        "adlinktech",
+        "adlink technology"
+      ],
+      "notes": "Industrial / embedded computing.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "ASRock Industrial",
+      "in_linuxhw": true,
+      "models": 5,
+      "needles": [
+        "asrock industrial",
+        "asrockind"
+      ],
+      "notes": "Industrial motherboards and fanless systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Jetway",
+      "in_linuxhw": true,
+      "models": 5,
+      "needles": [
+        "jetway"
+      ],
+      "notes": "Embedded / industrial boards and mini-PCs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "congatec",
+      "in_linuxhw": true,
+      "models": 6,
+      "needles": [
+        "congatec"
+      ],
+      "notes": "COM / industrial computer-on-modules and systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Siemens",
+      "in_linuxhw": true,
+      "models": 160,
+      "needles": [
+        "siemens"
+      ],
+      "notes": "Industrial IPC / Simatic-class; Intel open-GPU path preferred.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Xplore / Zebra Xplore",
+      "in_linuxhw": true,
+      "models": 4,
+      "needles": [
+        "xplore",
+        "xplore technologies"
+      ],
+      "notes": "Rugged tablets; often rebranded under Zebra.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "OnLogic",
+      "in_linuxhw": true,
+      "models": 3,
+      "needles": [
+        "onlogic"
+      ],
+      "notes": "Industrial / fanless PCs for kiosk and automation.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Seco",
+      "in_linuxhw": true,
+      "models": 4,
+      "needles": [
+        "seco"
+      ],
+      "notes": "Embedded / industrial systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "IGEL",
+      "in_linuxhw": true,
+      "models": 3,
+      "needles": [
+        "igel",
+        "igel technology"
+      ],
+      "notes": "Thin clients; validate display and peripheral stack.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Axiomtek",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "axiomtek"
+      ],
+      "notes": "Industrial / embedded / panel PC.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Portwell",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "portwell"
+      ],
+      "notes": "Industrial / embedded boards and systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Vecow",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "vecow"
+      ],
+      "notes": "Rugged embedded / in-vehicle PCs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Partner Tech",
+      "in_linuxhw": true,
+      "models": 3,
+      "needles": [
+        "partner",
+        "partner tech",
+        "partnertech"
+      ],
+      "notes": "POS terminals and AiOs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "NCR",
+      "in_linuxhw": true,
+      "models": 4,
+      "needles": [
+        "ncr",
+        "ncr corporation"
+      ],
+      "notes": "Retail POS / self-checkout; validate MSR and cash drawer.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Diebold Nixdorf",
+      "in_linuxhw": true,
+      "models": 4,
+      "needles": [
+        "diebold",
+        "nixdorf",
+        "diebold nixdorf"
+      ],
+      "notes": "Retail / banking POS; specialty I/O needs soak testing.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Ingenico",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "ingenico"
+      ],
+      "notes": "Payment terminals \u2014 often paired with a separate Intel/AMD host.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Verifone",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "verifone"
+      ],
+      "notes": "Payment terminals; host PC is usually a separate AiO.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "PAX Technology",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "pax",
+        "pax technology"
+      ],
+      "notes": "Payment terminals; treat host GPU separately.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Oracle MICROS",
+      "in_linuxhw": true,
+      "models": 42,
+      "needles": [
+        "micros",
+        "oracle micros"
+      ],
+      "notes": "Hospitality POS; host is often a standard Intel AiO.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "HP Engage / POS",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "hp engage",
+        "hp pos",
+        "engage one",
+        "engage flex"
+      ],
+      "notes": "HP retail AiOs; Intel iGPU SKUs are the expected path.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Zebra Technologies",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "zebra",
+        "zebra technologies"
+      ],
+      "notes": "Rugged tablets / kiosks / scanners; validate specialty I/O.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "KIOSK Information Systems",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "kiosk information",
+        "kiosk.com"
+      ],
+      "notes": "Kiosk enclosures; compute module is often a standard mini-PC.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Acrelec",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "acrelec"
+      ],
+      "notes": "QSR / self-order kiosks.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Meridian Kiosks",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "meridian"
+      ],
+      "notes": "Interactive kiosk enclosures; verify embedded PC GPU.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Olea Kiosks",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "olea"
+      ],
+      "notes": "Kiosk hardware; host often third-party Intel.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Pyramid Computer",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "pyramid"
+      ],
+      "notes": "Self-service / kiosk systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Teguar",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "teguar"
+      ],
+      "notes": "Industrial / medical panel PCs.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "CoastIPC",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "coastipc",
+        "coast ipc"
+      ],
+      "notes": "Industrial panel PCs and embedded systems.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Maple Systems",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "maple systems",
+        "maplesystems"
+      ],
+      "notes": "HMI / panel PC class.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Phoenix Contact",
+      "in_linuxhw": true,
+      "models": 1,
+      "needles": [
+        "phoenix contact",
+        "phoenixcontact"
+      ],
+      "notes": "Industrial IPC / automation panels.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Minisforum",
+      "in_linuxhw": false,
+      "models": 0,
+      "needles": [
+        "minisforum"
+      ],
+      "notes": "Mini-PCs often used in kiosk embeds; Intel/AMD iGPU SKUs preferred.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    },
+    {
+      "name": "Beelink",
+      "in_linuxhw": true,
+      "models": 6,
+      "needles": [
+        "beelink"
+      ],
+      "notes": "Mini-PCs / stick PCs used in digital signage and light kiosk.",
+      "guidance": "Intel or AMD built-in graphics from roughly the last decade or more are expected to work. Extra screens are usually handled by Display Mapper and Input Mapper. Test USB, serial, and CAN store devices with your Android app on that model. Skip machines that need a separate NVIDIA graphics card."
+    }
+  ],
+  "found": 37,
+  "missing": 38,
+  "total": 75
+}
