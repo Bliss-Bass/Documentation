@@ -1,0 +1,247 @@
+# POS / panel / kiosk retail brands (user catalog).
+# Not derived from linuxhw — used to show presence/absence in the DMI tree.
+# needles: case-insensitive substrings matched against DMI vendor (and path) fields.
+# guidance: short buyer tip for Bass x86 (open iGPU path).
+
+default_guidance: >
+  Intel or AMD built-in graphics from roughly the last decade or more
+  are expected to work. Extra screens are usually handled by Display Mapper
+  and Input Mapper. Test USB, serial, and CAN store devices with your
+  Android app on that model. Skip machines that need a separate NVIDIA
+  graphics card.
+
+brands:
+  # --- Retail / channel POS & panel (user list) ---
+  - name: POSNation
+    needles: ["posnation", "pos nation"]
+    notes: Channel/reseller POS systems; usually rebadge Intel AiOs.
+  - name: Barcodes Inc.
+    needles: ["barcodes inc", "barcodesinc"]
+    notes: Reseller; hardware often third-party Intel panels.
+  - name: Newegg Business
+    needles: ["newegg"]
+    notes: Reseller/channel; DMI usually shows the ODM or panel OEM.
+  - name: Elo Touch
+    needles: ["elo touch", "elo touch solutions", "elotouch"]
+    notes: Touch AiO / kiosk panels; Intel iGPU SKUs fit Mesa.
+  - name: POSGuys
+    needles: ["posguys", "pos guys"]
+    notes: Reseller; treat underlying Intel/AMD panel as the real target.
+  - name: Sunany
+    needles: ["sunany"]
+    notes: Panel/POS OEM; uncommon in Linux probe datasets.
+  - name: POS Catch
+    needles: ["pos catch", "poscatch"]
+    notes: Channel POS kits; verify GPU before deploy.
+  - name: Alibaba
+    needles: ["alibaba"]
+    notes: Marketplace listings — DMI is whatever ODM flashed; not a single OEM.
+  - name: Aonpos
+    needles: ["aonpos"]
+    notes: POS terminals; rare Linux probes.
+  - name: Gilong
+    needles: ["gilong"]
+    notes: POS/panel OEM; rare in linuxhw.
+  - name: Tysso
+    needles: ["tysso"]
+    notes: POS terminals; rare Linux uploads.
+  - name: Jassway
+    needles: ["jassway"]
+    notes: Panel PC / POS; rare in linuxhw.
+  - name: Beetronics
+    needles: ["beetronics"]
+    notes: Industrial/touch monitors and panels.
+  - name: Hosoton
+    needles: ["hosoton"]
+    notes: POS / panel hardware; rare Linux probes.
+  - name: Penetek
+    needles: ["penetek"]
+    notes: Panel PC OEM; uncommon in linuxhw.
+  - name: DFPOS Machine
+    needles: ["dfpos"]
+    notes: Dedicated POS machines; typically Windows-centric.
+  - name: CSMRT
+    needles: ["csmrt"]
+    notes: POS OEM; rare in linuxhw.
+  - name: Licon
+    needles: ["licon"]
+    notes: POS / kiosk; rare Linux probes.
+  - name: Smart Tech Systems
+    needles: ["smart tech systems", "smarttech systems"]
+    notes: Systems integrator; DMI may show ODM instead.
+  - name: Ocom
+    needles: ["ocom"]
+    notes: POS OEM; match vendor equality / word-boundary only (not "computer").
+  - name: Touch Dynamics
+    needles: ["touch dynamic", "touch dynamics", "touchdynamic"]
+    notes: Touch AiO / POS panels.
+  - name: Faytech
+    needles: ["faytech"]
+    notes: Touch monitors and panel PCs; Intel SKUs preferred.
+  - name: Elanda
+    needles: ["elanda"]
+    notes: POS hardware; rare in linuxhw.
+
+  # --- Known industrial / POS OEMs (often already in industrial segment) ---
+  - name: Advantech
+    needles: ["advantech"]
+    notes: Industrial / embedded / panel PC — well represented in linuxhw.
+  - name: Panasonic (Toughbook)
+    needles: ["panasonic", "panasonic connect"]
+    notes: Toughbook / Toughpad rugged class; Intel iGPU SKUs preferred.
+  - name: Sam4S
+    needles: ["sam4s"]
+    notes: >
+      POS terminals; rare Linux probes. Bass-validated: SA-660011
+      (Intel/AMD open path) works on Lineout — specialty I/O still per-SKU.
+  - name: Toshiba (POS/Toughpad)
+    needles: ["toshiba"]
+    notes: Count only POS/Toughpad/Toughbook-style rows — not all Toshiba laptops.
+  - name: Posiflex
+    needles: ["posiflex"]
+    notes: POS terminals and AiOs.
+  - name: Flytech
+    needles: ["flytech"]
+    notes: POS / panel PC OEM.
+  - name: Senor
+    needles: ["senor"]
+    notes: POS OEM; uncommon Linux uploads.
+  - name: IEI
+    needles: ["iei", "icp-iei"]
+    notes: Industrial / embedded IPC (ICP-IEI).
+  - name: AAEON
+    needles: ["aaeon"]
+    notes: Industrial / embedded / panel.
+  - name: NEXCOM
+    needles: ["nexcom"]
+    notes: Industrial / transportation / embedded.
+  - name: Cincoze
+    needles: ["cincoze"]
+    notes: Rugged embedded / panel PC.
+  - name: Kontron
+    needles: ["kontron"]
+    notes: Embedded / industrial computing.
+
+  # --- Industrial / rugged / thin-client OEMs present in linuxhw ---
+  - name: Shuttle
+    needles: ["shuttle"]
+    notes: Slim / XPC desktops and mini-PCs; common in kiosk embeds.
+  - name: Getac
+    needles: ["getac"]
+    notes: Rugged notebooks and tablets; Intel iGPU SKUs preferred.
+  - name: DFI
+    needles: ["dfi"]
+    notes: Industrial / embedded motherboards and systems.
+  - name: AOpen
+    needles: ["aopen"]
+    notes: Digital signage and commercial mini-PCs.
+  - name: CompuLab
+    needles: ["compulab"]
+    notes: Intense PC / industrial mini-PCs.
+  - name: Wyse (Dell)
+    needles: ["wyse", "dell wyse"]
+    notes: Thin clients; often Intel graphics — validate peripherals.
+  - name: Neousys
+    needles: ["neousys"]
+    notes: Rugged embedded / in-vehicle PCs.
+  - name: RuggedPC / DT Research
+    needles: ["ruggedpc", "dt research", "dtresearch"]
+    notes: Rugged tablets and POS-adjacent panels.
+  - name: ADLINK
+    needles: ["adlink", "adlinktech", "adlink technology"]
+    notes: Industrial / embedded computing.
+  - name: ASRock Industrial
+    needles: ["asrock industrial", "asrockind"]
+    notes: Industrial motherboards and fanless systems.
+  - name: Jetway
+    needles: ["jetway"]
+    notes: Embedded / industrial boards and mini-PCs.
+  - name: congatec
+    needles: ["congatec"]
+    notes: COM / industrial computer-on-modules and systems.
+  - name: Siemens
+    needles: ["siemens"]
+    notes: Industrial IPC / Simatic-class; Intel open-GPU path preferred.
+  - name: Xplore / Zebra Xplore
+    needles: ["xplore", "xplore technologies"]
+    notes: Rugged tablets; often rebranded under Zebra.
+  - name: OnLogic
+    needles: ["onlogic"]
+    notes: Industrial / fanless PCs for kiosk and automation.
+  - name: Seco
+    needles: ["seco"]
+    notes: Embedded / industrial systems.
+  - name: IGEL
+    needles: ["igel", "igel technology"]
+    notes: Thin clients; validate display and peripheral stack.
+  - name: Axiomtek
+    needles: ["axiomtek"]
+    notes: Industrial / embedded / panel PC.
+  - name: Portwell
+    needles: ["portwell"]
+    notes: Industrial / embedded boards and systems.
+  - name: Vecow
+    needles: ["vecow"]
+    notes: Rugged embedded / in-vehicle PCs.
+  - name: Partner Tech
+    needles: ["partner", "partner tech", "partnertech"]
+    notes: POS terminals and AiOs.
+
+  # --- Major POS / kiosk / payment OEMs (often absent from linuxhw) ---
+  - name: NCR
+    needles: ["ncr", "ncr corporation"]
+    notes: Retail POS / self-checkout; validate MSR and cash drawer.
+  - name: Diebold Nixdorf
+    needles: ["diebold", "nixdorf", "diebold nixdorf"]
+    notes: Retail / banking POS; specialty I/O needs soak testing.
+  - name: Ingenico
+    needles: ["ingenico"]
+    notes: Payment terminals — often paired with a separate Intel/AMD host.
+  - name: Verifone
+    needles: ["verifone"]
+    notes: Payment terminals; host PC is usually a separate AiO.
+  - name: PAX Technology
+    needles: ["pax", "pax technology"]
+    notes: Payment terminals; treat host GPU separately.
+  - name: Oracle MICROS
+    needles: ["micros", "oracle micros"]
+    notes: Hospitality POS; host is often a standard Intel AiO.
+  - name: HP Engage / POS
+    needles: ["hp engage", "hp pos", "engage one", "engage flex"]
+    notes: HP retail AiOs; Intel iGPU SKUs are the expected path.
+  - name: Zebra Technologies
+    needles: ["zebra", "zebra technologies"]
+    notes: Rugged tablets / kiosks / scanners; validate specialty I/O.
+  - name: KIOSK Information Systems
+    needles: ["kiosk information", "kiosk.com"]
+    notes: Kiosk enclosures; compute module is often a standard mini-PC.
+  - name: Acrelec
+    needles: ["acrelec"]
+    notes: QSR / self-order kiosks.
+  - name: Meridian Kiosks
+    needles: ["meridian"]
+    notes: Interactive kiosk enclosures; verify embedded PC GPU.
+  - name: Olea Kiosks
+    needles: ["olea"]
+    notes: Kiosk hardware; host often third-party Intel.
+  - name: Pyramid Computer
+    needles: ["pyramid"]
+    notes: Self-service / kiosk systems.
+  - name: Teguar
+    needles: ["teguar"]
+    notes: Industrial / medical panel PCs.
+  - name: CoastIPC
+    needles: ["coastipc", "coast ipc"]
+    notes: Industrial panel PCs and embedded systems.
+  - name: Maple Systems
+    needles: ["maple systems", "maplesystems"]
+    notes: HMI / panel PC class.
+  - name: Phoenix Contact
+    needles: ["phoenix contact", "phoenixcontact"]
+    notes: Industrial IPC / automation panels.
+  - name: Minisforum
+    needles: ["minisforum"]
+    notes: Mini-PCs often used in kiosk embeds; Intel/AMD iGPU SKUs preferred.
+  - name: Beelink
+    needles: ["beelink"]
+    notes: Mini-PCs / stick PCs used in digital signage and light kiosk.

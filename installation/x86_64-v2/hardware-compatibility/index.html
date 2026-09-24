@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843523701306">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.5.3">
+
+    <!-- Primary Meta Tags -->
+    <title>Hardware compatibility (x86)</title>
+    <meta name="title" content="Hardware compatibility (x86)">
+    <meta name="description" content="Which PCs can run Bass x86, in plain language">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.blisscolabs.dev/installation/x86_64-v2/hardware-compatibility/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blisscolabs.dev/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.blisscolabs.dev/installation/x86_64-v2/hardware-compatibility/">
+    <meta property="og:title" content="Hardware compatibility (x86)">
+    <meta property="og:description" content="Which PCs can run Bass x86, in plain language">
+    <meta property="og:site_name" content="Bliss Bass">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.blisscolabs.dev/installation/x86_64-v2/hardware-compatibility/">
+    <meta name="twitter:title" content="Hardware compatibility (x86)">
+    <meta name="twitter:description" content="Which PCs can run Bass x86, in plain language">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blisscolabs.dev/installation/x86_64-v2/hardware-compatibility.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../../../resources/css/retype.css?v=4.5.3.843523701306" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.843523701306" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.843523701306" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.843523701306" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../../resources/js/mermaid.js?v=4.5.3" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://docs.blisscolabs.dev/" class="flex items-center leading-snug text-2xl">
+                        <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                            <img class="max-h-10 md:inline-block" src="../../../static/bliss-bass_logo.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Bliss Bass</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="hardware-compatibility-x86">Hardware compatibility (x86)</h1>
+<div id="retype-page-description" class="description-display text-description font-description leading-description mb-description-margin-bottom mt-description-margin-top tracking-description text-transform-description">Which PCs can run Bass x86, in plain language</div>
+<p>This page answers a simple question: <strong>will Bass:Lineout run on this PC?</strong></p>
+<h2 id="the-short-answer">The short answer</h2>
+<ol>
+<li><strong>Yes</strong>, for most <strong>Intel</strong> or <strong>AMD</strong> PCs from about the last ten years (and many older ones too).</li>
+<li><strong>No</strong> for machines that need a <strong>separate NVIDIA graphics card</strong> (gaming laptops and many workstations). Bass does not ship NVIDIA&#x27;s closed-source driver.</li>
+<li>The PC itself is usually fine. Extra screens (including many customer-facing displays) are largely handled by Bass <a href="../../../userguides/display-mapper/">Display Mapper</a> and <a href="../../../userguides/touch-mapper/">Input Mapper</a>, plus related stack work. What still needs project-level care is <strong>store or factory devices that talk over USB, serial, or CAN</strong>: card readers, cash drawers, receipt printers, barcode scanners, and similar. Bass can expose those buses (including Config Overrides for common wiring cases), but the <strong>Android app</strong> still has to speak the device protocol.</li>
+</ol>
+<p>Numbers on this page come from a public list of PCs that people have reported to <a href="https://linux-hardware.org">linux-hardware.org</a> (<a href="https://github.com/linuxhw/DMI">linuxhw/DMI on GitHub</a>). A brand missing from that list is <strong>not</strong> the same as unsupported. See the <doc-anchor-trigger to="#appendix-a-word-list">appendix</doc-anchor-trigger> for short definitions.</p>
+<h2 id="check-your-graphics-chip">Check your graphics chip</h2>
+<p>On a running Bass system (or any Linux live session):</p>
+<div id="check-your-graphics-chip-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">lspci -nn | grep -iE 'vga|3d|display'</code></pre>
+</doc-codeblock></div>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>If you see</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel vendor id <code translate="no" v-pre>8086:</code></td>
+<td>Expected to work (built-in Intel graphics).</td>
+</tr>
+<tr>
+<td>AMD vendor id <code translate="no" v-pre>1002:</code></td>
+<td>Expected to work (built-in AMD graphics). Confirm the screen comes up.</td>
+</tr>
+<tr>
+<td>NVIDIA vendor id <code translate="no" v-pre>10de:</code></td>
+<td>Treat as out of scope for production unless you already tested that exact chip with our build.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If this is a point-of-sale or industrial box, test card readers, cash drawers, printers, and other USB/serial/CAN devices with your Android app on that exact model. Extra monitors and customer-facing displays are usually covered by Display Mapper and Input Mapper.</p>
+<h2 id="buying-tips-by-brand">Buying tips by brand</h2>
+<p>Quick &quot;buy this / skip that&quot; notes. Model counts later on this page come from linuxhw. This table is shopping guidance only.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Brand</th>
+<th>Prefer</th>
+<th>Skip</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HP</td>
+<td>EliteBook / ProBook / ZBook Firefly (Intel iGPU); EliteDesk / ProDesk / Mini (Intel)</td>
+<td>OMEN / Victus gaming (NVIDIA)</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>Latitude / XPS / Precision mobile (Intel iGPU); OptiPlex / XPS Desktop (Intel)</td>
+<td>G-Series / Alienware (NVIDIA)</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+<tr>
+<td>Asus</td>
+<td>ExpertBook / Zenbook / VivoBook (Intel); NUC / Mini PC (Intel)</td>
+<td>ROG / TUF Gaming (NVIDIA)</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Aspire / Swift / TravelMate (Intel); Veriton / Chromebox-class desktop (Intel)</td>
+<td>Nitro / Predator (NVIDIA)</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+<tr>
+<td>Star Labs</td>
+<td>StarBook / StarLite / StarFighter (Intel/AMD open)</td>
+<td>Optional NVIDIA dGPU configs</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>Framework Laptop (Intel / AMD iGPU)</td>
+<td>Framework Laptop 16 (NVIDIA Expansion Card)</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+<tr>
+<td>Lenovo (optional)</td>
+<td>ThinkPad / ThinkCentre / Yoga (Intel); ThinkPad AMD / IdeaPad AMD (radeonsi)</td>
+<td>Legion / LOQ gaming (NVIDIA)</td>
+<td>Mixed: prefer Intel or AMD built-in graphics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Full series notes for each brand are in <doc-anchor-trigger to="#appendix-d-series-notes-by-brand">Appendix D</doc-anchor-trigger>.</p>
+<h2 id="picture-of-the-inventory">Picture of the inventory</h2>
+<p>We track <strong>26,814</strong> distinct PC models across the brands and segments below (out of <strong>34,784</strong> models in the full linuxhw tree).</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Outcome (name-matched sample)</th>
+<th style="text-align: right;">Models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expected OK (Intel/AMD open graphics path)</td>
+<td style="text-align: right;">25,649</td>
+</tr>
+<tr>
+<td>Likely gaming / discrete NVIDIA naming</td>
+<td style="text-align: right;">1,165</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre translate="no" class="mermaid w-full">flowchart LR
+  HW[Intel or AMD PC] --&gt; OK[Expected to work]
+  HW --&gt; Periph[Test USB serial CAN devices]
+  HW --&gt; Disp[Display Mapper for extra screens]
+  AvoidN[Separate NVIDIA card] --&gt; No[Out of scope]</pre></div>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Where the models sit</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenovo</td>
+<td style="text-align: right;">11,068</td>
+</tr>
+<tr>
+<td>Other x86 ODMs</td>
+<td style="text-align: right;">5,683</td>
+</tr>
+<tr>
+<td>Asus</td>
+<td style="text-align: right;">3,809</td>
+</tr>
+<tr>
+<td>HP</td>
+<td style="text-align: right;">2,712</td>
+</tr>
+<tr>
+<td>Acer</td>
+<td style="text-align: right;">1,451</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td style="text-align: right;">1,233</td>
+</tr>
+<tr>
+<td>Industrial POS ODM</td>
+<td style="text-align: right;">850</td>
+</tr>
+<tr>
+<td>Star Labs</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre translate="no" class="mermaid w-full">flowchart TB
+  Total[Tracked models 26814]
+  Total --&gt; HP[HP 2712]
+  Total --&gt; Dell[Dell 1233]
+  Total --&gt; Asus[Asus 3809]
+  Total --&gt; Acer[Acer 1451]
+  Total --&gt; Lenovo[Lenovo 11068]
+  Total --&gt; Framework[Framework 3]
+  Total --&gt; StarLabs[Star Labs 5]
+  Total --&gt; Ind[Industrial POS ODM 850]
+  Total --&gt; Oth[Other x86 makers 5683]</pre></div>
+<h2 id="common-pc-brands">Common PC brands</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Brand</th>
+<th style="text-align: right;">Models in sample</th>
+<th style="text-align: right;">Expected OK</th>
+<th style="text-align: right;">Skip (gaming/NVIDIA naming)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HP</td>
+<td style="text-align: right;">2,712</td>
+<td style="text-align: right;">2,619</td>
+<td style="text-align: right;">93</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td style="text-align: right;">1,233</td>
+<td style="text-align: right;">1,223</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>Asus</td>
+<td style="text-align: right;">3,809</td>
+<td style="text-align: right;">3,147</td>
+<td style="text-align: right;">662</td>
+</tr>
+<tr>
+<td>Acer</td>
+<td style="text-align: right;">1,451</td>
+<td style="text-align: right;">1,346</td>
+<td style="text-align: right;">105</td>
+</tr>
+<tr>
+<td>Lenovo (optional)</td>
+<td style="text-align: right;">11,068</td>
+<td style="text-align: right;">10,887</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Star Labs</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Industrial / POS / ODM</td>
+<td style="text-align: right;">850</td>
+<td style="text-align: right;">850</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Other x86 makers / boards</td>
+<td style="text-align: right;">5,683</td>
+<td style="text-align: right;">5,569</td>
+<td style="text-align: right;">114</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="popular-name-lines-examples">Popular name lines (examples)</h3>
+<p><strong>HP</strong> (2,712 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>Pavilion</code> (230), <code translate="no" v-pre>Compaq</code> (163), <code translate="no" v-pre>Laptop</code> (152), <code translate="no" v-pre>ENVY</code> (141), <code translate="no" v-pre>EliteBook</code> (139), <code translate="no" v-pre>ProBook</code> (131), <code translate="no" v-pre>OMEN</code> (69), <code translate="no" v-pre>ProLiant</code> (66)</li>
+</ul>
+<p><strong>Dell</strong> (1,233 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>Inspiron</code> (383), <code translate="no" v-pre>Latitude</code> (220), <code translate="no" v-pre>Vostro</code> (133), <code translate="no" v-pre>Precision</code> (119), <code translate="no" v-pre>PowerEdge</code> (96), <code translate="no" v-pre>OptiPlex</code> (88), <code translate="no" v-pre>XPS</code> (71), <code translate="no" v-pre>Studio</code> (24)</li>
+</ul>
+<p><strong>Asus</strong> (3,809 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>VivoBook_ASUSLaptop</code> (451), <code translate="no" v-pre>ROG</code> (347), <code translate="no" v-pre>ASUS</code> (244), <code translate="no" v-pre>PRIME</code> (202), <code translate="no" v-pre>TUF</code> (171), <code translate="no" v-pre>P5</code> (115), <code translate="no" v-pre>ZenBook</code> (102), <code translate="no" v-pre>VivoBook</code> (56)</li>
+</ul>
+<p><strong>Acer</strong> (1,451 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>Aspire</code> (808), <code translate="no" v-pre>TravelMate</code> (129), <code translate="no" v-pre>Veriton</code> (98), <code translate="no" v-pre>Swift</code> (75), <code translate="no" v-pre>Predator</code> (57), <code translate="no" v-pre>Extensa</code> (49), <code translate="no" v-pre>Nitro</code> (36), <code translate="no" v-pre>Spin</code> (18)</li>
+</ul>
+<p><strong>Lenovo</strong> (11,068 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>ThinkPad</code> (7676), <code translate="no" v-pre>ThinkCentre</code> (1140), <code translate="no" v-pre>IdeaPad</code> (501), <code translate="no" v-pre>IdeaCentre</code> (254), <code translate="no" v-pre>ThinkStation</code> (212), <code translate="no" v-pre>Yoga</code> (162), <code translate="no" v-pre>Legion</code> (160), <code translate="no" v-pre>ThinkBook</code> (71)</li>
+</ul>
+<p><strong>Framework</strong> (3 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>Laptop</code> (3)</li>
+</ul>
+<p><strong>Star Labs</strong> (5 models)</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>StarLite</code> (2), <code translate="no" v-pre>LabTop</code> (1), <code translate="no" v-pre>Lite</code> (1), <code translate="no" v-pre>StarBook</code> (1)</li>
+</ul>
+<h2 id="industrial-pos-and-panel-pcs">Industrial, POS, and panel PCs</h2>
+<p>This group covers factory PCs, point-of-sale terminals, panel PCs, rugged notebooks, thin clients, and many mini-PC makers (examples: Advantech, AAEON, Shuttle, Panasonic Toughbook, Intel NUC-class, OnLogic, Elo Touch).</p>
+<p>The same physical machine can show up under more than one maker name in the database (retail brand vs board maker vs a generic <code translate="no" v-pre>OEM</code> label). Treat the counts as a sample, not a perfect product catalog.</p>
+<p><strong>850</strong> models in this group (850 expected OK, 0 skip).</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Maker</th>
+<th style="text-align: right;">Models</th>
+<th style="text-align: right;">Expected OK</th>
+<th style="text-align: right;">Skip</th>
+<th>Common shapes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel Client Systems</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">0</td>
+<td>Mini PC (89), Notebook (12), Desktop (3)</td>
+</tr>
+<tr>
+<td>Panasonic</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (90), Tablet (6), Convertible (1)</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">0</td>
+<td>Mini PC (88)</td>
+</tr>
+<tr>
+<td>Shuttle</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (61), Notebook (8)</td>
+</tr>
+<tr>
+<td>ZOTAC</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0</td>
+<td>Mini PC (56), Desktop (10)</td>
+</tr>
+<tr>
+<td>Chuwi</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (32), Tablet (9), Mini PC (6)</td>
+</tr>
+<tr>
+<td>AZW</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (33), Mini PC (13), Notebook (8)</td>
+</tr>
+<tr>
+<td>BESSTAR Tech</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (18), Mini PC (9), Notebook (3)</td>
+</tr>
+<tr>
+<td>Teclast</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (15), Tablet (6), Convertible (2)</td>
+</tr>
+<tr>
+<td>Getac</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (19), Tablet (5)</td>
+</tr>
+<tr>
+<td>AAEON</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (12), Notebook (2)</td>
+</tr>
+<tr>
+<td>DFI</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (13)</td>
+</tr>
+<tr>
+<td>AOpen</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (12)</td>
+</tr>
+<tr>
+<td>CompuLab</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td>Mini PC (7), Desktop (4), Notebook (1)</td>
+</tr>
+<tr>
+<td>GMKtec</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (6), Mini PC (4), Notebook (1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Plus 42 more makers in <a href="../../../data/hardware/oem_devices.json"><code translate="no" v-pre>oem_devices.json</code></a> (field <code translate="no" v-pre>industrial_pos_odm.vendors</code>).</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>NUC7</code> (31), <code translate="no" v-pre>NUC11</code> (23), <code translate="no" v-pre>NUC8</code> (18), <code translate="no" v-pre>CF-31</code> (14), <code translate="no" v-pre>CF-19</code> (13), <code translate="no" v-pre>NucBox</code> (10), <code translate="no" v-pre>NUC12</code> (10), <code translate="no" v-pre>CF-53</code> (10)</li>
+</ul>
+<h2 id="other-pc-makers-and-motherboard-brands">Other PC makers and motherboard brands</h2>
+<p>Board makers (MSI, Gigabyte, ASRock, and similar), notebook factories (Clevo and peers), Linux PC brands (System76, TUXEDO), and common generic labels. This is a curated slice, not every remaining name in linuxhw.</p>
+<p><strong>5,683</strong> models in this group (5,569 expected OK, 114 skip).</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Maker</th>
+<th style="text-align: right;">Models</th>
+<th style="text-align: right;">Expected OK</th>
+<th style="text-align: right;">Skip</th>
+<th>Common shapes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gigabyte Technology</td>
+<td style="text-align: right;">1,404</td>
+<td style="text-align: right;">1,404</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (1262), Notebook (103), Server (34)</td>
+</tr>
+<tr>
+<td>MSI</td>
+<td style="text-align: right;">1,214</td>
+<td style="text-align: right;">1,130</td>
+<td style="text-align: right;">84</td>
+<td>Notebook (674), Desktop (496), All-in-One (38)</td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td style="text-align: right;">897</td>
+<td style="text-align: right;">897</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (895), Notebook (2)</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td style="text-align: right;">611</td>
+<td style="text-align: right;">596</td>
+<td style="text-align: right;">15</td>
+<td>Desktop (515), Notebook (40), Server (35)</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td style="text-align: right;">234</td>
+<td style="text-align: right;">234</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (118), Server (112), Mini PC (4)</td>
+</tr>
+<tr>
+<td>Biostar</td>
+<td style="text-align: right;">213</td>
+<td style="text-align: right;">212</td>
+<td style="text-align: right;">1</td>
+<td>Desktop (211), Notebook (2)</td>
+</tr>
+<tr>
+<td>ECS</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">3</td>
+<td>Desktop (148), Notebook (5), All-in-One (1)</td>
+</tr>
+<tr>
+<td>Foxconn</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">1</td>
+<td>Desktop (98), Notebook (1)</td>
+</tr>
+<tr>
+<td>PC Specialist</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">3</td>
+<td>Notebook (61), Desktop (25)</td>
+</tr>
+<tr>
+<td>TUXEDO</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (75)</td>
+</tr>
+<tr>
+<td>Huanan</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (73)</td>
+</tr>
+<tr>
+<td>Clevo</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (70), Desktop (1)</td>
+</tr>
+<tr>
+<td>Pegatron</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (41), Notebook (24), All-in-One (4)</td>
+</tr>
+<tr>
+<td>Wortmann AG</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (25), Desktop (23), Tablet (5)</td>
+</tr>
+<tr>
+<td>ASRockRack</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (31), Server (18)</td>
+</tr>
+<tr>
+<td>OEM</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (26), Notebook (8), Server (4)</td>
+</tr>
+<tr>
+<td>MACHINIST</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (36)</td>
+</tr>
+<tr>
+<td>EVGA</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">0</td>
+<td>Desktop (32)</td>
+</tr>
+<tr>
+<td>MECHREVO</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">7</td>
+<td>Notebook (29), Desktop (1), Mini PC (1)</td>
+</tr>
+<tr>
+<td>System76</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0</td>
+<td>Notebook (20), Desktop (9), Mini PC (1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Plus 22 more makers in <a href="../../../data/hardware/oem_devices.json"><code translate="no" v-pre>oem_devices.json</code></a> (field <code translate="no" v-pre>other_x86_odm.vendors</code>).</p>
+<ul>
+<li>Common name prefixes: <code translate="no" v-pre>MS</code> (229), <code translate="no" v-pre>MS-7</code> (216), <code translate="no" v-pre>H61</code> (99), <code translate="no" v-pre>H81</code> (51), <code translate="no" v-pre>X79</code> (50), <code translate="no" v-pre>H110</code> (43), <code translate="no" v-pre>G41</code> (43), <code translate="no" v-pre>Katana</code> (37)</li>
+</ul>
+<h2 id="retail-pos-and-kiosk-brands">Retail POS and kiosk brands</h2>
+<p>Many store and kiosk brands ship Windows-only images, so they rarely show up in linuxhw. <strong>Missing from the list does not mean Bass will not run.</strong> If the unit uses Intel or AMD built-in graphics, treat it as expected to work. Use Display Mapper / Input Mapper for extra screens; test USB, serial, and CAN devices with your Android app on that model.</p>
+<p>Our curated list: <strong>37</strong> of <strong>75</strong> brands appear at least once in this linuxhw snapshot (38 do not).</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Brand</th>
+<th style="text-align: center;">Seen in linuxhw?</th>
+<th style="text-align: right;">Models seen</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POSNation</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Channel/reseller POS systems; usually rebadge Intel AiOs.</td>
+</tr>
+<tr>
+<td>Barcodes Inc.</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Reseller; hardware often third-party Intel panels.</td>
+</tr>
+<tr>
+<td>Newegg Business</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Reseller/channel; DMI usually shows the ODM or panel OEM.</td>
+</tr>
+<tr>
+<td>Elo Touch</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Touch AiO / kiosk panels; Intel iGPU SKUs fit Mesa.</td>
+</tr>
+<tr>
+<td>POSGuys</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Reseller; treat underlying Intel/AMD panel as the real target.</td>
+</tr>
+<tr>
+<td>Sunany</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Panel/POS OEM; uncommon in Linux probe datasets.</td>
+</tr>
+<tr>
+<td>POS Catch</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Channel POS kits; verify GPU before deploy.</td>
+</tr>
+<tr>
+<td>Alibaba</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Marketplace listings - DMI is whatever ODM flashed; not a single OEM.</td>
+</tr>
+<tr>
+<td>Aonpos</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS terminals; rare Linux probes.</td>
+</tr>
+<tr>
+<td>Gilong</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS/panel OEM; rare in linuxhw.</td>
+</tr>
+<tr>
+<td>Tysso</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS terminals; rare Linux uploads.</td>
+</tr>
+<tr>
+<td>Jassway</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Panel PC / POS; rare in linuxhw.</td>
+</tr>
+<tr>
+<td>Beetronics</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Industrial/touch monitors and panels.</td>
+</tr>
+<tr>
+<td>Hosoton</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS / panel hardware; rare Linux probes.</td>
+</tr>
+<tr>
+<td>Penetek</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Panel PC OEM; uncommon in linuxhw.</td>
+</tr>
+<tr>
+<td>DFPOS Machine</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Dedicated POS machines; typically Windows-centric.</td>
+</tr>
+<tr>
+<td>CSMRT</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS OEM; rare in linuxhw.</td>
+</tr>
+<tr>
+<td>Licon</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS / kiosk; rare Linux probes.</td>
+</tr>
+<tr>
+<td>Smart Tech Systems</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Systems integrator; DMI may show ODM instead.</td>
+</tr>
+<tr>
+<td>Ocom</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS OEM; match vendor equality / word-boundary only (not &quot;computer&quot;).</td>
+</tr>
+<tr>
+<td>Touch Dynamics</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Touch AiO / POS panels.</td>
+</tr>
+<tr>
+<td>Faytech</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Touch monitors and panel PCs; Intel SKUs preferred.</td>
+</tr>
+<tr>
+<td>Elanda</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS hardware; rare in linuxhw.</td>
+</tr>
+<tr>
+<td>Advantech</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">4</td>
+<td>Industrial / embedded / panel PC - well represented in linuxhw.</td>
+</tr>
+<tr>
+<td>Panasonic (Toughbook)</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">99</td>
+<td>Toughbook / Toughpad rugged class; Intel iGPU SKUs preferred.</td>
+</tr>
+<tr>
+<td>Sam4S</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS terminals; rare Linux probes. Bass-validated: SA-660011 (Intel/AMD open path) works on Lineout - specialty I/O still per-SKU.</td>
+</tr>
+<tr>
+<td>Toshiba (POS/Toughpad)</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Count only POS/Toughpad/Toughbook-style rows - not all Toshiba laptops.</td>
+</tr>
+<tr>
+<td>Posiflex</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS terminals and AiOs.</td>
+</tr>
+<tr>
+<td>Flytech</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS / panel PC OEM.</td>
+</tr>
+<tr>
+<td>Senor</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>POS OEM; uncommon Linux uploads.</td>
+</tr>
+<tr>
+<td>IEI</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">12</td>
+<td>Industrial / embedded IPC (ICP-IEI).</td>
+</tr>
+<tr>
+<td>AAEON</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">14</td>
+<td>Industrial / embedded / panel.</td>
+</tr>
+<tr>
+<td>NEXCOM</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">2</td>
+<td>Industrial / transportation / embedded.</td>
+</tr>
+<tr>
+<td>Cincoze</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">3</td>
+<td>Rugged embedded / panel PC.</td>
+</tr>
+<tr>
+<td>Kontron</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">3</td>
+<td>Embedded / industrial computing.</td>
+</tr>
+<tr>
+<td>Shuttle</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">69</td>
+<td>Slim / XPC desktops and mini-PCs; common in kiosk embeds.</td>
+</tr>
+<tr>
+<td>Getac</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">24</td>
+<td>Rugged notebooks and tablets; Intel iGPU SKUs preferred.</td>
+</tr>
+<tr>
+<td>DFI</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">13</td>
+<td>Industrial / embedded motherboards and systems.</td>
+</tr>
+<tr>
+<td>AOpen</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">12</td>
+<td>Digital signage and commercial mini-PCs.</td>
+</tr>
+<tr>
+<td>CompuLab</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">14</td>
+<td>Intense PC / industrial mini-PCs.</td>
+</tr>
+<tr>
+<td>Wyse (Dell)</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">16</td>
+<td>Thin clients; often Intel graphics - validate peripherals.</td>
+</tr>
+<tr>
+<td>Neousys</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">10</td>
+<td>Rugged embedded / in-vehicle PCs.</td>
+</tr>
+<tr>
+<td>RuggedPC / DT Research</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">10</td>
+<td>Rugged tablets and POS-adjacent panels.</td>
+</tr>
+<tr>
+<td>ADLINK</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">7</td>
+<td>Industrial / embedded computing.</td>
+</tr>
+<tr>
+<td>ASRock Industrial</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">5</td>
+<td>Industrial motherboards and fanless systems.</td>
+</tr>
+<tr>
+<td>Jetway</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">5</td>
+<td>Embedded / industrial boards and mini-PCs.</td>
+</tr>
+<tr>
+<td>congatec</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">6</td>
+<td>COM / industrial computer-on-modules and systems.</td>
+</tr>
+<tr>
+<td>Siemens</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">160</td>
+<td>Industrial IPC / Simatic-class; Intel open-GPU path preferred.</td>
+</tr>
+<tr>
+<td>Xplore / Zebra Xplore</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">4</td>
+<td>Rugged tablets; often rebranded under Zebra.</td>
+</tr>
+<tr>
+<td>OnLogic</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">3</td>
+<td>Industrial / fanless PCs for kiosk and automation.</td>
+</tr>
+<tr>
+<td>Seco</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">4</td>
+<td>Embedded / industrial systems.</td>
+</tr>
+<tr>
+<td>IGEL</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">3</td>
+<td>Thin clients; validate display and peripheral stack.</td>
+</tr>
+<tr>
+<td>Axiomtek</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Industrial / embedded / panel PC.</td>
+</tr>
+<tr>
+<td>Portwell</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Industrial / embedded boards and systems.</td>
+</tr>
+<tr>
+<td>Vecow</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Rugged embedded / in-vehicle PCs.</td>
+</tr>
+<tr>
+<td>Partner Tech</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">3</td>
+<td>POS terminals and AiOs.</td>
+</tr>
+<tr>
+<td>NCR</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">4</td>
+<td>Retail POS / self-checkout; validate MSR and cash drawer.</td>
+</tr>
+<tr>
+<td>Diebold Nixdorf</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">4</td>
+<td>Retail / banking POS; specialty I/O needs soak testing.</td>
+</tr>
+<tr>
+<td>Ingenico</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Payment terminals - often paired with a separate Intel/AMD host.</td>
+</tr>
+<tr>
+<td>Verifone</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Payment terminals; host PC is usually a separate AiO.</td>
+</tr>
+<tr>
+<td>PAX Technology</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Payment terminals; treat host GPU separately.</td>
+</tr>
+<tr>
+<td>Oracle MICROS</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">42</td>
+<td>Hospitality POS; host is often a standard Intel AiO.</td>
+</tr>
+<tr>
+<td>HP Engage / POS</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>HP retail AiOs; Intel iGPU SKUs are the expected path.</td>
+</tr>
+<tr>
+<td>Zebra Technologies</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Rugged tablets / kiosks / scanners; validate specialty I/O.</td>
+</tr>
+<tr>
+<td>KIOSK Information Systems</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Kiosk enclosures; compute module is often a standard mini-PC.</td>
+</tr>
+<tr>
+<td>Acrelec</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>QSR / self-order kiosks.</td>
+</tr>
+<tr>
+<td>Meridian Kiosks</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Interactive kiosk enclosures; verify embedded PC GPU.</td>
+</tr>
+<tr>
+<td>Olea Kiosks</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Kiosk hardware; host often third-party Intel.</td>
+</tr>
+<tr>
+<td>Pyramid Computer</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Self-service / kiosk systems.</td>
+</tr>
+<tr>
+<td>Teguar</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Industrial / medical panel PCs.</td>
+</tr>
+<tr>
+<td>CoastIPC</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Industrial panel PCs and embedded systems.</td>
+</tr>
+<tr>
+<td>Maple Systems</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>HMI / panel PC class.</td>
+</tr>
+<tr>
+<td>Phoenix Contact</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">1</td>
+<td>Industrial IPC / automation panels.</td>
+</tr>
+<tr>
+<td>Minisforum</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: right;">-</td>
+<td>Mini-PCs often used in kiosk embeds; Intel/AMD iGPU SKUs preferred.</td>
+</tr>
+<tr>
+<td>Beelink</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: right;">6</td>
+<td>Mini-PCs / stick PCs used in digital signage and light kiosk.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Source list: <a href="../../../scripts/pos_manufacturers.yaml"><code translate="no" v-pre>pos_manufacturers.yaml</code></a>; machine-readable: <a href="../../../data/hardware/pos_brands.json"><code translate="no" v-pre>pos_brands.json</code></a>.</p>
+<h2 id="appendix-a-word-list">Appendix A: Word list</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bass:Lineout</td>
+<td>Our Android-on-PC product: Android is the main OS.</td>
+</tr>
+<tr>
+<td>Built-in graphics (iGPU)</td>
+<td>Graphics chip on the same package as the CPU (typical Intel or AMD laptops and office PCs).</td>
+</tr>
+<tr>
+<td>Separate / discrete GPU (dGPU)</td>
+<td>A dedicated graphics card or module, often NVIDIA in gaming PCs.</td>
+</tr>
+<tr>
+<td>Mesa</td>
+<td>The open-source graphics library Bass uses to drive the display.</td>
+</tr>
+<tr>
+<td>DRM</td>
+<td>Direct Rendering Manager: the Linux kernel side of display and GPU access.</td>
+</tr>
+<tr>
+<td>DMI</td>
+<td>Desktop Management Interface: the firmware strings that name the PC maker and model.</td>
+</tr>
+<tr>
+<td>linuxhw / linux-hardware.org</td>
+<td>Public database of PCs people probed while running Linux.</td>
+</tr>
+<tr>
+<td>Unique model</td>
+<td>One maker + product name line in that database (not one physical serial number).</td>
+</tr>
+<tr>
+<td>ODM / white-label</td>
+<td>A factory builds the chassis; several retail brands may sell the same box under different names.</td>
+</tr>
+<tr>
+<td>POS</td>
+<td>Point of sale: store terminals, cash drawers, receipt printers.</td>
+</tr>
+<tr>
+<td>Panel PC</td>
+<td>A computer built into a touchscreen for factory or kiosk use.</td>
+</tr>
+<tr>
+<td>Display Mapper</td>
+<td>Bass Settings tool for resolution, density, and rotation on built-in and extra screens (including many customer displays).</td>
+</tr>
+<tr>
+<td>Input Mapper (Touch Mapper)</td>
+<td>Bass Settings tool for mapping touch and related input across screens.</td>
+</tr>
+<tr>
+<td>Config Overrides</td>
+<td>Bass settings/files that can help wire common serial, USB, and CAN cases; the Android app still owns the device protocol.</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>A specific sellable configuration (CPU, graphics, memory).</td>
+</tr>
+<tr>
+<td>PCI vendor id</td>
+<td>A short code for the chip maker (<code translate="no" v-pre>8086</code> Intel, <code translate="no" v-pre>1002</code> AMD, <code translate="no" v-pre>10de</code> NVIDIA).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="appendix-b-how-we-count-models">Appendix B: How we count models</h2>
+<p>Each unique model is one combination of <code translate="no" v-pre>(shape, maker, name prefix, model)</code> from linuxhw. We do not count every individual machine by serial number.</p>
+<p>&quot;Expected OK&quot; vs &quot;Skip&quot; in the tables is a simple name heuristic: gaming or discrete-NVIDIA style names are marked skip. It is not a lab certification.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>PC shape in the full linuxhw tree</th>
+<th style="text-align: right;">Unique models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notebook</td>
+<td style="text-align: right;">19,983</td>
+</tr>
+<tr>
+<td>Desktop</td>
+<td style="text-align: right;">11,253</td>
+</tr>
+<tr>
+<td>Convertible</td>
+<td style="text-align: right;">984</td>
+</tr>
+<tr>
+<td>Mini PC</td>
+<td style="text-align: right;">743</td>
+</tr>
+<tr>
+<td>All-in-One</td>
+<td style="text-align: right;">744</td>
+</tr>
+<tr>
+<td>Tablet</td>
+<td style="text-align: right;">320</td>
+</tr>
+<tr>
+<td>Server</td>
+<td style="text-align: right;">677</td>
+</tr>
+<tr>
+<td>Stick PC</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>System On Chip</td>
+<td style="text-align: right;">67</td>
+</tr>
+<tr>
+<td>Firewall</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>JSON dumps: <a href="../../../data/hardware/oem_devices.json"><code translate="no" v-pre>oem_devices.json</code></a>, <a href="../../../data/hardware/oem_summary.json"><code translate="no" v-pre>oem_summary.json</code></a>.</p>
+<h2 id="appendix-c-graphics-drivers-in-this-build">Appendix C: Graphics drivers in this build</h2>
+<p>Chip id tables come from Mesa <code translate="no" v-pre>include/pci_ids/</code> in our source tree.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Driver</th>
+<th>Chip ids</th>
+<th>Families</th>
+<th>Policy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel Iris</td>
+<td>279</td>
+<td>59</td>
+<td>Fully supported</td>
+</tr>
+<tr>
+<td>Intel i915 (older)</td>
+<td>11</td>
+<td>-</td>
+<td>Supported; older chips may need extra care</td>
+</tr>
+<tr>
+<td>Intel crocus</td>
+<td>97</td>
+<td>15</td>
+<td>Supported; older chips may need extra care</td>
+</tr>
+<tr>
+<td>AMD radeonsi</td>
+<td>150</td>
+<td>9</td>
+<td>Supported; confirm display on your build</td>
+</tr>
+<tr>
+<td>NVIDIA discrete</td>
+<td>-</td>
+<td>-</td>
+<td><strong>Not supported</strong> for production (Nouveau only)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>537</strong> open-driver chip ids parsed (Iris + i915 + crocus + radeonsi).</p>
+<p>Sample Intel Iris family names: <code translate="no" v-pre>ADL GT2</code>, <code translate="no" v-pre>ADL-N</code>, <code translate="no" v-pre>ADL-S GT0.5</code>, <code translate="no" v-pre>ADL-S GT1</code>, <code translate="no" v-pre>AML-CFL</code>, <code translate="no" v-pre>AML-KBL</code>, <code translate="no" v-pre>APL 2</code>, <code translate="no" v-pre>APL 3</code>, <code translate="no" v-pre>ARL</code>, <code translate="no" v-pre>ATS-M</code>, <code translate="no" v-pre>BDW GT1</code>, <code translate="no" v-pre>BDW GT2</code>, ... (+47 more)</p>
+<h3 id="nvidia-policy-detail">NVIDIA policy (detail)</h3>
+<p>Bass ships Nouveau + Mesa only. Discrete NVIDIA (GeForce / RTX / Quadro dGPU) is treated as unsupported for production use. Prefer Intel or AMD open iGPU systems.</p>
+<h2 id="appendix-d-series-notes-by-brand">Appendix D: Series notes by brand</h2>
+<h3 id="hp">HP</h3>
+<h4 id="elitebook--probook--zbook-firefly-intel-igpu">EliteBook / ProBook / ZBook Firefly (Intel iGPU)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> EliteBook 840, ProBook 450, ZBook Firefly 14</li>
+<li><strong>Notes:</strong> Business Ultrabooks and thin workstations with Intel UHD/Iris Xe.</li>
+</ul>
+<h4 id="elitedesk--prodesk--mini-intel">EliteDesk / ProDesk / Mini (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> EliteDesk 800 Mini, ProDesk 400 G9, HP Mini</li>
+<li><strong>Notes:</strong> Common office mini-PCs and desktops with Intel graphics.</li>
+</ul>
+<h4 id="omen--victus-gaming-nvidia">OMEN / Victus gaming (NVIDIA)</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> OMEN 16, Victus 15, OMEN Desktop</li>
+<li><strong>Notes:</strong> Discrete NVIDIA gaming lines need proprietary drivers; Nouveau-only here.</li>
+</ul>
+<h3 id="dell">Dell</h3>
+<h4 id="latitude--xps--precision-mobile-intel-igpu">Latitude / XPS / Precision mobile (Intel iGPU)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> Latitude 5440, XPS 13, Precision 3470</li>
+<li><strong>Notes:</strong> Business and thin laptops with Intel integrated graphics.</li>
+</ul>
+<h4 id="optiplex--xps-desktop-intel">OptiPlex / XPS Desktop (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> OptiPlex 7090 Micro, XPS Desktop (Intel), Inspiron small form</li>
+<li><strong>Notes:</strong> Office desktops and micros with Intel iGPU.</li>
+</ul>
+<h4 id="g-series--alienware-nvidia">G-Series / Alienware (NVIDIA)</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> G15, Alienware m16, Alienware Aurora</li>
+<li><strong>Notes:</strong> Gaming lines with discrete NVIDIA; treat as unsupported on Bass.</li>
+</ul>
+<h3 id="asus">Asus</h3>
+<h4 id="expertbook--zenbook--vivobook-intel">ExpertBook / Zenbook / VivoBook (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> ExpertBook B9, Zenbook 14, VivoBook 15</li>
+<li><strong>Notes:</strong> Everyday and business notebooks with Intel iGPU.</li>
+</ul>
+<h4 id="nuc--mini-pc-intel">NUC / Mini PC (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> ASUS NUC, PN series mini PC</li>
+<li><strong>Notes:</strong> Compact Intel systems; strong Mesa Iris fit.</li>
+</ul>
+<h4 id="rog--tuf-gaming-nvidia">ROG / TUF Gaming (NVIDIA)</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> ROG Zephyrus, ROG Strix, TUF Gaming A15</li>
+<li><strong>Notes:</strong> Discrete NVIDIA gaming; proprietary driver required for full use.</li>
+</ul>
+<h3 id="acer">Acer</h3>
+<h4 id="aspire--swift--travelmate-intel">Aspire / Swift / TravelMate (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> Aspire 5, Swift 3, TravelMate P2</li>
+<li><strong>Notes:</strong> Mainstream and business Intel iGPU notebooks.</li>
+</ul>
+<h4 id="veriton--chromebox-class-desktop-intel">Veriton / Chromebox-class desktop (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> Veriton N, Aspire TC (Intel SKU)</li>
+<li><strong>Notes:</strong> Office desktops with Intel graphics.</li>
+</ul>
+<h4 id="nitro--predator-nvidia">Nitro / Predator (NVIDIA)</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> Nitro 5, Predator Helios, Predator Orion</li>
+<li><strong>Notes:</strong> Gaming lines centered on discrete NVIDIA GPUs.</li>
+</ul>
+<h3 id="star-labs">Star Labs</h3>
+<h4 id="starbook--starlite--starfighter-intelamd-open">StarBook / StarLite / StarFighter (Intel/AMD open)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>mixed</code></li>
+<li><strong>Examples:</strong> StarBook Mk VI, StarLite Mk V, StarFighter</li>
+<li><strong>Notes:</strong> Linux-first notebooks; Intel and AMD open-GPU SKUs fit Mesa well. Confirm AMD vs Intel per unit.</li>
+</ul>
+<h4 id="optional-nvidia-dgpu-configs">Optional NVIDIA dGPU configs</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> StarFighter (NVIDIA option)</li>
+<li><strong>Notes:</strong> Any discrete NVIDIA option is unsupported on Bass.</li>
+</ul>
+<h3 id="framework">Framework</h3>
+<h4 id="framework-laptop-intel--amd-igpu">Framework Laptop (Intel / AMD iGPU)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>mixed</code></li>
+<li><strong>Examples:</strong> Framework Laptop 13 Intel, Framework Laptop 13 AMD, Framework Laptop 16 AMD</li>
+<li><strong>Notes:</strong> Intel Iris and AMD Radeon iGPU mainboards are the expected path. AMD treated as caveat at GPU-driver level but OEM line is a strong fit.</li>
+</ul>
+<h4 id="framework-laptop-16-nvidia-expansion-card">Framework Laptop 16 (NVIDIA Expansion Card)</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> Framework 16 NVIDIA Graphics Module</li>
+<li><strong>Notes:</strong> Discrete NVIDIA expansion module needs proprietary drivers; not supported.</li>
+</ul>
+<h3 id="lenovo-optional">Lenovo (optional)</h3>
+<h4 id="thinkpad--thinkcentre--yoga-intel">ThinkPad / ThinkCentre / Yoga (Intel)</h4>
+<ul>
+<li><strong>Status:</strong> Supported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>intel_igpu</code></li>
+<li><strong>Examples:</strong> ThinkPad T14, ThinkPad X1 Carbon, ThinkCentre M70q, Yoga 7</li>
+<li><strong>Notes:</strong> Business and consumer Intel iGPU lines are typically well supported.</li>
+</ul>
+<h4 id="thinkpad-amd--ideapad-amd-radeonsi">ThinkPad AMD / IdeaPad AMD (radeonsi)</h4>
+<ul>
+<li><strong>Status:</strong> Caveat</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>amd_igpu</code></li>
+<li><strong>Examples:</strong> ThinkPad T14s AMD, IdeaPad Slim 5 AMD</li>
+<li><strong>Notes:</strong> AMD iGPU via amdgpu + Mesa radeonsi; validate on your release build.</li>
+</ul>
+<h4 id="legion--loq-gaming-nvidia">Legion / LOQ gaming (NVIDIA)</h4>
+<ul>
+<li><strong>Status:</strong> Unsupported</li>
+<li><strong>Graphics class:</strong> <code translate="no" v-pre>nvidia_dgpu</code></li>
+<li><strong>Examples:</strong> Legion 5, LOQ 15, Legion Tower</li>
+<li><strong>Notes:</strong> Gaming lines with discrete NVIDIA; unsupported without proprietary drivers.</li>
+</ul>
+<h2 id="appendix-e-data-files">Appendix E: Data files</h2>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../../data/hardware/oem_devices.json"><code translate="no" v-pre>oem_devices.json</code></a></td>
+<td>Per-model inventory rows</td>
+</tr>
+<tr>
+<td><a href="../../../data/hardware/oem_summary.json"><code translate="no" v-pre>oem_summary.json</code></a></td>
+<td>Roll-up counts</td>
+</tr>
+<tr>
+<td><a href="../../../data/hardware/pos_brands.json"><code translate="no" v-pre>pos_brands.json</code></a></td>
+<td>POS / panel / kiosk brand checklist</td>
+</tr>
+<tr>
+<td><a href="../../../data/hardware/compat.json"><code translate="no" v-pre>compat.json</code></a></td>
+<td>Mesa chip id summary</td>
+</tr>
+<tr>
+<td><a href="../../../scripts/oem_catalog.yaml"><code translate="no" v-pre>oem_catalog.yaml</code></a></td>
+<td>Curated prefer / skip series</td>
+</tr>
+<tr>
+<td><a href="../../../scripts/pos_manufacturers.yaml"><code translate="no" v-pre>pos_manufacturers.yaml</code></a></td>
+<td>Curated POS brand list</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p><em>Generated by <code translate="no" v-pre>scripts/gen_hardware_compat.py</code> on 2026-09-23. Inventory from <a href="https://github.com/linuxhw/DMI">linuxhw/DMI</a>. Graphics id tables from Mesa. Prefer/skip tips are guidance only.</em></p>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-14">
+                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/Bliss-Bass/Documentation/blob/main/Installation/x86_64-v2/hardware-compatibility.md" target="_blank" rel="noopener">
+                        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        <span>Edit on GitHub</span>
+                    </a>
+                </div>
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../installation/x86_64-v2/collecting-bug-reports/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Collecting bug reports</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../installation/x86_64-v2/install-from-bootable-usb/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Install From Bootable USB</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://bliss-bass.blisscolabs.dev">A Bliss Co-Labs Project</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© Copyright 2013-2026 – <a href="https://blisscolabs.dev">Bliss Co-Labs</a> – All rights reserved</p></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Hardware compatibility (x86)", level: 3, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: true, hasMath: false, tocDepth: 23, "md": "/installation/x86_64-v2/hardware-compatibility.md" }</script>
+</body>
+</html>

@@ -24,6 +24,7 @@
 
 - [Bass OS/Lineout (Android 13-16) Install Process](https://docs.blisscolabs.dev/installation/x86_64-v2/bass_os_aaropa_install_process.md): This document will go over how to use our Devuan GNU-Linux based installer (aka: Aaropa initrd/installer). This is quite the departure from our normal
 - [Collecting bug reports](https://docs.blisscolabs.dev/installation/x86_64-v2/collecting-bug-reports.md): This process is mostly the same as Android-x86 builds, but with a few additions that help things along. If you need to collect logs in order to submit a bug report, then the first thing you will want to do is reboot your Bass OS install using debug mode.
+- [Hardware compatibility (x86)](https://docs.blisscolabs.dev/installation/x86_64-v2/hardware-compatibility.md): Which PCs can run Bass x86, in plain language
 - [Install From Bootable USB](https://docs.blisscolabs.dev/installation/x86_64-v2/install-from-bootable-usb.md): Install from bootable USB Installer
 - [Using Android-x86 Installer](https://docs.blisscolabs.dev/installation/x86_64-v2/using-android-x86-installer.md): This installer is developed and maintained by Xtr126 and is intended to be used to dual-boot Bass OS along with Linux or Windows
 
