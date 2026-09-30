@@ -20,7 +20,7 @@ Android's volume slider only goes so far on a PC. Bass Audio talks to the real o
 1. Turn **Enable Bass Audio** on.
 2. Choose **Speakers** or **Display** (HDMI/DP). "Offline" means that output is not connected.
 3. Use **Active** / **Select** next to an output, and the slider for level.
-4. Open **DSP Effects & Preferences** for equalizer-style sound (including voice clarity).
+4. Open **DSP Effects & Preferences** for equalizer-style sound (including voice clarity). **Volume Boost** (a switch plus a strength slider) can go louder than the normal Android maximum. Use it sparingly, since it can distort.
 5. **Advanced Hardware Mixer** is for fine hardware controls: skip it unless a speaker is silent or too loud and the main slider did not help.
 6. **Reset All Routing** returns to defaults if sound is going to the wrong place.
 

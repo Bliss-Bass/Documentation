@@ -16,7 +16,7 @@ On Lineout, "addon" work falls into two buckets that both belong to this product
 
 | Bucket | Where it lives | How you enable it |
 |--------|----------------|-------------------|
-| **Build packages** | `vendor/ax86-lite/vendor_packages/` | `build.sh` flags (`--extras`, `--btnmgr`, …) |
+| **Build packages** | `vendor/ax86-lite/vendor_packages/` | `build.sh` flags (`--extras`, `--btnmgr`, ...) |
 | **Runtime overrides** | `/data/misc/`, GRUB flags, `addon_init` | Push files + cmdline / `setprop` |
 
 Both are documented below. Neither is the old `private/addons/` patchset model.
@@ -47,6 +47,9 @@ Enable them from `vendor/ax86-lite/tools/build.sh` (see [Building Bass OS](build
 | `--ethernetconfig` | Ethernet Config |
 | `--btferry` | BT Ferry (`bass-btferry` addon; **A16 Lineout only for now**) |
 | `--gamenative` | GameNativeX64 (`gamenative` addon; x86_64 PC games + Linux apps) |
+| `--linux-services` | Linux Services (`linux-services` addon; boot, scheduled, and auto-restarted Linux jobs; needs GameNativeX64) |
+| `--blissdeck` | BlissDeck game-library Home (`blissdeck` addon) |
+| `--gaming` | Gaming images: BlissDeck as Home, gaming boot catalog (implies `--blissdeck`) |
 | `--bass-boot-options` / `--cxbbo` | Bass GRUB boot submenu |
 | `--ldinstall` | Lockdown install/uninstall block |
 

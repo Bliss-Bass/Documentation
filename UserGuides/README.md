@@ -27,7 +27,7 @@ Not every image includes every tool. If a page below describes something you do 
 |-------|----------------|
 | [Ax86 Power](ax86-power.md) | Sleep, wake, reboot, and shut down |
 | [Bass Audio](bass-audio.md) | Speakers vs HDMI, volume, and sound effects |
-| [Boot Config](boot-config.md) | How the device starts next time (tablet, desktop, kiosk, ...) |
+| [Boot Config](boot-config.md) | How the device starts next time (tablet, desktop, kiosk, gaming, ...) |
 | [BootSight](bootsight.md) | Device status and licensing |
 | [Display Mapper](display-mapper.md) | Screen size, rotation, extra monitors |
 | [Touch Mapper](touch-mapper.md) | Which touchscreen or mouse belongs to which screen |
@@ -38,6 +38,8 @@ Not every image includes every tool. If a page below describes something you do 
 | [Internet Security](internet-security.md) | Extra network protection app |
 | [BassView](bassview.md) | License agreement and device integrity |
 | [Monterey Standby](monterey-standby.md) | Standby screen and live wallpaper |
+| [Linux Services](linux-services.md) | Start Linux programs at boot or on a schedule, and keep them running |
+| [BlissDeck](blissdeck.md) | Landscape game-library Home (gaming images) |
 | [Button Manager](button-manager.md) | Extra hardware keys (P1 / P2 / ...), if this device has them |
 | [Bass Boot Options](bass-boot-options.md) | The menu you see *before* Android starts |
 | [This help app](ax86-docs.md) | How to use Ax86Docs |
