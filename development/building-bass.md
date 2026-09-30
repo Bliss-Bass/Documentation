@@ -314,6 +314,9 @@ Requires section [4. Aaropa installer](#4-aaropa-installer-podman---needed-for--
 | `--ethernetconfig` | Ethernet Config |
 | `--btferry` | BT Ferry (A16 / Lineage 23.2 Lineout only for now) |
 | `--gamenative` | GameNative x86_64 preinstall (see optional deps above) |
+| `--linux-services` | Linux Services: boot, scheduled, and auto-restarted Linux jobs (needs `--gamenative`) |
+| `--blissdeck` | BlissDeck game-library Home preinstall (`gh` + network to GitHub releases) |
+| `--gaming` | Gaming images: BlissDeck as Home and the gaming boot catalog (implies `--blissdeck`) |
 | `--smartdock` | SmartDock |
 | `--restrictedlauncherpro` | Restricted Launcher Pro (private access) |
 | `--rlptype=VARIANT` | RLP APK variant: `default` \| `gs` \| `gs_nh` \| `sl` (implies `--restrictedlauncherpro`) |

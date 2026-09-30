@@ -87,6 +87,7 @@ You do **not** need an engineering degree to use most of these guides. Start wit
 * [Bliss Display Mapper](applications/BlissDisplayMapper/BlissDisplayMapper.md)
 * [Bliss Touch Mapper](applications/BlissTouchMapper/BlissTouchMapper.md)
 * [Bliss Tweaks](applications/BlissTweaks/BlissTweaks.md)
+* [BlissDeck](applications/BlissDeck/BlissDeck.md)
 * [Boot Config](applications/BootConfig/BootConfig.md)
 * [BootSight](applications/BootSight/BootSight.md)
 * [BT Ferry](applications/BTFerry/BTFerry.md) (A16 Lineout only for now)
@@ -95,6 +96,7 @@ You do **not** need an engineering degree to use most of these guides. Start wit
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 * [Bliss Kiosk Launcher](applications/BlissKioskLauncher/BlissKioskLauncher.md)
 * [Bliss Restricted Launcher](applications/BlissRestrictedLauncher/BlissRestrictedLauncher.md)
+* [Linux Services](applications/LinuxServices/LinuxServices.md) (A16 Lineout, x86_64)
 * [SmartDock DFC](applications/SmartDockDFC/README.md)
   * [Feature Overview](applications/SmartDockDFC/SMARTDOCK_FEATURES.md)
   * [Vendor Implementation Guide](applications/SmartDockDFC/VENDOR_GUIDE.md)
@@ -108,6 +110,7 @@ You do **not** need an engineering degree to use most of these guides. Start wit
 * [Power Management API](interfaces/BlissPowerManagerAIDL/power-management-aidl.md) (legacy BlissPowerManager)
 * [Ethernet Config AIDL](applications/EthernetConfig/AIDL_INTERFACE.md)
 * [Button Manager AIDL](applications/Ax86ButtonManager/AIDL_INTERFACE.md)
+* [Linux Services AIDL](applications/LinuxServices/AIDL_INTERFACE.md)
 * [Bliss Ethernet Manager](applications/BlissEthernetManager/BlissEthernetManager.md) (legacy)
 
 ## Development

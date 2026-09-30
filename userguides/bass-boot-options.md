@@ -12,7 +12,7 @@ Aaropa / Bliss-style installs often show only a short list (Android, Recovery, A
 
 1. Power on (or reboot) and watch for the boot menu. Press a key if the menu would otherwise hide.
 2. Use the arrow keys and Enter.
-3. Choose the mode you want for this boot (names vary by image: Tablet, Desktop, Kiosk, and extras).
+3. Choose the mode you want for this boot (names vary by image: Tablet, Desktop, Kiosk, Gaming, and extras).
 
 If you changed [Boot Config](boot-config.md) and the device misbehaves, pick a known-good entry here, or Recovery if you were instructed to.
 
@@ -23,4 +23,4 @@ You will not see this extra submenu on images that were built without Bass Boot 
 - [Getting started](README.md)
 
 - [Boot Config](boot-config.md): changes that apply *after* you are in Android
-- Technical: [Bass Boot Options](../../setup_and_configuration/bass-boot-options.md)
+- Technical: [Bass Boot Options](../setup_and_configuration/bass-boot-options.md)

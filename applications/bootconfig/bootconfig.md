@@ -12,7 +12,7 @@ Boot Config is the Settings UI for toggling boot / kernel command-line options w
 
 Categories include:
 
-* **UI modes:** Desktop UI, Tablet UI, Kiosk UI, multi-display windowing (`BASSMDW`)
+* **UI modes:** Desktop UI, Tablet UI, Kiosk UI, Gaming UI (`BASS_GAMINGUI=1`, [BlissDeck](../BlissDeck/BlissDeck.md) as Home), multi-display windowing (`BASSMDW`)
 * **Display / graphics:** resolution, DPI, orientation, Vulkan / HWC options
 * **Power:** fake battery for always-on AC setups, sleep timeouts, Doze-related flags
 * **Hardware:** audio routing, delayed sensors, virtual Wi-Fi, camera emulation

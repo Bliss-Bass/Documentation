@@ -23,10 +23,11 @@ Catalog selection:
 | Flag | Catalog installed as `entries.list` |
 |------|--------------------------------------|
 | `--cxbbo` | `entries.customer.list` - customer-specific catalog; takes precedence over UI mode |
-| (none) | `entries.list` - full Tablet + Desktop + Kiosk |
+| (none) | `entries.list` - full Tablet + Desktop + Kiosk + Gaming |
 | `--tui` | `entries.tablet.list` |
 | `--dui` | `entries.desktop.list` |
 | `--kui` | `entries.kiosk.list` |
+| `--gaming` | `entries.gaming.list` (see [BlissDeck](../applications/BlissDeck/BlissDeck.md)) |
 
 ## Behavior
 

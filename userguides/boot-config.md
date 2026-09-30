@@ -16,7 +16,7 @@ You will see a warning that this tool edits bootloader settings. Read it. **Decl
 
 Android on a PC can start in more than one mode. Boot Config turns those modes on or off without rebuilding the system. Typical groups:
 
-- **How it looks**: tablet, desktop (windows on the desktop), or kiosk (locked to one app).
+- **How it looks**: tablet, desktop (windows on the desktop), kiosk (locked to one app), or gaming ([BlissDeck](blissdeck.md) as Home).
 - **Screens**: resolution, rotation, extra monitors.
 - **Power**: sleep-related boot flags (day-to-day sleep is still [Ax86 Power](ax86-power.md)).
 - **Hardware extras**: audio routing at boot, sensors, and similar.
@@ -32,4 +32,4 @@ If the device will not start after a change, use the GRUB / Bass boot menu on th
 ## Related
 
 - [Getting started](README.md)
-- Technical: [Boot Config](../../applications/BootConfig/BootConfig.md)
+- Technical: [Boot Config](../applications/BootConfig/BootConfig.md)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843523701306">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.844043351214">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,12 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.843523701306" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.844043351214" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843523701306" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.844043351214" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843523701306" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.843523701306" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.844043351214" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.844043351214" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -224,7 +224,62 @@ software fallback)</p>
 <p><strong>Linux apps</strong> - install Debian packages inside a PRoot rootfs, launch GUI apps in per-app
 freeform windows, pin them to the app drawer via lightweight stub APKs</p>
 </li>
+<li>
+<p><strong>Frame generation</strong> - LSFG-VK (Lossless Scaling) on Intel and AMD Mesa, experimental on
+x86_64 (Bionic containers only; needs Lossless Scaling from Steam)</p>
+</li>
+<li>
+<p><strong>GPU present path</strong> - DRI3 dma-buf zero-copy presents on x86_64</p>
+</li>
+<li>
+<p><strong>Linux job engine</strong> for the <a href="../linuxservices/">Linux Services</a> system addon:
+boot-started, scheduled, and auto-restarted Linux services, terminal programs, and GUI apps</p>
+</li>
 </ul>
+<h2 id="linux-environment">Linux environment</h2>
+<p>The Linux environment is an Ubuntu rootfs (about 1.2 GB) that GameNativeX64 downloads once and
+runs under PRoot. Set it up from GameNativeX64&#x27;s Terminal screen, from <strong>Linux Terminal</strong> in the
+app drawer, or from the Linux Services settings card when that addon is on the image.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Area</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Display backend</td>
+<td><strong>Android X</strong> (native X server with DRI3) is the default for freeform Linux apps. <strong>Xtigervnc</strong> is an opt-in compatibility fallback. Both are under <strong>Linux display backend</strong> in settings</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>One freeform task per Linux app, titled with the app&#x27;s name. The X screen follows the window size, so GTK and Qt apps reflow when you resize</td>
+</tr>
+<tr>
+<td>Sizing</td>
+<td><strong>App size</strong> scales Linux apps relative to Android&#x27;s own UI (applies when a session next starts). <strong>App UI size</strong> scales GameNativeX64&#x27;s own library and settings screens</td>
+</tr>
+<tr>
+<td>Closing apps</td>
+<td><strong>When a Linux app is closed</strong>: close the session, or keep it running so reopening is instant</td>
+</tr>
+<tr>
+<td>Browsers</td>
+<td>Firefox installs from Mozilla&#x27;s APT repository (Ubuntu&#x27;s snap stubs do not work under PRoot). Sound goes through the same PulseAudio bridge as games, AAC decodes through the system ffmpeg, and Widevine/EME is on by default (Firefox downloads the CDM on first use)</td>
+</tr>
+<tr>
+<td>App drawer</td>
+<td>With the stub installer on the image, Linux apps and installed games are published to the Android app drawer automatically, including after apt installs from the terminal. Removing an entry stops it from coming back until you add it again</td>
+</tr>
+<tr>
+<td>Reset</td>
+<td><strong>Linux Apps → trash icon (Reset Linux environment)</strong> deletes the rootfs and everything installed with apt</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="installing-the-apk-standalone">Installing the APK standalone</h2>
 <p>For sideload or testing outside a Bass image, download <strong><code translate="no" v-pre>app-modernX64-release.apk</code></strong> from
 the <a href="https://github.com/Bliss-Bass/GameNative-x64/releases">GameNative-x64 releases</a> page.
@@ -273,7 +328,12 @@ addons are wired.</p>
 <tr>
 <td>Linux apps</td>
 <td>-</td>
-<td>Session manager, per-app windows, drawer stubs</td>
+<td>Session manager, per-app windows, drawer stubs, Android X display</td>
+</tr>
+<tr>
+<td>Linux jobs</td>
+<td>-</td>
+<td>Job engine for Linux Services (<code translate="no" v-pre>LinuxJobService</code>)</td>
 </tr>
 <tr>
 <td>Build flavor</td>
@@ -283,10 +343,13 @@ addons are wired.</p>
 </tbody>
 </table>
 </div>
-<p>Current release series: <strong>v1.2.0-x64.</strong>* (see GitHub releases for versionCode and notes).</p>
+<p>Current release series: <strong>v1.2.0-x64.</strong>* (see GitHub releases for versionCode and notes).
+Linux Services needs <strong>v1.2.0-x64.17</strong> (versionCode 152) or later.</p>
 <h2 id="related">Related</h2>
 <ul>
 <li><a href="https://github.com/Bliss-Bass/GameNative-x64/blob/bliss-x64/README.md">GameNative-x64 README</a></li>
+<li><a href="../linuxservices/">Linux Services</a> - run Linux jobs at boot or on a schedule</li>
+<li><a href="../blissdeck/">BlissDeck</a> - game-library Home on gaming images</li>
 <li><a href="../../development/building-bass/">Building Bass OS</a></li>
 <li><a href="../../features/lockdown-install-block/">Lockdown install / uninstall block</a> - kiosk
 lockdown images may block sideload; preinstall is required on those SKUs</li>

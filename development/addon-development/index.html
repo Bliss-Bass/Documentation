@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.843523701306">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.844043351214">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.843523701306" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.844043351214" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.843523701306" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.844043351214" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.843523701306" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.844043351214" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -181,7 +181,7 @@
 <tr>
 <td><strong>Build packages</strong></td>
 <td><code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code></td>
-<td><code translate="no" v-pre>build.sh</code> flags (<code translate="no" v-pre>--extras</code>, <code translate="no" v-pre>--btnmgr</code>, …)</td>
+<td><code translate="no" v-pre>build.sh</code> flags (<code translate="no" v-pre>--extras</code>, <code translate="no" v-pre>--btnmgr</code>, ...)</td>
 </tr>
 <tr>
 <td><strong>Runtime overrides</strong></td>
@@ -246,6 +246,18 @@
 <tr>
 <td><code translate="no" v-pre>--gamenative</code></td>
 <td>GameNativeX64 (<code translate="no" v-pre>gamenative</code> addon; x86_64 PC games + Linux apps)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--linux-services</code></td>
+<td>Linux Services (<code translate="no" v-pre>linux-services</code> addon; boot, scheduled, and auto-restarted Linux jobs; needs GameNativeX64)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--blissdeck</code></td>
+<td>BlissDeck game-library Home (<code translate="no" v-pre>blissdeck</code> addon)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--gaming</code></td>
+<td>Gaming images: BlissDeck as Home, gaming boot catalog (implies <code translate="no" v-pre>--blissdeck</code>)</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--bass-boot-options</code> / <code translate="no" v-pre>--cxbbo</code></td>
