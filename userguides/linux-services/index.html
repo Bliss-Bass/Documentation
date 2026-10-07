@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.844043351214">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.844702420556">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.844043351214" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.844702420556" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.844043351214" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.844702420556" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.844043351214" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.844702420556" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -272,10 +272,14 @@
 </table>
 </div>
 <p>Weekday 0 or 7 is Sunday. Times follow the device&#x27;s clock and time zone.</p>
+<h2 id="untracked-programs">Untracked programs</h2>
+<p>Below your jobs, the <strong>Untracked</strong> list shows Linux programs that are running now but are not jobs: apps you opened from the app drawer, and commands you started in the Linux Terminal. A command piped through others, such as <code translate="no" v-pre>apt-get install foo | tail</code>, shows as one entry.</p>
+<p>Tap <strong>Add to jobs</strong> to open the job editor already filled in with the program&#x27;s command and folder, set to start at boot and restart on failure. Change anything you like, then save. Only the command itself is copied, not any redirection you typed after it, so add that back in the editor if you need it.</p>
 <h2 id="inspector">Inspector</h2>
 <p><strong>Inspector</strong> (in the menu) shows every Linux program that is running now, grouped by job, with its CPU and memory use.</p>
 <ul>
-<li><strong>Running</strong> / <strong>Sleeping</strong>: normal.</li>
+<li><strong>Running</strong>: using the CPU right now. A program counts as running when any of its threads is busy, so a browser playing a video shows as running even while its main thread waits.</li>
+<li><strong>Sleeping</strong>: idle, waiting for input or a timer.</li>
 <li><strong>Paused</strong>: stopped by Android or by a signal.</li>
 <li><strong>Stale</strong>: left behind by a closed session, or a job that says it is running but has no program.</li>
 <li><strong>Zombie</strong>: finished but not yet cleaned up.</li>
