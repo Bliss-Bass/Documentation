@@ -71,11 +71,18 @@ Schedules use the classic cron format: **minute hour day month weekday**.
 
 Weekday 0 or 7 is Sunday. Times follow the device's clock and time zone.
 
+## Untracked programs
+
+Below your jobs, the **Untracked** list shows Linux programs that are running now but are not jobs: apps you opened from the app drawer, and commands you started in the Linux Terminal. A command piped through others, such as `apt-get install foo | tail`, shows as one entry.
+
+Tap **Add to jobs** to open the job editor already filled in with the program's command and folder, set to start at boot and restart on failure. Change anything you like, then save. Only the command itself is copied, not any redirection you typed after it, so add that back in the editor if you need it.
+
 ## Inspector
 
 **Inspector** (in the menu) shows every Linux program that is running now, grouped by job, with its CPU and memory use.
 
-- **Running** / **Sleeping**: normal.
+- **Running**: using the CPU right now. A program counts as running when any of its threads is busy, so a browser playing a video shows as running even while its main thread waits.
+- **Sleeping**: idle, waiting for input or a timer.
 - **Paused**: stopped by Android or by a signal.
 - **Stale**: left behind by a closed session, or a job that says it is running but has no program.
 - **Zombie**: finished but not yet cleaned up.
