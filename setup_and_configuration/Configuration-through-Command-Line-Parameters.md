@@ -225,6 +225,7 @@ When no Bluetooth controller is found at boot, Bluetooth is turned off. The Blue
 By default, we include a couple audio HAL's to choose from for the OS. 
 
 *  `AUDIO_PRIMARY`: This will use the specified HAL (Options: `x86`[default] & `x86_celadon`) 
+*  `AUDIO_OUT`: Forces the default audio output instead of auto-detecting it (Options: `hdmi`, `speaker`) (Bass builds)
 
 #### Video Encoders/Decoders:
 
@@ -236,6 +237,8 @@ By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few
 *   `FFMPEG_HWACCEL_DISABLE`: This will disable hardware accelleration for the FFMPEG codecs.
 *   `FFMPEG_CODEC_LOG`: This will show more log of FFMPEG codecs, enable if you want to debug it
 *   `FFMPEG_CODEC2_DEINTERLACE` & `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: configuring deinterlacing option for FFMPEG codec2, you can find the options in this [commit made by Micheal Goffioul](https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33)
+    *   `FFMPEG_CODEC2_DEINTERLACE`: `auto` (default, VA-API deinterlacing for hardware frames, software otherwise), `software`, or `none`
+    *   `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: VA-API deinterlace mode: `default`, `bob`, `weave`, `motion_adaptive`, `motion_compensated`
 *   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`)
 *   `FFMPEG_CODEC2_DRM`: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.
 *   `FFMPEG_CODEC2_PIXEL_FORMAT`: Overrides the pixel format the FFMPEG codec2 decoders output (sets `debug.ffmpeg-codec2.pixel_format`). Options: `RGBX_8888`, `YUV_420`, `RGB_565`. Without it, the format is picked from the GPU: Intel (`i915` and `xe`) uses `RGBX_8888`, AMD on minigbm uses `YUV_420`, virtio / nouveau / radeon use `RGBX_8888`, everything else `RGB_565`.
@@ -264,6 +267,11 @@ NTFS:
 
   `VOLD_USE_NTFS3=1`: Mounts NTFS drives with the kernel ntfs3 driver instead of ntfs-3g
   `USE_NTFS3=1`: Same as above (also used when booting from an NTFS partition)
+  `BOOT_USE_NTFS3=1`: Only mount the NTFS partition Bliss is installed on with ntfs3 (instead of ntfs-3g)
+
+Boot device:
+
+  `ROOTWAIT`: Seconds the initrd waits for the system partition to appear before giving up (default `30`). Raise it for slow USB or SD card boots.
 
 ### USB/PCI:
 
@@ -277,6 +285,7 @@ Allows switching default USB/ADB functions via cmdline
 
 *   `FORCE_USE_ADB_CLIENT_MODE`: Forces USB into ADB Client mode (0=off, 1=on, 2=USB+TCP insecure ADB, 3=same as 1 plus `adb_enabled` / `adb_wifi_enabled`). Property list and runtime on/off: [ADB Client Mode Overrides](adb-client-mode-overrides.md).
 *   `FORCE_USE_ADB_MASS_STORAGE`: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
+*   `SET_USB_CONFIG`: Sets the default USB functions (`persist.sys.usb.config`), comma separated. Example: `SET_USB_CONFIG=mtp,adb`
 
 ### Power & Memory:
 
@@ -614,6 +623,7 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
 *   `BASSDE`: Desktop experience flags such as drag-to-maximize (Options: true, false)
 *   `BASSDELAUNCHER`: Desktop launcher flag (Options: true, false)
 *   `BASS_MULTIPLE_DESKTOPS`: Multiple desktops (Options: true, false)
+*   `BASSDM_PRESENTATION`: Lets apps show presentations on connected displays (Options: true, false)
 
 #### Launcher Options:
 
@@ -635,6 +645,7 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
 *   `SET_RMB`: Use the right mouse button as Back (Options: true, false) (Bass builds)
 *   `SET_P_CG`: Turns the pointer choreographer on or off (`persist.pointer.choreographer`) (Options: 0, 1) (Bass builds)
 *   `androidboot.force.win_as_home=1`: The Windows / Meta key acts as Home (Bass builds)
+*   `FORCE_TSCAL=1`: Turns on tslib touchscreen calibration (pointercal) on devices that are not detected as needing it
 
 #### Display & Input Rotation/Orientation:
    
@@ -680,6 +691,8 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
     
 *   `SET_FAKE_CHARGING_STATUS`: Allow forcing battery charging status  
     Options: (0|1)
+
+*   `FAKE_BATTERY=1`: Use the fake battery profile even when a battery is detected (Bass builds turn it on automatically when no battery is found)
     
 
 #### Package Management:
