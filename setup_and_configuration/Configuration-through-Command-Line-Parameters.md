@@ -56,6 +56,10 @@ You will also need to enable the console if you wish to use alt-f1/f7 virtual co
 ```
 androidboot.enable_console=1
 ```
+
+Other debugging options:
+
+*   `DEBUG_VSOCK=1`: Debug console over VSOCK (virtual machines)
     
 
 Example:
@@ -148,6 +152,10 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 
 - There's one more option for software rendering, which is the legacy [SwiftShader EGL](https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL), simply set `nomodeset` or `HWACCEL=0` to use it.
 
+- Mesa can also render in software or over Vulkan (Bass builds):
+    *   `EGL=mesa MESA_LLVMPIPE=1`: Mesa EGL on the llvmpipe software renderer.
+    *   `EGL=mesa MESA_ZINK=1`: Mesa EGL through Zink (OpenGL on top of the Vulkan driver).
+
 - For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: `vt.global_cursor_default=0`
 
 **NOTE** : You may want to turn on Color Inversion when using software rendering because the color might be inverted
@@ -170,6 +178,28 @@ This allows us to target a specific DGPU on the device:
 
 *  `GPU_OVERRIDE`: (Options: whatever your devices target /dev/dri/* is)
 
+#### HWC HIDL interface:
+
+*  `HWC_HIDL`: Selects which hardware composer service starts (Options: `default-2.4` [default], `default-2.1` [default with `HWACCEL=0` and on radeon], `drmfb`)
+
+#### Vulkan:
+
+*  `VULKAN`: Overrides the Vulkan HAL picked from the GPU (Options: `intel`, `intel_hasvk` [Intel before Gen9], `radeon`, `virtio`, `lvp` [software], `pastel`)
+*  `androidboot.hardware.vulkan=*`: Forces the Vulkan hardware name directly (for example `intel`, `radeon`)
+
+#### Primary display hotplug:
+
+(Available in Bass builds)
+
+What happens when the primary HDMI / DP display is unplugged. Apps and media keep their state either way; SurfaceFlinger is not restarted.
+
+*  `SET_HEADLESS_STAY_AWAKE`: `0` [default] sleeps while the primary display is unplugged and wakes when it comes back; `1` keeps running in the dark (signage, kiosks)
+*  `SET_REATTACH_FORCE_SF`: Debug only. `1` restarts SurfaceFlinger when the primary display comes back (restarts the Android UI and loses app state)
+
+#### Display density:
+
+*  `DPI`: Sets the display density (`ro.sf.lcd_density`), for example `DPI=160`
+
 #### Video Resolution:
 
 We use the Linux `video` and `fbcon` commands for this functionality, and it is compatible with the `gbm` gralloc/hwc backend. 
@@ -185,6 +215,10 @@ There are a couple of customizations available for the Bluetooth stack in our bu
 
 *  `BTUART_PORT`: Specifies the known bluetooth UART port
 *  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices)
+*  `BT_BLE_DISABLE`: `1` disables Bluetooth Low Energy (for controllers whose BLE support crashes the stack)
+*  `BT_BLE_NO_VENDORCAPS`: `1` turns off BLE vendor capabilities (for controllers that misreport them)
+
+When no Bluetooth controller is found at boot, Bluetooth is turned off. The Bluetooth app itself stays enabled: Android 16 cannot finish booting without it.
 
 #### Audio HAL:
 
@@ -204,11 +238,15 @@ By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few
 *   `FFMPEG_CODEC2_DEINTERLACE` & `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: configuring deinterlacing option for FFMPEG codec2, you can find the options in this [commit made by Micheal Goffioul](https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33)
 *   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`)
 *   `FFMPEG_CODEC2_DRM`: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.
+*   `FFMPEG_CODEC2_PIXEL_FORMAT`: Overrides the pixel format the FFMPEG codec2 decoders output (sets `debug.ffmpeg-codec2.pixel_format`). Options: `RGBX_8888`, `YUV_420`, `RGB_565`. Without it, the format is picked from the GPU: Intel (`i915` and `xe`) uses `RGBX_8888`, AMD on minigbm uses `YUV_420`, virtio / nouveau / radeon use `RGBX_8888`, everything else `RGB_565`.
+    *   If hardware-decoded video shows green or striped frames (seen with Intel Gen12 / Xe GPUs on older builds), boot with `FFMPEG_CODEC2_PIXEL_FORMAT=RGBX_8888`.
 
 ### Networking:
 
 We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
   `VIRT_WIFI=1`
+
+  `VIRT_WIFI_NAME`: Name of the virtual Wi-Fi network shown to apps (default `wifi_eth`)
 
 ### Disk Access:
 
@@ -221,6 +259,11 @@ For use cases where you are dual booting or sharing system resources with multip
   `SDCARDFS_DISABLE=1`: Disables the use of SDCardFS in the OS
   `SET_SDCARDFS_ENABLED`: Same as above (Options: 1, 0)
   `SET_CASEFOLD_ENABLED`: Enables/Disables casefold (Options: 1, 0)
+
+NTFS:
+
+  `VOLD_USE_NTFS3=1`: Mounts NTFS drives with the kernel ntfs3 driver instead of ntfs-3g
+  `USE_NTFS3=1`: Same as above (also used when booting from an NTFS partition)
 
 ### USB/PCI:
 
@@ -385,6 +428,14 @@ INTEL_PSTATE_STATUS=passive
 *   `FORCE_THERMAL_THROTTLE_ENABLE`: Sets the thermal\_throttle\_enable value. Options: (true|false)
 *   `FORCE_HW_TIMEOUT_MULTIPLIER`: Force hw timeout multiplier, # X 5s. Options: (integer)    
 
+##### Sleep and CPU options (Bass builds):
+
+*   `PWR_NON_BOOT_CPU`: Sets `power.nonboot-cpu-off`, whether non-boot CPUs are taken offline during sleep. Options: 0, 1
+*   `POWER_NONBOOT_CPU_OFF`: `1` sets the same `power.nonboot-cpu-off` property at boot complete (some device models turn it on automatically)
+*   `IGNORE_DEFAULT_DISPLAY_SLEEP`: Keep running when the built-in display sleeps. Options: (true|false)
+*   `IGNORE_HDMI_DISPLAY_SLEEP`: Keep running when an HDMI display sleeps. Options: (true|false)
+*   `THERMALD_DISABLE`: `1` keeps thermald from starting; `0` starts it on device models where it is off by default
+
 #### Memory:
 
 (Available through Android-Generic Add-On & add-ons for Bass builds)
@@ -546,6 +597,24 @@ INTEL_PSTATE_STATUS=passive
         
     *   **<tile\_id>:** This will add or remove the specified quick settings tile.
 
+#### UI Modes (Bass builds):
+
+Pick which home screen and windowing setup a boot uses. Builds made with `--tui`, `--dui`, `--kui` or `--gaming` add the matching flag by default.
+
+*   `BASS_TABLETUI=1`: Launcher3 / Quickstep home, no desktop or kiosk launcher
+*   `BASS_DESKTOPUI=1`: SmartDock desktop with freeform windows (desktop-first on the default display)
+*   `BASS_KIOSKUI=1`: Restricted Launcher kiosk (lockdown / admin boot modes)
+*   `BASS_GAMINGUI=1`: BlissDeck console-style home
+
+##### Desktop mode options:
+
+*   `BASSEDW`: Desktop windowing flags (Options: true, false)
+*   `BASSMDW`: Multi-display windowing flags (Options: true, false)
+*   `BASSDM`, `BASSDM2`: Desktop mode 1 / desktop mode 2 debug properties (Options: true, false)
+*   `BASSDE`: Desktop experience flags such as drag-to-maximize (Options: true, false)
+*   `BASSDELAUNCHER`: Desktop launcher flag (Options: true, false)
+*   `BASS_MULTIPLE_DESKTOPS`: Multiple desktops (Options: true, false)
+
 #### Launcher Options:
 
 *   `USE_LAUNCHER3`: Forces Launcher3 to be set instead of secondary launcher in build
@@ -562,6 +631,10 @@ INTEL_PSTATE_STATUS=passive
 *   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
 *   `androidboot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
 *   `FORCE_MOUSE_PRESENTATION`: Forces mouse to work across multiple displays
+*   `FORCE_NAVIGATION_MODE`: Selects the navigation style for this boot (Options: `threebutton`, `gestural`) (Bass builds)
+*   `SET_RMB`: Use the right mouse button as Back (Options: true, false) (Bass builds)
+*   `SET_P_CG`: Turns the pointer choreographer on or off (`persist.pointer.choreographer`) (Options: 0, 1) (Bass builds)
+*   `androidboot.force.win_as_home=1`: The Windows / Meta key acts as Home (Bass builds)
 
 #### Display & Input Rotation/Orientation:
    
@@ -589,6 +662,10 @@ INTEL_PSTATE_STATUS=passive
 * `SET_HDMIROTATIONLOCK`: Set HDMI rotation lock (Options: true or false)
 * `SET_SINGLEDISPLAY`: Forces using onle a single display (Options: true or false)
 * `FORCE_PRIMARY_ROTATION`: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)
+* `SET_TARGET_DISPLAY_ORIENTATION`: Rotation for one display, as `display_id,rotation` (rotation 0, 1, 2, 3). Example: `SET_TARGET_DISPLAY_ORIENTATION=2,1` (Bass builds)
+* `SET_TARGET_DISPLAY_RESOLUTION`: Resolution for one display, as `WxH,display_id`. Example: `SET_TARGET_DISPLAY_RESOLUTION=1080x1920,2` (Bass builds)
+* `DISABLE_MIRROR_DISPLAY`: Stop mirroring the built-in display to external displays (Options: true, false) (Bass builds)
+* `DISABLE_MIRROR_DISPLAY_DIALOG`: Hide the display mirroring confirmation dialog (Options: 0, 1) (Bass builds)
 
 ### Misc:
 
@@ -636,6 +713,7 @@ This allows us to set ro.iio.* propertied through the following flags:
 * `SET_IIO_ANGLVEL_QUIRKS`: Sets ro.iio.anglvel.quirks property
 * `SET_IGNORE_ATKBD`: Sets ro.ignore_atkbd property
 * `SENSORS_FORCE_KBDSENSOR`: Option to force kbd sensor
+* `SENSORS_DELAY_INIT`: Seconds to wait before loading sensors (helps tablets whose IIO sensors appear late). Example: `SENSORS_DELAY_INIT=5`
 * `SET_IIO_MAGN_QUIRKS`: Option to force magn quirks. 
    Example: `SET_IIO_MAGN_QUIRKS="no-trig,no-event"`
 
@@ -669,7 +747,18 @@ Enable/Disable Wireless Devices (Change included only in specialized builds):
 
 Other Networking Options (Available in Bass builds):
 * `FORCE_DISABLE_ALL_RADIOS`: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1
-* `FORCE_BLUETOOTH_SERVICE`: Set force bluetooth service state. options: enable, disable
+* `FORCE_BLUETOOTH_SERVICE`: Set force bluetooth service state. options: enable, disable. `disable` turns the Bluetooth radio off; `enable` turns it on and re-enables the Bluetooth app if an older build disabled it.
+
+#### USB Dialogs:
+
+* `DISMISS_USB_ACCESS_DIALOG`: Skip the USB access permission dialogs (Options: 0, 1) (Bass builds)
+
+#### Other Options:
+
+* `SETUPWIZARD=0`: Skip the setup wizard (also the default when booting with `DEBUG`)
+* `EMULATED_CAMERA=1`: Keep the emulated camera provider running (it is stopped at boot otherwise); for devices or VMs without a working camera
+* `ENABLE_BLUR_BY_DEFAULT=1`: Turn on window background blur by default (Bass builds)
+* `ACER_SWITCH_HID_GENERIC=1`: Acer Switch SA5-271 keyboard dock quirk: avoids a kernel panic on undock but disables the dock touchpad. Off by default (Bass builds)
 
 #### Test Modes:
 
