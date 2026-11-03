@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.844702420556">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847058637845">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.844702420556" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.847058637845" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.844702420556" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847058637845" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.844702420556" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847058637845" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -204,6 +204,10 @@
 <div id="debugging-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">androidboot.enable_console=1</code></pre>
 </doc-codeblock></div>
+<p>Other debugging options:</p>
+<ul>
+<li><code translate="no" v-pre>DEBUG_VSOCK=1</code>: Debug console over VSOCK (virtual machines)</li>
+</ul>
 <p>Example:</p>
 <div id="debugging-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">DEBUG=2</code></pre>
@@ -291,6 +295,13 @@
 <p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code translate="no" v-pre>nomodeset</code> or <code translate="no" v-pre>HWACCEL=0</code> to use it.</p>
 </li>
 <li>
+<p>Mesa can also render in software or over Vulkan (Bass builds):</p>
+<ul>
+<li><code translate="no" v-pre>EGL=mesa MESA_LLVMPIPE=1</code>: Mesa EGL on the llvmpipe software renderer.</li>
+<li><code translate="no" v-pre>EGL=mesa MESA_ZINK=1</code>: Mesa EGL through Zink (OpenGL on top of the Vulkan driver).</li>
+</ul>
+</li>
+<li>
 <p>For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: <code translate="no" v-pre>vt.global_cursor_default=0</code></p>
 </li>
 </ul>
@@ -311,10 +322,12 @@
 <li><code translate="no" v-pre>GPU_OVERRIDE</code>: (Options: whatever your devices target /dev/dri/* is)</li>
 </ul>
 <h4 id="video-resolution">Video Resolution:</h4>
-<p>We use the Linux <code translate="no" v-pre>video</code> and <code translate="no" v-pre>fbcon</code> commands for this functionality, and it is compatible with the <code translate="no" v-pre>gbm</code> gralloc/hwc backend.
+<ul>
+<li><code translate="no" v-pre>HWC_HIDL</code>: Selects which hardware composer service starts (Options: <code translate="no" v-pre>default-2.4</code> [default], <code translate="no" v-pre>default-2.1</code> [default with <code translate="no" v-pre>HWACCEL=0</code> and on radeon], <code translate="no" v-pre>drmfb</code>)
 Setting the <code translate="no" v-pre>video</code> kernel cmdline flag will also set Android&#x27;s <code translate="no" v-pre>drm_mode</code> and <code translate="no" v-pre>UVESA_MODE</code>.
 See <a href="https://docs.kernel.org/fb/modedb.html">https://docs.kernel.org/fb/modedb.html</a> for video mode support
-See <a href="https://docs.kernel.org/fb/fbcon.html">https://docs.kernel.org/fb/fbcon.html</a> for more info on fbcon</p>
+See <a href="https://docs.kernel.org/fb/fbcon.html">https://docs.kernel.org/fb/fbcon.html</a> for more info on fbcon</li>
+</ul>
 <h3 id="media-stack">Media Stack:</h3>
 <h4 id="bluetooth">Bluetooth:</h4>
 <p>There are a couple of customizations available for the Bluetooth stack in our builds.</p>
@@ -340,26 +353,45 @@ See <a href="https://docs.kernel.org/fb/fbcon.html">https://docs.kernel.org/fb/f
 <li><code translate="no" v-pre>FFMPEG_CODEC2_DRM</code>: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.</li>
 </ul>
 <h3 id="networking">Networking:</h3>
-<p>We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
-<code translate="no" v-pre>VIRT_WIFI=1</code></p>
+<ul>
+<li><code translate="no" v-pre>BTLINUX_HAL</code>: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices). <strong>Legacy:</strong> older BlissOS releases only, Bass builds ignore it.
+We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
+<code translate="no" v-pre>VIRT_WIFI=1</code></li>
+</ul>
 <h3 id="disk-access">Disk Access:</h3>
 <p>(Available on Bliss OS 14.1x, 15.8.x, &amp; 16.x)
 For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
 <code translate="no" v-pre>INTERNAL_MOUNT=1</code>: Allows device to mount other internal drives on boot.</p>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
+<ul>
+<li><code translate="no" v-pre>AUDIO_OUT</code>: Forces the default audio output instead of auto-detecting it (Options: <code translate="no" v-pre>hdmi</code>, <code translate="no" v-pre>speaker</code>) (Bass builds)</li>
+</ul>
 <p><code translate="no" v-pre>SDCARDFS_DISABLE=1</code>: Disables the use of SDCardFS in the OS
 <code translate="no" v-pre>SET_SDCARDFS_ENABLED</code>: Same as above (Options: 1, 0)
 <code translate="no" v-pre>SET_CASEFOLD_ENABLED</code>: Enables/Disables casefold (Options: 1, 0)</p>
-<h3 id="usbpci">USB/PCI:</h3>
-<h4 id="usb">USB:</h4>
-<h5 id="usb-mode-functions">USB Mode Functions:</h5>
-<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
-<p>Allows switching default USB/ADB functions via cmdline</p>
 <ul>
+<li><code translate="no" v-pre>CODEC2_LEVEL</code>: This will set the C2 level (default value is <code translate="no" v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;). <strong>Legacy:</strong> older BlissOS releases only, Bass builds ignore it.</li>
+<li><code translate="no" v-pre>FFMPEG_OMX_CODEC</code>: This will enable OMX version of FFMPEG codecs (disable codec2 with <code translate="no" v-pre>CODEC2_LEVEL=0</code> to use this codecs). <strong>Legacy:</strong> Bass builds no longer ship OMX codecs.</li>
+<li><code translate="no" v-pre>FFMPEG_CODEC2_PREFER</code>: This will force Bliss to use codec2 version of FFMPEG codecs by default. <strong>Legacy:</strong> older BlissOS releases only, Bass builds ignore it.</li>
+</ul>
+<h5 id="usb-mode-functions">USB Mode Functions:</h5>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">*   `FFMPEG_CODEC2_DEINTERLACE`: `auto` (default, VA-API deinterlacing for hardware frames, software otherwise), `software`, or `none`
+*   `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: VA-API deinterlace mode: `default`, `bob`, `weave`, `motion_adaptive`, `motion_compensated`</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code translate="no" v-pre>OMX_NO_YUV420</code>: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code translate="no" v-pre>CODEC2_LEVEL=0</code>). <strong>Legacy:</strong> Bass builds no longer ship OMX codecs.</li>
+<li><code translate="no" v-pre>FFMPEG_CODEC2_PIXEL_FORMAT</code>: Overrides the pixel format the FFMPEG codec2 decoders output (sets <code translate="no" v-pre>debug.ffmpeg-codec2.pixel_format</code>). Options: <code translate="no" v-pre>RGBX_8888</code>, <code translate="no" v-pre>YUV_420</code>, <code translate="no" v-pre>RGB_565</code>. Without it, the format is picked from the GPU: Intel (<code translate="no" v-pre>i915</code> and <code translate="no" v-pre>xe</code>) uses <code translate="no" v-pre>RGBX_8888</code>, AMD on minigbm uses <code translate="no" v-pre>YUV_420</code>, virtio / nouveau / radeon use <code translate="no" v-pre>RGBX_8888</code>, everything else <code translate="no" v-pre>RGB_565</code>.
+<ul>
+<li>If hardware-decoded video shows green or striped frames (seen with Intel Gen12 / Xe GPUs on older builds), boot with <code translate="no" v-pre>FFMPEG_CODEC2_PIXEL_FORMAT=RGBX_8888</code>.
+Allows switching default USB/ADB functions via cmdline</li>
+</ul>
+</li>
 <li><code translate="no" v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces USB into ADB Client mode (0=off, 1=on, 2=USB+TCP insecure ADB, 3=same as 1 plus <code translate="no" v-pre>adb_enabled</code> / <code translate="no" v-pre>adb_wifi_enabled</code>). Property list and runtime on/off: <a href="../adb-client-mode-overrides/">ADB Client Mode Overrides</a>.</li>
 <li><code translate="no" v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
 </ul>
 <h3 id="power--memory">Power &amp; Memory:</h3>
+<p><code translate="no" v-pre>VIRT_WIFI_NAME</code>: Name of the virtual Wi-Fi network shown to apps (default <code translate="no" v-pre>wifi_eth</code>)</p>
 <h4 id="power">Power:</h4>
 <h5 id="default-sleep-mode-options">Default Sleep Mode Options:</h5>
 <p>The following are the options for <strong>mem_sleep_default</strong> (suggested values are in bold):</p>
@@ -371,8 +403,16 @@ For use cases where you are dual booting or sharing system resources with multip
 <p><strong>shallow</strong>: This option will choose the shallowest sleep state supported by the hardware.</p>
 </li>
 <li>
-<p><strong>s2idle</strong>: This option will choose the S2 idle state.</p>
+<p><strong>s2idle</strong>: This option will choose the S2 idle state.
+NTFS:</p>
 </li>
+</ul>
+<p><code translate="no" v-pre>VOLD_USE_NTFS3=1</code>: Mounts NTFS drives with the kernel ntfs3 driver instead of ntfs-3g
+<code translate="no" v-pre>USE_NTFS3=1</code>: Same as above (also used when booting from an NTFS partition)
+<code translate="no" v-pre>BOOT_USE_NTFS3=1</code>: Only mount the NTFS partition Bliss is installed on with ntfs3 (instead of ntfs-3g)</p>
+<p>Boot device:</p>
+<p><code translate="no" v-pre>ROOTWAIT</code>: Seconds the initrd waits for the system partition to appear before giving up (default <code translate="no" v-pre>30</code>). Raise it for slow USB or SD card boots.</p>
+<ul>
 <li>
 <p>s3bios: This option will choose the S3 BIOS state.</p>
 </li>
@@ -387,7 +427,10 @@ For use cases where you are dual booting or sharing system resources with multip
 </li>
 </ul>
 <p>The default value for mem_sleep_default is deep, and the suggested value for most devices is <strong>shallow</strong></p>
-<p>Example:</p>
+<ul>
+<li><code translate="no" v-pre>SET_USB_CONFIG</code>: Sets the default USB functions (<code translate="no" v-pre>persist.sys.usb.config</code>), comma separated. Example: <code translate="no" v-pre>SET_USB_CONFIG=mtp,adb</code>
+Example:</li>
+</ul>
 <div id="default-sleep-mode-options-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">mem_sleep_default=shallow</code></pre>
 </doc-codeblock></div>
@@ -538,6 +581,24 @@ Options: (true|false)</p>
 <p><code translate="no" v-pre>FORCE_SCHED_MIN_FREE_PAGES</code>: Sets the sched_min_free_pages value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
+</ul>
+<h5 id="sleep-and-cpu-options-bass-builds">Sleep and CPU options (Bass builds):</h5>
+<ul>
+<li>
+<p><code translate="no" v-pre>PWR_NON_BOOT_CPU</code>: Sets <code translate="no" v-pre>power.nonboot-cpu-off</code>, whether non-boot CPUs are taken offline during sleep. Options: 0, 1</p>
+</li>
+<li>
+<p><code translate="no" v-pre>POWER_NONBOOT_CPU_OFF</code>: <code translate="no" v-pre>1</code> sets the same <code translate="no" v-pre>power.nonboot-cpu-off</code> property at boot complete (some device models turn it on automatically)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>IGNORE_DEFAULT_DISPLAY_SLEEP</code>: Keep running when the built-in display sleeps. Options: (true|false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>IGNORE_HDMI_DISPLAY_SLEEP</code>: Keep running when an HDMI display sleeps. Options: (true|false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>THERMALD_DISABLE</code>: <code translate="no" v-pre>1</code> keeps thermald from starting; <code translate="no" v-pre>0</code> starts it on device models where it is off by default</p>
+</li>
 <li>
 <p><code translate="no" v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code>: Sets the sched_min_active_pages value</p>
 <p>Example value: &quot;512&quot;</p>
@@ -598,11 +659,14 @@ Default = false</p>
 <p>The higher the score, more likely the associated process is to be killed by OOM-killer. If oom_adj is set to -17, the process is not considered for OOM-killing.</p>
 </li>
 <li>
-<p><code translate="no" v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
-<p>High end: 70  Low end: 200</p>
+<p><code translate="no" v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise. 
+Default = false (unless device is detected to have less than 2GB RAM)<br />
+<strong>Legacy:</strong> older BlissOS releases only, Bass builds ignore it.</p>
 </li>
 <li>
-<p><code translate="no" v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code>: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<p><code translate="no" v-pre>FORCE_MINFREE_LEVELS</code>: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+AOSP Default = false, Our default = true<br />
+<strong>Legacy:</strong> older BlissOS releases only, Bass builds ignore it.</p>
 <p>Recommended: 700</p>
 </li>
 <li>
@@ -648,7 +712,11 @@ Default = false</p>
 <li><code translate="no" v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
 <li><code translate="no" v-pre>FORCE_DISABLE_NAV_TASKBAR</code>: Force disable navigation taskbar. Options: (true|false)</li>
 <li><code translate="no" v-pre>FORCE_DISABLE_STATUSBAR</code>: Force disable statusbar. Options: (true|false)</li>
-<li><code translate="no" v-pre>FORCE_DISABLE_RECENTS</code>: Force disable SystemUI recents. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_RECENTS</code>: Force disable SystemUI recents. Options: (true|false)
+<ul>
+<li><strong>Legacy:</strong> older BlissOS releases only, Bass builds ignore it.</li>
+</ul>
+</li>
 <li><code translate="no" v-pre>FORCE_HIDE_NAVBAR_WINDOW</code>: Force hide navigation bar window. Options: 0, 1</li>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
@@ -726,23 +794,110 @@ Options:</p>
 <li>3.original: original orientation, if a portrait apk, will rotate 270 degree</li>
 </ul>
 </li>
-<li><code translate="no" v-pre>androidboot.android.force_rotation_on_external_displays</code>: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)</li>
-<li><code translate="no" v-pre>fbcon=rotate:*</code>: The value &#x27;n&#x27; accepts the following:
+</ul>
+<h4 id="ui-modes-bass-builds">UI Modes (Bass builds):</h4>
+<p>Pick which home screen and windowing setup a boot uses. Builds made with <code translate="no" v-pre>--tui</code>, <code translate="no" v-pre>--dui</code>, <code translate="no" v-pre>--kui</code> or <code translate="no" v-pre>--gaming</code> add the matching flag by default.</p>
+<ul>
+<li><code translate="no" v-pre>BASS_TABLETUI=1</code>: Launcher3 / Quickstep home, no desktop or kiosk launcher</li>
+<li><code translate="no" v-pre>BASS_DESKTOPUI=1</code>: SmartDock desktop with freeform windows (desktop-first on the default display)</li>
+<li><code translate="no" v-pre>BASS_KIOSKUI=1</code>: Restricted Launcher kiosk (lockdown / admin boot modes)</li>
+<li><code translate="no" v-pre>BASS_GAMINGUI=1</code>: BlissDeck console-style home</li>
+</ul>
+<h5 id="ui-style-and-tablet-system-bar-bass-builds-with-bass-style">UI style and tablet system bar (Bass builds with bass-style):</h5>
+<ul>
+<li>
+<p><code translate="no" v-pre>BASS_UI_STYLE</code>: one of:</p>
+<ul>
+<li><code translate="no" v-pre>material</code>: Material You, colors from the wallpaper.</li>
+<li><code translate="no" v-pre>m3</code>: Material 3 with fixed colors.</li>
+<li><code translate="no" v-pre>kitkat</code>: the Holo look, with Holo widgets, square corners, a Holo-blue palette, KitKat icons, and quick settings as ON/OFF rows.</li>
+</ul>
+<p>The default comes from the build&#x27;s <code translate="no" v-pre>--style-type</code>.</p>
+</li>
+<li><code translate="no" v-pre>BASS_UI_LAYOUT</code>: <code translate="no" v-pre>stock</code> (taskbar, default) or <code translate="no" v-pre>system_bar</code>: one bottom bar with back/home/recents (and volume/screenshot) on the left and a tray on the right. The tray holds notification icons, the status bar icons, network, battery and the clock.</li>
+<li><code translate="no" v-pre>BASS_PANEL_ANCHOR</code>: where notifications and quick settings open: <code translate="no" v-pre>top_end</code> or <code translate="no" v-pre>bottom_end</code> (above the tray; default with <code translate="no" v-pre>system_bar</code>)</li>
+<li><code translate="no" v-pre>BASS_UI_HIDE_STATUS_BAR=1</code>: hide the top status bar on the tablet system bar (its icons stay in the tray). The KitKat style always hides it.</li>
+</ul>
+<p>These are also on the <strong>UI style</strong> page in Settings and in Boot Config.</p>
+<h5 id="desktop-mode-options">Desktop mode options:</h5>
+<ul>
+<li>
+<p><code translate="no" v-pre>BASSEDW</code>: Desktop windowing flags (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>BASSMDW</code>: Multi-display windowing flags (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>BASSDM</code>, <code translate="no" v-pre>BASSDM2</code>: Desktop mode 1 / desktop mode 2 debug properties (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>BASSDE</code>: Desktop experience flags such as drag-to-maximize (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>BASSDELAUNCHER</code>: Desktop launcher flag (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>BASS_MULTIPLE_DESKTOPS</code>: Multiple desktops (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>BASSDM_PRESENTATION</code>: Lets apps show presentations on connected displays (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>androidboot.android.force_rotation_on_external_displays</code>: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>fbcon=rotate:*</code>: The value &#x27;n&#x27; accepts the following:
 0 - normal orientation (0 degree)
 1 - clockwise orientation (90 degrees)
 2 - upside down orientation (180 degrees)
-3 - counterclockwise orientation (270 degrees)</li>
-<li><code translate="no" v-pre>SET_PRIMARY_DISPLAY_ORIENTATION=*</code>: property: ro.surface_flinger.primary_display_orientation has three cases:
-ORIENTATION_90, ORIENTATION_180, ORIENTATION_270</li>
-<li><code translate="no" v-pre>SET_SECONDARY_DISPLAY_ORIENTATION</code>: Set target orientation for external displays (Options: 0=0, 1=90, 2=180, 3=270)</li>
-<li><code translate="no" v-pre>SET_HDMI_ROTATION</code>: Set HDMI rotation (Options: portrait, landscape)</li>
-<li><code translate="no" v-pre>SET_PER_WINDOW_INPUT_ROTATION</code> Set per window input rotation on/off (Options: true, false)</li>
-<li><code translate="no" v-pre>SET_TOUCHSCREEN_ROTATION</code>: Sets the touch input orientation for the given build (Options: 0, 90, 180, 270)</li>
-<li><code translate="no" v-pre>SET_ROTATION_ON_INTERNAL_DISPLAY</code>: Sets the internal display rotation (Options: 0, 90, 180, 270)</li>
-<li><code translate="no" v-pre>SET_HDMIROTATION</code>: Set HDMI rotation (Options: portrait, landscape)</li>
-<li><code translate="no" v-pre>SET_HDMIROTATIONLOCK</code>: Set HDMI rotation lock (Options: true or false)</li>
-<li><code translate="no" v-pre>SET_SINGLEDISPLAY</code>: Forces using onle a single display (Options: true or false)</li>
-<li><code translate="no" v-pre>FORCE_PRIMARY_ROTATION</code>: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)</li>
+3 - counterclockwise orientation (270 degrees)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_PRIMARY_DISPLAY_ORIENTATION=*</code>: property: ro.surface_flinger.primary_display_orientation has three cases:
+ORIENTATION_90, ORIENTATION_180, ORIENTATION_270</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_SECONDARY_DISPLAY_ORIENTATION</code>: Set target orientation for external displays (Options: 0=0, 1=90, 2=180, 3=270)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_HDMI_ROTATION</code>: Set HDMI rotation (Options: portrait, landscape)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_PER_WINDOW_INPUT_ROTATION</code> Set per window input rotation on/off (Options: true, false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_TOUCHSCREEN_ROTATION</code>: Sets the touch input orientation for the given build (Options: 0, 90, 180, 270)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_ROTATION_ON_INTERNAL_DISPLAY</code>: Sets the internal display rotation (Options: 0, 90, 180, 270)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_HDMIROTATION</code>: Set HDMI rotation (Options: portrait, landscape)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_HDMIROTATIONLOCK</code>: Set HDMI rotation lock (Options: true or false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_SINGLEDISPLAY</code>: Forces using onle a single display (Options: true or false)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>FORCE_NAVIGATION_MODE</code>: Selects the navigation style for this boot (Options: <code translate="no" v-pre>threebutton</code>, <code translate="no" v-pre>gestural</code>) (Bass builds)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_RMB</code>: Use the right mouse button as Back (Options: true, false) (Bass builds)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_P_CG</code>: Turns the pointer choreographer on or off (<code translate="no" v-pre>persist.pointer.choreographer</code>) (Options: 0, 1) (Bass builds)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>androidboot.force.win_as_home=1</code>: The Windows / Meta key acts as Home (Bass builds)</p>
+</li>
+<li>
+<p><code translate="no" v-pre>FORCE_TSCAL=1</code>: Turns on tslib touchscreen calibration (pointercal) on devices that are not detected as needing it</p>
+</li>
+<li>
+<p><code translate="no" v-pre>FORCE_PRIMARY_ROTATION</code>: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)</p>
+</li>
 </ul>
 <h3 id="misc">Misc:</h3>
 <h4 id="battery-stats">Battery Stats:</h4>
@@ -766,6 +921,10 @@ Options: (0|1)</p>
 <p>Example: <code translate="no" v-pre>HIDE_APPS=&quot;com.termux,com.android.dialer,com.android.documentsui&quot;</code></p>
 <h5 id="hideunhide-default-apps">Hide/Unhide Default Apps:</h5>
 <ul>
+<li><code translate="no" v-pre>SET_TARGET_DISPLAY_ORIENTATION</code>: Rotation for one display, as <code translate="no" v-pre>display_id,rotation</code> (rotation 0, 1, 2, 3). Example: <code translate="no" v-pre>SET_TARGET_DISPLAY_ORIENTATION=2,1</code> (Bass builds)</li>
+<li><code translate="no" v-pre>SET_TARGET_DISPLAY_RESOLUTION</code>: Resolution for one display, as <code translate="no" v-pre>WxH,display_id</code>. Example: <code translate="no" v-pre>SET_TARGET_DISPLAY_RESOLUTION=1080x1920,2</code> (Bass builds)</li>
+<li><code translate="no" v-pre>DISABLE_MIRROR_DISPLAY</code>: Stop mirroring the built-in display to external displays (Options: true, false) (Bass builds)</li>
+<li><code translate="no" v-pre>DISABLE_MIRROR_DISPLAY_DIALOG</code>: Hide the display mirroring confirmation dialog (Options: 0, 1) (Bass builds)</li>
 <li><code translate="no" v-pre>HIDE_APPS</code>: Hides the apps via passed comma separated list</li>
 <li><code translate="no" v-pre>RESTORE_APPS</code>: Restores the apps via passed comma separated list</li>
 </ul>
@@ -778,6 +937,7 @@ Options: (0|1)</p>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>This allows us to set ro.iio.* propertied through the following flags:</p>
 <ul>
+<li><code translate="no" v-pre>FAKE_BATTERY=1</code>: Use the fake battery profile even when a battery is detected (Bass builds turn it on automatically when no battery is found)</li>
 <li><code translate="no" v-pre>SET_IIO_ORDER</code>: Sets ro.iio.accel.order property</li>
 <li><code translate="no" v-pre>SET_IIO_ACCEL_QUIRKS</code>: Sets ro.iio.accel.quirks ptoperty</li>
 <li><code translate="no" v-pre>SET_IIO_ACCEL_X_OPT_SCALE</code>: Sets ro.iio.accel.x.opt_scale property</li>
@@ -810,6 +970,9 @@ Example: <code translate="no" v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></p>
 </ul>
 <h4 id="network--radio-control-options">Network &amp; Radio Control Options:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass)</p>
+<ul>
+<li><code translate="no" v-pre>SENSORS_DELAY_INIT</code>: Seconds to wait before loading sensors (helps tablets whose IIO sensors appear late). Example: <code translate="no" v-pre>SENSORS_DELAY_INIT=5</code></li>
+</ul>
 <p>Enable/Disable Wireless Devices (Change included only in specialized builds):</p>
 <ul>
 <li><code translate="no" v-pre>LOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to disable all wireless devices. options: 0,1</li>
