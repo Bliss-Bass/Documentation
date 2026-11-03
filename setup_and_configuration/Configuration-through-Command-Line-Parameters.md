@@ -214,7 +214,7 @@ See https://docs.kernel.org/fb/fbcon.html for more info on fbcon
 There are a couple of customizations available for the Bluetooth stack in our builds. 
 
 *  `BTUART_PORT`: Specifies the known bluetooth UART port
-*  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices)
+*  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices). **Legacy:** older BlissOS releases only, Bass builds ignore it.
 *  `BT_BLE_DISABLE`: `1` disables Bluetooth Low Energy (for controllers whose BLE support crashes the stack)
 *  `BT_BLE_NO_VENDORCAPS`: `1` turns off BLE vendor capabilities (for controllers that misreport them)
 
@@ -231,15 +231,15 @@ By default, we include a couple audio HAL's to choose from for the OS.
 
 By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:
 
-*   `CODEC2_LEVEL`: This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0').
-*   `FFMPEG_OMX_CODEC`: This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs).
-*   `FFMPEG_CODEC2_PREFER`: This will force Bliss to use codec2 version of FFMPEG codecs by default.
+*   `CODEC2_LEVEL`: This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0'). **Legacy:** older BlissOS releases only, Bass builds ignore it.
+*   `FFMPEG_OMX_CODEC`: This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs). **Legacy:** Bass builds no longer ship OMX codecs.
+*   `FFMPEG_CODEC2_PREFER`: This will force Bliss to use codec2 version of FFMPEG codecs by default. **Legacy:** older BlissOS releases only, Bass builds ignore it.
 *   `FFMPEG_HWACCEL_DISABLE`: This will disable hardware accelleration for the FFMPEG codecs.
 *   `FFMPEG_CODEC_LOG`: This will show more log of FFMPEG codecs, enable if you want to debug it
 *   `FFMPEG_CODEC2_DEINTERLACE` & `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: configuring deinterlacing option for FFMPEG codec2, you can find the options in this [commit made by Micheal Goffioul](https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33)
     *   `FFMPEG_CODEC2_DEINTERLACE`: `auto` (default, VA-API deinterlacing for hardware frames, software otherwise), `software`, or `none`
     *   `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: VA-API deinterlace mode: `default`, `bob`, `weave`, `motion_adaptive`, `motion_compensated`
-*   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`)
+*   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`). **Legacy:** Bass builds no longer ship OMX codecs.
 *   `FFMPEG_CODEC2_DRM`: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.
 *   `FFMPEG_CODEC2_PIXEL_FORMAT`: Overrides the pixel format the FFMPEG codec2 decoders output (sets `debug.ffmpeg-codec2.pixel_format`). Options: `RGBX_8888`, `YUV_420`, `RGB_565`. Without it, the format is picked from the GPU: Intel (`i915` and `xe`) uses `RGBX_8888`, AMD on minigbm uses `YUV_420`, virtio / nouveau / radeon use `RGBX_8888`, everything else `RGB_565`.
     *   If hardware-decoded video shows green or striped frames (seen with Intel Gen12 / Xe GPUs on older builds), boot with `FFMPEG_CODEC2_PIXEL_FORMAT=RGBX_8888`.
@@ -502,10 +502,12 @@ INTEL_PSTATE_STATUS=passive
 (Available through Android-Generic Add-On & add-ons for Bass builds)
 
 *   `FORCE_LOW_MEM`: Forces the low\_mem mode in Android to the specific true/false value  
-    Default = false (unless device is detected to have less than 2GB RAM)
+    Default = false (unless device is detected to have less than 2GB RAM)  
+    **Legacy:** older BlissOS releases only, Bass builds ignore it.
 
 *   `FORCE_MINFREE_LEVELS`: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
-    AOSP Default = false, Our default = true
+    AOSP Default = false, Our default = true  
+    **Legacy:** older BlissOS releases only, Bass builds ignore it.
 
 **Other options available for specialized builds**:
     
@@ -549,6 +551,7 @@ INTEL_PSTATE_STATUS=passive
 
 *   `SET_MAX_LOGD`: Sets the maximum logd value
     *   Options: 1 = on, 0 = off
+    *   **Legacy:** older BlissOS releases only, Bass builds ignore it.
 
 *   `SET_LOGCAT_DEBUG`: Enables logcat debugging 
     *   Options: true, false
@@ -772,6 +775,8 @@ Other Networking Options (Available in Bass builds):
 * `EMULATED_CAMERA=1`: Keep the emulated camera provider running (it is stopped at boot otherwise); for devices or VMs without a working camera
 * `ENABLE_BLUR_BY_DEFAULT=1`: Turn on window background blur by default (Bass builds)
 * `ACER_SWITCH_HID_GENERIC=1`: Acer Switch SA5-271 keyboard dock quirk: avoids a kernel panic on undock but disables the dock touchpad. Off by default (Bass builds)
+* `PC_MODE=1`: Reports the device as a PC to apps (`android.hardware.type.pc` and `android.software.freeform_window_management`). Stops working once Magisk or KernelSU modules are installed.
+* `HPE=1`: Adds the Google Play `HPE_EXPERIENCE` feature (Google Play Games on PC). Stops working once Magisk or KernelSU modules are installed.
 
 #### Test Modes:
 

@@ -104,7 +104,7 @@ This is still the **Lineout** product path (same vendor tree). It is not the leg
 | `ADDON_IDC=1` | Custom `.idc` files from `/data/system/devices/idc` |
 | `BLISS_INPUT_PORTS_ADDON=1` | `/data/misc/input-port-addon.xml` for input↔display ports |
 | `ADDON_BOOTANIMATION=1` | `/data/misc/bootanimation.zip` |
-| `ADDON_BASSINIT=1` | Custom vendor init under `/data/vendor/etc/init/` |
+| `ADDON_BASSINIT=1` | Custom vendor init under `/data/vendor/etc/init/`. **Legacy:** not implemented on current Lineout builds |
 
 How-tos:
 
