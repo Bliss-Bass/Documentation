@@ -178,31 +178,9 @@ This allows us to target a specific DGPU on the device:
 
 *  `GPU_OVERRIDE`: (Options: whatever your devices target /dev/dri/* is)
 
-#### HWC HIDL interface:
-
-*  `HWC_HIDL`: Selects which hardware composer service starts (Options: `default-2.4` [default], `default-2.1` [default with `HWACCEL=0` and on radeon], `drmfb`)
-
-#### Vulkan:
-
-*  `VULKAN`: Overrides the Vulkan HAL picked from the GPU (Options: `intel`, `intel_hasvk` [Intel before Gen9], `radeon`, `virtio`, `lvp` [software], `pastel`)
-*  `androidboot.hardware.vulkan=*`: Forces the Vulkan hardware name directly (for example `intel`, `radeon`)
-
-#### Primary display hotplug:
-
-(Available in Bass builds)
-
-What happens when the primary HDMI / DP display is unplugged. Apps and media keep their state either way; SurfaceFlinger is not restarted.
-
-*  `SET_HEADLESS_STAY_AWAKE`: `0` [default] sleeps while the primary display is unplugged and wakes when it comes back; `1` keeps running in the dark (signage, kiosks)
-*  `SET_REATTACH_FORCE_SF`: Debug only. `1` restarts SurfaceFlinger when the primary display comes back (restarts the Android UI and loses app state)
-
-#### Display density:
-
-*  `DPI`: Sets the display density (`ro.sf.lcd_density`), for example `DPI=160`
-
 #### Video Resolution:
 
-We use the Linux `video` and `fbcon` commands for this functionality, and it is compatible with the `gbm` gralloc/hwc backend. 
+*  `HWC_HIDL`: Selects which hardware composer service starts (Options: `default-2.4` [default], `default-2.1` [default with `HWACCEL=0` and on radeon], `drmfb`)
 Setting the `video` kernel cmdline flag will also set Android's `drm_mode` and `UVESA_MODE`. 
 See https://docs.kernel.org/fb/modedb.html for video mode support
 See https://docs.kernel.org/fb/fbcon.html for more info on fbcon
@@ -214,42 +192,31 @@ See https://docs.kernel.org/fb/fbcon.html for more info on fbcon
 There are a couple of customizations available for the Bluetooth stack in our builds. 
 
 *  `BTUART_PORT`: Specifies the known bluetooth UART port
-*  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices). **Legacy:** older BlissOS releases only, Bass builds ignore it.
-*  `BT_BLE_DISABLE`: `1` disables Bluetooth Low Energy (for controllers whose BLE support crashes the stack)
-*  `BT_BLE_NO_VENDORCAPS`: `1` turns off BLE vendor capabilities (for controllers that misreport them)
-
-When no Bluetooth controller is found at boot, Bluetooth is turned off. The Bluetooth app itself stays enabled: Android 16 cannot finish booting without it.
+*  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices)
 
 #### Audio HAL:
 
 By default, we include a couple audio HAL's to choose from for the OS. 
 
 *  `AUDIO_PRIMARY`: This will use the specified HAL (Options: `x86`[default] & `x86_celadon`) 
-*  `AUDIO_OUT`: Forces the default audio output instead of auto-detecting it (Options: `hdmi`, `speaker`) (Bass builds)
 
 #### Video Encoders/Decoders:
 
 By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:
 
-*   `CODEC2_LEVEL`: This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0'). **Legacy:** older BlissOS releases only, Bass builds ignore it.
-*   `FFMPEG_OMX_CODEC`: This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs). **Legacy:** Bass builds no longer ship OMX codecs.
-*   `FFMPEG_CODEC2_PREFER`: This will force Bliss to use codec2 version of FFMPEG codecs by default. **Legacy:** older BlissOS releases only, Bass builds ignore it.
+*   `CODEC2_LEVEL`: This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0').
+*   `FFMPEG_OMX_CODEC`: This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs).
+*   `FFMPEG_CODEC2_PREFER`: This will force Bliss to use codec2 version of FFMPEG codecs by default.
 *   `FFMPEG_HWACCEL_DISABLE`: This will disable hardware accelleration for the FFMPEG codecs.
 *   `FFMPEG_CODEC_LOG`: This will show more log of FFMPEG codecs, enable if you want to debug it
 *   `FFMPEG_CODEC2_DEINTERLACE` & `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: configuring deinterlacing option for FFMPEG codec2, you can find the options in this [commit made by Micheal Goffioul](https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33)
-    *   `FFMPEG_CODEC2_DEINTERLACE`: `auto` (default, VA-API deinterlacing for hardware frames, software otherwise), `software`, or `none`
-    *   `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: VA-API deinterlace mode: `default`, `bob`, `weave`, `motion_adaptive`, `motion_compensated`
-*   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`). **Legacy:** Bass builds no longer ship OMX codecs.
+*   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`)
 *   `FFMPEG_CODEC2_DRM`: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.
-*   `FFMPEG_CODEC2_PIXEL_FORMAT`: Overrides the pixel format the FFMPEG codec2 decoders output (sets `debug.ffmpeg-codec2.pixel_format`). Options: `RGBX_8888`, `YUV_420`, `RGB_565`. Without it, the format is picked from the GPU: Intel (`i915` and `xe`) uses `RGBX_8888`, AMD on minigbm uses `YUV_420`, virtio / nouveau / radeon use `RGBX_8888`, everything else `RGB_565`.
-    *   If hardware-decoded video shows green or striped frames (seen with Intel Gen12 / Xe GPUs on older builds), boot with `FFMPEG_CODEC2_PIXEL_FORMAT=RGBX_8888`.
 
 ### Networking:
-
+*  `BTLINUX_HAL`: Force use of the legacy btlinux HAL for bluetooth (required for legacy devices). **Legacy:** older BlissOS releases only, Bass builds ignore it.
 We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
   `VIRT_WIFI=1`
-
-  `VIRT_WIFI_NAME`: Name of the virtual Wi-Fi network shown to apps (default `wifi_eth`)
 
 ### Disk Access:
 
@@ -258,36 +225,32 @@ For use cases where you are dual booting or sharing system resources with multip
   `INTERNAL_MOUNT=1`: Allows device to mount other internal drives on boot. 
 
 (Available through Android-Generic Add-On & add-ons for Bass builds)
+*  `AUDIO_OUT`: Forces the default audio output instead of auto-detecting it (Options: `hdmi`, `speaker`) (Bass builds)
 
   `SDCARDFS_DISABLE=1`: Disables the use of SDCardFS in the OS
   `SET_SDCARDFS_ENABLED`: Same as above (Options: 1, 0)
   `SET_CASEFOLD_ENABLED`: Enables/Disables casefold (Options: 1, 0)
 
-NTFS:
-
-  `VOLD_USE_NTFS3=1`: Mounts NTFS drives with the kernel ntfs3 driver instead of ntfs-3g
-  `USE_NTFS3=1`: Same as above (also used when booting from an NTFS partition)
-  `BOOT_USE_NTFS3=1`: Only mount the NTFS partition Bliss is installed on with ntfs3 (instead of ntfs-3g)
-
-Boot device:
-
-  `ROOTWAIT`: Seconds the initrd waits for the system partition to appear before giving up (default `30`). Raise it for slow USB or SD card boots.
-
-### USB/PCI:
-
-#### USB:
+*   `CODEC2_LEVEL`: This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0'). **Legacy:** older BlissOS releases only, Bass builds ignore it.
+*   `FFMPEG_OMX_CODEC`: This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs). **Legacy:** Bass builds no longer ship OMX codecs.
+*   `FFMPEG_CODEC2_PREFER`: This will force Bliss to use codec2 version of FFMPEG codecs by default. **Legacy:** older BlissOS releases only, Bass builds ignore it.
 
 ##### USB Mode Functions:
 
-(Available through Android-Generic Add-On & add-ons for Bass builds)
+    *   `FFMPEG_CODEC2_DEINTERLACE`: `auto` (default, VA-API deinterlacing for hardware frames, software otherwise), `software`, or `none`
+    *   `FFMPEG_CODEC2_DEINTERLACE_VAAPI`: VA-API deinterlace mode: `default`, `bob`, `weave`, `motion_adaptive`, `motion_compensated`
+*   `OMX_NO_YUV420`: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`). **Legacy:** Bass builds no longer ship OMX codecs.
 
+*   `FFMPEG_CODEC2_PIXEL_FORMAT`: Overrides the pixel format the FFMPEG codec2 decoders output (sets `debug.ffmpeg-codec2.pixel_format`). Options: `RGBX_8888`, `YUV_420`, `RGB_565`. Without it, the format is picked from the GPU: Intel (`i915` and `xe`) uses `RGBX_8888`, AMD on minigbm uses `YUV_420`, virtio / nouveau / radeon use `RGBX_8888`, everything else `RGB_565`.
+    *   If hardware-decoded video shows green or striped frames (seen with Intel Gen12 / Xe GPUs on older builds), boot with `FFMPEG_CODEC2_PIXEL_FORMAT=RGBX_8888`.
 Allows switching default USB/ADB functions via cmdline 
 
 *   `FORCE_USE_ADB_CLIENT_MODE`: Forces USB into ADB Client mode (0=off, 1=on, 2=USB+TCP insecure ADB, 3=same as 1 plus `adb_enabled` / `adb_wifi_enabled`). Property list and runtime on/off: [ADB Client Mode Overrides](adb-client-mode-overrides.md).
 *   `FORCE_USE_ADB_MASS_STORAGE`: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
-*   `SET_USB_CONFIG`: Sets the default USB functions (`persist.sys.usb.config`), comma separated. Example: `SET_USB_CONFIG=mtp,adb`
 
 ### Power & Memory:
+  `VIRT_WIFI_NAME`: Name of the virtual Wi-Fi network shown to apps (default `wifi_eth`)
+
 
 #### Power:
 
@@ -300,6 +263,16 @@ The following are the options for **mem\_sleep\_default** (suggested values are 
 *   **shallow**: This option will choose the shallowest sleep state supported by the hardware.
     
 *   **s2idle**: This option will choose the S2 idle state.
+NTFS:
+
+  `VOLD_USE_NTFS3=1`: Mounts NTFS drives with the kernel ntfs3 driver instead of ntfs-3g
+  `USE_NTFS3=1`: Same as above (also used when booting from an NTFS partition)
+  `BOOT_USE_NTFS3=1`: Only mount the NTFS partition Bliss is installed on with ntfs3 (instead of ntfs-3g)
+
+Boot device:
+
+  `ROOTWAIT`: Seconds the initrd waits for the system partition to appear before giving up (default `30`). Raise it for slow USB or SD card boots.
+
     
 *   s3bios: This option will choose the S3 BIOS state.
     
@@ -312,6 +285,7 @@ The following are the options for **mem\_sleep\_default** (suggested values are 
 
 The default value for mem\_sleep\_default is deep, and the suggested value for most devices is **shallow**
 
+*   `SET_USB_CONFIG`: Sets the default USB functions (`persist.sys.usb.config`), comma separated. Example: `SET_USB_CONFIG=mtp,adb`
 Example:
 
 ```
@@ -437,14 +411,6 @@ INTEL_PSTATE_STATUS=passive
 *   `FORCE_THERMAL_THROTTLE_ENABLE`: Sets the thermal\_throttle\_enable value. Options: (true|false)
 *   `FORCE_HW_TIMEOUT_MULTIPLIER`: Force hw timeout multiplier, # X 5s. Options: (integer)    
 
-##### Sleep and CPU options (Bass builds):
-
-*   `PWR_NON_BOOT_CPU`: Sets `power.nonboot-cpu-off`, whether non-boot CPUs are taken offline during sleep. Options: 0, 1
-*   `POWER_NONBOOT_CPU_OFF`: `1` sets the same `power.nonboot-cpu-off` property at boot complete (some device models turn it on automatically)
-*   `IGNORE_DEFAULT_DISPLAY_SLEEP`: Keep running when the built-in display sleeps. Options: (true|false)
-*   `IGNORE_HDMI_DISPLAY_SLEEP`: Keep running when an HDMI display sleeps. Options: (true|false)
-*   `THERMALD_DISABLE`: `1` keeps thermald from starting; `0` starts it on device models where it is off by default
-
 #### Memory:
 
 (Available through Android-Generic Add-On & add-ons for Bass builds)
@@ -471,6 +437,14 @@ INTEL_PSTATE_STATUS=passive
 *   `FORCE_SCHED_MIN_FREE_PAGES`: Sets the sched\_min\_free\_pages value
     
     Example value: "1024"
+##### Sleep and CPU options (Bass builds):
+
+*   `PWR_NON_BOOT_CPU`: Sets `power.nonboot-cpu-off`, whether non-boot CPUs are taken offline during sleep. Options: 0, 1
+*   `POWER_NONBOOT_CPU_OFF`: `1` sets the same `power.nonboot-cpu-off` property at boot complete (some device models turn it on automatically)
+*   `IGNORE_DEFAULT_DISPLAY_SLEEP`: Keep running when the built-in display sleeps. Options: (true|false)
+*   `IGNORE_HDMI_DISPLAY_SLEEP`: Keep running when an HDMI display sleeps. Options: (true|false)
+*   `THERMALD_DISABLE`: `1` keeps thermald from starting; `0` starts it on device models where it is off by default
+
     
 *   `FORCE_SCHED_MIN_ACTIVE_PAGES`: Sets the sched\_min\_active\_pages value
     
@@ -502,12 +476,10 @@ INTEL_PSTATE_STATUS=passive
 (Available through Android-Generic Add-On & add-ons for Bass builds)
 
 *   `FORCE_LOW_MEM`: Forces the low\_mem mode in Android to the specific true/false value  
-    Default = false (unless device is detected to have less than 2GB RAM)  
-    **Legacy:** older BlissOS releases only, Bass builds ignore it.
+    Default = false (unless device is detected to have less than 2GB RAM)
 
 *   `FORCE_MINFREE_LEVELS`: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
-    AOSP Default = false, Our default = true  
-    **Legacy:** older BlissOS releases only, Bass builds ignore it.
+    AOSP Default = false, Our default = true
 
 **Other options available for specialized builds**:
     
@@ -530,10 +502,12 @@ INTEL_PSTATE_STATUS=passive
     The higher the score, more likely the associated process is to be killed by OOM-killer. If oom\_adj is set to -17, the process is not considered for OOM-killing.
     
 *   `FORCE_PSI_PARTIAL_STALL_THRESHOLD`: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise. 
-    
-    High end: 70  Low end: 200
-    
-*   `FORCE_PSI_COMPLETE_STALL_THRESHOLD`: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.
+    Default = false (unless device is detected to have less than 2GB RAM)  
+    **Legacy:** older BlissOS releases only, Bass builds ignore it.
+
+*   `FORCE_MINFREE_LEVELS`: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+    AOSP Default = false, Our default = true  
+    **Legacy:** older BlissOS releases only, Bass builds ignore it.
     
     Recommended: 700
     
@@ -551,7 +525,6 @@ INTEL_PSTATE_STATUS=passive
 
 *   `SET_MAX_LOGD`: Sets the maximum logd value
     *   Options: 1 = on, 0 = off
-    *   **Legacy:** older BlissOS releases only, Bass builds ignore it.
 
 *   `SET_LOGCAT_DEBUG`: Enables logcat debugging 
     *   Options: true, false
@@ -578,6 +551,7 @@ INTEL_PSTATE_STATUS=passive
 *   `FORCE_DISABLE_NAV_TASKBAR`: Force disable navigation taskbar. Options: (true|false)
 *   `FORCE_DISABLE_STATUSBAR`: Force disable statusbar. Options: (true|false)
 *   `FORCE_DISABLE_RECENTS`: Force disable SystemUI recents. Options: (true|false)    
+    *   **Legacy:** older BlissOS releases only, Bass builds ignore it.
 *   `FORCE_HIDE_NAVBAR_WINDOW`: Force hide navigation bar window. Options: 0, 1
 
 **Other options available for specialized builds**:
@@ -609,25 +583,6 @@ INTEL_PSTATE_STATUS=passive
         
     *   **<tile\_id>:** This will add or remove the specified quick settings tile.
 
-#### UI Modes (Bass builds):
-
-Pick which home screen and windowing setup a boot uses. Builds made with `--tui`, `--dui`, `--kui` or `--gaming` add the matching flag by default.
-
-*   `BASS_TABLETUI=1`: Launcher3 / Quickstep home, no desktop or kiosk launcher
-*   `BASS_DESKTOPUI=1`: SmartDock desktop with freeform windows (desktop-first on the default display)
-*   `BASS_KIOSKUI=1`: Restricted Launcher kiosk (lockdown / admin boot modes)
-*   `BASS_GAMINGUI=1`: BlissDeck console-style home
-
-##### Desktop mode options:
-
-*   `BASSEDW`: Desktop windowing flags (Options: true, false)
-*   `BASSMDW`: Multi-display windowing flags (Options: true, false)
-*   `BASSDM`, `BASSDM2`: Desktop mode 1 / desktop mode 2 debug properties (Options: true, false)
-*   `BASSDE`: Desktop experience flags such as drag-to-maximize (Options: true, false)
-*   `BASSDELAUNCHER`: Desktop launcher flag (Options: true, false)
-*   `BASS_MULTIPLE_DESKTOPS`: Multiple desktops (Options: true, false)
-*   `BASSDM_PRESENTATION`: Lets apps show presentations on connected displays (Options: true, false)
-
 #### Launcher Options:
 
 *   `USE_LAUNCHER3`: Forces Launcher3 to be set instead of secondary launcher in build
@@ -644,11 +599,6 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
 *   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
 *   `androidboot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
 *   `FORCE_MOUSE_PRESENTATION`: Forces mouse to work across multiple displays
-*   `FORCE_NAVIGATION_MODE`: Selects the navigation style for this boot (Options: `threebutton`, `gestural`) (Bass builds)
-*   `SET_RMB`: Use the right mouse button as Back (Options: true, false) (Bass builds)
-*   `SET_P_CG`: Turns the pointer choreographer on or off (`persist.pointer.choreographer`) (Options: 0, 1) (Bass builds)
-*   `androidboot.force.win_as_home=1`: The Windows / Meta key acts as Home (Bass builds)
-*   `FORCE_TSCAL=1`: Turns on tslib touchscreen calibration (pointercal) on devices that are not detected as needing it
 
 #### Display & Input Rotation/Orientation:
    
@@ -659,6 +609,34 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
   * 1.force_land: always show with landscape, if a portrait apk, system will scale up it
   * 2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black
   * 3.original: original orientation, if a portrait apk, will rotate 270 degree
+#### UI Modes (Bass builds):
+
+Pick which home screen and windowing setup a boot uses. Builds made with `--tui`, `--dui`, `--kui` or `--gaming` add the matching flag by default.
+
+*   `BASS_TABLETUI=1`: Launcher3 / Quickstep home, no desktop or kiosk launcher
+*   `BASS_DESKTOPUI=1`: SmartDock desktop with freeform windows (desktop-first on the default display)
+*   `BASS_KIOSKUI=1`: Restricted Launcher kiosk (lockdown / admin boot modes)
+*   `BASS_GAMINGUI=1`: BlissDeck console-style home
+
+##### UI style and tablet system bar (Bass builds with bass-style):
+
+*   `BASS_UI_STYLE`: `material` (Material 3 / Material You, default) or `kitkat` (Holo look: Holo widgets, square corners, Holo-blue palette, KitKat icons, quick settings as ON/OFF rows)
+*   `BASS_UI_LAYOUT`: `stock` (taskbar, default) or `system_bar`: one bottom bar with back/home/recents (and volume/screenshot) on the left and a tray on the right. The tray holds notification icons, the status bar icons, network, battery and the clock.
+*   `BASS_PANEL_ANCHOR`: where notifications and quick settings open: `top_end` or `bottom_end` (above the tray; default with `system_bar`)
+*   `BASS_UI_HIDE_STATUS_BAR=1`: hide the top status bar on the tablet system bar (its icons stay in the tray). The KitKat style always hides it.
+
+These are also on the **UI style** page in Settings and in Boot Config.
+
+##### Desktop mode options:
+
+*   `BASSEDW`: Desktop windowing flags (Options: true, false)
+*   `BASSMDW`: Multi-display windowing flags (Options: true, false)
+*   `BASSDM`, `BASSDM2`: Desktop mode 1 / desktop mode 2 debug properties (Options: true, false)
+*   `BASSDE`: Desktop experience flags such as drag-to-maximize (Options: true, false)
+*   `BASSDELAUNCHER`: Desktop launcher flag (Options: true, false)
+*   `BASS_MULTIPLE_DESKTOPS`: Multiple desktops (Options: true, false)
+*   `BASSDM_PRESENTATION`: Lets apps show presentations on connected displays (Options: true, false)
+
 * `androidboot.android.force_rotation_on_external_displays`: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)
 * `fbcon=rotate:*`: The value 'n' accepts the following:
    0 - normal orientation (0 degree)
@@ -675,11 +653,12 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
 * `SET_HDMIROTATION`: Set HDMI rotation (Options: portrait, landscape)
 * `SET_HDMIROTATIONLOCK`: Set HDMI rotation lock (Options: true or false)
 * `SET_SINGLEDISPLAY`: Forces using onle a single display (Options: true or false)
+*   `FORCE_NAVIGATION_MODE`: Selects the navigation style for this boot (Options: `threebutton`, `gestural`) (Bass builds)
+*   `SET_RMB`: Use the right mouse button as Back (Options: true, false) (Bass builds)
+*   `SET_P_CG`: Turns the pointer choreographer on or off (`persist.pointer.choreographer`) (Options: 0, 1) (Bass builds)
+*   `androidboot.force.win_as_home=1`: The Windows / Meta key acts as Home (Bass builds)
+*   `FORCE_TSCAL=1`: Turns on tslib touchscreen calibration (pointercal) on devices that are not detected as needing it
 * `FORCE_PRIMARY_ROTATION`: Force promary display user_rotation (options: 0:0, 1:90, 2:180, 3:270)
-* `SET_TARGET_DISPLAY_ORIENTATION`: Rotation for one display, as `display_id,rotation` (rotation 0, 1, 2, 3). Example: `SET_TARGET_DISPLAY_ORIENTATION=2,1` (Bass builds)
-* `SET_TARGET_DISPLAY_RESOLUTION`: Resolution for one display, as `WxH,display_id`. Example: `SET_TARGET_DISPLAY_RESOLUTION=1080x1920,2` (Bass builds)
-* `DISABLE_MIRROR_DISPLAY`: Stop mirroring the built-in display to external displays (Options: true, false) (Bass builds)
-* `DISABLE_MIRROR_DISPLAY_DIALOG`: Hide the display mirroring confirmation dialog (Options: 0, 1) (Bass builds)
 
 ### Misc:
 
@@ -694,8 +673,6 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
     
 *   `SET_FAKE_CHARGING_STATUS`: Allow forcing battery charging status  
     Options: (0|1)
-
-*   `FAKE_BATTERY=1`: Use the fake battery profile even when a battery is detected (Bass builds turn it on automatically when no battery is found)
     
 
 #### Package Management:
@@ -708,6 +685,10 @@ Example: `HIDE_APPS="com.termux,com.android.dialer,com.android.documentsui"`
 
 ##### Hide/Unhide Default Apps:
 
+* `SET_TARGET_DISPLAY_ORIENTATION`: Rotation for one display, as `display_id,rotation` (rotation 0, 1, 2, 3). Example: `SET_TARGET_DISPLAY_ORIENTATION=2,1` (Bass builds)
+* `SET_TARGET_DISPLAY_RESOLUTION`: Resolution for one display, as `WxH,display_id`. Example: `SET_TARGET_DISPLAY_RESOLUTION=1080x1920,2` (Bass builds)
+* `DISABLE_MIRROR_DISPLAY`: Stop mirroring the built-in display to external displays (Options: true, false) (Bass builds)
+* `DISABLE_MIRROR_DISPLAY_DIALOG`: Hide the display mirroring confirmation dialog (Options: 0, 1) (Bass builds)
 *   `HIDE_APPS`: Hides the apps via passed comma separated list
 *   `RESTORE_APPS`: Restores the apps via passed comma separated list
 
@@ -722,6 +703,8 @@ Example: `HIDE_APPS="com.termux,com.android.dialer,com.android.documentsui"`
 
 This allows us to set ro.iio.* propertied through the following flags:
 
+
+*   `FAKE_BATTERY=1`: Use the fake battery profile even when a battery is detected (Bass builds turn it on automatically when no battery is found)
 * `SET_IIO_ORDER`: Sets ro.iio.accel.order property
 * `SET_IIO_ACCEL_QUIRKS`: Sets ro.iio.accel.quirks ptoperty
 * `SET_IIO_ACCEL_X_OPT_SCALE`: Sets ro.iio.accel.x.opt_scale property
@@ -729,7 +712,6 @@ This allows us to set ro.iio.* propertied through the following flags:
 * `SET_IIO_ANGLVEL_QUIRKS`: Sets ro.iio.anglvel.quirks property
 * `SET_IGNORE_ATKBD`: Sets ro.ignore_atkbd property
 * `SENSORS_FORCE_KBDSENSOR`: Option to force kbd sensor
-* `SENSORS_DELAY_INIT`: Seconds to wait before loading sensors (helps tablets whose IIO sensors appear late). Example: `SENSORS_DELAY_INIT=5`
 * `SET_IIO_MAGN_QUIRKS`: Option to force magn quirks. 
    Example: `SET_IIO_MAGN_QUIRKS="no-trig,no-event"`
 
@@ -756,6 +738,7 @@ Example:
 #### Network & Radio Control Options:
 
 (Available through Android-Generic Add-On & add-ons for Bass)
+* `SENSORS_DELAY_INIT`: Seconds to wait before loading sensors (helps tablets whose IIO sensors appear late). Example: `SENSORS_DELAY_INIT=5`
 
 Enable/Disable Wireless Devices (Change included only in specialized builds):
 * `LOCKDOWN_WIRELESS_DEVICES`: A kernel level switch to disable all wireless devices. options: 0,1
@@ -763,20 +746,7 @@ Enable/Disable Wireless Devices (Change included only in specialized builds):
 
 Other Networking Options (Available in Bass builds):
 * `FORCE_DISABLE_ALL_RADIOS`: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1
-* `FORCE_BLUETOOTH_SERVICE`: Set force bluetooth service state. options: enable, disable. `disable` turns the Bluetooth radio off; `enable` turns it on and re-enables the Bluetooth app if an older build disabled it.
-
-#### USB Dialogs:
-
-* `DISMISS_USB_ACCESS_DIALOG`: Skip the USB access permission dialogs (Options: 0, 1) (Bass builds)
-
-#### Other Options:
-
-* `SETUPWIZARD=0`: Skip the setup wizard (also the default when booting with `DEBUG`)
-* `EMULATED_CAMERA=1`: Keep the emulated camera provider running (it is stopped at boot otherwise); for devices or VMs without a working camera
-* `ENABLE_BLUR_BY_DEFAULT=1`: Turn on window background blur by default (Bass builds)
-* `ACER_SWITCH_HID_GENERIC=1`: Acer Switch SA5-271 keyboard dock quirk: avoids a kernel panic on undock but disables the dock touchpad. Off by default (Bass builds)
-* `PC_MODE=1`: Reports the device as a PC to apps (`android.hardware.type.pc` and `android.software.freeform_window_management`). Stops working once Magisk or KernelSU modules are installed.
-* `HPE=1`: Adds the Google Play `HPE_EXPERIENCE` feature (Google Play Games on PC). Stops working once Magisk or KernelSU modules are installed.
+* `FORCE_BLUETOOTH_SERVICE`: Set force bluetooth service state. options: enable, disable
 
 #### Test Modes:
 
