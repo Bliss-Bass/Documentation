@@ -620,7 +620,12 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
 
 ##### UI style and tablet system bar (Bass builds with bass-style):
 
-*   `BASS_UI_STYLE`: `material` (Material 3 / Material You, default) or `kitkat` (Holo look: Holo widgets, square corners, Holo-blue palette, KitKat icons, quick settings as ON/OFF rows)
+*   `BASS_UI_STYLE`: one of:
+    *   `material`: Material You, colors from the wallpaper.
+    *   `m3`: Material 3 with fixed colors.
+    *   `kitkat`: the Holo look, with Holo widgets, square corners, a Holo-blue palette, KitKat icons, and quick settings as ON/OFF rows.
+
+    The default comes from the build's `--style-type`.
 *   `BASS_UI_LAYOUT`: `stock` (taskbar, default) or `system_bar`: one bottom bar with back/home/recents (and volume/screenshot) on the left and a tray on the right. The tray holds notification icons, the status bar icons, network, battery and the clock.
 *   `BASS_PANEL_ANCHOR`: where notifications and quick settings open: `top_end` or `bottom_end` (above the tray; default with `system_bar`)
 *   `BASS_UI_HIDE_STATUS_BAR=1`: hide the top status bar on the tablet system bar (its icons stay in the tray). The KitKat style always hides it.
