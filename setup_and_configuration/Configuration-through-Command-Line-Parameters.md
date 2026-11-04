@@ -626,11 +626,12 @@ Pick which home screen and windowing setup a boot uses. Builds made with `--tui`
     *   `kitkat`: the Holo look, with Holo widgets, square corners, a Holo-blue palette, KitKat icons, and quick settings as ON/OFF rows.
 
     The default comes from the build's `--style-type`.
-*   `BASS_UI_LAYOUT`: `stock` (taskbar, default) or `system_bar`: one bottom bar with back/home/recents (and volume/screenshot) on the left and a tray on the right. The tray holds notification icons, the status bar icons, network, battery and the clock.
+*   `BASS_UI_LAYOUT`: `stock` (taskbar) or `system_bar`: one bottom bar with back/home/recents (and volume/screenshot) on the left and a tray on the right. The tray holds a notifications bell or count, the status bar icons, network, battery and the clock. It works with every style. The default comes from the build's `--style-layout` (or `system_bar` for `--style-type=kitkat` builds that keep the taskbar, else `stock`).
 *   `BASS_PANEL_ANCHOR`: where notifications and quick settings open: `top_end` or `bottom_end` (above the tray; default with `system_bar`)
 *   `BASS_UI_HIDE_STATUS_BAR=1`: hide the top status bar on the tablet system bar (its icons stay in the tray). The KitKat style always hides it.
+*   `BASS_UI_BAR_APPS`: `1` shows pinned apps and running tasks on the tablet system bar, `0` hides them. Without it, Material You and Material 3 show them and KitKat hides them.
 
-These are also on the **UI style** page in Settings and in Boot Config.
+These are also on the **UI style** page in Settings, and all but `BASS_UI_BAR_APPS` in Boot Config. With SmartDock installed, SmartDock's desktop style sets the layout (System Default uses `system_bar`).
 
 ##### Desktop mode options:
 
