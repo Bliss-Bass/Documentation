@@ -37,6 +37,7 @@ Not every image includes every tool. If a page below describes something you do 
 | [BlissDeck](blissdeck.md) | Landscape game-library Home (gaming images) |
 | [Button Manager](button-manager.md) | Extra hardware keys (P1 / P2 / ...), if this device has them |
 | [Bass Boot Options](bass-boot-options.md) | The menu you see *before* Android starts |
+| [Install a .zip in Recovery](install-zip-in-recovery.md) | Install an update, fix, or add-on .zip file, step by step |
 | [This help app](ax86-docs.md) | How to use Ax86Docs |
 
 ## Tips
@@ -45,3 +46,4 @@ Not every image includes every tool. If a page below describes something you do 
 2. **Reboot** after Boot Config or Display Mapper changes that say they apply at next start.
 3. **Sleep** is controlled in Ax86 Power: useful on laptops that wake from a USB keyboard or mouse.
 4. Licensing banners (BootSight) are separate from Android Settings; use [BootSight](bootsight.md) to check or activate.
+5. **Got a .zip file from us?** Follow [Install a .zip in Recovery](install-zip-in-recovery.md), one step at a time.

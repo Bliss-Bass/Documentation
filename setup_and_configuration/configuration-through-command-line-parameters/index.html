@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847058637845">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847222117613">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.847058637845" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.847222117613" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847058637845" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847222117613" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847058637845" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847222117613" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -814,11 +814,14 @@ Options:</p>
 </ul>
 <p>The default comes from the build&#x27;s <code translate="no" v-pre>--style-type</code>.</p>
 </li>
-<li><code translate="no" v-pre>BASS_UI_LAYOUT</code>: <code translate="no" v-pre>stock</code> (taskbar, default) or <code translate="no" v-pre>system_bar</code>: one bottom bar with back/home/recents (and volume/screenshot) on the left and a tray on the right. The tray holds notification icons, the status bar icons, network, battery and the clock.</li>
+<li><code translate="no" v-pre>BASS_UI_LAYOUT</code>: <code translate="no" v-pre>stock</code> (taskbar) or <code translate="no" v-pre>system_bar</code>: one bottom bar with back/home/recents (plus any extra buttons) on the left and a tray on the right. The tray holds a notifications bell or count, the status bar icons, network, battery and the clock. It works with every style. The default comes from the build&#x27;s <code translate="no" v-pre>--style-layout</code> (or <code translate="no" v-pre>system_bar</code> for <code translate="no" v-pre>--style-type=kitkat</code> builds that keep the taskbar, else <code translate="no" v-pre>stock</code>).</li>
 <li><code translate="no" v-pre>BASS_PANEL_ANCHOR</code>: where notifications and quick settings open: <code translate="no" v-pre>top_end</code> or <code translate="no" v-pre>bottom_end</code> (above the tray; default with <code translate="no" v-pre>system_bar</code>)</li>
 <li><code translate="no" v-pre>BASS_UI_HIDE_STATUS_BAR=1</code>: hide the top status bar on the tablet system bar (its icons stay in the tray). The KitKat style always hides it.</li>
+<li><code translate="no" v-pre>BASS_UI_BAR_APPS</code>: <code translate="no" v-pre>1</code> shows pinned apps and running tasks on the tablet system bar, <code translate="no" v-pre>0</code> hides them. Without it, Material You and Material 3 show them and KitKat hides them.</li>
+<li><code translate="no" v-pre>BASS_UI_BAR_APPS_GRAVITY</code>: where those apps sit between the buttons and the tray: <code translate="no" v-pre>start</code>, <code translate="no" v-pre>center</code> (default) or <code translate="no" v-pre>end</code>.</li>
+<li><code translate="no" v-pre>BASS_UI_BAR_BUTTONS</code>: extra buttons after back/home/recents, as a comma list from <code translate="no" v-pre>vol_down</code>, <code translate="no" v-pre>vol_up</code>, <code translate="no" v-pre>screenshot</code> and <code translate="no" v-pre>power</code> (sleep; hold for the power menu), or <code translate="no" v-pre>none</code> (default).</li>
 </ul>
-<p>These are also on the <strong>UI style</strong> page in Settings and in Boot Config.</p>
+<p>These are also on the <strong>UI style</strong> page in Settings. Boot Config has all but <code translate="no" v-pre>BASS_UI_BAR_APPS</code>, <code translate="no" v-pre>BASS_UI_BAR_APPS_GRAVITY</code> and <code translate="no" v-pre>BASS_UI_BAR_BUTTONS</code>. With SmartDock installed, SmartDock&#x27;s desktop style sets the layout (System Default uses <code translate="no" v-pre>system_bar</code>).</p>
 <h5 id="desktop-mode-options">Desktop mode options:</h5>
 <ul>
 <li>
