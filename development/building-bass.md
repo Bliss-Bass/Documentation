@@ -344,6 +344,7 @@ Example:
 | Topic | Doc |
 |-------|-----|
 | Addon layout and flags | [Addon Development: Bass Lineout](addon-development.md) |
+| Runtime-switchable feature flags (aconfig) | [Feature Flags (aconfig)](aconfig-flags.md) |
 | Fleet / MDM product overview | [Fleet Management](../features/fleet-management.md) |
 | Product lines | [Bass Product Family Guide](../product-guide/bass-product-family.md) |
 | High-level map | [High Level Overview](bass-high-level-overview.md) |
