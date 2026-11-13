@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847222117613">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847920559873">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.847222117613" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.847920559873" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847222117613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847920559873" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847222117613" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847920559873" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -222,10 +222,32 @@
 </table>
 </div>
 <p><code translate="no" v-pre>persist.*</code> changes often need a Settings restart or a full reboot before they stick.</p>
+<h2 id="feature-flag-tabs">Feature flag tabs</h2>
+<p>The Desktop, Windowing, Multitasking, Surfaces, Display mgr, Large screen, Launcher3 and
+SystemUI tabs list Android&#x27;s switchable feature flags (aconfig flags in <code translate="no" v-pre>device_config</code>), one
+switch per flag, built from <code translate="no" v-pre>res/xml/bliss_settings_aconfig.xml</code>. Each switch shows the flag&#x27;s
+live value.</p>
+<ul>
+<li>
+<p>Only flags that can change at runtime (<code translate="no" v-pre>READ_WRITE</code>) are listed. Read-only flags are fixed in
+the image.</p>
+</li>
+<li>
+<p>Launcher3 and SystemUI flags apply once that process restarts (Bliss Tweaks says so after
+saving). The others need a reboot.</p>
+</li>
+<li>
+<p>The list is generated for each build from the flags that build ships, so it changes with the
+Android version.</p>
+</li>
+</ul>
+<p>See <a href="../../development/aconfig-flags/">Feature Flags (aconfig)</a> for how the list is made and
+how to regenerate it.</p>
 <h2 id="related">Related</h2>
 <ul>
 <li><a href="../blissdisplaymapper/">Display Mapper</a></li>
 <li><a href="../bootconfig/">Boot Config</a></li>
+<li><a href="../../development/aconfig-flags/">Feature Flags (aconfig)</a></li>
 <li><a href="../../development/building-bass/">Building Bass OS</a></li>
 </ul>
 

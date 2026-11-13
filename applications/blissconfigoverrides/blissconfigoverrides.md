@@ -120,6 +120,10 @@ lse_desktop_experience/com.android.window.flags.enable_desktop_launcher=true
 lse_desktop_experience/com.android.window.flags.enable_presentation_for_connected_displays=true
 ```
 
+Only flags that are read-write in the image take these values; read-only flags ignore them.
+`adb shell aflags list` shows each flag's permission. Flag changes apply after a reboot. See
+[Feature Flags (aconfig)](../../development/aconfig-flags.md).
+
 ## Early-init: custom_device.prop
 
 `ro.*` identity and other early properties must be set before the framework starts. Those go in `/data/misc/custom_device.prop` and are handled by the ramdisk `addon_init.sh` path (not BlissConfigOverrides). Push the file and **reboot**.

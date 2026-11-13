@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847222117613">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847920559873">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Building Bass: Lineout</title>
     <meta name="title" content="Building Bass: Lineout">
-    <meta name="description" content="This page is the Bass: Lineout build guide (LineageOS 23.2 / Android 16, vendor/ax86-lite, tools/build.sh).">
+    <meta name="description" content="This page is the Bass: Lineout build guide (vendor/ax86-lite, tools/build.sh). Lineout is built on three LineageOS generations. Most steps are the same for all of them; where they differ, each generation has its own instructions, newest first.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blisscolabs.dev/development/building-bass/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blisscolabs.dev/development/building-bass/">
     <meta property="og:title" content="Building Bass: Lineout">
-    <meta property="og:description" content="This page is the Bass: Lineout build guide (LineageOS 23.2 / Android 16, vendor/ax86-lite, tools/build.sh).">
+    <meta property="og:description" content="This page is the Bass: Lineout build guide (vendor/ax86-lite, tools/build.sh). Lineout is built on three LineageOS generations. Most steps are the same for all of them; where they differ, each generation has its own instructions, newest first.">
     <meta property="og:image" content="https://img.shields.io/badge/license-GPL-blue">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -34,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.blisscolabs.dev/development/building-bass/">
     <meta name="twitter:title" content="Building Bass: Lineout">
-    <meta name="twitter:description" content="This page is the Bass: Lineout build guide (LineageOS 23.2 / Android 16, vendor/ax86-lite, tools/build.sh).">
+    <meta name="twitter:description" content="This page is the Bass: Lineout build guide (vendor/ax86-lite, tools/build.sh). Lineout is built on three LineageOS generations. Most steps are the same for all of them; where they differ, each generation has its own instructions, newest first.">
     <meta name="twitter:image" content="https://img.shields.io/badge/license-GPL-blue">
     <meta name="twitter:image:alt" content="Building Bass: Lineout">
 
@@ -43,12 +43,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.847222117613" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.847920559873" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847222117613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847920559873" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847222117613" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.847222117613" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847920559873" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.847920559873" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -168,8 +168,71 @@
 
                 <!-- Page content  -->
 <h1 id="building-bass-lineout">Building Bass: Lineout</h1>
-<p>This page is the <strong>Bass: Lineout</strong> build guide (LineageOS 23.2 / Android 16, <code translate="no" v-pre>vendor/ax86-lite</code>, <code translate="no" v-pre>tools/build.sh</code>).</p>
+<p>This page is the <strong>Bass: Lineout</strong> build guide (<code translate="no" v-pre>vendor/ax86-lite</code>, <code translate="no" v-pre>tools/build.sh</code>). Lineout is built on three LineageOS generations. Most steps are the same for all of them; where they differ, each generation has its own instructions, newest first.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th>Android 17</th>
+<th>Android 16</th>
+<th>Android 14</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LineageOS</td>
+<td>24.0</td>
+<td>23.2</td>
+<td>21.0</td>
+</tr>
+<tr>
+<td>Vendor branch</td>
+<td><code translate="no" v-pre>ax86-lite-los-24.0</code></td>
+<td><code translate="no" v-pre>ax86-lite-los-23.2</code></td>
+<td><code translate="no" v-pre>ax86-lite-los-21.0</code></td>
+</tr>
+<tr>
+<td>Source manifest</td>
+<td><code translate="no" v-pre>los-tv-x86/lineage_bass_android</code>, <code translate="no" v-pre>lineage-24.0</code></td>
+<td><code translate="no" v-pre>los-tv-x86/lineage_bass_android</code>, <code translate="no" v-pre>lineage-23.2</code></td>
+<td><code translate="no" v-pre>Bliss-Bass/lineage_bass_android</code>, <code translate="no" v-pre>lineage-21.0</code></td>
+</tr>
+<tr>
+<td>Pinned snapshot</td>
+<td><code translate="no" v-pre>manifests/bass-lineage-24.0-static.xml</code></td>
+<td><code translate="no" v-pre>manifests/bass-lineage-23.2-static.xml</code></td>
+<td><code translate="no" v-pre>manifests/bass-lineage-21.0-static.xml</code></td>
+</tr>
+<tr>
+<td>Lunch target</td>
+<td><code translate="no" v-pre>lineage_x86_64_tablet-cp2a-userdebug</code></td>
+<td><code translate="no" v-pre>lineage_x86_64_tablet-bp4a-userdebug</code></td>
+<td><code translate="no" v-pre>lineage_x86_64_tablet-ap2a-userdebug</code> (TV: <code translate="no" v-pre>lineage_x86_64_tv-ap2a-userdebug</code>)</td>
+</tr>
+<tr>
+<td>Patch sets</td>
+<td><code translate="no" v-pre>patches/api-37</code></td>
+<td><code translate="no" v-pre>patches/api-36</code></td>
+<td><code translate="no" v-pre>patches/api-34</code></td>
+</tr>
+<tr>
+<td>Profiles</td>
+<td><code translate="no" v-pre>bass-lineage-24.0-base</code>, <code translate="no" v-pre>-validate</code>, <code translate="no" v-pre>-core</code>, <code translate="no" v-pre>-pro</code>, <code translate="no" v-pre>-desktop</code></td>
+<td><code translate="no" v-pre>bass-lineage-23.2-core</code>, <code translate="no" v-pre>-pro</code></td>
+<td><code translate="no" v-pre>bass-lineage-21.0</code> (no <code translate="no" v-pre>--profile</code> option)</td>
+</tr>
+<tr>
+<td>Default OTA channel</td>
+<td><code translate="no" v-pre>lineout-24.0</code></td>
+<td><code translate="no" v-pre>lineout-23.2</code></td>
+<td><code translate="no" v-pre>lineout-21.0</code></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Classic <strong>Bass OS (Android 12L)</strong> instructions are retained in full under <doc-anchor-trigger to="#legacy-bass-os-classic-android-12l">Legacy Bass OS (classic, Android 12L)</doc-anchor-trigger>. Do not mix the two flows.</p>
+<p>The build tooling has grown through several generations, each a rewrite of the last: <a href="https://github.com/android-generic/vendor_ag">vendor_ag</a> and <a href="https://github.com/android-generic/ag-project-manager">ag-project-manager</a> (Android-Generic), then the Bass toolkit (classic Bass OS), then ax86-lite (Lineout), first on Android 14 and reworked for Android 16 and 17. That is why the Android 14 steps below look different.</p>
 <p>Licensed private addons and white-label assets are supplied separately to licensed builders. Public docs do not cover bypassing licensing.</p>
 <hr>
 <h2 id="machine-requirements">Machine requirements</h2>
@@ -379,34 +442,65 @@ sudo apt-get install -y \
 </div>
 <hr>
 <h2 id="fetch-sources-and-unfold">Fetch sources and unfold</h2>
+<h3 id="android-17-and-android-16">Android 17 and Android 16</h3>
 <p>Layout expected by the vendor scripts:</p>
-<div id="fetch-sources-and-unfold-code-1" class="codeblock-wrapper"><doc-codeblock>
+<div id="android-17-and-android-16-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">&lt;parent&gt;/
-  vendor_ax86-lite/     # this git clone (branch ax86-lite-los-23.2)
+  vendor_ax86-lite/     # this git clone (ax86-lite-los-24.0 or ax86-lite-los-23.2)
   aosp-workspace/       # created/filled by unfold</code></pre>
 </doc-codeblock></div>
-<div id="fetch-sources-and-unfold-code-2" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">git clone -b ax86-lite-los-23.2 &lt;vendor_ax86-lite-url&gt;
+<div id="android-17-and-android-16-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash"># Android 17
+git clone -b ax86-lite-los-24.0 &lt;vendor_ax86-lite-url&gt;
 cd vendor_ax86-lite
-./build/unfold_lineage.sh --profile bass-lineage-23.2-core
-# or: --profile bass-lineage-23.2-pro</code></pre>
+./build/unfold_lineage.sh --profile bass-lineage-24.0-core
+
+# Android 16
+git clone -b ax86-lite-los-23.2 &lt;vendor_ax86-lite-url&gt;
+cd vendor_ax86-lite
+./build/unfold_lineage.sh --profile bass-lineage-23.2-core</code></pre>
 </doc-codeblock></div>
-<p>Unfold will <code translate="no" v-pre>repo init</code> / <code translate="no" v-pre>repo sync</code> LineageOS 23.2 and symlink this tree to <code translate="no" v-pre>aosp-workspace/vendor/ax86-lite</code>.</p>
+<p>Unfold activates the profile, then <code translate="no" v-pre>repo init</code> / <code translate="no" v-pre>repo sync</code> the LineageOS release that profile names (manifest, branch and pinned snapshot), and symlinks this tree to <code translate="no" v-pre>aosp-workspace/vendor/ax86-lite</code>. On Android 17 the release comes from the profile&#x27;s <code translate="no" v-pre>vendor_manifest_url</code>, <code translate="no" v-pre>vendor_manifest_branch</code> and <code translate="no" v-pre>vendor_static_manifest</code> keys; Android 16 uses the 23.2 values built into the script.</p>
 <p>If the workspace is already synced and you only need to relink:</p>
-<div id="fetch-sources-and-unfold-code-3" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">AX86_SKIP_SYNC=1 ./build/unfold_lineage.sh --profile bass-lineage-23.2-core</code></pre>
+<div id="android-17-and-android-16-code-3" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">AX86_SKIP_SYNC=1 ./build/unfold_lineage.sh --profile bass-lineage-24.0-core   # or ...-23.2-core</code></pre>
 </doc-codeblock></div>
-<p>Private / licensed addon trees: place or clone them as instructed by your Bass contact (see also <a href="../addon-development/">Addon Development: Bass Lineout</a>), then continue.</p>
+<p>The pinned snapshot is a fully resolved <code translate="no" v-pre>repo manifest -r</code> of the Bass-Core tree. Maintainers refresh it from a synced workspace with <code translate="no" v-pre>manifests/update-static.sh</code>, which leaves commercial addon repos out.</p>
+<h3 id="android-14">Android 14</h3>
+<p>The Android 14 tree keeps the vendor tree <strong>inside</strong> the workspace (<code translate="no" v-pre>aosp-workspace/vendor/ax86-lite</code>), and its unfold script has no profile option:</p>
+<div id="android-14-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">git clone -b ax86-lite-los-21.0 &lt;vendor_ax86-lite-url&gt; vendor_ax86-lite
+cd vendor_ax86-lite
+./build/unfold_lineage.sh      # asks for confirmation, then syncs ../aosp-workspace</code></pre>
+</doc-codeblock></div>
+<p>The script activates <code translate="no" v-pre>bass-lineage-21.0</code>, runs <code translate="no" v-pre>repo init</code> from <code translate="no" v-pre>Bliss-Bass/lineage_bass_android</code> (<code translate="no" v-pre>lineage-21.0</code>) with the pinned snapshot, and syncs. In that iteration of ax86-lite the setup script also cloned the vendor tree into the workspace for the developer: <code translate="no" v-pre>vendor/ax86-lite</code> is a plain git clone of <code translate="no" v-pre>ax86-lite-los-21.0</code>, not a <code translate="no" v-pre>repo</code> project. If your workspace does not have it, clone it there yourself:</p>
+<div id="android-14-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">cd ../aosp-workspace
+git clone -b ax86-lite-los-21.0 &lt;vendor_ax86-lite-url&gt; vendor/ax86-lite</code></pre>
+</doc-codeblock></div>
+<h3 id="private-addons">Private addons</h3>
+<p>Private / licensed addon trees: place or clone them as instructed by your Bass contact (see also <a href="../addon-development/">Addon Development: Bass Lineout</a>), then continue. On Android 16 and 17, <code translate="no" v-pre>build.sh</code> also clones missing addon repos it has access to when a flag enables them.</p>
 <hr>
 <h2 id="environment-setup-and-build">Environment setup and build</h2>
 <div id="environment-setup-and-build-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">cd ../aosp-workspace
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">cd aosp-workspace
 source build/envsetup.sh
-lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
+lunch lineage_x86_64_tablet-cp2a-userdebug   # Android 16: ...-bp4a-userdebug, Android 14: ...-ap2a-userdebug</code></pre>
 </doc-codeblock></div>
-<p>Sourcing <code translate="no" v-pre>envsetup.sh</code> runs vendor integration (patches, addon integrate, device package staging).</p>
-<p>Preferred wrapper (symlinked as <code translate="no" v-pre>./build.sh</code> at the workspace root):</p>
-<div id="environment-setup-and-build-code-2" class="codeblock-wrapper"><doc-codeblock>
+<p>Sourcing <code translate="no" v-pre>envsetup.sh</code> runs vendor integration (patches for the tree&#x27;s API level, addon integrate, device package staging) and creates the <code translate="no" v-pre>./build.sh</code> wrapper at the workspace root (a symlink to <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code>). <code translate="no" v-pre>build.sh</code> runs <code translate="no" v-pre>lunch</code> itself, so the <code translate="no" v-pre>lunch</code> line is only needed for manual <code translate="no" v-pre>m</code> work.</p>
+<h3 id="android-17">Android 17</h3>
+<div id="android-17-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash"># Bass-Core validation set
+./build.sh --profile=bass-lineage-24.0-validate
+
+# Pro profile
+./build.sh --profile=bass-lineage-24.0-pro --clean --update-foss-userapps
+
+# A profile plus extra flags (flags on the command line add to / override the profile)
+./build.sh --profile=bass-lineage-24.0-validate --extras --bass-style --style-type=materialyou</code></pre>
+</doc-codeblock></div>
+<h3 id="android-16">Android 16</h3>
+<div id="android-16-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-bash"><code v-pre class="language-bash"># Core profile
 ./build.sh --profile=bass-lineage-23.2-core --clean
 
@@ -417,9 +511,82 @@ lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
 ./build.sh --profile=bass-lineage-23.2-pro --clean \
   --aaropa-local --ethernetconfig --extras</code></pre>
 </doc-codeblock></div>
-<p>Run <code translate="no" v-pre>./build.sh -h</code> for the full flag list. Profiles set default lunch/make targets and addon flags; individual <code translate="no" v-pre>--flag</code> args still override.</p>
-<p>Successful images land under the product out tree (and packaged ISO paths used by your profile). Typical lunch target: <code translate="no" v-pre>lineage_x86_64_tablet-bp4a-userdebug</code>, make goal <code translate="no" v-pre>iso_img</code>.</p>
-<h3 id="profiles-short">Profiles (short)</h3>
+<h3 id="android-14-1">Android 14</h3>
+<p><code translate="no" v-pre>build.sh</code> has no <code translate="no" v-pre>--profile</code> option; it uses the active <code translate="no" v-pre>vendor_config.cfg</code> (<code translate="no" v-pre>bass-lineage-21.0</code>) and the flags you pass. The default lunch target is the tablet; pass <code translate="no" v-pre>--target</code> for TV:</p>
+<div id="android-14-1-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --clean --aaropa-local --ethernetconfig --extras
+./build.sh --target=lineage_x86_64_tv-ap2a-userdebug --extras</code></pre>
+</doc-codeblock></div>
+<p>Run <code translate="no" v-pre>./build.sh -h</code> on your tree for the full flag list. Successful images land under the product out tree (<code translate="no" v-pre>out/target/product/x86_64_tablet/</code>); the default make goal is <code translate="no" v-pre>iso_img</code>.</p>
+<hr>
+<h2 id="profiles">Profiles</h2>
+<p>A profile is <code translate="no" v-pre>configs/vendor/&lt;id&gt;/vendor_config.cfg</code> in the vendor tree. It sets the lunch and make targets and the build flags the image uses. The active profile is <code translate="no" v-pre>vendor_config.cfg</code> in the vendor root, written by unfold or by <code translate="no" v-pre>build.sh --profile=&lt;id&gt;</code>.</p>
+<h3 id="android-17-1">Android 17</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Profile</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>bass-lineage-24.0-base</code></td>
+<td>Release settings only (LineageOS 24.0 manifest, <code translate="no" v-pre>cp2a</code> lunch target, pinned snapshot). The other profiles inherit it.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>bass-lineage-24.0-validate</code></td>
+<td>Bass-Core validation set: BootSight, Ethernet Config, Ax86 Logger, Ax86 Power, Dual Shade, BlissView, the Lineage setup wizard, the Bass Aaropa installer and ADB insecure (for testing). No other commercial addons.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>bass-lineage-24.0-core</code></td>
+<td>Smaller addon set (validation + Ethernet Config).</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>bass-lineage-24.0-pro</code></td>
+<td>Broader addon set (extras, SmartDock, FOSS user apps, desktop aconfig, custom signing keys).</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>bass-lineage-24.0-desktop</code></td>
+<td>The Material Desktop product build (SmartDock, Bass Style, OTA channel, ...). Builds once SmartDock is ported to Android 17.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Android 17 profiles can build on each other and carry any <code translate="no" v-pre>build.sh</code> option:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>vendor_inherits=&lt;id&gt; [&lt;id&gt;...]</code></td>
+<td>Load these profiles first. Later values win; flags and options add up.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>vendor_build_flags=&quot;NAME=value ... --option&quot;</code></td>
+<td>Environment flags and plain <code translate="no" v-pre>build.sh</code> options, mixed.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>vendor_build_args=--option</code></td>
+<td>One <code translate="no" v-pre>build.sh</code> option per line. Quote values with special characters: <code translate="no" v-pre>vendor_build_args='--ota-uri=https://host/{channel}/builds'</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Turn any command into a profile with <code translate="no" v-pre>--save-profile</code> (it writes the profile and exits without building):</p>
+<div id="android-17-1-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --profile=bass-lineage-24.0-base --save-profile=bass-lineage-24.0-kiosk \
+  --extras --kui --bootsight --bs-hybrid
+./build.sh --profile=bass-lineage-24.0-kiosk</code></pre>
+</doc-codeblock></div>
+<p>One-off options (<code translate="no" v-pre>--clean</code>, <code translate="no" v-pre>--installclean</code>, <code translate="no" v-pre>--dustoff</code>, <code translate="no" v-pre>--profile</code>, <code translate="no" v-pre>--save-profile</code>) are not saved. Set <code translate="no" v-pre>AX86_PROFILES_DIR</code> to keep profiles outside the vendor tree.</p>
+<h3 id="android-16-1">Android 16</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -440,10 +607,77 @@ lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
 </tbody>
 </table>
 </div>
+<p>Android 16 profiles set <code translate="no" v-pre>vendor_build_flags</code> only; there is no inheritance or <code translate="no" v-pre>--save-profile</code>.</p>
+<h3 id="android-14-2">Android 14</h3>
+<p>One profile, <code translate="no" v-pre>bass-lineage-21.0</code>, activated by unfold. Add features with build flags.</p>
 <p>Details: <code translate="no" v-pre>vendor/ax86-lite/README.md</code> and <code translate="no" v-pre>addons/README.md</code>.</p>
 <hr>
 <h2 id="lineout--ax86-lite-build-flags">Lineout / ax86-lite build flags</h2>
-<p>Current Lineout tablet builds use <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code>. The tables below cover flags documented with product features. Always prefer <code translate="no" v-pre>./build.sh -h</code> on your tree for the authoritative list.</p>
+<p>Lineout builds use <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code>. The tables below group the flags by feature; <strong>Available</strong> says which generations have a flag (all = Android 14, 16 and 17). Always prefer <code translate="no" v-pre>./build.sh -h</code> on your tree for the authoritative list. Addon flags are listed at the end of that help output.</p>
+<h3 id="build-control">Build control</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Effect</th>
+<th>Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--profile=ID</code></td>
+<td>Use profile <code translate="no" v-pre>configs/vendor/&lt;ID&gt;</code></td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--save-profile=ID</code></td>
+<td>Save this command&#x27;s options as profile <code translate="no" v-pre>ID</code> and exit</td>
+<td>A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--target=TARGET</code></td>
+<td>Lunch target</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--module=MODULE</code></td>
+<td>Make goal (default <code translate="no" v-pre>iso_img</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--clean</code> / <code translate="no" v-pre>--installclean</code> / <code translate="no" v-pre>--dirty</code></td>
+<td><code translate="no" v-pre>rm -rf out/</code> / <code translate="no" v-pre>installclean</code> / incremental (default)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--dustoff</code></td>
+<td>Remove kernel, <code translate="no" v-pre>*.img</code>, <code translate="no" v-pre>*.sfs</code>, <code translate="no" v-pre>*.iso</code> and OTA zips from <code translate="no" v-pre>out/</code>, then build</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--tuck</code></td>
+<td>Sign with custom keys (<code translate="no" v-pre>TARGET_USE_CUSTOM_KEYS=true</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--noksu</code></td>
+<td>Disable KernelSU in the x86 kernel defconfigs</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--rebuild-aconfig-pb</code></td>
+<td>Do not seed <code translate="no" v-pre>aconfig_flags.pb</code> from the vendor cache</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--package-patches</code> / <code translate="no" v-pre>--api-level=N</code></td>
+<td>Export local repo commits into <code translate="no" v-pre>patches/api-N/</code></td>
+<td>all</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="fleet-and-bootsight">Fleet and BootSight</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -451,28 +685,44 @@ lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
 <tr>
 <th>Flag</th>
 <th>Effect</th>
+<th>Available</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code translate="no" v-pre>--bootsight</code></td>
 <td>Include BootSight (Bass fleet backend / Device Status)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--fleet-mgmt=mdm</code></td>
 <td>Image expects a third-party MDM (no BootSight)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--fleet-mgmt=none</code></td>
 <td>No fleet component (default when neither flag is set)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--bsbanner</code></td>
 <td>BootSight overlay banner (implies <code translate="no" v-pre>--bootsight</code>)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--bspopup</code></td>
 <td>BootSight overlay popup (implies <code translate="no" v-pre>--bootsight</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bs-offline</code></td>
+<td>BootSight offline-only licensing, no server sync or telemetry (implies <code translate="no" v-pre>--bootsight</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bs-hybrid</code></td>
+<td>BootSight hybrid licensing: offline file/code plus online sync (implies <code translate="no" v-pre>--bootsight</code>)</td>
+<td>all</td>
 </tr>
 </tbody>
 </table>
@@ -485,63 +735,94 @@ lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
 <tr>
 <th>Flag</th>
 <th>Effect</th>
+<th>Available</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code translate="no" v-pre>--logger</code></td>
 <td>Include Ax86 Logger (capture off until enabled)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--logging-enabled</code></td>
 <td>Include Ax86 Logger and start capture by default</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--btnmgr</code></td>
 <td>Include Ax86 Button Manager</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--ax86-power</code></td>
 <td>Include Ax86 Power (sleep/wake policy UI + AIDL)</td>
+<td>all</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><code translate="no" v-pre>--logging-enabled</code> implies <code translate="no" v-pre>--logger</code>. <code translate="no" v-pre>--extras</code> also includes Ax86 Power. Details: <a href="../../applications/ax86logger/">Ax86 Logger</a>, <a href="../../applications/ax86buttonmanager/">Button Manager</a>, <a href="../../applications/ax86power/">Ax86 Power</a>.</p>
-<h3 id="branding">Branding</h3>
+<h3 id="branding-and-identity">Branding and identity</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
 <th>Flag</th>
 <th>Effect</th>
+<th>Available</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code translate="no" v-pre>--bootani</code></td>
 <td>Use <code translate="no" v-pre>branding/bootanimation/bootanimation.zip</code></td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--wallpaper</code></td>
 <td>Use <code translate="no" v-pre>branding/wallpaper/default_wallpaper.png</code></td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--nobootani</code></td>
 <td>Stock Android boot animation</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--nowallpaper</code></td>
 <td>Stock Android wallpaper</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--nobranding</code></td>
 <td>Stock boot animation and wallpaper</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bass-id=TITLE</code></td>
+<td>Product ID string (<code translate="no" v-pre>BASS_ID_TITLE</code>), e.g. <code translate="no" v-pre>RETAIL.A17.M.DESKTOP.KSU</code></td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--special-variant=VARIANT</code></td>
+<td>Suffix for the version string (<code translate="no" v-pre>LINEAGE_SPECIAL_VARIANT</code>), e.g. <code translate="no" v-pre>-Material-Desktop</code></td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--spoof-fingerprint</code></td>
+<td>Spoof <code translate="no" v-pre>BUILD_FINGERPRINT</code> (Pixel Tablet <code translate="no" v-pre>tangorpro</code>)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--spoof-fingerprint-fugu</code></td>
+<td>Spoof it as the Nexus Player <code translate="no" v-pre>fugu</code> (implies <code translate="no" v-pre>--spoof-fingerprint</code>)</td>
+<td>A16, A17</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Default without those flags is the Lineage boot animation and wallpaper.</p>
+<p>Default without the branding flags is the Lineage boot animation and wallpaper.</p>
 <h3 id="boot-options-and-lockdown">Boot options and lockdown</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -549,119 +830,370 @@ lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
 <tr>
 <th>Flag</th>
 <th>Effect</th>
+<th>Available</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code translate="no" v-pre>--bass-boot-options</code></td>
-<td>Inject Bass GRUB submenu via <code translate="no" v-pre>custom.cfg</code> on first boot</td>
+<td>Bass GRUB boot options. A16/A17: inject the Bass submenu via <code translate="no" v-pre>custom.cfg</code> on first boot. A14: bake the full catalog into <code translate="no" v-pre>install.sfs</code> (Calamares <code translate="no" v-pre>10_bass</code>)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--cxbbo</code></td>
 <td>Customer Bass boot catalog (<code translate="no" v-pre>entries.customer.list</code>; implies boot options)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--ldinstall</code></td>
-<td>Block install/uninstall in lockdown mode</td>
+<td>Block install/uninstall in lockdown mode. A16/A17: UI, ADB <code translate="no" v-pre>pm</code> and app APIs. A14: the install UI only</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--ldinstallstrict</code></td>
+<td>Also block ADB <code translate="no" v-pre>pm</code> and PackageManager installs in lockdown</td>
+<td>A14</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--grublock</code> / <code translate="no" v-pre>--grub-password-file=PATH</code></td>
+<td>GRUB password (pbkdf2 hash; default from <code translate="no" v-pre>private/</code>)</td>
+<td>A14</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--grub-hidden</code> / <code translate="no" v-pre>--grub-timeout=N</code></td>
+<td>Hidden GRUB menu / timeout, set at build time</td>
+<td>A14</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>Details: <a href="../../setup_and_configuration/bass-boot-options/">Bass boot options</a>, <a href="../../features/lockdown-install-block/">Lockdown install block</a>.</p>
-<h3 id="aaropa-installer-prebuilts">Aaropa installer prebuilts</h3>
+<h3 id="aaropa-installer">Aaropa installer</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
 <th>Flag</th>
 <th>Effect</th>
+<th>Available</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code translate="no" v-pre>--aaropa-local</code></td>
 <td>Build Aaropa <code translate="no" v-pre>install.sfs</code> locally with Podman before lunch</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--aaropa-fetch</code></td>
-<td>Fetch Aaropa GitHub release artifacts instead of Podman</td>
+<td>With <code translate="no" v-pre>--aaropa-local</code>, download the GitHub release instead of building</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--aaropa-rebuild</code></td>
-<td>Ignore stamp and refetch/rebuild installer artifacts</td>
+<td>Ignore the stamp and refetch/rebuild installer artifacts</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--aaropa-source=bliss\|bass</code></td>
+<td>Installer flavor (default <code translate="no" v-pre>bass</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--aaropa-branding=NAME</code></td>
+<td>Branding overlay (default: same as <code translate="no" v-pre>--aaropa-source</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--newinstaller</code></td>
+<td>Use the legacy newinstaller GRUB and ncurses installer instead</td>
+<td>all</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>Requires section <doc-anchor-trigger to="#4-aaropa-installer-podman---needed-for---aaropa-local">4. Aaropa installer</doc-anchor-trigger> when using <code translate="no" v-pre>--aaropa-local</code>.</p>
-<h3 id="other-common-lineout-flags">Other common Lineout flags</h3>
+<h3 id="desktop-and-ui">Desktop and UI</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
 <th>Flag</th>
 <th>Effect</th>
+<th>Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--dui</code> / <code translate="no" v-pre>--tui</code> / <code translate="no" v-pre>--kui</code></td>
+<td>DesktopUI / TabletUI / KioskUI mode by default</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--blurui</code></td>
+<td>Blur on by default</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--notaskbar</code></td>
+<td>Disable the Android taskbar (Launcher3 patches)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--smartdock</code></td>
+<td>SmartDock desktop dock + freeform/desktop mode</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--dual-shade</code></td>
+<td>SystemUI Dual Shade (floating Notifications and Quick Settings panels); on with <code translate="no" v-pre>--smartdock</code> and <code translate="no" v-pre>--bass-style</code> too</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--desktop-aconfig</code></td>
+<td>Desktop and connected-display aconfig flag values (also on with <code translate="no" v-pre>--smartdock</code>, <code translate="no" v-pre>--dui</code>, <code translate="no" v-pre>--bass-boot-options</code>)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bass-style</code></td>
+<td>retro-style theme packs and the tablet system bar</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--style-type=ID</code></td>
+<td>Default style: <code translate="no" v-pre>materialyou</code> (default) or a pack id (<code translate="no" v-pre>m3</code>, <code translate="no" v-pre>kitkat</code>, <code translate="no" v-pre>jellybean</code>, ...)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--style-layout=system_bar\|stock</code></td>
+<td>Default bottom bar (<code translate="no" v-pre>system_bar</code> needs the taskbar: not with <code translate="no" v-pre>--notaskbar</code> unless <code translate="no" v-pre>--smartdock</code>)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--style-bar-bg=VALUE</code></td>
+<td>System bar home background: <code translate="no" v-pre>stock</code>, <code translate="no" v-pre>solid</code>, <code translate="no" v-pre>gradient</code>, <code translate="no" v-pre>translucent</code>, <code translate="no" v-pre>transparent</code></td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--style-black=on\|off</code></td>
+<td>Pure black dark mode by default</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--gaming</code></td>
+<td>GamingUI mode by default (implies <code translate="no" v-pre>--blissdeck</code>)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--blissdeck</code></td>
+<td>BlissDeck game-library Home preinstall (<code translate="no" v-pre>gh</code> + network to GitHub releases)</td>
+<td>A16, A17</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>On Android 17, feature flags stay switchable at runtime: see <a href="../aconfig-flags/">Feature Flags (aconfig)</a>.</p>
+<h3 id="apps-and-addons">Apps and addons</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Effect</th>
+<th>Available</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code translate="no" v-pre>--extras</code></td>
-<td>Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power (does <strong>not</strong> include BootSight)</td>
+<td>Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power; A16/A17 also Aaropa options (does <strong>not</strong> include BootSight)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--ethernetconfig</code></td>
 <td>Ethernet Config</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--btferry</code></td>
-<td>BT Ferry (A16 / Lineage 23.2 Lineout only for now)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--gamenative</code></td>
-<td>GameNative x86_64 preinstall (see optional deps above)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--linux-services</code></td>
-<td>Linux Services: boot, scheduled, and auto-restarted Linux jobs (needs <code translate="no" v-pre>--gamenative</code>)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--blissdeck</code></td>
-<td>BlissDeck game-library Home preinstall (<code translate="no" v-pre>gh</code> + network to GitHub releases)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--gaming</code></td>
-<td>Gaming images: BlissDeck as Home and the gaming boot catalog (implies <code translate="no" v-pre>--blissdeck</code>)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--smartdock</code></td>
-<td>SmartDock</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--restrictedlauncherpro</code></td>
-<td>Restricted Launcher Pro (private access)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--rlptype=VARIANT</code></td>
-<td>RLP APK variant: <code translate="no" v-pre>default</code> | <code translate="no" v-pre>gs</code> | <code translate="no" v-pre>gs_nh</code> | <code translate="no" v-pre>sl</code> (implies <code translate="no" v-pre>--restrictedlauncherpro</code>)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--internet-security</code></td>
 <td>Preinstall the Internet Security user app</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--monterey-standby</code></td>
 <td>Preinstall the Monterey Standby user app</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--restrictedlauncherpro</code></td>
+<td>Restricted Launcher Pro (private access)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--rlptype=VARIANT</code></td>
+<td>RLP APK variant: <code translate="no" v-pre>default</code> | <code translate="no" v-pre>gs</code> | <code translate="no" v-pre>gs_nh</code> | <code translate="no" v-pre>sl</code> (implies <code translate="no" v-pre>--restrictedlauncherpro</code>)</td>
+<td>all</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--foss-userapps</code> / <code translate="no" v-pre>--update-foss-userapps</code></td>
 <td>FOSS user-app set / refresh from F-Droid metadata</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--fossapps</code>, <code translate="no" v-pre>--aurora</code>, <code translate="no" v-pre>--droidify</code>, <code translate="no" v-pre>--min-foss</code>, <code translate="no" v-pre>--min-foss-mg</code>, <code translate="no" v-pre>--calyx-mg</code></td>
+<td>FOSS app store and microG sets</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--tbfv</code></td>
+<td>FrameworksValidation (BlissView) anti-tamper app</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bassview-tamper</code></td>
+<td>Watermark the screen if BassView is missing</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--bassaudio</code></td>
+<td>Bass Audio (Quick Settings mixer, HDMI/speaker routing, DSP)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--btferry</code></td>
+<td>BT Ferry (phone messages/contacts/calls + A2DP speaker bridge)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--gamenative</code></td>
+<td>GameNative x86_64 preinstall (see optional deps above)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--linux-services</code></td>
+<td>Linux Services: boot, scheduled, and auto-restarted Linux jobs (needs <code translate="no" v-pre>--gamenative</code>)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--linuxwindow</code></td>
+<td>LinuxWindow (Linux apps in Android; needs the addon content)</td>
+<td>A16, A17</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--digitalis</code></td>
+<td>Digitalis ARM64-on-x86_64 native bridge (Berberis)</td>
+<td>A16, A17</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Example:</p>
-<div id="other-common-lineout-flags-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-bash"><code v-pre class="language-bash">./build.sh --target=lineage_x86_64_tablet-bp4a-userdebug \
+<h3 id="ota-updates">OTA updates</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Effect</th>
+<th>Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--ota</code></td>
+<td>Also build the OTA zip, named like the ISO</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--ota-uri=URL</code></td>
+<td>Updater URI (<code translate="no" v-pre>lineage.updater.uri</code>; <code translate="no" v-pre>{channel}</code> and <code translate="no" v-pre>{device}</code> are filled in); with <code translate="no" v-pre>--ota</code> also writes the Updater JSON</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--ota-url=URL</code></td>
+<td>Alias for <code translate="no" v-pre>--ota-uri</code></td>
+<td>A14</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--ota-channel=NAME</code></td>
+<td>OTA channel (<code translate="no" v-pre>ro.bass.ota.channel</code>); default in the table at the top</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--otadebug</code></td>
+<td><code translate="no" v-pre>persist.bass.ota.debug=1</code> (debugging only)</td>
+<td>all</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="hardware-and-platform">Hardware and platform</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Effect</th>
+<th>Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--gpu</code> / <code translate="no" v-pre>--hals</code></td>
+<td>Build the graphics stack / hardware HALs</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--surface</code> / <code translate="no" v-pre>--zenith</code></td>
+<td>Surface / Zenith board variants (<code translate="no" v-pre>BOARD_IS_SURFACE_BUILD</code> / <code translate="no" v-pre>BOARD_IS_ZENITH_BUILD</code>)</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--tv</code> / <code translate="no" v-pre>--tv-lowram</code> / <code translate="no" v-pre>--go</code></td>
+<td>Android TV / low-RAM TV / Go builds</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--widevine</code></td>
+<td>Widevine DRM</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--ax86parts</code></td>
+<td>Static android_x86_64 fstab/partitions</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--debian</code></td>
+<td>Fetch/build the Debian chroot</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--libndk-nb</code>, <code translate="no" v-pre>--cros-houdini</code>, <code translate="no" v-pre>--ndk-trans</code>, <code translate="no" v-pre>--intel-houdini</code></td>
+<td>ARM native bridge choices</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--adbi</code> (alias <code translate="no" v-pre>--sdbi</code>)</td>
+<td>ADB insecure mode by default (debugging only)</td>
+<td>all</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Examples:</p>
+<div id="hardware-and-platform-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash"># Android 17
+./build.sh --profile=bass-lineage-24.0-validate \
+  --aaropa-local --bootsight --bsbanner --btnmgr --ax86-power \
+  --logging-enabled --ethernetconfig
+
+# Android 16
+./build.sh --target=lineage_x86_64_tablet-bp4a-userdebug \
+  --aaropa-local --bootsight --bsbanner --btnmgr --ax86-power \
+  --logging-enabled --ethernetconfig
+
+# Android 14
+./build.sh --target=lineage_x86_64_tablet-ap2a-userdebug \
   --aaropa-local --bootsight --bsbanner --btnmgr --ax86-power \
   --logging-enabled --ethernetconfig</code></pre>
 </doc-codeblock></div>
@@ -679,6 +1211,10 @@ lunch lineage_x86_64_tablet-bp4a-userdebug</code></pre>
 <tr>
 <td>Addon layout and flags</td>
 <td><a href="../addon-development/">Addon Development: Bass Lineout</a></td>
+</tr>
+<tr>
+<td>Runtime-switchable feature flags (aconfig)</td>
+<td><a href="../aconfig-flags/">Feature Flags (aconfig)</a></td>
 </tr>
 <tr>
 <td>Fleet / MDM product overview</td>

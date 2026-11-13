@@ -48,8 +48,26 @@ Depending on the tweak type, values go to:
 
 `persist.*` changes often need a Settings restart or a full reboot before they stick.
 
+## Feature flag tabs
+
+The Desktop, Windowing, Multitasking, Surfaces, Display mgr, Large screen, Launcher3 and
+SystemUI tabs list Android's switchable feature flags (aconfig flags in `device_config`), one
+switch per flag, built from `res/xml/bliss_settings_aconfig.xml`. Each switch shows the flag's
+live value.
+
+* Only flags that can change at runtime (`READ_WRITE`) are listed. Read-only flags are fixed in
+  the image.
+* Launcher3 and SystemUI flags apply once that process restarts (Bliss Tweaks says so after
+  saving). The others need a reboot.
+* The list is generated for each build from the flags that build ships, so it changes with the
+  Android version.
+
+See [Feature Flags (aconfig)](../../development/aconfig-flags.md) for how the list is made and
+how to regenerate it.
+
 ## Related
 
 * [Display Mapper](../BlissDisplayMapper/BlissDisplayMapper.md)
 * [Boot Config](../BootConfig/BootConfig.md)
+* [Feature Flags (aconfig)](../../development/aconfig-flags.md)
 * [Building Bass OS](../../development/building-bass.md)
