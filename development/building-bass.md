@@ -20,6 +20,8 @@ This page is the **Bass: Lineout** build guide (`vendor/ax86-lite`, `tools/build
 
 Classic **Bass OS (Android 12L)** instructions are retained in full under [Legacy Bass OS (classic, Android 12L)](#legacy-bass-os-classic-android-12l). Do not mix the two flows.
 
+The build tooling has grown through several generations, each a rewrite of the last: [vendor_ag](https://github.com/android-generic/vendor_ag) and [ag-project-manager](https://github.com/android-generic/ag-project-manager) (Android-Generic), then the Bass toolkit (classic Bass OS), then ax86-lite (Lineout), first on Android 14 and reworked for Android 16 and 17. That is why the Android 14 steps below look different.
+
 Licensed private addons and white-label assets are supplied separately to licensed builders. Public docs do not cover bypassing licensing.
 
 ---
@@ -239,7 +241,7 @@ cd vendor_ax86-lite
 ./build/unfold_lineage.sh      # asks for confirmation, then syncs ../aosp-workspace
 ```
 
-The script activates `bass-lineage-21.0`, runs `repo init` from `Bliss-Bass/lineage_bass_android` (`lineage-21.0`) with the pinned snapshot, and syncs. It does not link the vendor tree, so clone it into the workspace:
+The script activates `bass-lineage-21.0`, runs `repo init` from `Bliss-Bass/lineage_bass_android` (`lineage-21.0`) with the pinned snapshot, and syncs. In that iteration of ax86-lite the setup script also cloned the vendor tree into the workspace for the developer: `vendor/ax86-lite` is a plain git clone of `ax86-lite-los-21.0`, not a `repo` project. If your workspace does not have it, clone it there yourself:
 
 ```bash
 cd ../aosp-workspace
