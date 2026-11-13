@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847920559873">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.847923432456">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -37,11 +37,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.847920559873" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.847923432456" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847920559873" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.847923432456" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847920559873" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.847923432456" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.847923432456" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -164,10 +165,10 @@
 <p><strong>This page is for Bass: Lineout</strong> (<code translate="no" v-pre>vendor/ax86-lite</code>, <code translate="no" v-pre>tools/build.sh</code>).</p>
 <p>If you are on classic Bass OS with <code translate="no" v-pre>private/addons/</code> and <code translate="no" v-pre>unfold_bliss.sh</code>, use the separate guide instead:</p>
 <p>→ <strong><a href="../addon-development-legacy-bass/">Addon Development: Legacy Bass OS</a></strong></p>
-<p>Do not mix the two. Lineout does <strong>not</strong> scan <code translate="no" v-pre>private/addons/</code> the way older Bass unfold did. Legacy Bass does <strong>not</strong> use <code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code> the same way.</p>
+<p>Do not mix the two. Lineout does <strong>not</strong> scan <code translate="no" v-pre>private/addons/</code> the way older Bass unfold did.</p>
 <hr>
 <h2 id="lineout-overview">Lineout overview</h2>
-<p>On Lineout, &quot;addon&quot; work falls into two buckets that both belong to this product line:</p>
+<p>On Lineout, &quot;addon&quot; work falls into two buckets:</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -179,9 +180,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Build packages</strong></td>
-<td><code translate="no" v-pre>vendor/ax86-lite/vendor_packages/</code></td>
-<td><code translate="no" v-pre>build.sh</code> flags (<code translate="no" v-pre>--extras</code>, <code translate="no" v-pre>--btnmgr</code>, ...)</td>
+<td><strong>Build addons</strong></td>
+<td>Android 16 / 17: <code translate="no" v-pre>vendor/ax86-lite/addons/&lt;id&gt;/</code>. Android 14: <code translate="no" v-pre>vendor/ax86-lite/vendor_packages/&lt;Pkg&gt;/</code></td>
+<td><code translate="no" v-pre>build.sh</code> flags (<code translate="no" v-pre>--extras</code>, <code translate="no" v-pre>--btnmgr</code>, ...) or a <a href="../building-bass/#profiles">profile</a></td>
 </tr>
 <tr>
 <td><strong>Runtime overrides</strong></td>
@@ -191,17 +192,296 @@
 </tbody>
 </table>
 </div>
-<p>Both are documented below. Neither is the old <code translate="no" v-pre>private/addons/</code> patchset model.</p>
+<p>How build addons are laid out differs by generation:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th>Android 17 (Lineage 24.0)</th>
+<th>Android 16 (Lineage 23.2)</th>
+<th>Android 14 (Lineage 21.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout</td>
+<td><doc-anchor-trigger to="#addons-on-android-16-and-17"><code translate="no" v-pre>addons/&lt;id&gt;/</code></doc-anchor-trigger></td>
+<td><doc-anchor-trigger to="#addons-on-android-16-and-17"><code translate="no" v-pre>addons/&lt;id&gt;/</code></doc-anchor-trigger></td>
+<td><doc-anchor-trigger to="#android-14-vendor_packages"><code translate="no" v-pre>vendor_packages/&lt;Pkg&gt;/</code></doc-anchor-trigger></td>
+</tr>
+<tr>
+<td>Addon sources</td>
+<td>One repo per addon</td>
+<td>One repo per addon</td>
+<td>In the vendor tree</td>
+</tr>
+<tr>
+<td>Patch sets</td>
+<td><code translate="no" v-pre>patches/api-37/</code></td>
+<td><code translate="no" v-pre>patches/api-36/</code></td>
+<td>Core queue only (<code translate="no" v-pre>patches/api-34/</code>)</td>
+</tr>
+<tr>
+<td>Per-release manifest fragments</td>
+<td><code translate="no" v-pre>manifest-api-37.xml</code></td>
+<td><code translate="no" v-pre>manifest.xml</code> only</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
-<h2 id="build-packages">Build packages</h2>
-<p>Features ship as product packages in the vendor tree.</p>
-<div id="build-packages-code-1" class="codeblock-wrapper"><doc-codeblock>
+<h2 id="addons-on-android-16-and-17">Addons on Android 16 and 17</h2>
+<p>Each addon is a self-contained unit and its own git repo. It carries everything it needs: sources, Soong wrappers, patches, product makefiles, repo manifest fragments and its build flags. Dropping <code translate="no" v-pre>addons/&lt;id&gt;/</code> with an <code translate="no" v-pre>addon.cfg</code> into the vendor tree is enough: there is no central list to edit.</p>
+<div id="addons-on-android-16-and-17-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">addons/&lt;id&gt;/
+├── addon.cfg                        # metadata + enable flags (shell)
+├── build/flags.sh                   # build.sh flags this addon adds (optional)
+├── packages/&lt;Pkg&gt;/...               # app / script / prebuilt sources
+├── device_wrappers/&lt;ns&gt;/ax86-addons/&lt;Pkg&gt;/
+│   ├── Android.bp                   # Soong module (staged into the device tree)
+│   └── .stagecfg                    # how to stage the sources (optional)
+├── patches/api-&lt;level&gt;/&lt;aosp-path&gt;/*.patch   # AOSP patches (optional)
+├── manifest.xml                     # repo local_manifest fragment (repo-backed addons)
+├── manifest-api-&lt;level&gt;.xml         # per-release fragment (Android 17)
+├── sync_&lt;id&gt;.sh                     # fetch script (optional)
+├── &lt;id&gt;_product.mk                  # inherit-product makefile(s) (optional)
+├── README.md                        # developers
+└── USER_GUIDE.md                    # end users</code></pre>
+</doc-codeblock></div>
+<h3 id="addoncfg"><code translate="no" v-pre>addon.cfg</code></h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>ADDON_ID</code></td>
+<td>Directory name / makefile variable suffix</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_NAME</code></td>
+<td>Human-readable label</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_LICENSE</code></td>
+<td>SPDX id or <code translate="no" v-pre>GPLv2 OR Commercial</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_ALWAYS</code></td>
+<td><code translate="no" v-pre>true</code> = always enabled when present</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_REQUIRES_ANY</code></td>
+<td>Space-separated build flags; <strong>any</strong> one set enables the addon</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_COMPAT</code> / <code translate="no" v-pre>ADDON_INCOMPAT</code></td>
+<td>Release ids the addon is limited to / excluded from (<code translate="no" v-pre>lineout</code>, <code translate="no" v-pre>submix</code>)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_PRESENT_TEST</code></td>
+<td>File (relative to the addon) that must exist for the addon to count as present</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_PRESENT_AOSP</code></td>
+<td>File (relative to the AOSP root) that must exist, for addons that live elsewhere in the tree</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_SYNC_SCRIPT</code></td>
+<td>Script that fetches missing content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_MANIFEST</code></td>
+<td>repo <code translate="no" v-pre>local_manifest</code> fragment to merge</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_PATCH_DIRS</code></td>
+<td>Patch roots under the addon; <code translate="no" v-pre>aosp:&lt;path&gt;</code> is relative to the AOSP root (patches shipped by a synced repo)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_PRODUCT_MKS</code></td>
+<td>Makefiles to <code translate="no" v-pre>inherit-product</code> when enabled</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>ADDON_STUB</code></td>
+<td><code translate="no" v-pre>true</code> = an enabled addon with missing content is skipped with a warning instead of stopping the build (unfinished port)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="build-flags">Build flags</h3>
+<p><code translate="no" v-pre>build/flags.sh</code> registers the addon&#x27;s flags with <code translate="no" v-pre>build.sh</code>, which picks them up for parsing and <code translate="no" v-pre>--help</code>:</p>
+<div id="build-flags-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">ax86_register_flag --my-feature USE_MY_FEATURE true \
+    &quot;Enable My Feature (one line of help)&quot;
+ax86_register_flag --my-feature-mode MY_FEATURE_MODE @VALUE \
+    &quot;My Feature mode: a | b (default: a)&quot;</code></pre>
+</doc-codeblock></div>
+<p>The environment variable is what <code translate="no" v-pre>ADDON_REQUIRES_ANY</code> and the addon&#x27;s makefiles test. Several addons can share one flag: <code translate="no" v-pre>--extras</code> turns on the whole Bliss apps family, each app still its own addon.</p>
+<h3 id="what-happens-during-a-build">What happens during a build</h3>
+<ol>
+<li><code translate="no" v-pre>tools/build.sh</code> loads every <code translate="no" v-pre>addons/*/build/flags.sh</code>, then the profile, then your command-line flags.</li>
+<li><code translate="no" v-pre>apply-patches.sh</code> applies the core <code translate="no" v-pre>patches/api-&lt;level&gt;/</code> queue, then runs <code translate="no" v-pre>integrate-addons.sh</code>.</li>
+<li><code translate="no" v-pre>integrate-addons.sh</code> reads every <code translate="no" v-pre>addon.cfg</code>, enables the addons whose flags are set, and for each one:
+<ul>
+<li>fetches it if it is missing (see <doc-anchor-trigger to="#getting-addons-into-a-tree">Getting addons into a tree</doc-anchor-trigger>);</li>
+<li>merges its manifest fragment and applies its patch set for the build&#x27;s API level;</li>
+<li>adds its <code translate="no" v-pre>ADDON_PRODUCT_MKS</code> to <code translate="no" v-pre>addons/enabled.mk</code>;</li>
+<li>stages its <code translate="no" v-pre>device_wrappers/</code> into the device tree.</li>
+</ul>
+</li>
+<li><code translate="no" v-pre>ax86_lite.mk</code> includes <code translate="no" v-pre>addons/enabled.mk</code>, so the enabled addons join the product.</li>
+</ol>
+<h3 id="privileged-apps-device-tree-staging">Privileged apps: device-tree staging</h3>
+<p>Android 16 tightened <code translate="no" v-pre>Android.bp</code> visibility: privileged, platform-signed app modules under <code translate="no" v-pre>vendor/ax86-lite</code> are not visible to the product. So addons ship their Soong wrapper under <code translate="no" v-pre>device_wrappers/&lt;ns&gt;/ax86-addons/&lt;Pkg&gt;/</code>, and the build copies the wrapper <strong>and</strong> the sources into <code translate="no" v-pre>&lt;device tree&gt;/ax86-addons/&lt;Pkg&gt;/</code>. That copy is a build artifact (git-ignored in the device tree); edit the sources under <code translate="no" v-pre>addons/&lt;id&gt;/</code>.</p>
+<p>The vendor&#x27;s core patch queue adds one line to the device tree&#x27;s <code translate="no" v-pre>device.mk</code>, <code translate="no" v-pre>-include $(LOCAL_PATH)/ax86-addons/product.mk</code>, and git-ignores <code translate="no" v-pre>ax86-addons/</code>. Staging writes that file; without it the line does nothing.</p>
+<p><code translate="no" v-pre>.stagecfg</code> next to the wrapper describes the source layout:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>STAGE_PKG</code></td>
+<td>Package dir under <code translate="no" v-pre>addons/&lt;id&gt;/packages</code></td>
+<td>wrapper dir name</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>STAGE_FROM</code></td>
+<td>Subdir of the package used as source root</td>
+<td><code translate="no" v-pre>.</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>STAGE_ITEMS</code></td>
+<td>Items to copy</td>
+<td>whole tree</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>STAGE_EXCLUDE</code></td>
+<td>Paths to delete after copying (generated files)</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Vendor binaries and rc/sh-only addons (for example <code translate="no" v-pre>chvt</code>, Config Overrides) build in the <code translate="no" v-pre>vendor/ax86-lite</code> namespace and need no staging.</p>
+<h3 id="patches">Patches</h3>
+<ul>
+<li>An addon patch set lives under <code translate="no" v-pre>patches/api-&lt;level&gt;/&lt;aosp-path&gt;/</code> (<code translate="no" v-pre>api-36</code> for Android 16, <code translate="no" v-pre>api-37</code> for Android 17). A build only applies the set for its API level; an addon without a set for that level applies no patches there.</li>
+<li>Patches are <code translate="no" v-pre>git format-patch</code> output of real commits in the target project, never hand-written diffs. Keep the source commits on a ref in the project (for example <code translate="no" v-pre>refs/addon-patches/&lt;id&gt;/api-37</code>), change them there, and regenerate the files.</li>
+<li>Name them <code translate="no" v-pre>000N-description.patch</code>; the build applies them in order with <code translate="no" v-pre>git am -3</code> and records them as commits.</li>
+<li>A patch counts as applied when the same change (by content) is already a commit in the project. A patch whose change is only present as uncommitted edits, or whose subject matches a commit with different content, fails the build: fix the project or regenerate the patch.</li>
+<li>Moving to a new Android release: apply the old set with <code translate="no" v-pre>git am -3</code> on a branch from the new tree, resolve conflicts, and export the new set from those commits. <code translate="no" v-pre>tools/port_patch_queue.sh</code> does this for the core queue.</li>
+</ul>
+<h3 id="release-compatibility">Release compatibility</h3>
+<p>A profile&#x27;s <code translate="no" v-pre>vendor_release</code> (<code translate="no" v-pre>lineout</code>, or <code translate="no" v-pre>submix</code> for Waydroid-based builds) is checked against <code translate="no" v-pre>ADDON_COMPAT</code> / <code translate="no" v-pre>ADDON_INCOMPAT</code>. For example, <code translate="no" v-pre>aaropa-options</code> builds on Lineout and is excluded on Submix.</p>
+<h3 id="boot-check-ins">Boot check-ins</h3>
+<p>An addon&#x27;s boot script should record that it ran, in <code translate="no" v-pre>/data/misc/bass_checkins/&lt;id&gt;</code>: one line, overwritten each boot, written on <strong>every</strong> exit path. Use <code translate="no" v-pre>key=value</code> fields with <code translate="no" v-pre>boot=</code> (the current <code translate="no" v-pre>/proc/sys/kernel/random/boot_id</code>) and <code translate="no" v-pre>verdict=</code> last. <code translate="no" v-pre>boot=</code> proves the check-in is current; the wall clock can be wrong early in boot. Copy the helper from the BootSight addon rather than sourcing another addon&#x27;s file, and <code translate="no" v-pre>chmod 0644</code> it. Assert the check-in in the addon&#x27;s test.</p>
+<h3 id="creating-a-new-addon">Creating a new addon</h3>
+<ol>
+<li><code translate="no" v-pre>mkdir -p addons/&lt;id&gt;</code> and write <code translate="no" v-pre>addon.cfg</code>.</li>
+<li>Add <code translate="no" v-pre>packages/&lt;Pkg&gt;/</code>, and for privileged apps <code translate="no" v-pre>device_wrappers/&lt;ns&gt;/ax86-addons/&lt;Pkg&gt;/Android.bp</code> (+ <code translate="no" v-pre>.stagecfg</code>).</li>
+<li>Add <code translate="no" v-pre>build/flags.sh</code>.</li>
+<li>Add the product makefile(s) and list them in <code translate="no" v-pre>ADDON_PRODUCT_MKS</code>.</li>
+<li>Run <code translate="no" v-pre>tools/sync-vendor-package-symlinks.sh</code> (keeps <code translate="no" v-pre>vendor_packages/&lt;Pkg&gt;</code> paths pointing at the addon).</li>
+</ol>
+<p>Before calling it done, work through the vendor tree&#x27;s <code translate="no" v-pre>docs/ADDON_FEATURE_CHECKLIST.md</code>. In short:</p>
+<ul>
+<li><strong>Settings entry:</strong> an <code translate="no" v-pre>EXTRA_SETTINGS</code> activity with category, summary, a 24 dp white vector icon and <code translate="no" v-pre>com.android.settings.icon_tintable=true</code>; no launcher icon for Settings-only tools.</li>
+<li><strong>UI:</strong> Material 3, an explicit toolbar with back, content that does not draw under the status bar.</li>
+<li><strong>Properties:</strong> document new <code translate="no" v-pre>persist.*</code> / apply triggers in <code translate="no" v-pre>OVERRIDES.md</code>.</li>
+<li><strong>Tests:</strong> <code translate="no" v-pre>tests/test_&lt;id&gt;.sh</code> that skips cleanly when the addon is not in the build, and a host check for the Settings tile metadata.</li>
+<li><strong>Docs:</strong> <code translate="no" v-pre>USER_GUIDE.md</code> for end users, <code translate="no" v-pre>README.md</code> for developers.</li>
+</ul>
+<h3 id="android-17-differences">Android 17 differences</h3>
+<ul>
+<li><strong>Per-release manifest fragments:</strong> an addon can ship <code translate="no" v-pre>manifest-api-37.xml</code> next to <code translate="no" v-pre>manifest.xml</code> when it syncs different repos or branches on Android 17 (Digitalis does).</li>
+<li><strong>Bass-Core device tree:</strong> the public Android 17 device tree carries no <code translate="no" v-pre>vendor/ax86-lite</code> includes and no staging hook; the core patch queue adds both at build time. Addons reach the build only through that hook, so an addon must not edit committed device-tree files.</li>
+<li><strong>Feature flags:</strong> aconfig flags stay switchable at runtime. An addon that changes a flag&#x27;s built-in value should keep it <code translate="no" v-pre>READ_WRITE</code> unless it must not change; see <a href="../aconfig-flags/">Feature Flags (aconfig)</a>.</li>
+</ul>
+<hr>
+<h2 id="packaging-and-distribution">Packaging and distribution</h2>
+<p>These apply to Android 16 and 17. Android 14 addons live in the vendor tree itself.</p>
+<h3 id="one-repo-per-addon">One repo per addon</h3>
+<p>Every addon is its own git repo in the <a href="https://github.com/BlissBass-Addons">BlissBass-Addons</a> organization, named after the addon id (<code translate="no" v-pre>BlissBass-Addons/&lt;id&gt;</code>), on the <code translate="no" v-pre>lineout</code> branch. One branch serves Android 16 and 17: release-specific content goes in <code translate="no" v-pre>patches/api-&lt;level&gt;/</code> and <code translate="no" v-pre>manifest-api-&lt;level&gt;.xml</code>, not in separate branches.</p>
+<p>Repos are public or private. Access to a private repo is what licenses that addon. The vendor repo does not track addon sources (<code translate="no" v-pre>addons/*</code> is git-ignored), so an addon is versioned, released and licensed on its own.</p>
+<h3 id="getting-addons-into-a-tree">Getting addons into a tree</h3>
+<div id="getting-addons-into-a-tree-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">cd vendor/ax86-lite
+tools/clone-addons.sh                          # the default set (repos you cannot reach are skipped)
+tools/clone-addons.sh bliss-tweaks btnmgr      # specific addons
+ADDON_GIT_ORG=MyOrg ADDON_GIT_BRANCH=lineout tools/clone-addons.sh   # another org or branch
+tools/sync-vendor-package-symlinks.sh</code></pre>
+</doc-codeblock></div>
+<p>You rarely need to do this by hand: when a build flag enables an addon that is missing, the build fetches it. If the repo cannot be reached, the build stops with a licensing contact message (Navotpala Tech, <a href="mailto:info@navotpala.tech">info@navotpala.tech</a>) instead of producing an image without the feature.</p>
+<h3 id="repo-backed-and-synced-addons">Repo-backed and synced addons</h3>
+<p>Some addons are thin: their content lives in other repos that go elsewhere in the tree.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Kind</th>
+<th>How it works</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manifest fragment (<code translate="no" v-pre>ADDON_MANIFEST</code>)</td>
+<td>The fragment is merged into <code translate="no" v-pre>.repo/local_manifests/ax86-lite-addons.xml</code> and the project is <code translate="no" v-pre>repo sync</code>ed. On Android 17, <code translate="no" v-pre>manifest-api-37.xml</code> replaces <code translate="no" v-pre>manifest.xml</code> when present.</td>
+<td>SmartDock, Digitalis, Ethernet Config, FOSS user apps</td>
+</tr>
+<tr>
+<td>Sync script (<code translate="no" v-pre>ADDON_SYNC_SCRIPT</code>)</td>
+<td>The script clones the repo when it is missing; <code translate="no" v-pre>ADDON_PRESENT_AOSP</code> names a file that proves it is there, and <code translate="no" v-pre>aosp:</code> patch dirs point at patches inside it.</td>
+<td>Bass Style (<code translate="no" v-pre>vendor/retro-style</code>), Dual Shade (<code translate="no" v-pre>vendor/dual-shade</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A synced repo is only cloned when missing. Update it later with <code translate="no" v-pre>git -C vendor/&lt;repo&gt; pull</code>.</p>
+<h3 id="prebuilt-apps">Prebuilt apps</h3>
+<ul>
+<li>Commit the <strong>unsigned</strong> APK under <code translate="no" v-pre>packages/&lt;Pkg&gt;/prebuilts/</code> and import it with <code translate="no" v-pre>android_app_import</code> (<code translate="no" v-pre>certificate: &quot;platform&quot;</code> for privileged apps). The image build signs it with that build&#x27;s keys.</li>
+<li>To test a new APK on a running device without rebuilding the image, sign it with the same platform key the image was built with, replace it at the package&#x27;s <code translate="no" v-pre>codePath</code>, and reboot. Never push an unsigned APK, or one signed with another key (such as AOSP test keys), over a privileged app: the device will not boot.</li>
+<li>Apps released elsewhere are fetched at build time instead of committed: GameNative and BlissDeck from their GitHub releases (needs <code translate="no" v-pre>gh</code>), FOSS user apps from F-Droid (<code translate="no" v-pre>--update-foss-userapps</code>).</li>
+</ul>
+<h3 id="pinning-addon-versions-for-a-release">Pinning addon versions for a release</h3>
+<p>The AOSP pin (<code translate="no" v-pre>manifests/bass-lineage-*-static.xml</code>) covers the Bass-Core tree only. Addons are pinned separately, so a release can be rebuilt with the same addon commits:</p>
+<div id="pinning-addon-versions-for-a-release-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">manifests/update-addons.sh
+# writes (not committed):
+#   private/manifests/addons-catalog.json   every addon, its remote and commit
+#   private/manifests/addons-private.xml    repo manifest of those checkouts</code></pre>
+</doc-codeblock></div>
+<p>Copy both files to another checkout&#x27;s <code translate="no" v-pre>private/manifests/</code>. Its unfold then clones those addon repos at those commits.</p>
+<h3 id="keeping-addons-out-of-bass-core">Keeping addons out of Bass-Core</h3>
+<p>Bass-Core (the public LineageOS forks, device tree and manifest under <a href="https://github.com/los-tv-x86">los-tv-x86</a>) never contains addon code:</p>
+<ul>
+<li>addon repos and private pins are removed before the static manifest is written;</li>
+<li>commercial patches sit on <code translate="no" v-pre>bass-api-&lt;level&gt;</code> branches above the Bass-Core commits, and only commits tagged <code translate="no" v-pre>bass-core/&lt;branch&gt;/&lt;date&gt;</code> are pushed to the public repos;</li>
+<li>addon patches apply at build time, in the builder&#x27;s own tree.</li>
+</ul>
+<hr>
+<h2 id="android-14-vendor_packages">Android 14: <code translate="no" v-pre>vendor_packages</code></h2>
+<p>Android 14 (Lineage 21.0) Lineout trees have no addon framework: features are product packages in the vendor tree, gated by <code translate="no" v-pre>ax86_lite.mk</code> and <code translate="no" v-pre>tools/build.sh</code>. Only the private Restricted Launcher Pro uses <code translate="no" v-pre>addons/</code>.</p>
+<div id="android-14-vendor_packages-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">vendor/ax86-lite/vendor_packages/&lt;Name&gt;/
   Android.bp / *.mk
   README.md          # picked up by Ax86Docs when present
   init .rc / .sh     # optional; keep package-local when possible</code></pre>
 </doc-codeblock></div>
-<p>Enable them from <code translate="no" v-pre>vendor/ax86-lite/tools/build.sh</code> (see <a href="../building-bass/">Building Bass OS</a>):</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -240,37 +520,26 @@
 <td>Ethernet Config</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>--btferry</code></td>
-<td>BT Ferry (<code translate="no" v-pre>bass-btferry</code> addon; <strong>A16 Lineout only for now</strong>)</td>
+<td><code translate="no" v-pre>--internet-security</code> / <code translate="no" v-pre>--monterey-standby</code></td>
+<td>Internet Security / Monterey Standby user apps</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>--gamenative</code></td>
-<td>GameNativeX64 (<code translate="no" v-pre>gamenative</code> addon; x86_64 PC games + Linux apps)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--linux-services</code></td>
-<td>Linux Services (<code translate="no" v-pre>linux-services</code> addon; boot, scheduled, and auto-restarted Linux jobs; needs GameNativeX64)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--blissdeck</code></td>
-<td>BlissDeck game-library Home (<code translate="no" v-pre>blissdeck</code> addon)</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>--gaming</code></td>
-<td>Gaming images: BlissDeck as Home, gaming boot catalog (implies <code translate="no" v-pre>--blissdeck</code>)</td>
+<td><code translate="no" v-pre>--restrictedlauncherpro</code></td>
+<td>Restricted Launcher Pro (private)</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>--bass-boot-options</code> / <code translate="no" v-pre>--cxbbo</code></td>
-<td>Bass GRUB boot submenu</td>
+<td>Bass GRUB boot catalog</td>
 </tr>
 <tr>
-<td><code translate="no" v-pre>--ldinstall</code></td>
+<td><code translate="no" v-pre>--ldinstall</code> / <code translate="no" v-pre>--ldinstallstrict</code></td>
 <td>Lockdown install/uninstall block</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="adding-a-new-lineout-package">Adding a new Lineout package</h3>
+<p>BT Ferry, GameNative, Linux Services, BlissDeck, Bass Audio and Bass Style are Android 16 and 17 addons.</p>
+<h3 id="adding-an-android-14-package">Adding an Android 14 package</h3>
 <ol>
 <li>Create <code translate="no" v-pre>vendor_packages/YourFeature/</code> with a product <code translate="no" v-pre>.mk</code> and (for apps) <code translate="no" v-pre>Android.bp</code>.</li>
 <li>Wire it in <code translate="no" v-pre>ax86_lite.mk</code> behind a flag (or always-on if that is intentional).</li>
@@ -278,24 +547,6 @@
 <li>Drop a <code translate="no" v-pre>README.md</code> in the package so <a href="../../applications/ax86docs/">Ax86Docs</a> picks it up on the next <code translate="no" v-pre>--extras</code> build.</li>
 <li>Prefer package-local <code translate="no" v-pre>init.rc</code> / scripts. Avoid editing core <code translate="no" v-pre>addon_init.rc</code> unless the feature is shared early-boot plumbing.</li>
 </ol>
-<p>App docs on this site:</p>
-<ul>
-<li><a href="../../applications/blisstouchmapper/">Touch Mapper</a></li>
-<li><a href="../../applications/blissdisplaymapper/">Display Mapper</a></li>
-<li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
-<li><a href="../../applications/blisstweaks/">Bliss Tweaks</a></li>
-<li><a href="../../applications/ax86buttonmanager/">Button Manager</a></li>
-<li><a href="../../applications/ax86logger/">Ax86 Logger</a></li>
-<li><a href="../../applications/ax86power/">Ax86 Power</a></li>
-<li><a href="../../applications/bootsight/">BootSight</a></li>
-<li><a href="../../applications/btferry/">BT Ferry</a> (A16 only for now)</li>
-<li><a href="../../applications/gamenativex64/">GameNativeX64</a></li>
-<li><a href="../../setup_and_configuration/bass-boot-options/">Bass boot options</a></li>
-<li><a href="../../features/lockdown-install-block/">Lockdown install block</a></li>
-</ul>
-<h3 id="newer-lineout-branches-addonsid">Newer Lineout branches (<code translate="no" v-pre>addons/&lt;id&gt;/</code>)</h3>
-<p>Some newer ax86-lite branches move packages under <code translate="no" v-pre>addons/&lt;id&gt;/</code> with <code translate="no" v-pre>addon.cfg</code> and a compat symlink from <code translate="no" v-pre>vendor_packages/&lt;Pkg&gt;</code>. See <code translate="no" v-pre>vendor_packages/Ax86ButtonManager/docs/PORTING-23.2.md</code> in the vendor tree.</p>
-<p>On current Lineage 21 / A14 Lineout trees, packages still live directly under <code translate="no" v-pre>vendor_packages/</code> and are gated by <code translate="no" v-pre>ax86_lite.mk</code> + <code translate="no" v-pre>tools/build.sh</code>. Use that layout unless your branch already has the <code translate="no" v-pre>addons/</code> integrator.</p>
 <hr>
 <h2 id="runtime-overrides-addon_init">Runtime overrides (<code translate="no" v-pre>addon_init</code>)</h2>
 <p>Lineout also supports <strong>on-device</strong> overrides without rebuilding the ISO. Scripts under <code translate="no" v-pre>/vendor/bin/addon_*.sh</code> run from <code translate="no" v-pre>addon_init.rc</code> after <code translate="no" v-pre>/data</code> is available. They can bind-mount files from <code translate="no" v-pre>/data/misc/</code> over vendor/system paths, apply settings, and react to property triggers.</p>
@@ -399,11 +650,27 @@
 <li>Fleet imaging: push <code translate="no" v-pre>/data/misc</code> files, set GRUB flags, reboot</li>
 <li>Config Override examples under <code translate="no" v-pre>vendor/ax86-lite/docs/examples/</code></li>
 </ul>
-<p>Runtime overrides are <strong>not</strong> how you ship a new privileged app. New apps go under <code translate="no" v-pre>vendor_packages/</code> with a build flag.</p>
+<p>Runtime overrides are <strong>not</strong> how you ship a new privileged app. New apps are build addons (<code translate="no" v-pre>addons/&lt;id&gt;/</code> on Android 16 and 17, <code translate="no" v-pre>vendor_packages/</code> on Android 14) behind a build flag.</p>
 <hr>
+<h2 id="app-docs">App docs</h2>
+<ul>
+<li><a href="../../applications/blisstouchmapper/">Touch Mapper</a></li>
+<li><a href="../../applications/blissdisplaymapper/">Display Mapper</a></li>
+<li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
+<li><a href="../../applications/blisstweaks/">Bliss Tweaks</a></li>
+<li><a href="../../applications/ax86buttonmanager/">Button Manager</a></li>
+<li><a href="../../applications/ax86logger/">Ax86 Logger</a></li>
+<li><a href="../../applications/ax86power/">Ax86 Power</a></li>
+<li><a href="../../applications/bootsight/">BootSight</a></li>
+<li><a href="../../applications/btferry/">BT Ferry</a></li>
+<li><a href="../../applications/gamenativex64/">GameNativeX64</a></li>
+<li><a href="../../setup_and_configuration/bass-boot-options/">Bass boot options</a></li>
+<li><a href="../../features/lockdown-install-block/">Lockdown install block</a></li>
+</ul>
 <h2 id="related-lineout">Related (Lineout)</h2>
 <ul>
-<li><a href="../building-bass/">Building Bass OS</a></li>
+<li><a href="../building-bass/">Building Bass: Lineout</a> (flags and profiles per generation)</li>
+<li><a href="../aconfig-flags/">Feature Flags (aconfig)</a></li>
 <li><a href="../../applications/ax86docs/">Ax86Docs</a></li>
 <li><a href="../../applications/blissconfigoverrides/">Config Overrides</a></li>
 <li><a href="../../features/fleet-management/">Fleet Management</a></li>
@@ -484,6 +751,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Addon Development: Bass Lineout", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/addon-development.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Addon Development: Bass Lineout", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/development/addon-development.md" }</script>
 </body>
 </html>
