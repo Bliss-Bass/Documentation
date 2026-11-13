@@ -1,6 +1,6 @@
 # BT Ferry (Bass BT Ferry)
 
-> **Availability:** BT Ferry ships on **Bass: Lineout Android 16** (Lineage **23.2**) builds that enable the `bass-btferry` addon (`--btferry`). It is **not available on Android 14 / Lineage 21.0** images yet.
+> **Availability:** BT Ferry ships on **Bass: Lineout Android 16** (Lineage **23.2**) builds that enable the `bass-btferry` addon (`--btferry`), and builds in **Android 17** (Lineage **24.0**) trees. It is **not available on Android 14 / Lineage 21.0** images yet.
 
 BT Ferry is a privileged Bluetooth **phone ferry** for Wi‑Fi/Bluetooth-only tablets and desktops that have no cellular modem. Pair an Android phone or iPhone over Classic Bluetooth; everyday phone presence (messages, contacts, calls, and media audio when supported) appears on the larger Bass Desktop surface. The phone keeps the cellular radio — there is no cloud relay.
 
@@ -20,9 +20,9 @@ BT Ferry is a privileged Bluetooth **phone ferry** for Wi‑Fi/Bluetooth-only ta
 | Answer / reject / hang up | **HFP** Hands-Free | Call audio via SCO when the stack routes it |
 | Phone media on Desktop speakers | **A2DP Sink** + **AVRCP** | External-speaker mode + transport when the phone publishes metadata |
 
-## How to enable (A16 Lineout)
+## How to enable (A16 and A17 Lineout)
 
-On a Lineage **23.2** workspace with the addon cloned under `vendor/ax86-lite/addons/bass-btferry/`:
+On a Lineage **23.2** or **24.0** workspace with the addon cloned under `vendor/ax86-lite/addons/bass-btferry/`:
 
 ```bash
 ./build.sh --btferry

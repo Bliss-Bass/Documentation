@@ -5,7 +5,18 @@ icon: terminal
 
 # Building Bass: Lineout
 
-This page is the **Bass: Lineout** build guide (LineageOS 23.2 / Android 16, `vendor/ax86-lite`, `tools/build.sh`).
+This page is the **Bass: Lineout** build guide (`vendor/ax86-lite`, `tools/build.sh`). Lineout is built on three LineageOS generations. Most steps are the same for all of them; where they differ, each generation has its own instructions, newest first.
+
+| | Android 17 | Android 16 | Android 14 |
+|---|---|---|---|
+| LineageOS | 24.0 | 23.2 | 21.0 |
+| Vendor branch | `ax86-lite-los-24.0` | `ax86-lite-los-23.2` | `ax86-lite-los-21.0` |
+| Source manifest | `los-tv-x86/lineage_bass_android`, `lineage-24.0` | `los-tv-x86/lineage_bass_android`, `lineage-23.2` | `Bliss-Bass/lineage_bass_android`, `lineage-21.0` |
+| Pinned snapshot | `manifests/bass-lineage-24.0-static.xml` | `manifests/bass-lineage-23.2-static.xml` | `manifests/bass-lineage-21.0-static.xml` |
+| Lunch target | `lineage_x86_64_tablet-cp2a-userdebug` | `lineage_x86_64_tablet-bp4a-userdebug` | `lineage_x86_64_tablet-ap2a-userdebug` (TV: `lineage_x86_64_tv-ap2a-userdebug`) |
+| Patch sets | `patches/api-37` | `patches/api-36` | `patches/api-34` |
+| Profiles | `bass-lineage-24.0-base`, `-validate`, `-core`, `-pro`, `-desktop` | `bass-lineage-23.2-core`, `-pro` | `bass-lineage-21.0` (no `--profile` option) |
+| Default OTA channel | `lineout-24.0` | `lineout-23.2` | `lineout-21.0` |
 
 Classic **Bass OS (Android 12L)** instructions are retained in full under [Legacy Bass OS (classic, Android 12L)](#legacy-bass-os-classic-android-12l). Do not mix the two flows.
 
@@ -186,44 +197,85 @@ Never ship images built with `--gamenative-dev-key` / debug-signed GameNative. D
 
 ## Fetch sources and unfold
 
+### Android 17 and Android 16
+
 Layout expected by the vendor scripts:
 
 ```text
 <parent>/
-  vendor_ax86-lite/     # this git clone (branch ax86-lite-los-23.2)
+  vendor_ax86-lite/     # this git clone (ax86-lite-los-24.0 or ax86-lite-los-23.2)
   aosp-workspace/       # created/filled by unfold
 ```
 
 ```bash
+# Android 17
+git clone -b ax86-lite-los-24.0 <vendor_ax86-lite-url>
+cd vendor_ax86-lite
+./build/unfold_lineage.sh --profile bass-lineage-24.0-core
+
+# Android 16
 git clone -b ax86-lite-los-23.2 <vendor_ax86-lite-url>
 cd vendor_ax86-lite
 ./build/unfold_lineage.sh --profile bass-lineage-23.2-core
-# or: --profile bass-lineage-23.2-pro
 ```
 
-Unfold will `repo init` / `repo sync` LineageOS 23.2 and symlink this tree to `aosp-workspace/vendor/ax86-lite`.
+Unfold activates the profile, then `repo init` / `repo sync` the LineageOS release that profile names (manifest, branch and pinned snapshot), and symlinks this tree to `aosp-workspace/vendor/ax86-lite`. On Android 17 the release comes from the profile's `vendor_manifest_url`, `vendor_manifest_branch` and `vendor_static_manifest` keys; Android 16 uses the 23.2 values built into the script.
 
 If the workspace is already synced and you only need to relink:
 
 ```bash
-AX86_SKIP_SYNC=1 ./build/unfold_lineage.sh --profile bass-lineage-23.2-core
+AX86_SKIP_SYNC=1 ./build/unfold_lineage.sh --profile bass-lineage-24.0-core   # or ...-23.2-core
 ```
 
-Private / licensed addon trees: place or clone them as instructed by your Bass contact (see also [Addon Development: Bass Lineout](addon-development.md)), then continue.
+The pinned snapshot is a fully resolved `repo manifest -r` of the Bass-Core tree. Maintainers refresh it from a synced workspace with `manifests/update-static.sh`, which leaves commercial addon repos out.
+
+### Android 14
+
+The Android 14 tree keeps the vendor tree **inside** the workspace (`aosp-workspace/vendor/ax86-lite`), and its unfold script has no profile option:
+
+```bash
+git clone -b ax86-lite-los-21.0 <vendor_ax86-lite-url> vendor_ax86-lite
+cd vendor_ax86-lite
+./build/unfold_lineage.sh      # asks for confirmation, then syncs ../aosp-workspace
+```
+
+The script activates `bass-lineage-21.0`, runs `repo init` from `Bliss-Bass/lineage_bass_android` (`lineage-21.0`) with the pinned snapshot, and syncs. It does not link the vendor tree, so clone it into the workspace:
+
+```bash
+cd ../aosp-workspace
+git clone -b ax86-lite-los-21.0 <vendor_ax86-lite-url> vendor/ax86-lite
+```
+
+### Private addons
+
+Private / licensed addon trees: place or clone them as instructed by your Bass contact (see also [Addon Development: Bass Lineout](addon-development.md)), then continue. On Android 16 and 17, `build.sh` also clones missing addon repos it has access to when a flag enables them.
 
 ---
 
 ## Environment setup and build
 
 ```bash
-cd ../aosp-workspace
+cd aosp-workspace
 source build/envsetup.sh
-lunch lineage_x86_64_tablet-bp4a-userdebug
+lunch lineage_x86_64_tablet-cp2a-userdebug   # Android 16: ...-bp4a-userdebug, Android 14: ...-ap2a-userdebug
 ```
 
-Sourcing `envsetup.sh` runs vendor integration (patches, addon integrate, device package staging).
+Sourcing `envsetup.sh` runs vendor integration (patches for the tree's API level, addon integrate, device package staging) and creates the `./build.sh` wrapper at the workspace root (a symlink to `vendor/ax86-lite/tools/build.sh`). `build.sh` runs `lunch` itself, so the `lunch` line is only needed for manual `m` work.
 
-Preferred wrapper (symlinked as `./build.sh` at the workspace root):
+### Android 17
+
+```bash
+# Bass-Core validation set
+./build.sh --profile=bass-lineage-24.0-validate
+
+# Pro profile
+./build.sh --profile=bass-lineage-24.0-pro --clean --update-foss-userapps
+
+# A profile plus extra flags (flags on the command line add to / override the profile)
+./build.sh --profile=bass-lineage-24.0-validate --extras --bass-style --style-type=materialyou
+```
+
+### Android 16
 
 ```bash
 # Core profile
@@ -237,16 +289,63 @@ Preferred wrapper (symlinked as `./build.sh` at the workspace root):
   --aaropa-local --ethernetconfig --extras
 ```
 
-Run `./build.sh -h` for the full flag list. Profiles set default lunch/make targets and addon flags; individual `--flag` args still override.
+### Android 14
 
-Successful images land under the product out tree (and packaged ISO paths used by your profile). Typical lunch target: `lineage_x86_64_tablet-bp4a-userdebug`, make goal `iso_img`.
+`build.sh` has no `--profile` option; it uses the active `vendor_config.cfg` (`bass-lineage-21.0`) and the flags you pass. The default lunch target is the tablet; pass `--target` for TV:
 
-### Profiles (short)
+```bash
+./build.sh --clean --aaropa-local --ethernetconfig --extras
+./build.sh --target=lineage_x86_64_tv-ap2a-userdebug --extras
+```
+
+Run `./build.sh -h` on your tree for the full flag list. Successful images land under the product out tree (`out/target/product/x86_64_tablet/`); the default make goal is `iso_img`.
+
+---
+
+## Profiles
+
+A profile is `configs/vendor/<id>/vendor_config.cfg` in the vendor tree. It sets the lunch and make targets and the build flags the image uses. The active profile is `vendor_config.cfg` in the vendor root, written by unfold or by `build.sh --profile=<id>`.
+
+### Android 17
+
+| Profile | Role |
+|---------|------|
+| `bass-lineage-24.0-base` | Release settings only (LineageOS 24.0 manifest, `cp2a` lunch target, pinned snapshot). The other profiles inherit it. |
+| `bass-lineage-24.0-validate` | Bass-Core validation set: BootSight, Ethernet Config, Ax86 Logger, Ax86 Power, Dual Shade, BlissView, the Lineage setup wizard, the Bass Aaropa installer and ADB insecure (for testing). No other commercial addons. |
+| `bass-lineage-24.0-core` | Smaller addon set (validation + Ethernet Config). |
+| `bass-lineage-24.0-pro` | Broader addon set (extras, SmartDock, FOSS user apps, desktop aconfig, custom signing keys). |
+| `bass-lineage-24.0-desktop` | The Material Desktop product build (SmartDock, Bass Style, OTA channel, ...). Builds once SmartDock is ported to Android 17. |
+
+Android 17 profiles can build on each other and carry any `build.sh` option:
+
+| Key | Meaning |
+|-----|---------|
+| `vendor_inherits=<id> [<id>...]` | Load these profiles first. Later values win; flags and options add up. |
+| `vendor_build_flags="NAME=value ... --option"` | Environment flags and plain `build.sh` options, mixed. |
+| `vendor_build_args=--option` | One `build.sh` option per line. Quote values with special characters: `vendor_build_args='--ota-uri=https://host/{channel}/builds'`. |
+
+Turn any command into a profile with `--save-profile` (it writes the profile and exits without building):
+
+```bash
+./build.sh --profile=bass-lineage-24.0-base --save-profile=bass-lineage-24.0-kiosk \
+  --extras --kui --bootsight --bs-hybrid
+./build.sh --profile=bass-lineage-24.0-kiosk
+```
+
+One-off options (`--clean`, `--installclean`, `--dustoff`, `--profile`, `--save-profile`) are not saved. Set `AX86_PROFILES_DIR` to keep profiles outside the vendor tree.
+
+### Android 16
 
 | Profile | Role |
 |---------|------|
 | `bass-lineage-23.2-core` | Smaller addon set (validation + Ethernet Config, etc.) |
 | `bass-lineage-23.2-pro` | Broader addon set (extras, SmartDock, FOSS user-apps, etc.) |
+
+Android 16 profiles set `vendor_build_flags` only; there is no inheritance or `--save-profile`.
+
+### Android 14
+
+One profile, `bass-lineage-21.0`, activated by unfold. Add features with build flags.
 
 Details: `vendor/ax86-lite/README.md` and `addons/README.md`.
 
@@ -254,85 +353,169 @@ Details: `vendor/ax86-lite/README.md` and `addons/README.md`.
 
 ## Lineout / ax86-lite build flags
 
-Current Lineout tablet builds use `vendor/ax86-lite/tools/build.sh`. The tables below cover flags documented with product features. Always prefer `./build.sh -h` on your tree for the authoritative list.
+Lineout builds use `vendor/ax86-lite/tools/build.sh`. The tables below group the flags by feature; **Available** says which generations have a flag (all = Android 14, 16 and 17). Always prefer `./build.sh -h` on your tree for the authoritative list. Addon flags are listed at the end of that help output.
+
+### Build control
+
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--profile=ID` | Use profile `configs/vendor/<ID>` | A16, A17 |
+| `--save-profile=ID` | Save this command's options as profile `ID` and exit | A17 |
+| `--target=TARGET` | Lunch target | all |
+| `--module=MODULE` | Make goal (default `iso_img`) | all |
+| `--clean` / `--installclean` / `--dirty` | `rm -rf out/` / `installclean` / incremental (default) | all |
+| `--dustoff` | Remove kernel, `*.img`, `*.sfs`, `*.iso` and OTA zips from `out/`, then build | all |
+| `--tuck` | Sign with custom keys (`TARGET_USE_CUSTOM_KEYS=true`) | all |
+| `--noksu` | Disable KernelSU in the x86 kernel defconfigs | all |
+| `--rebuild-aconfig-pb` | Do not seed `aconfig_flags.pb` from the vendor cache | A16, A17 |
+| `--package-patches` / `--api-level=N` | Export local repo commits into `patches/api-N/` | all |
 
 ### Fleet and BootSight
 
-| Flag | Effect |
-|------|--------|
-| `--bootsight` | Include BootSight (Bass fleet backend / Device Status) |
-| `--fleet-mgmt=mdm` | Image expects a third-party MDM (no BootSight) |
-| `--fleet-mgmt=none` | No fleet component (default when neither flag is set) |
-| `--bsbanner` | BootSight overlay banner (implies `--bootsight`) |
-| `--bspopup` | BootSight overlay popup (implies `--bootsight`) |
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--bootsight` | Include BootSight (Bass fleet backend / Device Status) | all |
+| `--fleet-mgmt=mdm` | Image expects a third-party MDM (no BootSight) | all |
+| `--fleet-mgmt=none` | No fleet component (default when neither flag is set) | all |
+| `--bsbanner` | BootSight overlay banner (implies `--bootsight`) | all |
+| `--bspopup` | BootSight overlay popup (implies `--bootsight`) | all |
+| `--bs-offline` | BootSight offline-only licensing, no server sync or telemetry (implies `--bootsight`) | all |
+| `--bs-hybrid` | BootSight hybrid licensing: offline file/code plus online sync (implies `--bootsight`) | all |
 
 Do not combine `--bootsight` with `--fleet-mgmt=mdm`. Product overview: [Fleet Management](../features/fleet-management.md), [BootSight](../applications/BootSight/BootSight.md).
 
 ### Logger, Button Manager, and Power
 
-| Flag | Effect |
-|------|--------|
-| `--logger` | Include Ax86 Logger (capture off until enabled) |
-| `--logging-enabled` | Include Ax86 Logger and start capture by default |
-| `--btnmgr` | Include Ax86 Button Manager |
-| `--ax86-power` | Include Ax86 Power (sleep/wake policy UI + AIDL) |
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--logger` | Include Ax86 Logger (capture off until enabled) | all |
+| `--logging-enabled` | Include Ax86 Logger and start capture by default | all |
+| `--btnmgr` | Include Ax86 Button Manager | all |
+| `--ax86-power` | Include Ax86 Power (sleep/wake policy UI + AIDL) | all |
 
 `--logging-enabled` implies `--logger`. `--extras` also includes Ax86 Power. Details: [Ax86 Logger](../applications/Ax86Logger/Ax86Logger.md), [Button Manager](../applications/Ax86ButtonManager/Ax86ButtonManager.md), [Ax86 Power](../applications/Ax86Power/Ax86Power.md).
 
-### Branding
+### Branding and identity
 
-| Flag | Effect |
-|------|--------|
-| `--bootani` | Use `branding/bootanimation/bootanimation.zip` |
-| `--wallpaper` | Use `branding/wallpaper/default_wallpaper.png` |
-| `--nobootani` | Stock Android boot animation |
-| `--nowallpaper` | Stock Android wallpaper |
-| `--nobranding` | Stock boot animation and wallpaper |
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--bootani` | Use `branding/bootanimation/bootanimation.zip` | all |
+| `--wallpaper` | Use `branding/wallpaper/default_wallpaper.png` | all |
+| `--nobootani` | Stock Android boot animation | all |
+| `--nowallpaper` | Stock Android wallpaper | all |
+| `--nobranding` | Stock boot animation and wallpaper | all |
+| `--bass-id=TITLE` | Product ID string (`BASS_ID_TITLE`), e.g. `RETAIL.A17.M.DESKTOP.KSU` | all |
+| `--special-variant=VARIANT` | Suffix for the version string (`LINEAGE_SPECIAL_VARIANT`), e.g. `-Material-Desktop` | all |
+| `--spoof-fingerprint` | Spoof `BUILD_FINGERPRINT` (Pixel Tablet `tangorpro`) | A16, A17 |
+| `--spoof-fingerprint-fugu` | Spoof it as the Nexus Player `fugu` (implies `--spoof-fingerprint`) | A16, A17 |
 
-Default without those flags is the Lineage boot animation and wallpaper.
+Default without the branding flags is the Lineage boot animation and wallpaper.
 
 ### Boot options and lockdown
 
-| Flag | Effect |
-|------|--------|
-| `--bass-boot-options` | Inject Bass GRUB submenu via `custom.cfg` on first boot |
-| `--cxbbo` | Customer Bass boot catalog (`entries.customer.list`; implies boot options) |
-| `--ldinstall` | Block install/uninstall in lockdown mode |
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--bass-boot-options` | Bass GRUB boot options. A16/A17: inject the Bass submenu via `custom.cfg` on first boot. A14: bake the full catalog into `install.sfs` (Calamares `10_bass`) | all |
+| `--cxbbo` | Customer Bass boot catalog (`entries.customer.list`; implies boot options) | all |
+| `--ldinstall` | Block install/uninstall in lockdown mode. A16/A17: UI, ADB `pm` and app APIs. A14: the install UI only | all |
+| `--ldinstallstrict` | Also block ADB `pm` and PackageManager installs in lockdown | A14 |
+| `--grublock` / `--grub-password-file=PATH` | GRUB password (pbkdf2 hash; default from `private/`) | A14 |
+| `--grub-hidden` / `--grub-timeout=N` | Hidden GRUB menu / timeout, set at build time | A14 |
 
 Details: [Bass boot options](../setup_and_configuration/bass-boot-options.md), [Lockdown install block](../features/lockdown-install-block.md).
 
-### Aaropa installer prebuilts
+### Aaropa installer
 
-| Flag | Effect |
-|------|--------|
-| `--aaropa-local` | Build Aaropa `install.sfs` locally with Podman before lunch |
-| `--aaropa-fetch` | Fetch Aaropa GitHub release artifacts instead of Podman |
-| `--aaropa-rebuild` | Ignore stamp and refetch/rebuild installer artifacts |
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--aaropa-local` | Build Aaropa `install.sfs` locally with Podman before lunch | all |
+| `--aaropa-fetch` | With `--aaropa-local`, download the GitHub release instead of building | all |
+| `--aaropa-rebuild` | Ignore the stamp and refetch/rebuild installer artifacts | all |
+| `--aaropa-source=bliss\|bass` | Installer flavor (default `bass`) | all |
+| `--aaropa-branding=NAME` | Branding overlay (default: same as `--aaropa-source`) | all |
+| `--newinstaller` | Use the legacy newinstaller GRUB and ncurses installer instead | all |
 
 Requires section [4. Aaropa installer](#4-aaropa-installer-podman---needed-for---aaropa-local) when using `--aaropa-local`.
 
-### Other common Lineout flags
+### Desktop and UI
 
-| Flag | Effect |
-|------|--------|
-| `--extras` | Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power (does **not** include BootSight) |
-| `--ethernetconfig` | Ethernet Config |
-| `--btferry` | BT Ferry (A16 / Lineage 23.2 Lineout only for now) |
-| `--gamenative` | GameNative x86_64 preinstall (see optional deps above) |
-| `--linux-services` | Linux Services: boot, scheduled, and auto-restarted Linux jobs (needs `--gamenative`) |
-| `--blissdeck` | BlissDeck game-library Home preinstall (`gh` + network to GitHub releases) |
-| `--gaming` | Gaming images: BlissDeck as Home and the gaming boot catalog (implies `--blissdeck`) |
-| `--smartdock` | SmartDock |
-| `--restrictedlauncherpro` | Restricted Launcher Pro (private access) |
-| `--rlptype=VARIANT` | RLP APK variant: `default` \| `gs` \| `gs_nh` \| `sl` (implies `--restrictedlauncherpro`) |
-| `--internet-security` | Preinstall the Internet Security user app |
-| `--monterey-standby` | Preinstall the Monterey Standby user app |
-| `--foss-userapps` / `--update-foss-userapps` | FOSS user-app set / refresh from F-Droid metadata |
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--dui` / `--tui` / `--kui` | DesktopUI / TabletUI / KioskUI mode by default | all |
+| `--blurui` | Blur on by default | all |
+| `--notaskbar` | Disable the Android taskbar (Launcher3 patches) | all |
+| `--smartdock` | SmartDock desktop dock + freeform/desktop mode | all |
+| `--dual-shade` | SystemUI Dual Shade (floating Notifications and Quick Settings panels); on with `--smartdock` and `--bass-style` too | A16, A17 |
+| `--desktop-aconfig` | Desktop and connected-display aconfig flag values (also on with `--smartdock`, `--dui`, `--bass-boot-options`) | A16, A17 |
+| `--bass-style` | retro-style theme packs and the tablet system bar | A16, A17 |
+| `--style-type=ID` | Default style: `materialyou` (default) or a pack id (`m3`, `kitkat`, `jellybean`, ...) | A16, A17 |
+| `--style-layout=system_bar\|stock` | Default bottom bar (`system_bar` needs the taskbar: not with `--notaskbar` unless `--smartdock`) | A16, A17 |
+| `--style-bar-bg=VALUE` | System bar home background: `stock`, `solid`, `gradient`, `translucent`, `transparent` | A16, A17 |
+| `--style-black=on\|off` | Pure black dark mode by default | A16, A17 |
+| `--gaming` | GamingUI mode by default (implies `--blissdeck`) | A16, A17 |
+| `--blissdeck` | BlissDeck game-library Home preinstall (`gh` + network to GitHub releases) | A16, A17 |
 
-Example:
+On Android 17, feature flags stay switchable at runtime: see [Feature Flags (aconfig)](aconfig-flags.md).
+
+### Apps and addons
+
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--extras` | Bliss apps and mappers: Touch Mapper, Display Mapper, Config Overrides, Tweaks, Ax86Docs, Ax86 Power; A16/A17 also Aaropa options (does **not** include BootSight) | all |
+| `--ethernetconfig` | Ethernet Config | all |
+| `--internet-security` | Preinstall the Internet Security user app | all |
+| `--monterey-standby` | Preinstall the Monterey Standby user app | all |
+| `--restrictedlauncherpro` | Restricted Launcher Pro (private access) | all |
+| `--rlptype=VARIANT` | RLP APK variant: `default` \| `gs` \| `gs_nh` \| `sl` (implies `--restrictedlauncherpro`) | all |
+| `--foss-userapps` / `--update-foss-userapps` | FOSS user-app set / refresh from F-Droid metadata | all |
+| `--fossapps`, `--aurora`, `--droidify`, `--min-foss`, `--min-foss-mg`, `--calyx-mg` | FOSS app store and microG sets | all |
+| `--tbfv` | FrameworksValidation (BlissView) anti-tamper app | all |
+| `--bassview-tamper` | Watermark the screen if BassView is missing | A16, A17 |
+| `--bassaudio` | Bass Audio (Quick Settings mixer, HDMI/speaker routing, DSP) | A16, A17 |
+| `--btferry` | BT Ferry (phone messages/contacts/calls + A2DP speaker bridge) | A16, A17 |
+| `--gamenative` | GameNative x86_64 preinstall (see optional deps above) | A16, A17 |
+| `--linux-services` | Linux Services: boot, scheduled, and auto-restarted Linux jobs (needs `--gamenative`) | A16, A17 |
+| `--linuxwindow` | LinuxWindow (Linux apps in Android; needs the addon content) | A16, A17 |
+| `--digitalis` | Digitalis ARM64-on-x86_64 native bridge (Berberis) | A16, A17 |
+
+### OTA updates
+
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--ota` | Also build the OTA zip, named like the ISO | all |
+| `--ota-uri=URL` | Updater URI (`lineage.updater.uri`; `{channel}` and `{device}` are filled in); with `--ota` also writes the Updater JSON | all |
+| `--ota-url=URL` | Alias for `--ota-uri` | A14 |
+| `--ota-channel=NAME` | OTA channel (`ro.bass.ota.channel`); default in the table at the top | all |
+| `--otadebug` | `persist.bass.ota.debug=1` (debugging only) | all |
+
+### Hardware and platform
+
+| Flag | Effect | Available |
+|------|--------|-----------|
+| `--gpu` / `--hals` | Build the graphics stack / hardware HALs | all |
+| `--surface` / `--zenith` | Surface / Zenith board variants (`BOARD_IS_SURFACE_BUILD` / `BOARD_IS_ZENITH_BUILD`) | all |
+| `--tv` / `--tv-lowram` / `--go` | Android TV / low-RAM TV / Go builds | all |
+| `--widevine` | Widevine DRM | all |
+| `--ax86parts` | Static android_x86_64 fstab/partitions | all |
+| `--debian` | Fetch/build the Debian chroot | all |
+| `--libndk-nb`, `--cros-houdini`, `--ndk-trans`, `--intel-houdini` | ARM native bridge choices | all |
+| `--adbi` (alias `--sdbi`) | ADB insecure mode by default (debugging only) | all |
+
+Examples:
 
 ```bash
+# Android 17
+./build.sh --profile=bass-lineage-24.0-validate \
+  --aaropa-local --bootsight --bsbanner --btnmgr --ax86-power \
+  --logging-enabled --ethernetconfig
+
+# Android 16
 ./build.sh --target=lineage_x86_64_tablet-bp4a-userdebug \
+  --aaropa-local --bootsight --bsbanner --btnmgr --ax86-power \
+  --logging-enabled --ethernetconfig
+
+# Android 14
+./build.sh --target=lineage_x86_64_tablet-ap2a-userdebug \
   --aaropa-local --bootsight --bsbanner --btnmgr --ax86-power \
   --logging-enabled --ethernetconfig
 ```
